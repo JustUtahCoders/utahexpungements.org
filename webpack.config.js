@@ -7,7 +7,6 @@ module.exports = {
     filename: 'utah-expungements.js',
     path: path.resolve(__dirname, 'dist'),
     chunkFilename: '[name].js',
-    publicPath: '/dist/',
   },
   mode: 'production',
   module: {

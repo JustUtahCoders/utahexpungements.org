@@ -7,7 +7,7 @@ export default class Home extends React.Component {
       <Scoped css={css}>
         <div className="navbar-margin-top home">
           <div className="hero">
-            <img className="hero-image" src="/static/adventure-blue-sky-clouds-343299.jpg" />
+            <img className="hero-image" src="static/adventure-blue-sky-clouds-343299.jpg" />
             <div className="hero-content">
               <h1>
                 Self service expungements for Utah
