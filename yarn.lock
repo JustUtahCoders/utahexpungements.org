@@ -1724,6 +1724,10 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
+disposable-component@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/disposable-component/-/disposable-component-0.2.0.tgz#47d16b6ce2627bff6f56f81dce5319fd15b33097"
+
 dns-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/dns-equal/-/dns-equal-1.0.0.tgz#b39e7f1da6eb0a75ba9c17324b34753c47e0654d"
@@ -3685,7 +3689,21 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.4.1:
+react-disposable-decorator@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-disposable-decorator/-/react-disposable-decorator-2.1.0.tgz#105d790618710a2a60416968ccc20315cc339b08"
+
+react-disposable-modal@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/react-disposable-modal/-/react-disposable-modal-0.2.5.tgz#62df489b20ac36edea5dd96f8b5181434be605d7"
+  dependencies:
+    disposable-component "^0.2.0"
+    react "^16.2.0"
+    react-disposable-decorator "^2.1.0"
+    react-dom "^16.2.0"
+    rx "^4.1.0"
+
+react-dom@^16.2.0, react-dom@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.1.tgz#7f8b0223b3a5fbe205116c56deb85de32685dad6"
   dependencies:
@@ -3717,7 +3735,7 @@ react-router@^4.3.1:
     prop-types "^15.6.1"
     warning "^4.0.1"
 
-react@^16.4.1:
+react@^16.2.0, react@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
   dependencies:
@@ -3911,6 +3929,10 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   resolved "https://registry.yarnpkg.com/run-queue/-/run-queue-1.0.3.tgz#e848396f057d223f24386924618e25694161ec47"
   dependencies:
     aproba "^1.1.1"
+
+rx@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
 
 rxjs@^6.1.0:
   version "6.2.1"

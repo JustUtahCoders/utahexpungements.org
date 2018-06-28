@@ -2,8 +2,13 @@
 // https://coolors.co/a63a50-f0e7d8-ab9b96-a1674a-ba6e6e
 export const primary = `#A1674A`
 export const darkPrimary = LightenDarkenColor(primary, -20);
-export const secondary = `#BA6E6E`
+export const secondary = `#AB9B96`
 export const navbarHeight = `50rem`
+export const mediaMobile = `@media screen and (max-width: 1023px) and (min-width: 1px)`
+export const mediaDesktop = `@media screen and (min-width: 1024px)`
+export const boxShadow1 = `0 10px 30px -24px #4b4e53`
+export const boxShadow2 = `0 10px 40px -24px #393b3f`
+export const boxShadow3 = `0 16px 50px -24px #212224`
 
 export default `
   :root {
@@ -14,6 +19,12 @@ export default `
   body {
     font-size: 16px;
     margin: 0;
+  }
+
+  *, *:before, *:after {
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box;
   }
 
   a:focus {
@@ -89,6 +100,12 @@ export default `
   & button.flat:hover {
     background-color: ${primary};
     color: white;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
   }
 `
 
