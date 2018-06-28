@@ -27,6 +27,7 @@ export default class Hamburger extends React.Component {
               <nav className="side-menu">
                 <MenuItems
                   orientation="vertical"
+                  secondaryColor={true}
                 />
               </nav>
               <div className="modal-overlay" />

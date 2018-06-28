@@ -3,6 +3,7 @@
 export const primary = `#A1674A`
 export const darkPrimary = LightenDarkenColor(primary, -20);
 export const secondary = `#AB9B96`
+export const darkSecondary = `#594b47`
 export const navbarHeight = `50rem`
 export const mediaMobile = `@media screen and (max-width: 1023px) and (min-width: 1px)`
 export const mediaDesktop = `@media screen and (min-width: 1024px)`

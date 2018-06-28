@@ -1,33 +1,27 @@
 import React from 'react'
 import {Scoped, a, t} from 'kremling'
-import {darkPrimary, mediaMobile, mediaDesktop} from 'src/styleguide.js'
+import {darkPrimary, darkSecondary, mediaMobile, mediaDesktop} from 'src/styleguide.js'
 import {Link} from 'react-router-dom'
 
 export default class MenuItems extends React.Component {
-  static defaultProps = {
-    color: '#fff',
-  }
   render() {
     return (
       <Scoped css={css}>
-        <ul className={a("menu-items").t("horizontal", "vertical", this.props.orientation === 'horizontal')}>
-          <Link to="/">
-            <li>
-              Home
-            </li>
-          </Link>
-          <Link to="/app">
-            <li>
-              Expungement tool
-            </li>
-          </Link>
-          <Link to="/contact-us">
-            <li>
-              Contact Us
-            </li>
-          </Link>
+        <ul className={a("menu-items").t("horizontal", "vertical", this.props.orientation === 'horizontal').m('secondary', this.props.secondaryColor)}>
+          {this.createLink('/', 'Home')}
+          {this.createLink('/app', 'Expungement tool')}
+          {this.createLink('/contact-us', 'Contact Us')}
         </ul>
       </Scoped>
+    )
+  }
+  createLink = (url, text) => {
+    return (
+      <Link to={url}>
+        <li>
+          {text}
+        </li>
+      </Link>
     )
   }
 }
@@ -63,7 +57,7 @@ const css = `
     display: flex;
     padding: 0 12rem 0 12rem;
     height: 100%;
-    color: white;
+    color: #fff;
   }
 
   & .menu-items.vertical > a {
@@ -73,5 +67,9 @@ const css = `
   & .menu-items > a:hover {
     background-color: ${darkPrimary};
     height: 100%;
+  }
+
+  & .menu-items.secondary > a:hover {
+    background-color: ${darkSecondary};
   }
 `
