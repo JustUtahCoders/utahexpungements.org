@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/UtahAccessToJustice/utahexpungements.org.svg?branch=master)](https://travis-ci.org/UtahAccessToJustice/utahexpungements.org)
 
 ## What is this?
-utahexpungements.org is a website to help people in Utah learn about and complete the process to have criminal convictions expunged from their record.
+[utahexpungements.org](https://utahexpungements.org) is a website to help people in Utah learn about and complete the process to have criminal convictions expunged from their record.
 
 ## How to contribute
 Create an issue or submit a pull request.

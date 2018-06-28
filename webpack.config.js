@@ -21,7 +21,11 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     open: true,
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /./, to: '/src/index.html' }
+      ]
+    }
   },
   resolve: {
     modules: [

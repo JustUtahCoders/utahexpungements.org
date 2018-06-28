@@ -10,6 +10,11 @@ export default class Navbar extends React.Component {
           <div />
           <ul className="menu-items">
             <li>
+              <Link to="/">
+                Home
+              </Link>
+            </li>
+            <li>
               <Link to="/app">
                 Expungement tool
               </Link>
