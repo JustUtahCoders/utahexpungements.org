@@ -6,9 +6,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "webpack": "webpack --config webpack.config.js",
-    "copy": "copyfiles index.html 404.html static/* dist",
+    "copy-files": "copyfiles static/* dist && copyfiles --flat src/404.html src/index.html dist",
     "start": "webpack-dev-server --config webpack.config.dev.js",
-    "build": "yarn clean && yarn webpack && yarn copy",
+    "build": "yarn clean && yarn webpack && yarn copy-files",
     "deploy": "yarn build && gh-pages -d dist"
   },
   "devDependencies": {

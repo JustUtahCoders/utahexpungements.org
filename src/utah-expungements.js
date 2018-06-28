@@ -7,4 +7,3 @@ rootElement.id = 'root-element'
 document.body.appendChild(rootElement)
 
 ReactDOM.render(<Root />, rootElement)
-console.log('hello!')
