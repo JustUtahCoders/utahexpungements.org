@@ -8,7 +8,7 @@ export default class Home extends React.Component {
         <div className="navbar-margin-top home">
           <div className="hero">
             <h1>
-              Self service expungements for Utah
+              Expunge a criminal conviction in Utah
             </h1>
             <a href="/app">
               <button className="primary">
