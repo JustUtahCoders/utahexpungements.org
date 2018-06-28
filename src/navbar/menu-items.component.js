@@ -52,11 +52,15 @@ const css = `
 
   & .menu-items.vertical {
     flex-direction: column;
+    font-size: 24rem;
+  }
+
+  & .menu-items.horizontal > a {
+    align-items: center;
   }
 
   & .menu-items > a {
     display: flex;
-    align-items: center;
     padding: 0 12rem 0 12rem;
     height: 100%;
     color: white;
