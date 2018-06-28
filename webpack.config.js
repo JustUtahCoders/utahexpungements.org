@@ -20,6 +20,7 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
+    contentBase: __dirname,
     open: true,
     historyApiFallback: {
       rewrites: [

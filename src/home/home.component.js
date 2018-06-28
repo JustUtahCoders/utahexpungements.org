@@ -7,17 +7,15 @@ export default class Home extends React.Component {
       <Scoped css={css}>
         <div className="navbar-margin-top home">
           <div className="hero">
-            <img className="hero-image" src="static/adventure-blue-sky-clouds-343299.jpg" />
-            <div className="hero-content">
-              <h1>
-                Self service expungements for Utah
-              </h1>
-              <a href="/app">
-                <button className="primary">
-                  Start an expungement
-                </button>
-              </a>
-            </div>
+            <h1>
+              Self service expungements for Utah
+            </h1>
+            <a href="/app">
+              <button className="primary">
+                Start an expungement
+              </button>
+            </a>
+            <div className="padding-below" />
           </div>
         </div>
       </Scoped>
@@ -32,22 +30,20 @@ const css = `
 
   & .hero {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
-  }
-
-  & .hero-image {
-    z-index: 0;
-    width: 100%;
-  }
-
-  & .hero-content {
-    z-index: 10;
-    position: absolute;
-    margin-top: 20%;
-    width: 100%;
-    height: 100%;
+    background-image: url('static/adventure-blue-sky-clouds-343299.jpg');
+    background-position: center;
+    background-color: lightgray;
+    background-size: cover;
     text-align: center;
+    padding: 40rem 16rem;
+    height: 500px;
+  }
+
+  & .padding-below {
+    padding-bottom: 20%;
   }
 `
