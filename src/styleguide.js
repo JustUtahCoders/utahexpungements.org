@@ -15,6 +15,7 @@ export default `
   :root {
     font-size: 1px; /* for 1rem to be 1px */
     font-family: 'Roboto Condensed', sans-serif;
+    background-color: lightgray;
   }
 
   body {
@@ -107,6 +108,12 @@ export default `
     padding: 0;
     margin: 0;
     list-style-type: none;
+  }
+
+  & .card {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px -24px #4b4e53;
   }
 `
 
