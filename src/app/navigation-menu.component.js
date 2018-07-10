@@ -9,7 +9,7 @@ export default class NavigationMenu extends React.Component {
         <div className="card">
           <ul>
             <li>
-              <Link to={this.props.match.url + '/overview'}>
+              <Link to={this.props.match.url + '/expungements-overview'}>
                 Expungements Overview
               </Link>
             </li>
