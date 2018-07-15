@@ -106,12 +106,19 @@ const css = `
     & .actions > *:last-child {
       margin-bottom: 0;
     }
+
+    & .more-details {
+      flex-direction: column;
+    }
   }
 
   & .more-details {
     background-color: white;
     width: 100vw;
     padding: 32rem 48rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   & .underline {

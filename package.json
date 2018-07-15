@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "webpack": "webpack --config webpack.config.js",
-    "copy-files": "copyfiles static/* dist && copyfiles --flat CNAME src/404.html src/index.html dist",
+    "copy-files": "copyfiles static/**/*.* dist && copyfiles --flat CNAME src/404.html src/index.html dist",
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "yarn clean && yarn webpack && yarn copy-files",
     "deploy": "yarn build && gh-pages -d dist"

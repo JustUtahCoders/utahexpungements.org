@@ -8,7 +8,7 @@ export default class DetailHighlight extends React.Component {
       <Scoped css={css}>
         <div className="detail-highlight">
           <img className="icon" src={this.props.icon} />
-          <div>
+          <div className="text">
             <h3>
               {this.props.title}
             </h3>
@@ -35,11 +35,11 @@ const css = `
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-direction: column;
+    padding: 16rem 40rem;
   }
 
-  ${mediaMobile} {
-    & .detail-highlight {
-      flex-direction: column;
-    }
+  & .text {
+    max-width: 200rem;
   }
 `
