@@ -5,17 +5,19 @@ export const darkPrimary = LightenDarkenColor(primary, -20);
 export const secondary = `#AB9B96`
 export const darkSecondary = `#594b47`
 export const navbarHeight = `50rem`
-export const mediaMobile = `@media screen and (max-width: 1023px) and (min-width: 1px)`
-export const mediaDesktop = `@media screen and (min-width: 1024px)`
+export const mediaMobile = `@media screen and (max-width: 720px) and (min-width: 1px)`
+export const mediaDesktop = `@media screen and (min-width: 720px)`
 export const boxShadow1 = `0 10px 30px -24px #4b4e53`
 export const boxShadow2 = `0 10px 40px -24px #393b3f`
 export const boxShadow3 = `0 16px 50px -24px #212224`
+export const semiTransparentGray = `rgba(171, 155, 150, 0.9)`
+export const lightGray = `#D3D3D3`
 
 export default `
   :root {
     font-size: 1px; /* for 1rem to be 1px */
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: lightgray;
+    background-color: ${lightGray};
   }
 
   body {
@@ -93,13 +95,16 @@ export default `
     background-color: ${darkPrimary};
   }
 
-  & button.flat {
-    background-color: transparent;
+  & button.secondary {
     border: 2rem solid ${primary};
     transition: background-color 0.2s, color 0.2s;
+    color: white;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: ${semiTransparentGray};
   }
 
-  & button.flat:hover {
+  & button.secondary:hover {
     background-color: ${primary};
     color: white;
   }

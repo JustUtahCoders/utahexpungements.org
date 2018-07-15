@@ -24,16 +24,15 @@ export default class Hamburger extends React.Component {
                 <div />
                 <div />
               </div>
-              <nav className="side-menu">
-                <MenuItems
-                  orientation="vertical"
-                  secondaryColor={true}
-                />
-              </nav>
               <div className="modal-overlay" />
             </Scoped>
           </Modal>
         }
+        <Modal>
+          <MenuItems
+            visible={this.state.menuOpen}
+          />
+        </Modal>
       </Scoped>
     )
   }
@@ -52,12 +51,6 @@ export default class Hamburger extends React.Component {
 }
 
 const css = `
-  ${mediaDesktop} {
-    & .hamburger {
-      display: none !important;
-    }
-  }
-
   & .hamburger {
     height: 100%;
     display: flex;
@@ -78,21 +71,6 @@ const css = `
 `
 
 const sideMenuCss = `
-  ${mediaDesktop} {
-    & .side-menu {
-      display: none !important;
-    }
-  }
-
-  & .side-menu {
-    position: fixed;
-    top: ${navbarHeight};
-    left: 0;
-    background-color: ${secondary};
-    box-shadow: ${boxShadow3};
-    z-index: 10000;
-  }
-
   & .modal-overlay {
     background-color: #1d1e1f;
     position: fixed;
@@ -102,6 +80,12 @@ const sideMenuCss = `
     right: 0;
     opacity: 0.7;
     z-index: 1000;
+  }
+
+  ${mediaDesktop} {
+    & .modal-overlay {
+      display: none;
+    }
   }
 
   & .close-hamburger {

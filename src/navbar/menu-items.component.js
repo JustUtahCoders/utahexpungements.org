@@ -1,27 +1,40 @@
 import React from 'react'
 import {Scoped, a, t} from 'kremling'
-import {darkPrimary, darkSecondary, mediaMobile, mediaDesktop} from 'src/styleguide.js'
+import {darkPrimary, navbarHeight, secondary, boxShadow3, darkSecondary, mediaMobile, mediaDesktop} from 'src/styleguide.js'
 import {Link} from 'react-router-dom'
 
 export default class MenuItems extends React.Component {
   render() {
     return (
       <Scoped css={css}>
-        <ul className={a("menu-items").t("horizontal", "vertical", this.props.orientation === 'horizontal').m('secondary', this.props.secondaryColor)}>
-          {this.createLink('/', 'Home')}
-          {this.createLink('/app', 'Expungement tool')}
-          {this.createLink('/contact-us', 'Contact Us')}
-        </ul>
+        <nav className={a("side-menu").m('off-screen', !this.props.visible)}>
+          <ul className={a("menu-items")}>
+            {this.createLink('/', 'Home')}
+            {this.createLink('/app', 'Expungement tool')}
+            {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Ask a question')}
+            {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Community forum')}
+            {this.createLink('/about-us', 'About us')}
+          </ul>
+        </nav>
       </Scoped>
     )
   }
   createLink = (url, text) => {
     return (
-      <Link to={url}>
+      <Link to={url} className="menu-item">
         <li>
           {text}
         </li>
       </Link>
+    )
+  }
+  createExternalLink = (url, text) => {
+    return (
+      <a href={url} className="menu-item" target="_blank">
+        <li>
+          {text}
+        </li>
+      </a>
     )
   }
 }
@@ -29,47 +42,39 @@ export default class MenuItems extends React.Component {
 const css = `
   & .menu-items {
     display: flex;
-    align-items: center;
-    height: 100%;
-  }
-
-  ${mediaMobile} {
-    & .menu-items.horizontal {
-      display: none !important;
-    }
-
-    & .menu-items.vertical > a {
-      width: 100%;
-      padding: 8rem 16rem;
-    }
-  }
-
-  & .menu-items.vertical {
     flex-direction: column;
-    font-size: 24rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 18rem;
   }
 
-  & .menu-items.horizontal > a {
-    align-items: center;
+  & .menu-items {
+    min-width: 250rem;
   }
 
-  & .menu-items > a {
+  & .menu-item {
     display: flex;
-    padding: 0 12rem 0 12rem;
+    padding: 16rem;
     height: 100%;
-    color: #fff;
+    width: 100%;
   }
 
-  & .menu-items.vertical > a {
-    flex-direction: column;
+  & .menu-item:hover {
+    background-color: ${secondary};
   }
 
-  & .menu-items > a:hover {
-    background-color: ${darkPrimary};
-    height: 100%;
+  & .side-menu {
+    position: fixed;
+    top: ${navbarHeight};
+    background-color: white;
+    box-shadow: ${boxShadow3};
+    height: calc(100% - ${navbarHeight});
+    z-index: 10000;
+    left: 0;
+    transition: left 0.3s;
   }
 
-  & .menu-items.secondary > a:hover {
-    background-color: ${darkSecondary};
+  & .side-menu.off-screen {
+    left: -250rem;
   }
 `
