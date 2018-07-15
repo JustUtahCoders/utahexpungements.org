@@ -7,6 +7,7 @@ import ScreeningTool from './screening-tool/screening-tool.component.js'
 import CertificateOfEligibility from './certificate-of-eligibility/certificate-of-eligibility.component.js'
 import FilePetition from './file-petition/file-petition.component.js'
 import ServePetition from './serve-petition/serve-petition.component.js'
+import Footer from 'src/footer/footer.component.js'
 
 export default class App extends React.Component {
   render() {
@@ -37,6 +38,7 @@ export default class App extends React.Component {
             />
           </div>
         </div>
+        <Footer />
       </Scoped>
     )
   }

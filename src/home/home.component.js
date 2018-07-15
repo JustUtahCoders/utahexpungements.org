@@ -3,6 +3,7 @@ import {Scoped} from 'kremling'
 import {Link} from 'react-router-dom'
 import {mediaMobile, mediaDesktop, primary, lightGray} from 'src/styleguide.js'
 import DetailHighlight from './detail-highlight.component.js'
+import Footer from 'src/footer/footer.component.js'
 
 export default class Home extends React.Component {
   render() {
@@ -49,6 +50,7 @@ export default class Home extends React.Component {
               description="Enter your information in a web form and we'll generate the documents you'll need to file with the courts."
             />
           </div>
+          <Footer />
         </div>
       </Scoped>
     )
