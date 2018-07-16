@@ -7,7 +7,19 @@ import styleguide from './styleguide.js'
 import {Scoped} from 'kremling'
 
 export default class Root extends React.Component {
+  state = {
+    translations: null,
+  }
+  componentDidMount() {
+    import('./i18n/en.js')
+      .then(mod => mod.default)
+      .then(translations => this.setState({translations}))
+  }
   render() {
+    if (!this.state.translations) {
+      return null
+    }
+
     return (
       <Scoped css={styleguide}>
         <div>

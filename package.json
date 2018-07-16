@@ -9,6 +9,7 @@
     "copy-files": "copyfiles static/**/*.* dist && copyfiles --flat CNAME src/404.html src/index.html dist",
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "yarn clean && yarn webpack && yarn copy-files",
+    "analyze": "webpack --config webpack.config.analyze.js",
     "deploy": "yarn build && gh-pages -d dist"
   },
   "devDependencies": {
@@ -19,9 +20,11 @@
     "babel-loader": "^8.0.0-beta.4",
     "copyfiles": "^2.0.0",
     "gh-pages": "^1.2.0",
-    "react-disposable-modal": "^0.2.5",
+    "i18n-webpack-plugin": "^1.0.0",
+    "react-portal": "^4.1.5",
     "rimraf": "^2.6.2",
     "webpack": "^4.12.0",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },

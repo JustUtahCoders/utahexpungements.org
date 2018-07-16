@@ -12,17 +12,17 @@ export default class Home extends React.Component {
         <div className="navbar-margin-top home">
           <div className="hero">
             <h1>
-              Expunge a criminal conviction in Utah
+              {__("HOME_PAGE_TITLE")}
             </h1>
             <div className="actions">
               <Link to="/app">
                 <button className="primary">
-                  Start an expungement
+                  {__("HOME_PAGE_PRIMARY_ACTION")}
                 </button>
               </Link>
               <a href="https://utahexpungements.freeflarum.com" target="_blank">
                 <button className="secondary">
-                  Community forum
+                  {__("COMMUNITY_FORUM")}
                 </button>
               </a>
             </div>

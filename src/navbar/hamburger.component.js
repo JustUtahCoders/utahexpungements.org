@@ -2,7 +2,7 @@ import React from 'react'
 import {Scoped} from 'kremling'
 import {mediaDesktop, navbarHeight, primary, darkPrimary, secondary, boxShadow3} from 'src/styleguide.js'
 import MenuItems from './menu-items.component.js'
-import {Modal} from 'react-disposable-modal'
+import {Portal} from 'react-portal'
 
 export default class Hamburger extends React.Component {
   state = {
@@ -17,7 +17,7 @@ export default class Hamburger extends React.Component {
           <div />
         </div>
         {this.state.menuOpen &&
-          <Modal>
+          <Portal>
             <Scoped css={sideMenuCss}>
               <div className="close-hamburger">
                 <div />
@@ -26,13 +26,13 @@ export default class Hamburger extends React.Component {
               </div>
               <div className="modal-overlay" />
             </Scoped>
-          </Modal>
+          </Portal>
         }
-        <Modal>
+        <Portal>
           <MenuItems
             visible={this.state.menuOpen}
           />
-        </Modal>
+        </Portal>
       </Scoped>
     )
   }
