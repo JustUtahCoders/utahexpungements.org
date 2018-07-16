@@ -9,9 +9,14 @@ export default class Footer extends React.Component {
       <Scoped css={css}>
         <div className="footer">
           <ul className="links">
-            <Link to='/about-us'>
+            <Link to='/'>
               <li>
-                About us
+                Home
+              </li>
+            </Link>
+            <Link to='/app/expungements-overview'>
+              <li>
+                What is an expungement?
               </li>
             </Link>
             <a href="https://utahexpungements.freeflarum.com" target="_blank">
@@ -21,6 +26,11 @@ export default class Footer extends React.Component {
             </a>
           </ul>
           <ul className="links">
+            <Link to='/about-us'>
+              <li>
+                About us
+              </li>
+            </Link>
             <a href="https://utahexpungements.freeflarum.com" target="_blank">
               <li>
                 Community Forum
