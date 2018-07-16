@@ -43,8 +43,12 @@ const css = `
     background-color: ${secondary};
     width: 100vw;
     display: flex;
-    justify-content: space-around;
-    padding: 48rem 160rem;
+    justify-content: center;
+    padding: 48rem 0rem;
+  }
+
+  & .links {
+    padding: 0 16rem;
   }
 
   & .links a:hover {

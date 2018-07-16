@@ -9,7 +9,7 @@ export default class Navbar extends React.Component {
     return (
       <Scoped css={css}>
         <nav className="navbar bg-primary">
-          <Hamburger />
+          <Hamburger {...this.props} />
           <Logo />
         </nav>
       </Scoped>

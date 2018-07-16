@@ -12,9 +12,9 @@ export default class DetailHighlight extends React.Component {
             <h3>
               {this.props.title}
             </h3>
-            <h5>
+            <div>
               {this.props.description}
-            </h5>
+            </div>
           </div>
         </div>
       </Scoped>

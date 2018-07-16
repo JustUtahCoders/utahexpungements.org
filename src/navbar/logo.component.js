@@ -6,7 +6,7 @@ export default class Logo extends React.Component {
   render() {
     return (
       <Scoped css={css}>
-        <Link to="/">
+        <Link to="/" className="logo">
           <div className="logo-text">
             utahexpungements.org
           </div>
@@ -20,5 +20,13 @@ const css = `
   & .logo-text {
     color: white;
     font-weight: bold;
+  }
+
+  & .logo {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
 `

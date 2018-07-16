@@ -4,7 +4,11 @@ export const primary = `#A1674A`
 export const darkPrimary = LightenDarkenColor(primary, -20);
 export const secondary = `#AB9B96`
 export const darkSecondary = `#594b47`
+export const tertiary = `#F0E7D8`
+const rawNavbarHeight = 50
 export const navbarHeight = `50rem`
+const rawBreadcrumbHeight = rawNavbarHeight
+export const breadcrumbHeight = rawBreadcrumbHeight + `rem`
 export const mediaMobile = `@media screen and (max-width: 720px) and (min-width: 1px)`
 export const mediaDesktop = `@media screen and (min-width: 720px)`
 export const boxShadow1 = `0 10px 30px -24px #4b4e53`
@@ -41,6 +45,10 @@ export default `
 
   & .navbar-margin-top {
     margin-top: ${navbarHeight};
+  }
+
+  & .breadcrumb-margin-top {
+    margin-top: ${rawNavbarHeight + rawBreadcrumbHeight}rem;
   }
 
   & .primary: {

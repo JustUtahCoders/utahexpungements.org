@@ -42,7 +42,7 @@ export default class Home extends React.Component {
             <DetailHighlight
               icon="/static/icons/svg/025-presentation.svg"
               title="Find out if you qualify"
-              description="We'll help you understand if and when your convictions are ready to be expunged from your criminal record."
+              description={<>Our <Link className="underline" to="/app/are-you-eligible">screening tool</Link> will help you understand if and when your convictions are ready to be expunged from your criminal record.</>}
             />
             <DetailHighlight
               icon="/static/icons/svg/003-laptop.svg"

@@ -10,10 +10,15 @@ export default class MenuItems extends React.Component {
         <nav className={a("side-menu").m('off-screen', !this.props.visible)}>
           <ul className={a("menu-items")}>
             {this.createLink('/', 'Home')}
-            {this.createLink('/app', 'Expungement tool')}
             {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Ask a question')}
             {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Community forum')}
             {this.createLink('/about-us', 'About us')}
+            {this.createLink('/app', 'Expungement tool')}
+            {this.subItem('/app/expungements-overview', 'Overview')}
+            {this.subItem('/app/are-you-eligible', 'Step 1: Are you eligible?')}
+            {this.subItem('/app/certificate-of-eligibility', 'Step 2: Certificate of Eligibility')}
+            {this.subItem('/app/file-petition', 'Step 3: File Petition')}
+            {this.subItem('/app/serve-petition', 'Step 4: Serve Petition')}
           </ul>
         </nav>
       </Scoped>
@@ -37,6 +42,15 @@ export default class MenuItems extends React.Component {
       </a>
     )
   }
+  subItem = (url, text) => {
+    return (
+      <Link to={url} className="menu-item sub-item">
+        <li>
+          {text}
+        </li>
+      </Link>
+    )
+  }
 }
 
 const css = `
@@ -49,7 +63,8 @@ const css = `
   }
 
   & .menu-items {
-    min-width: 250rem;
+    min-width: 275rem;
+    max-width: 275rem;
   }
 
   & .menu-item {
@@ -61,6 +76,10 @@ const css = `
 
   & .menu-item:hover {
     background-color: ${secondary};
+  }
+
+  & .sub-item {
+    padding-left: 32rem;
   }
 
   & .side-menu {
@@ -75,6 +94,6 @@ const css = `
   }
 
   & .side-menu.off-screen {
-    left: -250rem;
+    left: -275rem;
   }
 `

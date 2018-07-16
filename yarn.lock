@@ -2805,9 +2805,9 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-kremling@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/kremling/-/kremling-0.6.2.tgz#99f4c28cf294507b8fde836935a99f69ac77a9f8"
+kremling@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/kremling/-/kremling-0.6.3.tgz#e7d90c86f8543a5cabe63c3e058b8bb7d258871b"
 
 lcid@^1.0.0:
   version "1.0.0"
