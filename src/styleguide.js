@@ -68,8 +68,11 @@ export default `
   }
 
   a {
-    text-decoration: none;
     color: initial;
+  }
+
+  .no-underline {
+    text-decoration: none;
   }
 
   a.button {

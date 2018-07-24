@@ -72,6 +72,7 @@ const css = `
     padding: 16rem;
     height: 100%;
     width: 100%;
+    text-decoration: none;
   }
 
   & .menu-item:hover {

@@ -9,7 +9,7 @@ export default class Breadcrumb extends React.Component {
         {!this.props.isFirst &&
           <div className="caret">></div>
         }
-        <Link to={this.props.url}>
+        <Link to={this.props.url} className="no-underline">
           {this.props.name}
         </Link>
         {this.props.childCrumbs}

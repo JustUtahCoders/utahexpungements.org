@@ -6,7 +6,7 @@ export default class Logo extends React.Component {
   render() {
     return (
       <Scoped css={css}>
-        <Link to="/" className="logo">
+        <Link to="/" className="logo no-underline">
           <div className="logo-text">
             utahexpungements.org
           </div>
