@@ -5,33 +5,26 @@ import LazyRoute from './lazy-route.component.js'
 import Navbar from './navbar/navbar.component.js'
 import styleguide from './styleguide.js'
 import {Scoped} from 'kremling'
+import I18N from './i18n.component.js'
 
 export default class Root extends React.Component {
-  state = {
-    translations: null,
-  }
-  componentDidMount() {
-    import('./i18n/en.js')
-      .then(mod => mod.default)
-      .then(translations => this.setState({translations}))
-  }
   render() {
-    if (!this.state.translations) {
-      return null
-    }
-
     return (
-      <Scoped css={styleguide}>
-        <div>
-          <BrowserRouter>
-            <>
-              <Route children={props => <Navbar {...props} />} />
-              <LazyRoute exact path="/" loadRoute={() => import(/* webpackChunkName: "home" */'./home/home.component.js')} />
-              <LazyRoute path="/app" loadRoute={() => import(/* webpackChunkName: "app" */'./app/app.component.js')} />
-            </>
-          </BrowserRouter>
-        </div>
-      </Scoped>
+      <I18N>
+        {({baseUrl, currentLanguage, translations}) => (
+          <Scoped css={styleguide}>
+            <div>
+              <BrowserRouter basename={baseUrl}>
+                <>
+                  <Route children={props => <Navbar {...props} />} />
+                  <LazyRoute exact path="/" loadRoute={() => import(/* webpackChunkName: "home" */'./home/home.component.js')} />
+                  <LazyRoute path="/app" loadRoute={() => import(/* webpackChunkName: "app" */'./app/app.component.js')} />
+                </>
+              </BrowserRouter>
+            </div>
+          </Scoped>
+        )}
+      </I18N>
     )
   }
 }

@@ -12,17 +12,17 @@ export default class Home extends React.Component {
         <div className="navbar-margin-top home">
           <div className="hero">
             <h1>
-              {__("HOME_PAGE_TITLE")}
+              {__("home page title")}
             </h1>
             <div className="actions">
               <Link to="/app">
                 <button className="primary">
-                  {__("HOME_PAGE_PRIMARY_ACTION")}
+                  {__("home page primary action")}
                 </button>
               </Link>
               <a href="https://utahexpungements.freeflarum.com" target="_blank">
                 <button className="secondary">
-                  {__("COMMUNITY_FORUM")}
+                  {__("community forum")}
                 </button>
               </a>
             </div>
@@ -31,7 +31,7 @@ export default class Home extends React.Component {
           <div className="more-details">
             <DetailHighlight
               icon="/static/icons/svg/007-user-4.svg"
-              title="Completely free to use!"
+              title={__("free to use")}
               description={<>This website is <Link className="underline" to="/about-us">built by Utah community members for Utah community members</Link>. We'll never charge you anything.</>}
             />
             <DetailHighlight
