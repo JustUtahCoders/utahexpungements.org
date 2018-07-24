@@ -11,34 +11,34 @@ export default class Footer extends React.Component {
           <ul className="links">
             <Link to='/'>
               <li>
-                Home
+                {__("home page")}
               </li>
             </Link>
             <Link to='/app/expungements-overview'>
               <li>
-                What is an expungement?
+                {__("what is expg")}
               </li>
             </Link>
             <a href="https://utahexpungements.freeflarum.com" target="_blank">
               <li>
-                Ask a question
+                {__("ask a question")}
               </li>
             </a>
           </ul>
           <ul className="links">
             <Link to='/about-us'>
               <li>
-                About us
+                {__("about us")}
               </li>
             </Link>
             <a href="https://utahexpungements.freeflarum.com" target="_blank">
               <li>
-                Community Forum
+                {__("community forum")}
               </li>
             </a>
             <Link to="/contribute">
               <li>
-                Report a problem
+                {__("report problem")}
               </li>
             </Link>
           </ul>
@@ -59,6 +59,10 @@ const css = `
 
   & .links {
     padding: 0 16rem;
+  }
+
+  & .links a {
+    text-decoration: none;
   }
 
   & .links a:hover {

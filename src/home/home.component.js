@@ -32,22 +32,22 @@ export default class Home extends React.Component {
             <DetailHighlight
               icon="/static/icons/svg/007-user-4.svg"
               title={__("free to use")}
-              description={<>This website is <Link className="underline" to="/about-us">built by Utah community members for Utah community members</Link>. We'll never charge you anything.</>}
+              description={<>{__("ftu descr")[0]}<Link className="underline" to="/about-us">{__("ftu descr")[1]}</Link>{__("ftu descr")[2]}</>}
             />
             <DetailHighlight
               icon="/static/icons/svg/008-chat-2.svg"
-              title="Ask and answer questions"
-              description={<>Join our <a className="underline" href="https://utahexpungements.freeflarum.com" target="_blank">discussion forum</a> to ask and answer questions about the expungement process in Utah.</>}
+              title={__("ask questions")}
+              description={<>{__("ask questions descr")[0]}<a className="underline" href="https://utahexpungements.freeflarum.com" target="_blank">{__("ask questions descr")[1]}</a>{__("ask questions descr")[2]}</>}
             />
             <DetailHighlight
               icon="/static/icons/svg/025-presentation.svg"
-              title="Find out if you qualify"
-              description={<>Our <Link className="underline" to="/app/are-you-eligible">screening tool</Link> will help you understand if and when your convictions are ready to be expunged from your criminal record.</>}
+              title={__("find out qualify")}
+              description={<>{__("foq descr")[0]}<Link className="underline" to="/app/are-you-eligible">{__("foq descr")[1]}</Link>{__("foq descr")[2]}</>}
             />
             <DetailHighlight
               icon="/static/icons/svg/003-laptop.svg"
-              title="Fill out the paperwork online"
-              description="Enter your information in a web form and we'll generate the documents you'll need to file with the courts."
+              title={__("fill out paperwork")}
+              description={__("fop descr")}
             />
           </div>
           <Footer />
