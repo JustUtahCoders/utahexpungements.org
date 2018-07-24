@@ -8,7 +8,8 @@ export default class I18N extends React.Component {
   }
   componentDidMount() {
     const languages = ['en', 'es']
-    const urlLanguage = languages.find(language => window.location.pathname.startsWith(`/${language}/`) || window.location.pathname === `/${language}`)
+    const path = window.location.pathname === '/' && window.location.search.startsWith('?p=') ? window.location.search.slice('?p='.length) : window.location.pathname
+    const urlLanguage = languages.find(language => path.startsWith(`/${language}/`) || path === `/${language}`)
     const navigatorLanguage = window.navigator.language.slice(0, 2)
 
     const languageToUse = urlLanguage || navigatorLanguage || 'en'
