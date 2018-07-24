@@ -1,7 +1,8 @@
 const translations = {
-  HOME_PAGE_TITLE: "Expunge a criminal conviction in Utah",
-  HOME_PAGE_PRIMARY_ACTION: "Start an expungement",
-  COMMUNITY_FORUM: "Community forum",
+  "home page title": "Expunge a criminal conviction in Utah",
+  "home page primary action": "Start an expungement",
+  "community forum": "Community forum",
+  "free to use": "Free to use!",
 }
 
 window.__ = function(name) {
