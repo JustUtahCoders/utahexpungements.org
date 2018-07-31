@@ -2,31 +2,31 @@ import React from 'react'
 import { Route } from 'react-router'
 import { Link } from 'react-router-dom'
 
-const Steps = [
-  {
+const Steps = {
+  step1: {
     id: 1,
     yesHandler: 2, 
     noHandler: 4,
     content: () => <p>Does your Crime hae a conviction?</p>,
     url: ''
   },
-  {
+  step2: {
     id: 2,
-    yesHandler: 101,
+    yesHandler: 6,
     noHandler: 3,
     content: () => <p>Do You have a criminal case pending?</p>,
     url: '/pending'
   },
-  {
+  step3: {
     id: 3,
     yesHandler: 4,
-    noHandler: 101,
+    noHandler: 6,
     content: () => <p>Have all fines, fees, restitution, and interest been paid?</p>,
     url: '/fines-paid'
   },
-  {
+  step4: {
     id: 4,
-    yesHandler: 101,
+    yesHandler: 6,
     noHandler: 5,
     content: () => (
       <div><h1>Are Any Of the Convictions: </h1><ul><li>
@@ -35,36 +35,38 @@ const Steps = [
     ),
     url: '/felony'
   },
-  {
+  step5: {
     id: 5,
     yesHandler: 1,
     noHandler: 1,
     content: () => <p>Still Working On this</p>, 
     url: '/still'
   },
-  {
-    id: 101,
+  step6: {
+    id: 6,
     yesHandler: 1,
     noHandler: 1,
     content: () => <p>You Are Not Eligible For An Expungement</p>,
     url: '/not-eligible'
   }
-] 
+}
+
 
 export default class ScreeningTool extends React.Component {
   state = {
-    step: Steps[0]
+    step: Steps.step1 
   }
 
-  render () {
-    const yesUrl = this.props.match.url + Steps.find(item => item.id === this.state.step.yesHandler).url
-    const noUrl = this.props.match.url + Steps.find(item => item.id === this.state.step.noHandler).url
-    const ContentComponent = this.state.step.content
+  route (step) {
+    const ContentComponent = step.content
+    const yesUrl = this.props.match.url + Steps['step' + step.yesHandler].url
+    const noUrl = this.props.match.url + Steps['step' + step.noHandler].url
+    console.log('yesUrl', yesUrl )
 
-    console.log('this is this.props.matchurl', this.props.match.url + this.state.step.url)
+
     return (
           <Route
-            path={this.props.match.url + this.state.step.url}
+            path={this.props.match.url + step.url}
             exact
             render={props => (
               <div>
@@ -74,9 +76,8 @@ export default class ScreeningTool extends React.Component {
                 <Link to={yesUrl}>
                   <button
                     className="primary"
-                    onClick={() => this.setState({
-                      currentStep: this.state.step.yesHandler,
-                      step: Steps.find((item) => item.id === this.state.step.yesHandler)
+                    onClick={() => console.log('this is step + ', Steps['step' + step.yesHandler]) || this.setState({
+                      step: Steps['step' + step.yesHandler]
                     })}
                   >
                   Yes
@@ -86,8 +87,7 @@ export default class ScreeningTool extends React.Component {
                 <button
                   className="primary"
                   onClick={() => this.setState({
-                    currentStep: this.state.step.noHandler,
-                    step: Steps.find(item => item.id === this.state.step.noHandler)
+                    step: Steps['step' + step.noHandler]
                   })}
                 >
                   No
@@ -97,6 +97,21 @@ export default class ScreeningTool extends React.Component {
             </div>
             )}
       />
+
+    )
+  }
+
+  render () {
+    console.log('this is this.state.step.id', this.state.step.id)
+    return (
+      <div>
+        {this.route(Steps.step1)}
+        {this.route(Steps.step2)}
+        {this.route(Steps.step3)}
+        {this.route(Steps.step4)}
+        {this.route(Steps.step5)}
+        {this.route(Steps.step6)}
+      </div>
     )
   }
 }
