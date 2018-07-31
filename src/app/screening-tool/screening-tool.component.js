@@ -93,7 +93,6 @@ export default class ScreeningTool extends React.Component {
   }
 
   route (step) {
-    console.log('ZZZZ STEP', step)
     const ContentComponent = step.content
     const yesUrl = this.props.match.url + Steps['step' + step.yesHandler].url
     const noUrl = this.props.match.url + Steps['step' + step.noHandler].url
@@ -111,7 +110,7 @@ export default class ScreeningTool extends React.Component {
               {step.url !== '/not-eligible' && step.url !== '/eligible' ? (
                 <button
                   className="primary"
-                  onClick={() => console.log('this is step + ', Steps['step' + step.yesHandler]) || this.setState({
+                  onClick={() => this.setState({
                     step: Steps['step' + step.yesHandler]
                   })}
                   style={{ marginRight: 20 }}
@@ -142,8 +141,6 @@ export default class ScreeningTool extends React.Component {
   }
 
   render () {
-    console.log('STEPS.step7', Steps.step7)
-    console.log('this is this.state.step', this.state.step)
     return (
       <div>
         {this.route(Steps.step1)}
