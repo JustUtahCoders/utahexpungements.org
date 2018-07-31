@@ -8,7 +8,7 @@ const Steps = [
     yesHandler: 2, 
     noHandler: 4,
     content: () => <p>Does your Crime hae a conviction?</p>,
-    url: '/conviction'
+    url: ''
   },
   {
     id: 2,
@@ -61,13 +61,16 @@ export default class ScreeningTool extends React.Component {
     const noUrl = this.props.match.url + Steps.find(item => item.id === this.state.step.noHandler).url
     const ContentComponent = this.state.step.content
 
+    console.log('this is this.props.matchurl', this.props.match.url + this.state.step.url)
     return (
           <Route
             path={this.props.match.url + this.state.step.url}
             exact
             render={props => (
               <div>
-                <ContentComponent />
+                <div style={{ borderBottom: 10 }}>
+                  <ContentComponent />
+                </div>
                 <Link to={yesUrl}>
                   <button
                     className="primary"
