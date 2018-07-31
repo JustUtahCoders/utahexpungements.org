@@ -99,25 +99,30 @@ export default class ScreeningTool extends React.Component {
     const noUrl = this.props.match.url + Steps['step' + step.noHandler].url
 
     return (
-          <Route
-            path={this.props.match.url + step.url}
-            exact
-            render={props => (
-              <div>
-                <div style={{ borderBottom: 10 }}>
-                  <ContentComponent />
-                </div>
-                <Link to={yesUrl}>
-                  <button
-                    className="primary"
-                    onClick={() => console.log('this is step + ', Steps['step' + step.yesHandler]) || this.setState({
-                      step: Steps['step' + step.yesHandler]
-                    })}
-                  >
+      <Route
+        path={this.props.match.url + step.url}
+        exact
+        render={props => (
+          <div>
+            <div style={{ borderBottom: 10 }}>
+              <ContentComponent />
+            </div>
+            <Link to={yesUrl}>
+              {step.url !== '/not-eligible' && step.url !== '/eligible' ? (
+                <button
+                  className="primary"
+                  onClick={() => console.log('this is step + ', Steps['step' + step.yesHandler]) || this.setState({
+                    step: Steps['step' + step.yesHandler]
+                  })}
+                  style={{ marginRight: 20 }}
+                >
                   Yes
                 </button>
-              </Link>
-              <Link to={noUrl}>
+
+              ) : null}
+            </Link>
+            <Link to={noUrl}>
+              {step.url !== '/not-eligible' && step.url !== '/eligible' ? (
                 <button
                   className="primary"
                   onClick={() => this.setState({
@@ -126,6 +131,7 @@ export default class ScreeningTool extends React.Component {
                 >
                   No
                 </button>
+              ) : null}
               </Link>
 
             </div>
