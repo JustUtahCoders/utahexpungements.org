@@ -131,6 +131,26 @@ export default `
     border-radius: 6px;
     box-shadow: 0 10px 30px -24px #4b4e53;
   }
+
+  @media print {
+    #root-element {
+      display: none;
+    }
+
+    #print-element {
+      display: block !important;
+    }
+  }
+
+  #print-element {
+    display: none;
+  }
+
+  @page {
+    size: auto;  /* auto is the initial value */
+    margin: 0mm; /* this affects the margin in the printer settings */
+  }
+
 `
 
 function LightenDarkenColor(col, amt) {
