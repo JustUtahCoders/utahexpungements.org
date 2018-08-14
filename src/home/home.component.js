@@ -68,12 +68,21 @@ const css = `
     justify-content: center;
     align-items: center;
     width: 100vw;
-    background-image: url('static/adventure-blue-sky-clouds-343299.jpg');
+    background-image: url('static/utah-bret-little.jpg');
     background-position: center;
     background-color: ${lightGray};
     background-size: cover;
     text-align: center;
     height: 500rem;
+  }
+
+  & .hero > h1 {
+    color: white;
+    text-shadow: 0 0 20px black;
+  }
+
+  & .hero button {
+    box-shadow: 0 0 20px black;
   }
 
   & .padding-below {

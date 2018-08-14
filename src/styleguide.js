@@ -107,17 +107,13 @@ export default `
   }
 
   & button.secondary {
-    border: 2rem solid ${primary};
     transition: background-color 0.2s, color 0.2s;
     color: white;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    background-color: ${semiTransparentGray};
+    background-color: ${secondary};
   }
 
   & button.secondary:hover {
-    background-color: ${primary};
-    color: white;
+    background-color: ${darkSecondary};
   }
 
   ul {
