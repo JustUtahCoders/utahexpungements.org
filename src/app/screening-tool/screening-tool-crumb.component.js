@@ -4,7 +4,6 @@ import Breadcrumb from '../breadcrumb.component.js'
 
 export default class ScreeningToolCrumb extends React.Component {
   render() {
-    console.log(111, this.props.match)
 
     const areYouEligibleRoute = this.props.match.url + '/are-you-eligible'
     return (
@@ -20,15 +19,6 @@ export default class ScreeningToolCrumb extends React.Component {
                   name="Do you have a Conviction?"
                   url={areYouEligibleRoute}
                 />
-                <Route
-                  path={areYouEligibleRoute + '/pending'}
-                  render={() => (
-                    <Breadcrumb
-                      name="Do you have a case pending?"
-                      url={areYouEligibleRoute + '/pending'}
-                    />
-                  )}
-                />
               </>
             }
           >
@@ -38,3 +28,15 @@ export default class ScreeningToolCrumb extends React.Component {
     )
   }
 }
+
+/*
+  <Route
+    path={areYouEligibleRoute + '/*'}
+    render={() => (
+      <Breadcrumb
+        name="Do you have a case pending?"
+        url={areYouEligibleRoute + '/'}
+      />
+    )}
+  />
+  */
