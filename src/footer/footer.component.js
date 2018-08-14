@@ -8,40 +8,45 @@ export default class Footer extends React.Component {
     return (
       <Scoped css={css}>
         <div className="footer">
-          <ul className="links">
-            <Link to='/'>
-              <li>
-                {__("home page")}
-              </li>
-            </Link>
-            <Link to='/app/expungements-overview'>
-              <li>
-                {__("what is expg")}
-              </li>
-            </Link>
-            <a href="https://utahexpungements.freeflarum.com" target="_blank">
-              <li>
-                {__("ask a question")}
-              </li>
-            </a>
-          </ul>
-          <ul className="links">
-            <Link to='/about-us'>
-              <li>
-                {__("about us")}
-              </li>
-            </Link>
-            <a href="https://utahexpungements.freeflarum.com" target="_blank">
-              <li>
-                {__("community forum")}
-              </li>
-            </a>
-            <Link to="/contribute">
-              <li>
-                {__("report problem")}
-              </li>
-            </Link>
-          </ul>
+          <div className="link-groups">
+            <ul className="links">
+              <Link to='/'>
+                <li>
+                  {__("home page")}
+                </li>
+              </Link>
+              <Link to='/app/expungements-overview'>
+                <li>
+                  {__("what is expg")}
+                </li>
+              </Link>
+              <a href="https://utahexpungements.freeflarum.com" target="_blank">
+                <li>
+                  {__("ask a question")}
+                </li>
+              </a>
+            </ul>
+            <ul className="links">
+              <Link to='/about-us'>
+                <li>
+                  {__("about us")}
+                </li>
+              </Link>
+              <a href="https://utahexpungements.freeflarum.com" target="_blank">
+                <li>
+                  {__("community forum")}
+                </li>
+              </a>
+              <Link to="/contribute">
+                <li>
+                  {__("report problem")}
+                </li>
+              </Link>
+            </ul>
+          </div>
+          <div className="attribution">
+            Header image &copy; <a href="http://bretlittle.com">Bret Little</a> 2018
+          </div>
         </div>
       </Scoped>
     )
@@ -52,9 +57,12 @@ const css = `
   & .footer {
     background-color: ${secondary};
     width: 100vw;
+    padding: 48rem 0rem;
+  }
+
+  & .link-groups {
     display: flex;
     justify-content: center;
-    padding: 48rem 0rem;
   }
 
   & .links {
@@ -71,5 +79,11 @@ const css = `
 
   & .links li {
     padding: 4rem 0;
+  }
+
+  & .attribution {
+    font-size: 12px;
+    text-align: center;
+    padding-top: 20px;
   }
 `

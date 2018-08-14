@@ -7,7 +7,7 @@ const Steps = {
     id: 1,
     yesHandler: 2, 
     noHandler: 9,
-    content: () => <p>Does your Crime hae a conviction?</p>,
+    content: () => <p>Does your Crime have a conviction?</p>,
     url: ''
   },
   step2: {
