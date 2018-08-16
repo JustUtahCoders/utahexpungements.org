@@ -8,6 +8,7 @@ import FilePetition from './file-petition/file-petition.component.js'
 import ServePetition from './serve-petition/serve-petition.component.js'
 import Footer from 'src/footer/footer.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
+import {mediaDesktop, mediaMobile} from 'src/styleguide.js'
 
 export default class App extends React.Component {
   render() {
@@ -53,11 +54,24 @@ export const css = `
   & .app {
     margin-left: auto;
     margin-right: auto;
-    width: 65%;
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
+
+  ${mediaDesktop} {
+    & .app {
+      width: 75%;
+      max-width: 1400px;
+    }
+  }
+
+  ${mediaMobile} {
+    & .app {
+      width: 95%;
+    }
+  }
+
 
   & .main-content {
     width: 75vw;

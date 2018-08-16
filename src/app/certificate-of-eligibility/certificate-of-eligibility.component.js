@@ -1,23 +1,21 @@
 import React from 'react'
-import ApplicationForCOE_Web from '../forms/application-for-coe/application-for-coe.web.component.js'
-import ApplicationForCOE_Pdf from '../forms/application-for-coe/application-for-coe.pdf.component.js'
-import DataContainer from '../forms/data-container.component.js'
+import {Route} from 'react-router-dom'
+import AdultCOEForm from './adult-coe-form.component.js'
+import COEOverview from './coe-overview.component.js'
 
 export default class CertificateOfEligibility extends React.Component {
   render() {
     return (
       <>
-        <h1>
-          Certificate of Eligibility
-        </h1>
-        <DataContainer>
-          {props => (
-            <>
-              <ApplicationForCOE_Web {...props} />
-              <ApplicationForCOE_Pdf {...props} />
-            </>
-          )}
-        </DataContainer>
+        <Route
+          path={this.props.match.url}
+          exact
+          component={COEOverview}
+        />
+        <Route
+          path={this.props.match.url + '/adult-coe-form'}
+          component={AdultCOEForm}
+        />
       </>
     )
   }

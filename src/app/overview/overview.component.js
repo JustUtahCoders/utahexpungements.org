@@ -14,7 +14,7 @@ export default class Overview extends React.Component {
             An expungement is when the record of an arrest, investigation, detention, or conviction is removed. Once you complete the process, the record will be erased from your history in the eyes of the law.
           </p>
           <p>
-            You can read more about expungements on the <a href="https://bci.utah.gov/expungements/" target="_blank">utah.gov website</a>.
+            You can read more about expungements on the <a href="https://bci.utah.gov/expungements/" target="_blank">utah.gov website</a>. See <a href="https://www.utcourts.gov/howto/expunge/#petition" target="_blank">this page</a> for even more information.
           </p>
           <h3>
             Why expungements matter
