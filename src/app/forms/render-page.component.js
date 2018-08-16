@@ -35,7 +35,7 @@ const css = `
     position: relative;
   }
 
-  & .form-page > * {
+  & .form-page * {
     position: absolute;
   }
 `

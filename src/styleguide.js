@@ -129,6 +129,10 @@ export default `
   }
 
   @media print {
+    @page {
+      size: letter;
+    }
+
     #root-element {
       display: none;
     }

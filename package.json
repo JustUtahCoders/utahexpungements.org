@@ -29,7 +29,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "kremling": "^0.6.3",
+    "kremling": "^1.0.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router": "^4.3.1",
