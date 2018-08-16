@@ -126,6 +126,10 @@ const css = `
     width: 55.47%;
   }
 
+  & .name > * {
+    position: static;
+  }
+
   & .birthday {
     top: ${line1Top};
     left: 81.76%;
