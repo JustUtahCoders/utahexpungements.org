@@ -46,13 +46,13 @@ const Steps = {
     id: 5,
     yesHandler: 7,
     noHandler: 6,
-    content: () => <div><h2>Have the following time periods passed since the date you were convicted or released from incarceration, prohibition or parole, whichever occurred <strong>last</strong>?</h2><ul style={{ listStyle: 'circle' }}><li>DUI/Impaired Driving - 10 years</li><li>Felony - 7 years</li><li>Class A Misdemeanor - 5 years</li><li>Class B Misdemeanor - 4 years</li><li>Other misdemeanor</li></ul></div>, 
+    content: () => <div><h2>Have the following time periods passed since the date you were convicted or released from incarceration, prohibition or parole, whichever occurred <strong>last</strong>?</h2><ul style={{ listStyle: 'circle' }}><li style={{ marginBottom: 5, display: 'flex', justifyContent: 'space-between', width: 300 }}><div>DUI/Impaired Driving</div><div> - 10 years</div></li><li style={{ marginBottom: 5, display: 'flex', justifyContent: 'space-between', width: 300 }}><div>Felony</div><div> - 7 years</div></li><li style={{ marginBottom: 5, display: 'flex', justifyContent: 'space-between', width: 300 }}><div>Class A Misdemeanor</div><div> - 5 years</div></li><li style={{ marginBottom: 5, display: 'flex', justifyContent: 'space-between', width: 300 }}><div>Class B Misdemeanor</div><div> - 4 years</div></li><li style={{ marginBottom: 5, display: 'flex', justifyContent: 'space-between', width: 300 }}>Other misdemeanor</li></ul></div>, 
     url: '/still'
   },
   step6: {
     id: 6,
-    yesHandler: 1,
-    noHandler: 1,
+    yesHandler: 0,
+    noHandler: 0,
     content: () => <div><h2>Based on the data you submitted, you may not be eligible for an expungement.</h2><p>But remember, this isn't official legal advice. So don't get too down in the dumps. </p></div>,
     url: '/not-eligible'
   },
@@ -65,9 +65,9 @@ const Steps = {
   },
   step8: {
     id: 8,
-    yesHandler: 1,
-    noHandler: 1,
-    content: () => <h2>It looks like you are likely eligible to expunge your record. Click here to fill out an application.</h2>,
+    yesHandler: 0,
+    noHandler: 0,
+    content: () => <h2>It looks like you are likely eligible to expunge your record. Awesome! Click here to fill out an application.</h2>,
     url: '/eligible'
   },
   step9: {
