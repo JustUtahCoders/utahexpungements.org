@@ -67,7 +67,7 @@ const Steps = {
     id: 8,
     yesHandler: 0,
     noHandler: 0,
-    content: () => <h2>It looks like you are likely eligible to expunge your record. Awesome! Click here to fill out an application.</h2>,
+      content: () => <h2>It looks like you are likely eligible to expunge your record. Awesome! <a href="/app/certificate-of-eligibility">Click here</a> to fill out an application.</h2>,
     url: '/eligible'
   },
   step9: {
