@@ -29,7 +29,7 @@ export default class FilePetitionCrumb extends React.Component {
                     <>
                       {this.typesOfPetitionCrumb()}
                       <Breadcrumb
-                        name="Petition for a conviction"
+                        name="Conviction"
                         url={baseUrl + '/petition-for-conviction'}
                       />
                     </>
