@@ -14,8 +14,15 @@ export default class PetitionForConviction_Pdf extends React.Component {
               {`${renderData('firstName')} ${renderData('middleName')} ${renderData('lastName')}`}
             </div>
             {this.formItem('addressStreet')}
+            <div className="lineAddress">
+              {`${renderData('addressCity')} ${renderData('addressState')} ${renderData('addressZip')}`}
+            </div>
+            {this.formItem('dayPhone')}
+            {this.formItem('email')}
             {this.checkMark('petitionerRepresentative', data.petitionerRepresentative === 'petitioner', 'petitioner')}
             {this.checkMark('petitionerRepresentative', data.petitionerRepresentative === 'attorney', 'attorney')}
+            {this.formItem('barNumber')}
+            {this.formItem('addressCourt')}
           </Scoped>
         </RenderPage>
         <RenderPage url="/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-2.png">
@@ -45,6 +52,7 @@ export default class PetitionForConviction_Pdf extends React.Component {
 
 const farLeft = `11.28%`
 const petRepLeft = `20.82%`
+const barNumberLeft = `62.2%`
 
 const css = `
   & .name {
@@ -57,6 +65,21 @@ const css = `
     top: 17.67%;
   }
 
+  & .lineAddress {
+    left: ${farLeft};
+    top: 20.90%;
+  }
+
+  & .dayPhone {
+    left: ${farLeft};
+    top: 24.75%;
+  }
+
+  & .email {
+    left: ${farLeft};
+    top: 28.3%;
+  }
+
   & .petitioner {
     left: ${petRepLeft};
     top: 31.75%;
@@ -65,5 +88,15 @@ const css = `
   & .attorney {
     left: ${petRepLeft};
     top: 33.25%;
+  }
+
+  & .barNumber {
+    left: ${barNumberLeft};
+    top: 33.15%;
+  }
+
+  & .addressCourt {
+    left: ${farLeft}
+    top: 40%;
   }
 `

@@ -19,10 +19,13 @@ export default class PetitionForConviction_Web extends React.Component {
         <TextInput dataKey="addressCity" label="City" {...this.props} />
         <TextInput dataKey="addressState" label="State" {...this.props} />
         <TextInput dataKey="addressZip" label="Zip" {...this.props} />
+        <TextInput dataKey="dayPhone" label="Phone" {...this.props} />
+        <TextInput dataKey="email" label="Email Address" {...this.props} />
         <Select dataKey="petitionerRepresentative" label="Are you filling this out for yourself?" options={petitionerRepresentativeOptions} {...this.props} />
         {this.props.data.petitionerRepresentative === 'attorney' &&
-          <TextInput dataKey="petitionerRepresentativeBarNumber" label="What is your Utah Bar number?" {...this.props} />
+          <TextInput dataKey="barNumber" label="What is your Utah Bar number?" {...this.props} />
         }
+        <TextInput dataKey="addressCourt" label="Court Address" {...this.props} />
         <input type="submit" value="Print Form" />
       </FormThatPrints>
     )
