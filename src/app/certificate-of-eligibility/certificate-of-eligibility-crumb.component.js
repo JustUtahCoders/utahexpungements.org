@@ -13,17 +13,15 @@ export default class CertificateOfEligibilityCrumb extends React.Component {
             name="Step 2: Certificate of Eligibility"
             url={baseUrl}
             childCrumbs={
-              <>
-                <Route
-                  path={baseUrl + '/adult-coe-form'}
-                  render={() => (
-                    <Breadcrumb
-                      name="Fill out form"
-                      url={baseUrl + '/adult-coe-form'}
-                    />
-                  )}
-                />
-                </>
+              <Route
+                path={baseUrl + '/adult-coe-form'}
+                render={() => (
+                  <Breadcrumb
+                    name="Fill out form"
+                    url={baseUrl + '/adult-coe-form'}
+                  />
+                )}
+              />
             }
           />
         )}

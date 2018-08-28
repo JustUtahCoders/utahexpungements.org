@@ -25,7 +25,7 @@ export default class PetitionNavigator extends React.Component {
           </div>
           <div style={row}>
             <p>
-              <Link 
+              <Link
                 to='dismissal-acquittal-petition'
                 >
                 A court case was filed against me, but the case was dismissed
