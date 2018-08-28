@@ -24,7 +24,9 @@ export default class ApplicationForCOE_Pdf extends React.Component {
             </div>
             {this.formItem('birthday')}
             {this.formItem('previouslyUsedNames')}
-            {this.formItem('mailingAddress')}
+            <div className="mailingAddress">
+              {`${renderData('addressStreet')}, ${renderData('addressCity')}, ${renderData('addressState')} ${renderData('addressZip')}`}
+            </div>
             {this.formItem('socialSecurity')}
             {this.formItem('driversLicenseNumber')}
             {this.formItem('driversLicenseState')}

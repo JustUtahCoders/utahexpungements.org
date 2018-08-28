@@ -17,7 +17,7 @@ export default class PetitionNavigator extends React.Component {
           <div style={row}>
             <p>
               <Link
-                to='conviction-petition'
+                to={'/app/file-petition/petition-for-conviction'}
               >
                 I am seeking to expunge records of a conviction.
               </Link>

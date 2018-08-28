@@ -9,18 +9,16 @@ export default class TextInput extends React.Component {
   render() {
     return (
       <Scoped css={css}>
-        <div className="web-form-input">
+        <div className="web-form-input text-input">
           <label>
-            <span>
-              {this.props.label}
-            </span>
-            <input
-              type="text"
-              value={this.state.value || ''}
-              onChange={evt => this.setState({value: evt.target.value})}
-              onBlur={this.handleBlur}
-            />
+            {this.props.label}
           </label>
+          <input
+            type="text"
+            value={this.state.value || ''}
+            onChange={evt => this.setState({value: evt.target.value})}
+            onBlur={this.handleBlur}
+          />
         </div>
       </Scoped>
     )
@@ -31,4 +29,11 @@ export default class TextInput extends React.Component {
 }
 
 const css = `
+  & .text-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .text-input label {
+  }
 `

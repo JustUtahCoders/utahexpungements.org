@@ -9,6 +9,6 @@ export default class DataContainer extends React.Component {
     this.setState({[key]: value})
   }
   renderData = key => {
-    return this.state[key]
+    return this.state[key] || ''
   }
 }

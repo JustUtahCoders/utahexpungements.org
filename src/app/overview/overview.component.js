@@ -72,7 +72,7 @@ export default class Overview extends React.Component {
             </li>
             <li>
               <Link to="/app/deliver-to-agencies">
-                Degiver a physical copy of the expungement order to government agencies
+                Deliver a physical copy of the expungement order to government agencies
               </Link>
             </li>
           </ol>
