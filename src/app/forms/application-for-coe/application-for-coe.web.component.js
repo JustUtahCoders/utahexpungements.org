@@ -26,7 +26,7 @@ export default class ApplicationForCOE_Web extends React.Component {
           <TextInput dataKey="lastName" label="Last name" {...this.props} />
           <TextInput dataKey="firstName" label="First name" {...this.props} />
           <TextInput dataKey="middleName" label="Middle name" {...this.props} />
-          <TextInput dataKey="birthday" label="Birthday (will be fancier datepicker input in future)" {...this.props} />
+          <TextInput dataKey="birthday" label="Birthday" {...this.props} />
           <TextInput dataKey="previouslyUsedNames" label="Previously used names" {...this.props} />
           <TextInput dataKey="mailingAddress" label="Mailing address" {...this.props} />
           <TextInput dataKey="socialSecurity" label="Social security number" {...this.props} />

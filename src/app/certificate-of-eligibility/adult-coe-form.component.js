@@ -9,8 +9,8 @@ export default class AdultCoeForm extends React.Component {
       <DataContainer>
         {props => (
           <>
-          <ApplicationForCOE_Web {...props} />
-          <ApplicationForCOE_Pdf {...props} />
+            <ApplicationForCOE_Web {...props} />
+            <ApplicationForCOE_Pdf {...props} />
           </>
         )}
       </DataContainer>

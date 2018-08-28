@@ -116,6 +116,14 @@ export default `
     background-color: ${darkSecondary};
   }
 
+  & .web-form-input {
+    margin: 24rem 0;
+  }
+
+  & .web-form-input label {
+    width: 100rem;
+  }
+
   ul {
     padding: 0;
     margin: 0;
