@@ -20,11 +20,11 @@ export default class Home extends React.Component {
                   {__("home page primary action")}
                 </button>
               </Link>
-              <a href="https://utahexpungements.freeflarum.com" target="_blank">
+              <Link to="/app/forms">
                 <button className="secondary">
-                  {__("community forum")}
+                  {__("fill out forms")}
                 </button>
-              </a>
+              </Link>
             </div>
             <div className="padding-below" />
           </div>

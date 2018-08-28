@@ -1,9 +1,10 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import PetitionOverview from './petition-overview.component'
-import PetitionForm from './petition-form.component.js'
 import PetitionNavigator from './petition-navigator.component.js'
-import PetitionForConviction from './petition-for-conviction.component.js'
+import GovernmentForm from '../forms/government-form.component.js'
+import PetitionForConviction_Web from '../forms/petition-for-conviction/petition-for-conviction.web.component.js'
+import PetitionForConviction_Pdf from '../forms/petition-for-conviction/petition-for-conviction.pdf.component.js'
 
 export default class FilePetition extends React.Component {
   render() {
@@ -24,7 +25,13 @@ export default class FilePetition extends React.Component {
           />
           <Route
             path={this.props.match.url + '/petition-for-conviction'}
-            component={PetitionForConviction}
+            render={props => (
+              <GovernmentForm
+                name={__("petition conviction name")}
+                WebForm={PetitionForConviction_Web}
+                PdfForm={PetitionForConviction_Pdf}
+              />
+            )}
           />
         </>
       </>

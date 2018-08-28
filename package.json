@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "firebase": "^5.4.0",
-    "kremling": "^1.0.2",
+    "fuse.js": "^3.2.1",
+    "kremling": "^1.0.4",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router": "^4.3.1",

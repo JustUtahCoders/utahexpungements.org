@@ -36,4 +36,8 @@ const css = `
 
   & .text-input label {
   }
+
+  & .text-input input {
+    width: 200rem;
+  }
 `

@@ -17,14 +17,14 @@ export default class MenuItems extends React.Component {
                 {authUser && this.createLink('/app/dashboard', 'Dashboard')}
                 {this.createLink('/', 'Home')}
                 {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Ask a question')}
-                {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Community forum')}
-                {this.createLink('/about-us', 'About us')}
+                {this.createLink('/app/forms', 'Forms')}
                 {this.createLink('/app', 'Expungement tool')}
                 {this.subItem('/app/expungements-overview', 'Overview')}
                 {this.subItem('/app/are-you-eligible', 'Step 1: Are you eligible?')}
                 {this.subItem('/app/certificate-of-eligibility', 'Step 2: Certificate of Eligibility')}
                 {this.subItem('/app/file-petition', 'Step 3: File Petition')}
                 {this.subItem('/app/serve-petition', 'Step 4: Serve Petition')}
+                {this.createLink('/about-us', 'About us')}
               </ul>
             </nav>
           </Scoped>

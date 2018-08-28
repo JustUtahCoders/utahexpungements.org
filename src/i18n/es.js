@@ -4,6 +4,7 @@ const translations = {
   // home page
   "home page title": "Borrar el historial criminal en Utah",
   "home page primary action": "Empezar con un expungement",
+  "fill out forms": "Rellene los documentos",
   "community forum": "Foro de discusión",
   "free to use": "¡Completamente gratis para utilizar!",
   "ftu descr": [
@@ -24,7 +25,7 @@ const translations = {
     " le ayudará saber si y cuándo sus condenas estan listas para borrarse del historial criminal.",
   ],
   "fill out paperwork": "Rellene los papeles en línea",
-  "fop descr": `Introduzca su información en un formulario web y nosotros generamos los documentos que se necesitan para presentar a las cortes.`,
+  "fop descr": `Introduzca su información en un formulario web y nosotros generamos los documentos que se necesiten para presentar a las cortes.`,
 
   // footer
   "home page": "Página de inico",

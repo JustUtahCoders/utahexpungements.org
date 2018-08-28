@@ -2369,6 +2369,10 @@ function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
 
+fuse.js@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.2.1.tgz#6320cb94ce56ec9755c89ade775bcdbb0358d425"
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
@@ -3009,9 +3013,9 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-kremling@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/kremling/-/kremling-1.0.2.tgz#614c12ff96c7ca79c48a72386146217cbc5bc8a4"
+kremling@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/kremling/-/kremling-1.0.4.tgz#47cff8a2fdca59fe254797fecd8d9b1304afcfaf"
 
 lcid@^1.0.0:
   version "1.0.0"

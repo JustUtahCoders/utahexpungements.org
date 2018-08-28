@@ -2,6 +2,7 @@ const translations = {
   // home page
   "home page title": "Expunge a criminal conviction in Utah",
   "home page primary action": "Start an expungement",
+  "fill out forms": "Fill out forms",
   "community forum": "Community forum",
   "free to use": "Free to use!",
   "ftu descr": [
@@ -30,6 +31,9 @@ const translations = {
   "ask a question": "Ask a question",
   "about us": "About us",
   "report problem": "Report a problem",
+
+  // petition conviction form
+  "petition conviction name": "Petition to Expunge Records (Conviction)"
 }
 
 window.__ = function(name) {

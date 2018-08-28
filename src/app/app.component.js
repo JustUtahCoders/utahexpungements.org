@@ -12,6 +12,7 @@ import Dashboard from './user/dashboard.component.js'
 import Footer from 'src/footer/footer.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
 import {mediaDesktop, mediaMobile} from 'src/styleguide.js'
+import FormBank from './forms/bank/form-bank.component.js'
 
 export default class App extends React.Component {
   render() {
@@ -44,6 +45,10 @@ export default class App extends React.Component {
             <Route
               path={this.props.match.url + '/serve-petition'}
               component={ServePetition}
+            />
+            <Route
+              path={this.props.match.url + '/forms'}
+              component={FormBank}
             />
             <Route
               path={this.props.match.url + '/sign-up'}
