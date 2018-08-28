@@ -16,11 +16,12 @@ export const boxShadow2 = `0 10px 40px -24px #393b3f`
 export const boxShadow3 = `0 16px 50px -24px #212224`
 export const semiTransparentGray = `rgba(171, 155, 150, 0.9)`
 export const lightGray = `#D3D3D3`
+export const fontFamily = `'Roboto Condensed', sans-serif`
 
 export default `
   :root {
     font-size: 1px; /* for 1rem to be 1px */
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: ${fontFamily};
     background-color: ${lightGray};
   }
 
@@ -122,6 +123,22 @@ export default `
 
   & .web-form-input label {
     width: 100rem;
+  }
+
+  & button:disabled, & button:disabled:hover {
+    color: ${lightGray};
+    background-color: ${semiTransparentGray};
+    cursor: default;
+  }
+
+  input {
+    font-family: ${fontFamily};
+    background-color: ${lightGray};
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(226, 226, 226);
+    padding: 8px 12px;
   }
 
   ul {

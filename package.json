@@ -29,6 +29,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "firebase": "^5.4.0",
     "kremling": "^1.0.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

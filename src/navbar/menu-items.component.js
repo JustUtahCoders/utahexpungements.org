@@ -1,3 +1,5 @@
+import {auth} from '../firebase'
+import AuthUserContext from '../auth-user.component.js'
 import React from 'react'
 import {Scoped, a, t} from 'kremling'
 import {darkPrimary, navbarHeight, secondary, boxShadow3, darkSecondary, mediaMobile, mediaDesktop} from 'src/styleguide.js'
@@ -6,22 +8,28 @@ import {Link} from 'react-router-dom'
 export default class MenuItems extends React.Component {
   render() {
     return (
-      <Scoped css={css}>
-        <nav className={a("side-menu").m('off-screen', !this.props.visible)}>
-          <ul className={a("menu-items")}>
-            {this.createLink('/', 'Home')}
-            {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Ask a question')}
-            {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Community forum')}
-            {this.createLink('/about-us', 'About us')}
-            {this.createLink('/app', 'Expungement tool')}
-            {this.subItem('/app/expungements-overview', 'Overview')}
-            {this.subItem('/app/are-you-eligible', 'Step 1: Are you eligible?')}
-            {this.subItem('/app/certificate-of-eligibility', 'Step 2: Certificate of Eligibility')}
-            {this.subItem('/app/file-petition', 'Step 3: File Petition')}
-            {this.subItem('/app/serve-petition', 'Step 4: Serve Petition')}
-          </ul>
-        </nav>
-      </Scoped>
+      <AuthUserContext.Consumer>
+        {authUser =>
+          <Scoped css={css}>
+            <nav className={a("side-menu").m('off-screen', !this.props.visible)}>
+              <ul className={a("menu-items")}>
+                {this.authSection(authUser)}
+                {authUser && this.createLink('/app/dashboard', 'Dashboard')}
+                {this.createLink('/', 'Home')}
+                {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Ask a question')}
+                {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Community forum')}
+                {this.createLink('/about-us', 'About us')}
+                {this.createLink('/app', 'Expungement tool')}
+                {this.subItem('/app/expungements-overview', 'Overview')}
+                {this.subItem('/app/are-you-eligible', 'Step 1: Are you eligible?')}
+                {this.subItem('/app/certificate-of-eligibility', 'Step 2: Certificate of Eligibility')}
+                {this.subItem('/app/file-petition', 'Step 3: File Petition')}
+                {this.subItem('/app/serve-petition', 'Step 4: Serve Petition')}
+              </ul>
+            </nav>
+          </Scoped>
+        }
+      </AuthUserContext.Consumer>
     )
   }
   createLink = (url, text) => {
@@ -41,6 +49,31 @@ export default class MenuItems extends React.Component {
         </li>
       </a>
     )
+  }
+  authSection = authUser => {
+    return (
+      <div className="auth-section">
+        {authUser ? (
+          <div>
+            Welcome {authUser.email}.{' '}
+            <a href="" onClick={this.logout}>Logout</a>
+          </div>
+        ) : (
+          <div>
+            <Link to="/app/login">
+              Login
+            </Link>
+            {' '}or{' '}
+            <Link to="/app/sign-up">
+              Sign up
+            </Link>
+          </div>
+        )}
+      </div>
+    )
+  }
+  logout = () => {
+    auth.doSignOut()
   }
   subItem = (url, text) => {
     return (
@@ -65,6 +98,11 @@ const css = `
   & .menu-items {
     min-width: 275rem;
     max-width: 275rem;
+  }
+
+  & .auth-section {
+    padding: 16rem;
+    font-size: 13rem;
   }
 
   & .menu-item {

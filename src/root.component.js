@@ -6,8 +6,9 @@ import Navbar from './navbar/navbar.component.js'
 import styleguide from './styleguide.js'
 import {Scoped} from 'kremling'
 import I18N from './i18n.component.js'
+import withAuthentication from './authentication.component.js'
 
-export default class Root extends React.Component {
+class Root extends React.Component {
   render() {
     return (
       <I18N>
@@ -28,3 +29,5 @@ export default class Root extends React.Component {
     )
   }
 }
+
+export default withAuthentication(Root)

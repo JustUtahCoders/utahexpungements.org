@@ -1,6 +1,6 @@
 import React from 'react'
 import {Scoped} from 'kremling'
-import Hamburger from './hamburger.component.js';
+import Hamburger from './hamburger.component.js'
 import MenuItems from './menu-items.component.js'
 import Logo from './logo.component.js'
 
@@ -10,7 +10,9 @@ export default class Navbar extends React.Component {
       <Scoped css={css}>
         <nav className="navbar bg-primary">
           <Hamburger {...this.props} />
-          <Logo />
+          <div>
+            <Logo />
+          </div>
         </nav>
       </Scoped>
     )

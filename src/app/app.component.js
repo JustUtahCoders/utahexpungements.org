@@ -6,6 +6,9 @@ import ScreeningTool from './screening-tool/screening-tool.component.js'
 import CertificateOfEligibility from './certificate-of-eligibility/certificate-of-eligibility.component.js'
 import FilePetition from './file-petition/file-petition.component.js'
 import ServePetition from './serve-petition/serve-petition.component.js'
+import Login from './user/login.component.js'
+import SignUp from './user/sign-up.component.js'
+import Dashboard from './user/dashboard.component.js'
 import Footer from 'src/footer/footer.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
 import {mediaDesktop, mediaMobile} from 'src/styleguide.js'
@@ -41,6 +44,18 @@ export default class App extends React.Component {
             <Route
               path={this.props.match.url + '/serve-petition'}
               component={ServePetition}
+            />
+            <Route
+              path={this.props.match.url + '/sign-up'}
+              component={SignUp}
+            />
+            <Route
+              path={this.props.match.url + '/login'}
+              component={Login}
+            />
+            <Route
+              path={this.props.match.url + '/dashboard'}
+              component={Dashboard}
             />
           </div>
         </div>
