@@ -22,7 +22,18 @@ export default class PetitionForConviction_Pdf extends React.Component {
             {this.checkMark('petitionerRepresentative', data.petitionerRepresentative === 'petitioner', 'petitioner')}
             {this.checkMark('petitionerRepresentative', data.petitionerRepresentative === 'attorney', 'attorney')}
             {this.formItem('barNumber')}
-            {this.formItem('addressCourt')}
+            <div className="addressCourt">
+              {`${renderData('addressCourtStreet')}, ${renderData('addressCourtCity')}, ${renderData('addressCourtState')} ${renderData('addressCourtZip')}`}
+            </div>
+            <div className="petitionerName">
+              {`${renderData('firstName')} ${renderData('middleName')} ${renderData('lastName')}`}
+            </div>
+            {this.formItem('caseNumber')}
+            {this.formItem('judgeName')}
+            <div className="caseNumberConviction">
+              {/* This is wrapped in a div because it shares data , but needs own styles */}
+              {`${renderData('caseNumber')}`}
+            </div>
           </Scoped>
         </RenderPage>
         <RenderPage url="/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-2.png">
@@ -96,7 +107,28 @@ const css = `
   }
 
   & .addressCourt {
-    left: ${farLeft}
-    top: 40%;
+    left: 27.8%;
+    top: 43.6%;
   }
+
+  & .petitionerName {
+    left: 11.9%;
+    top: 53%;
+  }
+
+  & .caseNumber {
+    left: 54.1%;
+    top: 53%;
+  }
+
+  & .judgeName {
+    left: 54.1%;
+    top: 58%;
+  }
+
+  & .caseNumberConviction {
+    left: 17.4%;
+    top: 65.8%;
+  }
+
 `
