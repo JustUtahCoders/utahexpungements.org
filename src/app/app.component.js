@@ -18,7 +18,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Scoped css={css}>
-        <div id="newthing">
+        <div>
           <Breadcrumbs {...this.props} />
           <div style={{ minHeight: '100vh' }}>
             <div style={{ padding: '20px', paddingBottom: '211px' }}>
