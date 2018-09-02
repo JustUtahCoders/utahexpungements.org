@@ -19,14 +19,14 @@ export default class FillableForm extends React.Component {
               </h4>
               <div>
                 {this.props.shortDescription}
+                <div className="raw-form">
+                  <a href={this.props.downloadUrl} target="_blank">
+                    Download raw form
+                  </a>
+                </div>
               </div>
             </div>
             <div className="links">
-              <div className="raw-form">
-                <a href={this.props.downloadUrl} target="_blank">
-                  Raw form
-                </a>
-              </div>
               <Link to={this.props.appUrl}>
                 <button className="primary">
                   Fill out form
@@ -111,7 +111,7 @@ const css = `
     flex-direction: column;
     justify-content: space-between;
     height: 273rem;
-    padding-bottom: 6rem;
+    padding-bottom: 12rem;
     text-align: center;
   }
 
@@ -122,6 +122,6 @@ const css = `
   }
 
   & .raw-form {
-    margin-bottom: 8rem;
+    margin: 8rem 0;
   }
 `

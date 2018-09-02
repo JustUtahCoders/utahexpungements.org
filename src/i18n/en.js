@@ -41,7 +41,7 @@ const translations = {
 
   // petition conviction form
   "petition conviction name": "Petition to Expunge Records (Conviction)",
-  "petition conviction short descr": "This form requests a court order for an expungement.",
+  "petition conviction short descr": "This form requests a court order for an expungement. You must first obtain a Certificate of Eligibility before filing this form.",
 
   // form bank
   "click for form details": "Click for form details",
