@@ -4,27 +4,53 @@ import {lightGray} from 'src/styleguide.js'
 import {Link} from 'react-router-dom'
 
 export default class FillableForm extends React.Component {
+  state = {
+    showDetails: false,
+  }
   render() {
     return (
       <Scoped css={css}>
-        <Link to={this.props.appLink} className="link">
-          <div className="fillable-form">
-            <img className="preview-thumbnail" src={this.props.previewUrls[0]} />
-            <div className="name">
-              {this.props.name}
-            </div>
-          </div>
-        </Link>
+        <div className="fillable-form" onClick={this.openDetails} aria-label={__("click for form details")} tabIndex={0} role="button" onKeyPress={this.openDetails}>
+          {this.state.showDetails
+            ?
+              <div className="details">
+                <div>
+                  <h4 className="name">
+                    {this.props.name}
+                  </h4>
+                  <div>
+                    {this.props.shortDescription}
+                  </div>
+                </div>
+                <div>
+                  <Link className="no-underline" to={this.props.appUrl}>
+                    Fill out form
+                  </Link>
+                  <Link className="no-underline" to={this.props.downloadUrl}>
+                    Download raw form
+                  </Link>
+                </div>
+              </div>
+            :
+              <>
+                <img className="preview-thumbnail" src={this.props.previewUrls[0]} />
+                <div className="name">
+                  {this.props.name}
+                </div>
+              </>
+          }
+        </div>
       </Scoped>
     )
+  }
+  openDetails = (evt) => {
+    if (!evt.key || evt.key === 'Enter' || evt.key === 'Space') {
+      this.setState({showDetails: true})
+    }
   }
 }
 
 const css = `
-  & .link {
-    text-decoration: none;
-  }
-
   & .fillable-form {
     display: flex;
     flex-direction: column;
@@ -37,6 +63,7 @@ const css = `
     padding: 6rem;
     border-radius: 3rem;
     margin-right: 32rem;
+    margin-bottom: 32rem;
   }
 
   & .fillable-form:hover {
@@ -54,5 +81,13 @@ const css = `
   & .name {
     text-align: center;
     padding: 8rem;
+    margin: 0;
+  }
+
+  & .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 `

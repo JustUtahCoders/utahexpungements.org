@@ -37,7 +37,11 @@ const translations = {
   "report problem": "Report a problem",
 
   // petition conviction form
-  "petition conviction name": "Petition to Expunge Records (Conviction)"
+  "petition conviction name": "Petition to Expunge Records (Conviction)",
+
+  // form bank
+  "click for form details": "Click for form details",
+  "app for coe short descr": "This form is the first step in the expungements process. It asks the government to issue a Certificate of Eligibility, which means your record can be cleared!",
 }
 
 window.__ = function(name) {
