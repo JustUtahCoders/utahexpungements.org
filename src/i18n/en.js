@@ -36,8 +36,15 @@ const translations = {
   "about us": "About us",
   "report problem": "Report a problem",
 
+  // application for coe form
+  "app for coe short descr": "This form requests a certificate that can be used to petition for an expungement.",
+
   // petition conviction form
-  "petition conviction name": "Petition to Expunge Records (Conviction)"
+  "petition conviction name": "Petition to Expunge Records (Conviction)",
+  "petition conviction short descr": "This form requests a court order for an expungement.",
+
+  // form bank
+  "click for form details": "Click for form details",
 }
 
 window.__ = function(name) {
