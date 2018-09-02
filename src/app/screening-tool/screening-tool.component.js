@@ -7,21 +7,21 @@ const Steps = {
     id: 0,
     yesHandler: 1,
     noHandler: 1,
-    content: () => <div><h1>Eligibility Tool</h1><p>This tool is to give you an idea of whether or not you are eligible for an expungement. Please Remember that this is not legal advice - only a judge can tell you whether or not you are eligible. However, this tool will give you a good initial idea of whether or not you are eligible. Happy expunging!</p></div>,
+    content: () => <div><h1>Eligibility Tool</h1><p>This tool is to give you an idea of whether or not you are eligible for an expungement. Please remember that this is not legal advice &mdash; only a judge can tell you whether or not you are eligible. However, this tool will give you a good initial idea of whether or not you are eligible. Happy expunging!</p></div>,
     url: ''
   },
   step1: {
     id: 1,
     yesHandler: 2, 
     noHandler: 9,
-    content: () => <div><h2>Does your Crime have a conviction?</h2><p>This means that you either went to trial or pled guilty. Don't worry - everyone makes mistakes.</p></div>,
+    content: () => <div><h2>Does your crime have a conviction?</h2><p>This means that you either went to trial or pleaded guilty. Don't worry &mdash; everyone makes mistakes.</p></div>,
     url: '/conviction'
   },
   step2: {
     id: 2,
     yesHandler: 6,
     noHandler: 3,
-    content: () => <h2>Do You have a criminal case pending?</h2>,
+    content: () => <h2>Do you have a criminal case pending?</h2>,
     url: '/pending'
   },
   step3: {
@@ -36,9 +36,15 @@ const Steps = {
     yesHandler: 6,
     noHandler: 5,
     content: () => (
-      <div><h2>Are Any Of the Convictions: </h2><ul style={{ listStyle: 'circle' }}><li>
-            A capital felony, 1st degree
-            felony, or violent felony</li><li>Automobile Homocide</li><li>Felony Driving Under The Influence</li><li>A registerable Sex Offense</li></ul></div>
+      <div>
+        <h2>Are any of your convictions:</h2>
+        <ul style={{ listStyle: 'initial', marginLeft: '18px' }}>
+          <li>A capital felony, 1st degree felony, or violent felony</li>
+          <li>Automobile homocide</li>
+          <li>Felony driving under the influence (D.U.I.)</li>
+          <li>A registerable sex offense</li>
+        </ul>
+      </div>
     ),
     url: '/felony'
   },
@@ -60,7 +66,7 @@ const Steps = {
     id: 7,
     yesHandler: 6,
     noHandler: 8,
-    content: () => <div><h2>Have you been convicted of two or more felonies in separate criminal episodes?</h2><p>Have you been convicted, in separate criminal episodes, of three or more crimes of which two are class A misdemeanors</p><p>Have you been convicted, in separate criminal episodes, of four or more crimes wof which three are class B misdemeanors</p><p>Have you been convicted, in separate criminal episodes, of five or more crimes of any degree other than infractions?</p></div>,
+    content: () => <div><h2>Have you been convicted of two or more felonies in separate criminal episodes?</h2><p>Have you been convicted, in separate criminal episodes, of three or more crimes of which two are class A misdemeanors?</p><p>Have you been convicted, in separate criminal episodes, of four or more crimes wof which three are class B misdemeanors?</p><p>Have you been convicted, in separate criminal episodes, of five or more crimes of any degree other than infractions?</p></div>,
     url: '/other-questions'
   },
   step8: {
@@ -154,7 +160,7 @@ export default class ScreeningTool extends React.Component {
                       })}
                       style={{ marginRight: 20, paddingLeft: 40, paddingRight: 40 }}
                     >
-                      Ok
+                      OK
                     </button>
                   ) : null}
                 </Link>
