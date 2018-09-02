@@ -32,7 +32,6 @@ export default class PetitionForConviction_Web extends React.Component {
         <TextInput dataKey="addressCourtZip" label="Court Address Zip" {...this.props} />
         <TextInput dataKey="caseNumber" label="Case Number" {...this.props} />
         <TextInput dataKey="judgeName" label="Judge Full Name" {...this.props} />
-        <input type="submit" value="Print Form" />
       </FormThatPrints>
     )
   }
