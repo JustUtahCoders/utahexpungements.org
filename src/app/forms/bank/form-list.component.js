@@ -39,6 +39,7 @@ export default class FormList extends React.Component {
             <FillableForm
               name={__("petition conviction name")}
               keywords="petition conviction"
+              shortDescription={__("petition conviction short descr")}
               appUrl={this.props.match.url + '/petition-for-conviction'}
               downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-conviction.pdf"
               previewUrls={[
@@ -64,6 +65,7 @@ const css = `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     margin-right: -32rem;
     margin-bottom: -32rem;
   }

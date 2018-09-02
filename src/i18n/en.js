@@ -36,12 +36,15 @@ const translations = {
   "about us": "About us",
   "report problem": "Report a problem",
 
+  // application for coe form
+  "app for coe short descr": "This form requests a certificate that can be used to petition for an expungement.",
+
   // petition conviction form
   "petition conviction name": "Petition to Expunge Records (Conviction)",
+  "petition conviction short descr": "This form requests a court order for an expungement.",
 
   // form bank
   "click for form details": "Click for form details",
-  "app for coe short descr": "This form is the first step in the expungements process. It asks the government to issue a Certificate of Eligibility, which means your record can be cleared!",
 }
 
 window.__ = function(name) {
