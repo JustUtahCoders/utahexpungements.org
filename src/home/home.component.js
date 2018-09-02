@@ -47,7 +47,15 @@ export default class Home extends React.Component {
             <DetailHighlight
               icon="/static/icons/svg/003-laptop.svg"
               title={__("fill out paperwork")}
-              description={__("fop descr")}
+              description={
+                <>
+                  {__("fop descr")[0]}
+                  <Link className="underline" to="/app/forms">
+                    {__("fop descr")[1]}
+                  </Link>
+                  {__("fop descr")[2]}
+                </>
+              }
             />
           </div>
           <Footer />
