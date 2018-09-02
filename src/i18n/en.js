@@ -23,7 +23,11 @@ const translations = {
     " will help you understand if and when your convictions are ready to be expunged from your criminal record.",
   ],
   "fill out paperwork": "Fill out the paperwork online",
-  "fop descr": `Enter your information in a web form and we'll generate the documents you'll need to file with the courts.`,
+  "fop descr": [
+    `Enter your information in a web form and `,
+    `we'll generate the documents`,
+    ` you'll need to file with the courts.`,
+  ],
 
   // footer
   "home page": "Home",
