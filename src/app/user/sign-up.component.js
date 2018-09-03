@@ -1,4 +1,4 @@
-import {auth} from '../../firebase'
+import {auth, database} from '../../firebase'
 import React from 'react'
 import {Scoped} from 'kremling'
 import {Link, withRouter} from 'react-router-dom'
@@ -11,6 +11,8 @@ class SignUp extends React.Component {
       email: '',
       passwordOne: '',
       passwordTwo: '',
+      firstName: '',
+      lastName: '',
       error: null,
     }
   }
@@ -24,33 +26,60 @@ class SignUp extends React.Component {
   onSubmit = event => {
     event.preventDefault()
 
+    this.setState({
+      isLoading: true
+    })
+
     const {
       email,
       passwordOne,
+      firstName,
+      lastName,
     } = this.state
 
+    // Create auth user
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        window.location = '/app/dashboard'
+        const uid = authUser.user.uid
+        // Create initial person data and case
+        database.createPerson(uid, `${firstName} ${lastName}`, true, { firstName, lastName })
+          .then(person => {
+            database.createCase(uid, person.id, `${firstName}'s expungement`, true)
+              .then(kase => {
+                window.location = '/app/dashboard'
+              })
+          })
       })
       .catch(error => {
         this.setState({
-          error: error.message
+          error: error.message,
+          isLoading: false
         })
       })
   }
 
   render () {
-    const { email, error, passwordOne, passwordTwo } = this.state
+    const { email, error, isLoading, passwordOne, passwordTwo, firstName, lastName } = this.state
     const isInvalid = passwordOne !== passwordTwo ||
-      isEmpty(email) ||
-      isEmpty(passwordOne)
+      [email, passwordOne, firstName, lastName].some(isEmpty)
 
     return (
       <Scoped css={css}>
         <div>
           <h1>Sign Up</h1>
           <form className="signupForm" onSubmit={this.onSubmit}>
+            <input
+              type="text"
+              placeholder="First name"
+              value={firstName}
+              onChange={partial(this.handleInputChange, 'firstName')}
+            />
+            <input
+              type="text"
+              placeholder="Last name"
+              value={lastName}
+              onChange={partial(this.handleInputChange, 'lastName')}
+            />
             <input
               type="text"
               placeholder="Email"
@@ -69,8 +98,8 @@ class SignUp extends React.Component {
               value={passwordTwo}
               onChange={partial(this.handleInputChange, 'passwordTwo')}
             />
-            <button className="primary" disabled={isInvalid} type="submit">
-              Sign up
+            <button className="primary" disabled={isInvalid || isLoading} type="submit">
+              {isLoading ? "Loading..." : "Sign up"}
             </button>
           </form>
           {error &&

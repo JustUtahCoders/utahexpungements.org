@@ -13,28 +13,28 @@ export default class ApplicationForCOE_Pdf extends React.Component {
           <Scoped css={css}>
             <div className="name">
               <div>
-                {renderData('lastName')}
+                {renderData('person.lastName')}
               </div>
               <div>
-                {renderData('firstName')}
+                {renderData('person.firstName')}
               </div>
               <div>
-                {renderData('middleName')}
+                {renderData('person.middleName')}
               </div>
             </div>
-            {this.formItem('birthday')}
-            {this.formItem('previouslyUsedNames')}
+            {this.formItem('person.birthday')}
+            {this.formItem('person.previouslyUsedNames')}
             <div className="mailingAddress">
-              {`${renderData('addressStreet')}, ${renderData('addressCity')}, ${renderData('addressState')} ${renderData('addressZip')}`}
+              {`${renderData('person.addressStreet')}, ${renderData('person.addressCity')}, ${renderData('person.addressState')} ${renderData('person.addressZip')}`}
             </div>
-            {this.formItem('socialSecurity')}
-            {this.formItem('driversLicenseNumber')}
-            {this.formItem('driversLicenseState')}
-            {this.formItem('homePhone')}
-            {this.formItem('dayPhone')}
-            {this.checkMark('isTrafficExpungement', data.isTrafficExpungement)}
-            {this.checkMark('isAcquittalExpungement', data.isAcquittalExpungement)}
-            {this.formItem('nameOfPetitioner')}
+            {this.formItem('person.socialSecurity')}
+            {this.formItem('person.driversLicenseNumber')}
+            {this.formItem('person.driversLicenseState')}
+            {this.formItem('person.homePhone')}
+            {this.formItem('person.dayPhone')}
+            {this.checkMark('case.isTrafficExpungement', data.isTrafficExpungement)}
+            {this.checkMark('case.isAcquittalExpungement', data.isAcquittalExpungement)}
+            {this.formItem('case.nameOfPetitioner')}
             {this.checkMark('check', data.paymentMethod === 'check')}
             {this.checkMark('creditCard', data.paymentMethod === 'creditCard')}
             {this.checkMark('visa', data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'visa')}

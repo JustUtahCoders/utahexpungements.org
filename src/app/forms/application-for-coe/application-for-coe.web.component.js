@@ -23,23 +23,23 @@ export default class ApplicationForCOE_Web extends React.Component {
     return (
       <Scoped css={css}>
         <FormThatPrints>
-          <TextInput dataKey="lastName" label="Last name" {...this.props} />
-          <TextInput dataKey="firstName" label="First name" {...this.props} />
-          <TextInput dataKey="middleName" label="Middle name" {...this.props} />
-          <TextInput dataKey="birthday" label="Birthday" {...this.props} />
-          <TextInput dataKey="previouslyUsedNames" label="Previously used names" {...this.props} />
-          <TextInput dataKey="addressStreet" label="Street" {...this.props} />
-          <TextInput dataKey="addressCity" label="City" {...this.props} />
-          <TextInput dataKey="addressState" label="State" {...this.props} />
-          <TextInput dataKey="addressZip" label="Zip" {...this.props} />
-          <TextInput dataKey="socialSecurity" label="Social security number" {...this.props} />
-          <TextInput dataKey="driversLicenseNumber" label="Drivers license number" {...this.props} />
-          <TextInput dataKey="driversLicenseState" label="Drivers license state" {...this.props} />
-          <TextInput dataKey="homePhone" label="Home phone number" {...this.props} />
-          <TextInput dataKey="dayPhone" label="Day phone number" {...this.props} />
-          <Checkbox dataKey="isTrafficExpungement" label="Is this a traffic expungement?" {...this.props} />
-          <Checkbox dataKey="isAcquittalExpungement" label="Is this an acquittal?" {...this.props} />
-          <TextInput dataKey="nameOfPetitioner" label="Name of petitioner" {...this.props} />
+          <TextInput dataKey="person.lastName" label="Last name" {...this.props} />
+          <TextInput dataKey="person.firstName" label="First name" {...this.props} />
+          <TextInput dataKey="person.middleName" label="Middle name" {...this.props} />
+          <TextInput dataKey="person.birthday" label="Birthday" {...this.props} />
+          <TextInput dataKey="person.previouslyUsedNames" label="Previously used names" {...this.props} />
+          <TextInput dataKey="person.addressStreet" label="Street" {...this.props} />
+          <TextInput dataKey="person.addressCity" label="City" {...this.props} />
+          <TextInput dataKey="person.addressState" label="State" {...this.props} />
+          <TextInput dataKey="person.addressZip" label="Zip" {...this.props} />
+          <TextInput dataKey="person.socialSecurity" label="Social security number" {...this.props} />
+          <TextInput dataKey="person.driversLicenseNumber" label="Drivers license number" {...this.props} />
+          <TextInput dataKey="person.driversLicenseState" label="Drivers license state" {...this.props} />
+          <TextInput dataKey="person.homePhone" label="Home phone number" {...this.props} />
+          <TextInput dataKey="person.dayPhone" label="Day phone number" {...this.props} />
+          <Checkbox dataKey="case.isTrafficExpungement" label="Is this a traffic expungement?" {...this.props} />
+          <Checkbox dataKey="case.isAcquittalExpungement" label="Is this an acquittal?" {...this.props} />
+          <TextInput dataKey="case.nameOfPetitioner" label="Name of petitioner" {...this.props} />
           <Select label="Payment method" dataKey="paymentMethod" options={paymentOptions} {...this.props} />
           {this.props.data.paymentMethod === 'creditCard' &&
             <>
