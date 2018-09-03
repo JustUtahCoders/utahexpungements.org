@@ -25,7 +25,11 @@ const translations = {
     " le ayudará saber si y cuándo sus condenas estan listas para borrarse del historial criminal.",
   ],
   "fill out paperwork": "Rellene los papeles en línea",
-  "fop descr": `Introduzca su información en un formulario web y nosotros generamos los documentos que se necesiten para presentar a las cortes.`,
+  "fop descr": [
+    `Introduzca su información en un formulario web y `,
+    `nosotros generamos los documentos`,
+    ` que se necesiten para presentar a las cortes.`,
+  ],
 
   // footer
   "home page": "Página de inico",

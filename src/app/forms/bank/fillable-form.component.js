@@ -4,27 +4,46 @@ import {lightGray} from 'src/styleguide.js'
 import {Link} from 'react-router-dom'
 
 export default class FillableForm extends React.Component {
+  rootEl = React.createRef()
   render() {
     return (
       <Scoped css={css}>
-        <Link to={this.props.appLink} className="link">
-          <div className="fillable-form">
+        <div className="fillable-form" ref={this.rootEl}>
+          <div className="details">
+            <div>
+              <h4 className="name">
+                {this.props.name}
+              </h4>
+              <div>
+                {this.props.shortDescription}
+                <div className="raw-form">
+                  <a href={this.props.downloadUrl} target="_blank">
+                    Download raw form
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="links">
+              <Link to={this.props.appUrl}>
+                <button className="primary">
+                  Fill out form
+                </button>
+              </Link>
+            </div>
+          </div>
+          <div className="summary">
             <img className="preview-thumbnail" src={this.props.previewUrls[0]} />
             <div className="name">
               {this.props.name}
             </div>
           </div>
-        </Link>
+        </div>
       </Scoped>
     )
   }
 }
 
 const css = `
-  & .link {
-    text-decoration: none;
-  }
-
   & .fillable-form {
     display: flex;
     flex-direction: column;
@@ -32,11 +51,12 @@ const css = `
     align-items: center;
     width: 182rem;
     min-height: 285rem;
-    cursor: pointer;
+    max-height: 285rem;
     background-color: ${lightGray};
     padding: 6rem;
     border-radius: 3rem;
     margin-right: 32rem;
+    margin-bottom: 32rem;
   }
 
   & .fillable-form:hover {
@@ -54,5 +74,34 @@ const css = `
   & .name {
     text-align: center;
     padding: 8rem;
+    margin: 0;
+  }
+
+  & .fillable-form:hover .summary, & .fillable-form:focus .summary {
+    display: none;
+  }
+
+  & .fillable-form:hover .details, & .fillable-form:focus .details {
+    display: flex;
+  }
+
+  & .details {
+    visibility: none;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 273rem;
+    padding-bottom: 12rem;
+    text-align: center;
+  }
+
+  & .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .raw-form {
+    margin: 8rem 0;
   }
 `

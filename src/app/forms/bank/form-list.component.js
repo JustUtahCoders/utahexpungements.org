@@ -28,7 +28,8 @@ export default class FormList extends React.Component {
             <FillableForm
               name="Application for Expungement of Adult Criminal History"
               keywords="application certificate eligibility"
-              appLink={this.props.match.url + '/adult-coe-form'}
+              shortDescription={__("app for coe short descr")}
+              appUrl={this.props.match.url + '/adult-coe-form'}
               downloadUrl="https://bci.utah.gov/wp-content/uploads/sites/15/2018/07/Exp-App-7-2018.pdf"
               previewUrls={[
                 '/static/forms/application-for-coe/Exp-App-7-2018-1.png',
@@ -38,7 +39,8 @@ export default class FormList extends React.Component {
             <FillableForm
               name={__("petition conviction name")}
               keywords="petition conviction"
-              appLink={this.props.match.url + '/petition-for-conviction'}
+              shortDescription={__("petition conviction short descr")}
+              appUrl={this.props.match.url + '/petition-for-conviction'}
               downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-conviction.pdf"
               previewUrls={[
                 '/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-1.png',
@@ -61,6 +63,11 @@ const css = `
   & .forms-list {
     margin-top: 24rem;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: -32rem;
+    margin-bottom: -32rem;
   }
 `
 

@@ -44,11 +44,4 @@ const css = `
     display: flex;
     flex-direction: column;
   }
-
-  & .text-input label {
-  }
-
-  & .text-input input {
-    width: 200rem;
-  }
 `
