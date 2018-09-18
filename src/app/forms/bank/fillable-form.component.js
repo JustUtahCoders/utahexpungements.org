@@ -5,13 +5,10 @@ import {Link} from 'react-router-dom'
 
 export default class FillableForm extends React.Component {
   rootEl = React.createRef()
-  state = {
-    showDetails: false,
-  }
   render() {
     return (
       <Scoped css={css}>
-        <div className="fillable-form" onClick={this.openDetails} aria-label={__("click for form details")} tabIndex={0} role="button" onKeyPress={this.openDetails} ref={this.rootEl}>
+        <div className="fillable-form" ref={this.rootEl}>
           <div className="details">
             <div>
               <h4 className="name">
@@ -19,14 +16,14 @@ export default class FillableForm extends React.Component {
               </h4>
               <div>
                 {this.props.shortDescription}
+                <div className="raw-form">
+                  <a href={this.props.downloadUrl} target="_blank">
+                    Download raw form
+                  </a>
+                </div>
               </div>
             </div>
             <div className="links">
-              <div className="raw-form">
-                <a href={this.props.downloadUrl} target="_blank">
-                  Raw form
-                </a>
-              </div>
               <Link to={this.props.appUrl}>
                 <button className="primary">
                   Fill out form
@@ -43,23 +40,6 @@ export default class FillableForm extends React.Component {
         </div>
       </Scoped>
     )
-  }
-  componentWillUnmount() {
-    if (this.state.showDetails) {
-      document.removeEventListener('click', this.closeDetails)
-    }
-  }
-  openDetails = (evt) => {
-    if (!evt.key || evt.key === 'Enter' || evt.key === 'Space') {
-      document.addEventListener('click', this.closeDetails)
-      this.setState({showDetails: true})
-    }
-  }
-  closeDetails = evt => {
-    if (!evt || !this.rootEl.current.contains(evt.target)) {
-      document.removeEventListener('click', this.closeDetails)
-      this.setState({showDetails: false})
-    }
   }
 }
 
@@ -111,7 +91,7 @@ const css = `
     flex-direction: column;
     justify-content: space-between;
     height: 273rem;
-    padding-bottom: 6rem;
+    padding-bottom: 12rem;
     text-align: center;
   }
 
@@ -122,6 +102,6 @@ const css = `
   }
 
   & .raw-form {
-    margin-bottom: 8rem;
+    margin: 8rem 0;
   }
 `

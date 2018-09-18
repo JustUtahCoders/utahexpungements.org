@@ -15,6 +15,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -37,5 +38,11 @@
     "react-dom": "^16.4.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1"
-  }
+  },
+  "browserslist": [
+    "Safari >= 10",
+    "Edge >= 14",
+    "last 5 Chrome versions",
+    "last 5 Firefox versions"
+  ]
 }

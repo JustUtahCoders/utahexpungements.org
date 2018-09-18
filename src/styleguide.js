@@ -16,6 +16,7 @@ export const boxShadow2 = `0 10px 40px -24px #393b3f`
 export const boxShadow3 = `0 16px 50px -24px #212224`
 export const semiTransparentGray = `rgba(171, 155, 150, 0.9)`
 export const lightGray = `#D3D3D3`
+export const darkGray = `#afafaf`
 export const fontFamily = `'Roboto Condensed', sans-serif`
 
 export default `
@@ -118,11 +119,7 @@ export default `
   }
 
   & .web-form-input {
-    margin: 24rem 0;
-  }
-
-  & .web-form-input label {
-    width: 100rem;
+    margin: 24rem 0 0 32rem;
   }
 
   & button:disabled, & button:disabled:hover {

@@ -1,5 +1,5 @@
 import {auth} from '../firebase'
-import AuthUserContext from '../auth-user.component.js'
+import AppContext from '../app-context.component.js'
 import React from 'react'
 import {Scoped, a, t} from 'kremling'
 import {darkPrimary, navbarHeight, secondary, boxShadow3, darkSecondary, mediaMobile, mediaDesktop} from 'src/styleguide.js'
@@ -8,13 +8,13 @@ import {Link} from 'react-router-dom'
 export default class MenuItems extends React.Component {
   render() {
     return (
-      <AuthUserContext.Consumer>
-        {authUser =>
+      <AppContext.Consumer>
+        {context =>
           <Scoped css={css}>
             <nav className={a("side-menu").m('off-screen', !this.props.visible)}>
               <ul className={a("menu-items")}>
-                {this.authSection(authUser)}
-                {authUser && this.createLink('/app/dashboard', 'Dashboard')}
+                {this.authSection(context)}
+                {context.authUser && this.createLink('/app/dashboard', 'Dashboard')}
                 {this.createLink('/', 'Home')}
                 {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Ask a question')}
                 {this.createLink('/app/forms', 'Forms')}
@@ -29,7 +29,7 @@ export default class MenuItems extends React.Component {
             </nav>
           </Scoped>
         }
-      </AuthUserContext.Consumer>
+      </AppContext.Consumer>
     )
   }
   createLink = (url, text) => {
@@ -50,13 +50,20 @@ export default class MenuItems extends React.Component {
       </a>
     )
   }
-  authSection = authUser => {
+  authSection = context => {
+    const { authUser, activeCase, activePerson } = context
     return (
       <div className="auth-section">
         {authUser ? (
           <div>
             Welcome {authUser.email}.{' '}
             <a href="" onClick={this.logout}>Logout</a>
+            {activeCase &&
+              <p>
+                You are working on case <strong>{activeCase.name}</strong> for <strong>{activePerson.name}</strong>.{' '}
+                <Link to="/app/dashboard">Choose a different case</Link>.
+              </p>
+            }
           </div>
         ) : (
           <div>
@@ -74,6 +81,7 @@ export default class MenuItems extends React.Component {
   }
   logout = () => {
     auth.doSignOut()
+    window.location = "/"
   }
   subItem = (url, text) => {
     return (

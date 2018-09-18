@@ -11,28 +11,28 @@ export default class PetitionForConviction_Pdf extends React.Component {
         <RenderPage url="/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-1.png">
           <Scoped css={css}>
             <div className="name">
-              {`${renderData('firstName')} ${renderData('middleName')} ${renderData('lastName')}`}
+              {`${renderData('person.firstName')} ${renderData('person.middleName')} ${renderData('person.lastName')}`}
             </div>
-            {this.formItem('addressStreet')}
+            {this.formItem('person.addressStreet')}
             <div className="lineAddress">
-              {`${renderData('addressCity')} ${renderData('addressState')} ${renderData('addressZip')}`}
+              {`${renderData('person.addressCity')} ${renderData('person.addressState')} ${renderData('person.addressZip')}`}
             </div>
-            {this.formItem('dayPhone')}
-            {this.formItem('email')}
-            {this.checkMark('petitionerRepresentative', data.petitionerRepresentative === 'petitioner', 'petitioner')}
-            {this.checkMark('petitionerRepresentative', data.petitionerRepresentative === 'attorney', 'attorney')}
-            {this.formItem('barNumber')}
+            {this.formItem('person.dayPhone')}
+            {this.formItem('person.email')}
+            {this.checkMark('person.petitionerRepresentative', data.petitionerRepresentative === 'petitioner', 'petitioner')}
+            {this.checkMark('person.petitionerRepresentative', data.petitionerRepresentative === 'attorney', 'attorney')}
+            {this.formItem('person.barNumber')}
             <div className="addressCourt">
-              {`${renderData('addressCourtStreet')}, ${renderData('addressCourtCity')}, ${renderData('addressCourtState')} ${renderData('addressCourtZip')}`}
+              {`${renderData('case.addressCourtStreet')}, ${renderData('case.addressCourtCity')}, ${renderData('case.addressCourtState')} ${renderData('case.addressCourtZip')}`}
             </div>
             <div className="petitionerName">
-              {`${renderData('firstName')} ${renderData('middleName')} ${renderData('lastName')}`}
+              {`${renderData('person.firstName')} ${renderData('person.middleName')} ${renderData('person.lastName')}`}
             </div>
-            {this.formItem('caseNumber')}
-            {this.formItem('judgeName')}
+            {this.formItem('case.caseNumber')}
+            {this.formItem('case.judgeName')}
             <div className="caseNumberConviction">
               {/* This is wrapped in a div because it shares data , but needs own styles */}
-              {`${renderData('caseNumber')}`}
+              {`${renderData('case.caseNumber')}`}
             </div>
           </Scoped>
         </RenderPage>

@@ -1,10 +1,21 @@
 import React from 'react'
 import {Scoped} from 'kremling'
+import {get} from 'lodash'
 import {govtWebFormVerticalRhythm} from 'src/styleguide.js'
 
 export default class TextInput extends React.Component {
   state = {
-    value: this.props.data[this.props.dataKey]
+    value: get(this.props.data, this.props.dataKey)
+  }
+  componentDidUpdate(prevProps) {
+    // Update for context changes
+    const prevContextValue = get(prevProps.data, prevProps.dataKey)
+    const newContextValue = get(this.props.data, this.props.dataKey)
+    if (prevContextValue !== newContextValue) {
+      this.setState({
+        value: newContextValue
+      })
+    }
   }
   render() {
     return (
@@ -32,12 +43,5 @@ const css = `
   & .text-input {
     display: flex;
     flex-direction: column;
-  }
-
-  & .text-input label {
-  }
-
-  & .text-input input {
-    width: 200rem;
   }
 `

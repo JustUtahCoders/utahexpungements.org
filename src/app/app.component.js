@@ -12,7 +12,7 @@ import Dashboard from './user/dashboard.component.js'
 import AboutUs from './user/about-us.component.js'
 import Footer from 'src/footer/footer.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
-import {mediaDesktop, mediaMobile} from 'src/styleguide.js'
+import {mediaDesktop, mediaMobile, darkGray, lightGray} from 'src/styleguide.js'
 import FormBank from './forms/bank/form-bank.component.js'
 
 export default class App extends React.Component {
@@ -110,7 +110,8 @@ export const css = `
   & .main-content {
     width: 75vw;
     max-width: 936rem;
-    margin: 48rem 0;
+    margin: 16rem 0;
     padding: 32rem;
+    border: 1rem solid ${darkGray};
   }
 `
