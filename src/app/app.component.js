@@ -19,7 +19,6 @@ import AppContext from 'src/app-context.component.js'
 
 export default class App extends React.Component {
   render() {
-    console.log('this is this.props.match.url', this.props.match.url)
     return (
       <Scoped css={css}>
         <div>

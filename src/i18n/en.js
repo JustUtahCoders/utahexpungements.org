@@ -59,6 +59,10 @@ const translations = {
 
   // form bank
   "click for form details": "Click for form details",
+
+  // motion to waive fees
+  "motion to waive fees name": "Motion to Waive Fees",
+  "motion to waive fees short descr": "This form can be filed with other forms to request that the court remove the fees for filing a form.",
 }
 
 window.__ = function(name) {
