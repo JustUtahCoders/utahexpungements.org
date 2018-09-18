@@ -14,17 +14,17 @@ export default class MenuItems extends React.Component {
             <nav className={a("side-menu").m('off-screen', !this.props.visible)}>
               <ul className={a("menu-items")}>
                 {this.authSection(context)}
-                {context.authUser && this.createLink('/app/dashboard', 'Dashboard')}
-                {this.createLink('/', 'Home')}
-                {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'Ask a question')}
-                {this.createLink('/app/forms', 'Forms')}
-                {this.createLink('/app', 'Expungement tool')}
-                {this.subItem('/app/expungements-overview', 'Overview')}
-                {this.subItem('/app/are-you-eligible', 'Step 1: Are you eligible?')}
-                {this.subItem('/app/certificate-of-eligibility', 'Step 2: Certificate of Eligibility')}
-                {this.subItem('/app/file-petition', 'Step 3: File Petition')}
-                {this.subItem('/app/serve-petition', 'Step 4: Serve Petition')}
-                {this.createLink('/app/about-us', 'About us')}
+                {context.authUser && this.createLink('/app/dashboard', 'menu item - dashboard')}
+                {this.createLink('/', 'menu item - home')}
+                {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'menu item - ask a question')}
+                {this.createLink('/app/forms', 'menu item - forms')}
+                {this.createLink('/app', 'menu item - tool')}
+                {this.subItem('/app/expungements-overview', 'menu item - overview')}
+                {this.subItem('/app/are-you-eligible', 'menu item - step 1')}
+                {this.subItem('/app/certificate-of-eligibility', 'menu item - step 2')}
+                {this.subItem('/app/file-petition', 'menu item - step 3')}
+                {this.subItem('/app/serve-petition', 'menu item - step 4')}
+                {this.createLink('/app/about-us', 'menu item - about')}
               </ul>
             </nav>
           </Scoped>
@@ -32,20 +32,20 @@ export default class MenuItems extends React.Component {
       </AppContext.Consumer>
     )
   }
-  createLink = (url, text) => {
+  createLink = (url, stringId) => {
     return (
       <Link to={url} className="menu-item">
         <li>
-          {text}
+          {__(stringId)}
         </li>
       </Link>
     )
   }
-  createExternalLink = (url, text) => {
+  createExternalLink = (url, stringId) => {
     return (
       <a href={url} className="menu-item" target="_blank">
         <li>
-          {text}
+          {__(stringId)}
         </li>
       </a>
     )
@@ -83,11 +83,11 @@ export default class MenuItems extends React.Component {
     auth.doSignOut()
     window.location = "/"
   }
-  subItem = (url, text) => {
+  subItem = (url, stringId) => {
     return (
       <Link to={url} className="menu-item sub-item">
         <li>
-          {text}
+          {__(stringId)}
         </li>
       </Link>
     )

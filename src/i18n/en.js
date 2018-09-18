@@ -29,12 +29,26 @@ const translations = {
     ` you'll need to file with the courts.`,
   ],
 
+  // menu items
+  "menu item - dashboard": "Dashboard",
+  "menu item - home": "Home",
+  "menu item - ask a question": "Ask a question",
+  "menu item - forms" : "Forms",
+  "menu item - tool": "Expungement tool",
+  "menu item - overview": "Overview",
+  "menu item - step 1": "Step 1: Are you eligible?",
+  "menu item - step 2": "Step 2: Certificate of Eligibility",
+  "menu item - step 3": "Step 3: File Petition",
+  "menu item - step 4": "Step 4: Serve Petition",
+  "menu item - about": "About us",
+
   // footer
   "home page": "Home",
   "what is expg": "What is an expungement?",
   "ask a question": "Ask a question",
   "about us": "About us",
   "report problem": "Report a problem",
+  "cover image credit": "Cover image",
 
   // application for coe form
   "app for coe short descr": "This form requests a certificate that can be used to petition for an expungement.",

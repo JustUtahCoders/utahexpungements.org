@@ -45,7 +45,7 @@ export default class Footer extends React.Component {
             </ul>
           </div>
           <div className="attribution">
-            Cover image &copy; <a href="http://bretlittle.com">Bret Little</a> 2018
+            {__("cover image credit")} &copy; <a href="http://bretlittle.com">Bret Little</a> 2018
           </div>
         </div>
       </Scoped>
