@@ -14,6 +14,8 @@ import Footer from 'src/footer/footer.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
 import {mediaDesktop, mediaMobile, darkGray, lightGray} from 'src/styleguide.js'
 import FormBank from './forms/bank/form-bank.component.js'
+import DataContainer from './forms/data-container.component.js'
+import AppContext from 'src/app-context.component.js'
 
 export default class App extends React.Component {
   render() {
@@ -26,51 +28,57 @@ export default class App extends React.Component {
             <div style={{ padding: '20px', paddingBottom: '211px' }}>
               <div className="app breadcrumb-margin-top" >
                 <div className="card main-content" >
-                  <Route
-                    path={this.props.match.url}
-                    exact
-                    render={() => <Redirect to={this.props.match.url + '/expungements-overview'} />}
-                  />
-                  <Route
-                    path={this.props.match.url + '/expungements-overview'}
-                    component={Overview}
-                  />
-                  <Route
-                    path={this.props.match.url + '/are-you-eligible'}
-                    component={ScreeningTool}
-                  />
-                  <Route
-                    path={this.props.match.url + '/certificate-of-eligibility'}
-                    component={CertificateOfEligibility}
-                  />
-                  <Route
-                    path={this.props.match.url + '/file-petition'}
-                    component={FilePetition}
-                  />
-                  <Route
-                    path={this.props.match.url + '/serve-petition'}
-                    component={ServePetition}
-                  />
-                  <Route
-                    path={this.props.match.url + '/forms'}
-                    component={FormBank}
-                  />
-                  <Route
-                    path={this.props.match.url + '/sign-up'}
-                    component={SignUp}
-                  />
-                  <Route
-                    path={this.props.match.url + '/login'}
-                    component={Login}
-                  />
-                  <Route
-                    path={this.props.match.url + '/dashboard'}
-                    component={Dashboard}
-                  />
-                  <Route
-                    path={this.props.match.url + '/about-us'}
-                    component={AboutUs}
-                  />
+                  <AppContext.Consumer>
+                    {authContext =>
+                      <DataContainer authContext={authContext}>
+                        <Route
+                          path={this.props.match.url}
+                          exact
+                          render={() => <Redirect to={this.props.match.url + '/expungements-overview'} />}
+                        />
+                        <Route
+                          path={this.props.match.url + '/expungements-overview'}
+                          component={Overview}
+                        />
+                        <Route
+                          path={this.props.match.url + '/are-you-eligible'}
+                          component={ScreeningTool}
+                        />
+                        <Route
+                          path={this.props.match.url + '/certificate-of-eligibility'}
+                          component={CertificateOfEligibility}
+                        />
+                        <Route
+                          path={this.props.match.url + '/file-petition'}
+                          component={FilePetition}
+                        />
+                        <Route
+                          path={this.props.match.url + '/serve-petition'}
+                          component={ServePetition}
+                        />
+                        <Route
+                          path={this.props.match.url + '/forms'}
+                          component={FormBank}
+                        />
+                        <Route
+                          path={this.props.match.url + '/sign-up'}
+                          component={SignUp}
+                        />
+                        <Route
+                          path={this.props.match.url + '/login'}
+                          component={Login}
+                        />
+                        <Route
+                          path={this.props.match.url + '/dashboard'}
+                          component={Dashboard}
+                        />
+                        <Route
+                          path={this.props.match.url + '/about-us'}
+                          component={AboutUs}
+                        />
+                      </DataContainer>
+                    }
+                  </AppContext.Consumer>
                 </div>
               </div>
             </div>

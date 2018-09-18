@@ -2,41 +2,51 @@ import React from 'react'
 import { isEmpty, isEqual, get, set } from 'lodash'
 import { database } from '../../firebase'
 
+export const DataContainerContext = React.createContext()
+
 export default class DataContainer extends React.Component {
   state = {}
 
   componentDidMount() {
-    this.loadContext(this.props.context)
+    this.loadAuthData(this.props.authContext)
   }
 
   componentDidUpdate(prevProps) {
-    this.loadContext(this.props.context, prevProps.context)
+    this.loadAuthData(this.props.authContext, prevProps.authContext)
   }
 
-  loadContext = (newContext, prevContext = {}) => {
-    if (!isEqual(newContext, prevContext)) {
+  loadAuthData = (newAuthContext, prevAuthContext = {}) => {
+    if (!isEqual(newAuthContext, prevAuthContext)) {
       this.setState({
-        person: get(newContext, 'activePerson.data'),
-        case: get(newContext, 'activeCase.data'),
+        person: get(newAuthContext, 'activePerson.data'),
+        case: get(newAuthContext, 'activeCase.data'),
       })
     }
   }
 
-  componentWillUnmount() {
-    // Persist data
-    const { context } = this.props
-    if (context.authUser && context.activePerson && context.activeCase) {
-      database.persistFormData(context.activePerson.id, context.activeCase.id, this.state)
-    }
-  }
-
   render() {
-    return this.props.children({data: this.state, renderData: this.renderData, setData: this.setData})
+    const dataContainerContext = {data: this.state, renderData: this.renderData, setData: this.setData}
+    return (
+      <DataContainerContext.Provider value={dataContainerContext}>
+        {this.props.children}
+      </DataContainerContext.Provider>
+    )
   }
 
   setData = (key, value) => {
     this.setState(prevState => {
       return set(prevState, key, value)
+    }, () => {
+      const databaseUpdate = set({}, key, value)
+
+      const { authContext } = this.props
+      if (authContext.authUser && authContext.activePerson && authContext.activeCase) {
+        database
+          .persistFormData(authContext.activePerson.id, authContext.activeCase.id, databaseUpdate)
+          .catch(err => {
+            console.error(err)
+          })
+      }
     })
   }
 

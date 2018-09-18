@@ -1,32 +1,29 @@
 import React from 'react'
-import DataContainer from '../forms/data-container.component.js'
-import AppContext from '../../app-context.component.js'
+import {DataContainerContext} from '../forms/data-container.component.js'
 import {Scoped} from 'kremling'
 import {darkGray, lightGray} from 'src/styleguide.js'
 
 export default class GovernmentForm extends React.Component {
   render() {
     return (
-      <AppContext.Consumer>
-        {context =>
-          <DataContainer context={context}>
-            {props => (
-              <Scoped css={css}>
-                <div className="header">
-                  <div className="expungement-form">
-                    Expungement Form:
-                  </div>
-                  <div>
-                    {this.props.name}
-                  </div>
-                </div>
-                <this.props.WebForm {...props} />
-                <this.props.PdfForm {...props} />
-              </Scoped>
-            )}
-          </DataContainer>
-        }
-      </AppContext.Consumer>
+      <Scoped css={css}>
+        <div className="header">
+          <div className="expungement-form">
+            Expungement Form:
+          </div>
+          <div>
+            {this.props.name}
+          </div>
+        </div>
+        <DataContainerContext.Consumer>
+          {dataProps => (
+            <>
+              <this.props.WebForm {...dataProps} />
+              <this.props.PdfForm {...dataProps} />
+            </>
+          )}
+        </DataContainerContext.Consumer>
+      </Scoped>
     )
   }
 }

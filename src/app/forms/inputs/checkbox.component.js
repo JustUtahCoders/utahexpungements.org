@@ -28,7 +28,7 @@ export default class Checkbox extends React.Component {
 }
 
 const css = `
-  .checkbox {
+  & .checkbox {
     margin-left: 32rem;
   }
 `
