@@ -24,7 +24,7 @@ export default class MenuItems extends React.Component {
                 {this.subItem('/app/certificate-of-eligibility', 'Step 2: Certificate of Eligibility')}
                 {this.subItem('/app/file-petition', 'Step 3: File Petition')}
                 {this.subItem('/app/serve-petition', 'Step 4: Serve Petition')}
-                {this.createLink('/about-us', 'About us')}
+                {this.createLink('/app/about-us', 'About us')}
               </ul>
             </nav>
           </Scoped>

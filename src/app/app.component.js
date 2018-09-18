@@ -9,6 +9,7 @@ import ServePetition from './serve-petition/serve-petition.component.js'
 import Login from './user/login.component.js'
 import SignUp from './user/sign-up.component.js'
 import Dashboard from './user/dashboard.component.js'
+import AboutUs from './user/about-us.component.js'
 import Footer from 'src/footer/footer.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
 import {mediaDesktop, mediaMobile} from 'src/styleguide.js'
@@ -16,6 +17,7 @@ import FormBank from './forms/bank/form-bank.component.js'
 
 export default class App extends React.Component {
   render() {
+    console.log('this is this.props.match.url', this.props.match.url)
     return (
       <Scoped css={css}>
         <div>
@@ -64,6 +66,10 @@ export default class App extends React.Component {
                   <Route
                     path={this.props.match.url + '/dashboard'}
                     component={Dashboard}
+                  />
+                  <Route
+                    path={this.props.match.url + '/about-us'}
+                    component={AboutUs}
                   />
                 </div>
               </div>
