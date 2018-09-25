@@ -1,4 +1,6 @@
 import React from 'react'
+import moment from 'moment';
+
 import RenderPage from '../render-page.component.js'
 import {Scoped} from 'kremling'
 
@@ -34,27 +36,41 @@ export default class PetitionForConviction_Pdf extends React.Component {
               {/* This is wrapped in a div because it shares data , but needs own styles */}
               {`${renderData('case.caseNumber')}`}
             </div>
+            {this.formItem('case.publicInterest')}
           </Scoped>
         </RenderPage>
         <RenderPage url="/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-2.png">
+          <Scoped css={css}>
+
+            <div className="todaysDate">
+              {moment().format('MM DD YYY')}
+            </div>
+            <div className="printedName">
+              {`${renderData('person.firstName')} ${renderData('person.middleName')} ${renderData('person.lastName')}`}
+            </div>
+          </Scoped>
         </RenderPage>
       </>
     )
   }
+
   formItem = dataKey => {
+    const index = dataKey.indexOf('.');    
+    const trimmedName = dataKey.substring(index + 1);
     return (
-      <div className={dataKey}>
+      <div className={trimmedName}>
         {this.props.renderData(dataKey)}
       </div>
     )
   }
+
   checkMark = (dataKey, isChecked, className=dataKey) => {
     if (isChecked) {
       return (
         <div className={className}>
           {'\u2714'}
         </div>
-      )
+      ) 
     } else {
       return null;
     }
@@ -129,6 +145,25 @@ const css = `
   & .caseNumberConviction {
     left: 17.4%;
     top: 65.8%;
+  }
+
+  & .publicInterest {
+    left: 17.4%;
+    top: 79%;
+    width: 74%;
+    height: 15%;
+    line-height: 30px;
+    overflow-y: hidden;
+  }
+
+  & .printedName {
+    left: 54.4%;
+    top: 39.7%;
+  }
+
+  & .todaysDate {
+    left: 10.9%;
+    top: 36.7%;
   }
 
 `

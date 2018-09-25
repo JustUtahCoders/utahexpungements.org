@@ -1,6 +1,7 @@
 import React from 'react'
 import FormThatPrints from '../inputs/form-that-prints.component.js'
 import TextInput from '../inputs/text-input.component.js'
+import TextArea from '../inputs/text-area.component.js'
 import Select from '../inputs/select.component.js'
 
 const petitionerRepresentativeOptions = [
@@ -32,6 +33,7 @@ export default class PetitionForConviction_Web extends React.Component {
         <TextInput dataKey="case.addressCourtZip" label="Court Address Zip" {...this.props} />
         <TextInput dataKey="case.caseNumber" label="Case Number" {...this.props} />
         <TextInput dataKey="case.judgeName" label="Judge Full Name" {...this.props} />
+        <TextArea dataKey="case.publicInterest" label="Explain why expunging this crime is not contrary to the public's interest" {...this.props} />
       </FormThatPrints>
     )
   }

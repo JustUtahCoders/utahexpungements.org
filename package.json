@@ -34,6 +34,7 @@
     "firebase": "^5.4.0",
     "fuse.js": "^3.2.1",
     "kremling": "^1.0.4",
+    "moment": "^2.22.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-router": "^4.3.1",
