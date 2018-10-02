@@ -1,4 +1,5 @@
 import React from 'react'
+import {Scoped} from 'kremling'
 
 export default class Select extends React.Component {
   state = {
@@ -6,19 +7,23 @@ export default class Select extends React.Component {
   }
   render() {
     return (
-      <div>
-        {this.props.label}
-        <select value={this.state.value} onChange={this.handleChange}>
-          <option value="nothingSelected">
-            Please select an option
-          </option>
-          {this.props.options.map(option => (
-            <option key={option.value} value={option.value}>
-              {option.label}
+      <Scoped css={css}>
+        <div>
+          <div className="select-label">
+            {this.props.label}
+          </div>
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="nothingSelected">
+              Please select an option
             </option>
-          ))}
-        </select>
-      </div>
+            {this.props.options.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </Scoped>
     )
   }
   handleChange = evt => {
@@ -28,3 +33,9 @@ export default class Select extends React.Component {
     })
   }
 }
+
+const css = `
+  & .select-label {
+    margin-bottom: 8rem;
+  }
+`

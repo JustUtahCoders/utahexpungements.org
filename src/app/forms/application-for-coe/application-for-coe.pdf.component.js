@@ -1,6 +1,7 @@
 import React from 'react'
 import RenderPage from '../render-page.component.js'
 import {Scoped, a, m} from 'kremling'
+import {getClassName} from '../pdf-rendering/data-key.helpers.js'
 
 export default class ApplicationForCOE_Pdf extends React.Component {
   render() {
@@ -52,24 +53,20 @@ export default class ApplicationForCOE_Pdf extends React.Component {
     )
   }
   formItem = name => (
-    <div className={this.getClassName(name)}>
+    <div className={getClassname(name)}>
       {this.props.renderData(name)}
     </div>
   )
   checkMark = (name, shouldShow) => {
     if (shouldShow) {
       return (
-        <div className={this.getClassName(name)}>
+        <div className={getClassname(name)}>
           {'\u2714'}
         </div>
       )
     } else {
       return null
     }
-  }
-  getClassName = (name) => {
-    const splitByPeriod = name.split('.')
-    return splitByPeriod.length > 0 ? splitByPeriod[splitByPeriod.length - 1] : name
   }
   creditCardInfo = () => {
     const cardNumber = this.props.data.cardNumber || ''

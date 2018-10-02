@@ -5,7 +5,10 @@ import { database } from '../../firebase'
 export const DataContainerContext = React.createContext()
 
 export default class DataContainer extends React.Component {
-  state = {}
+  state = {
+    person: {},
+    case: {},
+  }
 
   componentDidMount() {
     this.loadAuthData(this.props.authContext)
@@ -18,8 +21,8 @@ export default class DataContainer extends React.Component {
   loadAuthData = (newAuthContext, prevAuthContext = {}) => {
     if (!isEqual(newAuthContext, prevAuthContext)) {
       this.setState({
-        person: get(newAuthContext, 'activePerson.data'),
-        case: get(newAuthContext, 'activeCase.data'),
+        person: get(newAuthContext, 'activePerson.data', {}),
+        case: get(newAuthContext, 'activeCase.data', {}),
       })
     }
   }

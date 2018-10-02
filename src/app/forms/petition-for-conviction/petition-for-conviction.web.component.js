@@ -24,7 +24,7 @@ export default class PetitionForConviction_Web extends React.Component {
         <TextInput dataKey="person.email" label={__("email address")} {...this.props} />
         <Select dataKey="person.petitionerRepresentative" label={__("are you filling this out for yourself")} options={petitionerRepresentativeOptions} {...this.props} />
         {this.props.data.petitionerRepresentative === 'attorney' &&
-          <TextInput dataKey="person.barNumber" label="What is your Utah Bar number?" {...this.props} />
+          <TextInput dataKey="person.petitionerBarNumber" label="What is your Utah Bar number?" {...this.props} />
         }
         {/* TODO: Add in fields for the District, Justice Court, County and Judicial Court , needs clarity on particular data*/}
         <TextInput dataKey="case.addressCourtStreet" label={__("court address street")} {...this.props} />

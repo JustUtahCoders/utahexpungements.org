@@ -52,6 +52,8 @@ const translations = {
 
   // application for coe form
   "app for coe short descr": "This form requests a certificate that can be used to petition for an expungement.",
+  "is traffic expungement": "Is this a traffic expungement?",
+  "is acquittal expungement": "Is this expungement for an acquittal or dismissal?",
 
   // petition conviction form
   "petition conviction name": "Petition to Expunge Records (Conviction)",
@@ -68,12 +70,19 @@ const translations = {
   "first name": "First Name",
   "last name": "Last Name",
   "middle name": "Middle Name",
+  "previously used names": "Previously used names",
+  "birthday": "Birthday",
   "street": "Street Address",
   "city": "City",
   "state": "State",
   "zip": "Zip Code",
   "phone": "Phone Number",
   "email address": "Email Address",
+  "social security number": "Social security number",
+  "drivers license #": "Drivers license number",
+  "drivers license state": "Drivers license state",
+  "home phone": "Home phone",
+  "day phone": "Day phone",
   "court address street": "Court Address Street",
   "court address city": "Court Address City",
   "court address state": "Court Address State",
@@ -88,6 +97,9 @@ const translations = {
   // app for coe no fees form
   "app for coe no fees": "Application for Certificate of Eligibility (No Fees)",
   "app for coe no fees short descr": "A special version of the Application for Certificate of Eligibility Form. You should only use this if instructed by a government representative",
+  "coe recipient explanation": "Would you like to send your certificate of eligibility to someone else's address?",
+  "coe recipient name": "What is the name of the person you'd like to send the Certificate of Eligibility documents to?",
+  "coe recipient agency": "What is the name of the agency they work for? (If applicable)",
 }
 
 window.__ = function(name) {

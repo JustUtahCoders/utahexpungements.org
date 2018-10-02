@@ -25,24 +25,24 @@ export default class ApplicationForCOE_Web extends React.Component {
       <Scoped css={css}>
         <FormThatPrints>
           <Section name="1. Personal information">
-            <TextInput dataKey="person.firstName" label="First name" {...this.props} />
-            <TextInput dataKey="person.middleName" label="Middle name" {...this.props} />
-            <TextInput dataKey="person.lastName" label="Last name" {...this.props} />
-            <TextInput dataKey="person.birthday" label="Birthday" {...this.props} />
-            <TextInput dataKey="person.previouslyUsedNames" label="Previously used names" {...this.props} />
-            <TextInput dataKey="person.addressStreet" label="Street" {...this.props} />
-            <TextInput dataKey="person.addressCity" label="City" {...this.props} />
-            <TextInput dataKey="person.addressState" label="State" {...this.props} />
-            <TextInput dataKey="person.addressZip" label="Zip" {...this.props} />
-            <TextInput dataKey="person.socialSecurity" label="Social security number" {...this.props} />
-            <TextInput dataKey="person.driversLicenseNumber" label="Drivers license number" {...this.props} />
-            <TextInput dataKey="person.driversLicenseState" label="Drivers license state" {...this.props} />
-            <TextInput dataKey="person.homePhone" label="Home phone number" {...this.props} />
-            <TextInput dataKey="person.dayPhone" label="Day phone number" {...this.props} />
+            <TextInput dataKey="person.firstName" label={__("first name")} {...this.props} />
+            <TextInput dataKey="person.middleName" label={__("middle name")} {...this.props} />
+            <TextInput dataKey="person.lastName" label={__("last name")} {...this.props} />
+            <TextInput dataKey="person.birthday" label={__("birthday")} {...this.props} />
+            <TextInput dataKey="person.previouslyUsedNames" label={__("previously used names")} {...this.props} />
+            <TextInput dataKey="person.addressStreet" label={__("street")} {...this.props} />
+            <TextInput dataKey="person.addressCity" label={__("city")} {...this.props} />
+            <TextInput dataKey="person.addressState" label={__("state")} {...this.props} />
+            <TextInput dataKey="person.addressZip" label={__("zip")} {...this.props} />
+            <TextInput dataKey="person.socialSecurity" label={__("social security number")} {...this.props} />
+            <TextInput dataKey="person.driversLicenseNumber" label={__("drivers license #")} {...this.props} />
+            <TextInput dataKey="person.driversLicenseState" label={__("drivers license state")} {...this.props} />
+            <TextInput dataKey="person.homePhone" label={__("home phone")} {...this.props} />
+            <TextInput dataKey="person.dayPhone" label={__("day phone")} {...this.props} />
           </Section>
           <Section name="2. Expungement Type">
-            <Checkbox dataKey="case.isTrafficExpungement" label="Is this a traffic expungement?" {...this.props} />
-            <Checkbox dataKey="case.isAcquittalExpungement" label="Is this an acquittal?" {...this.props} />
+            <Checkbox dataKey="case.isTrafficExpungement" label={__("is traffic expungement")} {...this.props} />
+            <Checkbox dataKey="case.isAcquittalExpungement" label={__("is acquittal expungement")} {...this.props} />
           </Section>
           <Section name="3. Payment">
             <Select label="Payment method" dataKey="paymentMethod" options={paymentOptions} {...this.props} />

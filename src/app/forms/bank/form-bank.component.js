@@ -51,7 +51,7 @@ export default class FormBank extends React.Component {
           )}
         />
       <Route
-        path={this.props.match.url + '/adult-coe-no-fees'}
+        path={this.props.match.url + '/application-for-coe-no-fees'}
         render={props => (
           <GovernmentForm
             name={__("app for coe no fees")}
