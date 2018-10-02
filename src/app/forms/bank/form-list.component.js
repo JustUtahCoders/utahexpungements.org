@@ -58,6 +58,17 @@ export default class FormList extends React.Component {
                 '/static/forms/motion-to-waive-fees/01_Motion_and_Affidavit_to_Waive_Fees-2.png',
               ]}
             />
+            <FillableForm
+              name={__("petition for drug conviction")}
+              keywords="drug conviction petition"
+              shortDescription={__("petition for drug conviction short description")}
+              appUrl={this.props.match.url + '/petition-for-drug-conviction'}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-drug_possession.pdf"
+              previewUrls={[
+                '/static/forms/petition-for-drug-conviction/01_Petition_to_Expunge_Records_Criminal-drug_possession-1.png',
+                '/static/forms/petition-for-drug-conviction/01_Petition_to_Expunge_Records_Criminal-drug_possession-2.png'
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>

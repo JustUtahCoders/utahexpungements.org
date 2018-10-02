@@ -8,6 +8,8 @@ import PetitionForConviction_Web from '../petition-for-conviction/petition-for-c
 import PetitionForConviction_Pdf from '../petition-for-conviction/petition-for-conviction.pdf.component.js'
 import MotionToWaiveFees_Web from '../motion-to-waive-fees/motion-to-waive-fees.web.component.js'
 import MotionToWaiveFees_Pdf from '../motion-to-waive-fees/motion-to-waive-fees.pdf.component.js'
+import PetitionForDrugConviction_Web from '../petition-for-drug-conviction/petition-for-drug-conviction.web.component.js'
+import PetitionForDrugConviction_Pdf from '../petition-for-drug-conviction/petition-for-drug-conviction.pdf.component.js'
 
 export default class FormBank extends React.Component {
   render() {
@@ -45,6 +47,16 @@ export default class FormBank extends React.Component {
               name={__("motion to waive fees name")}
               WebForm={MotionToWaiveFees_Web}
               PdfForm={MotionToWaiveFees_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={this.props.match.url + '/petition-for-drug-conviction'}
+          render={props => (
+            <GovernmentForm
+              name={__("petition for drug conviction")}
+              WebForm={PetitionForDrugConviction_Web}
+              PdfForm={PetitionForDrugConviction_Pdf}
             />
           )}
         />

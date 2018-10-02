@@ -63,6 +63,10 @@ const translations = {
   // motion to waive fees
   "motion to waive fees name": "Motion to Waive Fees",
   "motion to waive fees short descr": "This form can be filed with other forms to request that the court remove the fees for filing a form.",
+
+  // petition for drug conviction
+  "petition for drug conviction": "Petition for Drug Conviction",
+  "petition for drug conviction short description": "This form requests a court order for expungement of a drug conviction. You must first obtain a Certificate of Eligibility before filing this form.",
 }
 
 window.__ = function(name) {
