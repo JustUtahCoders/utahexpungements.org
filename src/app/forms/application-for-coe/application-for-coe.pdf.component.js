@@ -32,9 +32,11 @@ export default class ApplicationForCOE_Pdf extends React.Component {
             {this.formItem('person.driversLicenseState')}
             {this.formItem('person.homePhone')}
             {this.formItem('person.dayPhone')}
-            {this.checkMark('case.isTrafficExpungement', data.isTrafficExpungement)}
-            {this.checkMark('case.isAcquittalExpungement', data.isAcquittalExpungement)}
-            {this.formItem('case.nameOfPetitioner')}
+            {this.checkMark('case.isTrafficExpungement', data.case && data.case.isTrafficExpungement)}
+            {this.checkMark('case.isAcquittalExpungement', data.case && data.case.isAcquittalExpungement)}
+            <div className="nameOfPetitioner">
+              {renderData('person.firstName')} {renderData('person.lastName')}
+            </div>
             {this.checkMark('check', data.paymentMethod === 'check')}
             {this.checkMark('creditCard', data.paymentMethod === 'creditCard')}
             {this.checkMark('visa', data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'visa')}
@@ -50,20 +52,24 @@ export default class ApplicationForCOE_Pdf extends React.Component {
     )
   }
   formItem = name => (
-    <div className={name}>
+    <div className={this.getClassName(name)}>
       {this.props.renderData(name)}
     </div>
   )
   checkMark = (name, shouldShow) => {
     if (shouldShow) {
       return (
-        <div className={name}>
+        <div className={this.getClassName(name)}>
           {'\u2714'}
         </div>
       )
     } else {
       return null
     }
+  }
+  getClassName = (name) => {
+    const splitByPeriod = name.split('.')
+    return splitByPeriod.length > 0 ? splitByPeriod[splitByPeriod.length - 1] : name
   }
   creditCardInfo = () => {
     const cardNumber = this.props.data.cardNumber || ''
