@@ -83,7 +83,11 @@ const translations = {
   "judge full name": "Judge Full Name",
   "case number": "Case Number",
   "are you filling this out for yourself": "Are you filling this out for yourself?",
-  "explain why expunging this crime is not contrary to the public's interest": "Explain why expunging this crime is not contrary to the public's interest"
+  "explain why expunging this crime is not contrary to the public's interest": "Explain why expunging this crime is not contrary to the public's interest",
+
+  // app for coe no fees form
+  "app for coe no fees": "Application for Certificate of Eligibility (No Fees)",
+  "app for coe no fees short descr": "A special version of the Application for Certificate of Eligibility Form. You should only use this if instructed by a government representative",
 }
 
 window.__ = function(name) {

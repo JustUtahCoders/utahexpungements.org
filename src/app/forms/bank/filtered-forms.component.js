@@ -3,13 +3,34 @@ import Fuse from 'fuse.js'
 
 export default class FilteredForms extends React.Component {
   state = {
+    unfilteredChildren: null,
     fuse: null
   }
   componentDidMount() {
-    // Doing this only once in cDM makes it so that props.children can never change.
-    // But I think that's okay for our case, and it's better for performance.
-    const reactChildren = React.Children.toArray(this.props.children)
+    this.recreateFuseSearch()
+  }
+  render() {
+    if (this.props.searchValue.length < 3) {
+      return this.state.unfilteredChildren
+    } else if (this.state.fuse) {
+      return this.state.fuse.search(this.props.searchValue)
+    } else {
+      return null
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.showIncompleteForms !== prevProps.showIncompleteForms) {
+      this.recreateFuseSearch()
+    }
+  }
+  recreateFuseSearch() {
+    const reactChildren = React
+      .Children
+      .toArray(this.props.children)
+      .filter(child => this.props.showIncompleteForms ? true : child.props.readyForUsers)
+
     this.setState({
+      unfilteredChildren: reactChildren,
       fuse: new Fuse(reactChildren, {
         caseSensitive: false,
         shouldSort: true,
@@ -23,14 +44,5 @@ export default class FilteredForms extends React.Component {
         ]
       }),
     })
-  }
-  render() {
-    if (this.props.searchValue.length < 3) {
-      return this.props.children
-    } else if (this.state.fuse) {
-      return this.state.fuse.search(this.props.searchValue)
-    } else {
-      return null
-    }
   }
 }

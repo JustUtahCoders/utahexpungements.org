@@ -6,6 +6,7 @@ import FillableForm from './fillable-form.component.js'
 export default class FormList extends React.Component {
   state = {
     searchValue: '',
+    showIncompleteForms: localStorage.getItem('show-incomplete-forms') === 'true',
   }
   render() {
     return (
@@ -23,9 +24,20 @@ export default class FormList extends React.Component {
           </p>
         </div>
         <input type="text" value={this.state.searchValue} onChange={this.updateSearch} placeholder="Search forms" />
+        <div className="under-construction">
+          <label>
+            <input
+              type="checkbox"
+              checked={this.state.showIncompleteForms}
+              onChange={this.updateShowIncomplete}
+            />
+            Show forms that are under construction and not full ready to use.
+          </label>
+        </div>
         <div className="forms-list">
-          <FilteredForms searchValue={this.state.searchValue}>
+          <FilteredForms searchValue={this.state.searchValue} showIncompleteForms={this.state.showIncompleteForms}>
             <FillableForm
+              readyForUsers={true}
               name="Application for Expungement of Adult Criminal History"
               keywords="application certificate eligibility"
               shortDescription={__("app for coe short descr")}
@@ -37,7 +49,20 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
+              name={__("app for coe no fees")}
+              readyForUsers={false}
+              keyworks="application certificate eligibility fees"
+              shortDescription={__("app for coe no fees short descr")}
+              appUrl={this.props.match.url + '/application-for-coe-no-fees'}
+              downloadUrl="/static/forms/application-for-coe-no-fees/BCI_Third_Party_Release_Form_and_Application.pdf"
+              previewUrls={[
+                '/static/forms/application-for-coe-no-fees/BCI_Third_Party_Release_Form_and_Application-1.png',
+                '/static/forms/application-for-coe-no-fees/BCI_Third_Party_Release_Form_and_Application-2.png',
+              ]}
+            />
+            <FillableForm
               name={__("petition conviction name")}
+              readyForUsers={false}
               keywords="petition conviction"
               shortDescription={__("petition conviction short descr")}
               appUrl={this.props.match.url + '/petition-for-conviction'}
@@ -49,6 +74,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("motion to waive fees name")}
+              readyForUsers={false}
               keywords="waive fees motion"
               shortDescription={__("motion to waive fees short descr")}
               appUrl={this.props.match.url + '/motion-to-waive-fees'}
@@ -68,6 +94,10 @@ export default class FormList extends React.Component {
       searchValue: evt.target.value,
     })
   }
+  updateShowIncomplete = evt => {
+    localStorage.setItem('show-incomplete-forms', evt.target.checked)
+    this.setState({showIncompleteForms: evt.target.checked})
+  }
 }
 
 const css = `
@@ -79,6 +109,10 @@ const css = `
     align-items: center;
     margin-right: -32rem;
     margin-bottom: -32rem;
+  }
+
+  & .under-construction {
+    margin: 8rem 0;
   }
 `
 
