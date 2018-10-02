@@ -43,7 +43,7 @@ export default class PetitionForConviction_Pdf extends React.Component {
           <Scoped css={css}>
 
             <div className="todaysDate">
-              {moment().format('MM DD YYY')}
+              {moment().format('L')}
             </div>
             <div className="printedName">
               {`${renderData('person.firstName')} ${renderData('person.middleName')} ${renderData('person.lastName')}`}

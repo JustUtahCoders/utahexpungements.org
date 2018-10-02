@@ -64,9 +64,32 @@ const translations = {
   "motion to waive fees name": "Motion to Waive Fees",
   "motion to waive fees short descr": "This form can be filed with other forms to request that the court remove the fees for filing a form.",
 
+<<<<<<< HEAD
   // petition for drug conviction
   "petition for drug conviction": "Petition for Drug Conviction",
   "petition for drug conviction short description": "This form requests a court order for expungement of a drug conviction. You must first obtain a Certificate of Eligibility before filing this form.",
+=======
+  // global form data
+  "first name": "First Name",
+  "last name": "Last Name",
+  "middle name": "Middle Name",
+  "street": "Street Address",
+  "city": "City",
+  "state": "State",
+  "zip": "Zip Code",
+  "phone": "Phone Number",
+  "email address": "Email Address",
+  "court address street": "Court Address Street",
+  "court address city": "Court Address City",
+  "court address state": "Court Address State",
+  "court address zip": "Court Address Zip",
+
+  // petition for conviction form
+  "judge full name": "Judge Full Name",
+  "case number": "Case Number",
+  "are you filling this out for yourself": "Are you filling this out for yourself?",
+  "explain why expunging this crime is not contrary to the public's interest": "Explain why expunging this crime is not contrary to the public's interest"
+>>>>>>> master
 }
 
 window.__ = function(name) {
