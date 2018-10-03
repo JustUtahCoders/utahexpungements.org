@@ -18,6 +18,9 @@ export default class PetitionForDrugConviction_Web extends React.Component {
             <TextInput dataKey="person.addressState" label="State" {...this.props} />
             <TextInput dataKey="person.addressZip" label="Zip" {...this.props} />
             <TextInput dataKey="person.addressZip" label="Zip" {...this.props} />
+
+            <TextInput dataKey="person.homePhone" label="Home Phone Number" {...this.props} />
+            <TextInput dataKey="person.email" label="Email" {...this.props} />
           </Section>
         </FormThatPrints>
       </Scoped>
