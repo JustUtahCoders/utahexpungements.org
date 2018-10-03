@@ -1,9 +1,10 @@
 import React from 'react'
 import {Scoped} from 'kremling'
+import {get} from 'lodash'
 
 export default class Checkbox extends React.Component {
   state = {
-    value: this.props.data[this.props.dataKey]
+    value: get(this.props.data, this.props.dataKey, false)
   }
   render() {
     return (
@@ -13,7 +14,7 @@ export default class Checkbox extends React.Component {
             <input
               type="checkbox"
               checked={this.state.value}
-              onChange={evt => this.setState({value: evt.target.value})}
+              onChange={evt => this.setState({value: evt.target.checked})}
               onBlur={this.handleBlur}
             />
             {this.props.label}

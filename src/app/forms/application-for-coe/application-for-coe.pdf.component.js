@@ -1,7 +1,8 @@
 import React from 'react'
 import RenderPage from '../render-page.component.js'
 import {Scoped, a, m} from 'kremling'
-import {getClassName} from '../pdf-rendering/data-key.helpers.js'
+import {getClassname} from '../pdf-rendering/data-key.helpers.js'
+import PositionedCheckmark from '../pdf-rendering/positioned-checkmark.component.js'
 
 export default class ApplicationForCOE_Pdf extends React.Component {
   render() {
@@ -12,41 +13,43 @@ export default class ApplicationForCOE_Pdf extends React.Component {
         <RenderPage url="/static/forms/application-for-coe/Exp-App-7-2018-1.png" />
         <RenderPage url="/static/forms/application-for-coe/Exp-App-7-2018-2.png">
           <Scoped css={css}>
-            <div className="name">
-              <div>
-                {renderData('person.lastName')}
+            <div className="page2">
+              <div className="name">
+                <div>
+                  {renderData('person.lastName')}
+                </div>
+                <div>
+                  {renderData('person.firstName')}
+                </div>
+                <div>
+                  {renderData('person.middleName')}
+                </div>
               </div>
-              <div>
-                {renderData('person.firstName')}
+              {this.formItem('person.birthday')}
+              {this.formItem('person.previouslyUsedNames')}
+              <div className="mailingAddress">
+                {`${renderData('person.addressStreet')}, ${renderData('person.addressCity')}, ${renderData('person.addressState')} ${renderData('person.addressZip')}`}
               </div>
-              <div>
-                {renderData('person.middleName')}
+              {this.formItem('person.socialSecurity')}
+              {this.formItem('person.driversLicenseNumber')}
+              {this.formItem('person.driversLicenseState')}
+              {this.formItem('person.homePhone')}
+              {this.formItem('person.dayPhone')}
+              <Checkmark dataKey="case.isTrafficExpungement" />
+              <Checkmark dataKey="case.isAcquittalExpungement" />
+              <div className="nameOfPetitioner">
+                {renderData('person.firstName')} {renderData('person.lastName')}
               </div>
+              <Checkmark className="check" shouldShow={data.paymentMethod === 'check'} />
+              <Checkmark className="creditCard" shouldShow={data.paymentMethod === 'creditCard'} />
+              <Checkmark className="visa" shouldShow={data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'visa'} />
+              <Checkmark className="mastercard" shouldShow={data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'mastercard'} />
+              <Checkmark className="discover" shouldShow={data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'discover'} />
+              <Checkmark className="amex" shouldShow={data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'amex'} />
+              {data.paymentMethod === 'creditCard' && this.creditCardInfo()}
+              {data.paymentMethod === 'creditCard' && this.formItem('nameOnCard')}
+              {data.paymentMethod === 'creditCard' && this.formItem('cardZip')}
             </div>
-            {this.formItem('person.birthday')}
-            {this.formItem('person.previouslyUsedNames')}
-            <div className="mailingAddress">
-              {`${renderData('person.addressStreet')}, ${renderData('person.addressCity')}, ${renderData('person.addressState')} ${renderData('person.addressZip')}`}
-            </div>
-            {this.formItem('person.socialSecurity')}
-            {this.formItem('person.driversLicenseNumber')}
-            {this.formItem('person.driversLicenseState')}
-            {this.formItem('person.homePhone')}
-            {this.formItem('person.dayPhone')}
-            {this.checkMark('case.isTrafficExpungement', data.case && data.case.isTrafficExpungement)}
-            {this.checkMark('case.isAcquittalExpungement', data.case && data.case.isAcquittalExpungement)}
-            <div className="nameOfPetitioner">
-              {renderData('person.firstName')} {renderData('person.lastName')}
-            </div>
-            {this.checkMark('check', data.paymentMethod === 'check')}
-            {this.checkMark('creditCard', data.paymentMethod === 'creditCard')}
-            {this.checkMark('visa', data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'visa')}
-            {this.checkMark('mastercard', data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'mastercard')}
-            {this.checkMark('discover', data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'discover')}
-            {this.checkMark('amex', data.paymentMethod === 'creditCard' && data.creditCardIssuer === 'amex')}
-            {data.paymentMethod === 'creditCard' && this.creditCardInfo()}
-            {data.paymentMethod === 'creditCard' && this.formItem('nameOnCard')}
-            {data.paymentMethod === 'creditCard' && this.formItem('cardZip')}
           </Scoped>
         </RenderPage>
       </>
@@ -237,5 +240,9 @@ const css = `
   & .nameOfPetitioner {
     left: 6.05%;
     top: 40.7%;
+  }
+
+  & .page2 {
+    position: static;
   }
 `
