@@ -23,7 +23,7 @@ export default class FormList extends React.Component {
             so that you don't have to type in the same info more than once.
           </p>
         </div>
-        <input type="text" value={this.state.searchValue} onChange={this.updateSearch} placeholder="Search forms" />
+        <input autoFocus type="text" value={this.state.searchValue} onChange={this.updateSearch} placeholder="Search forms" />
         <div className="under-construction">
           <label>
             <input
@@ -31,7 +31,7 @@ export default class FormList extends React.Component {
               checked={this.state.showIncompleteForms}
               onChange={this.updateShowIncomplete}
             />
-            Show forms that are under construction and not full ready to use.
+            {__("show forms under construction")}
           </label>
         </div>
         <div className="forms-list">

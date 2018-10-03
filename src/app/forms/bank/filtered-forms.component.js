@@ -33,8 +33,8 @@ export default class FilteredForms extends React.Component {
       unfilteredChildren: reactChildren,
       fuse: new Fuse(reactChildren, {
         caseSensitive: false,
-        shouldSort: true,
-        threshold: 0.7,
+        shouldSort: false,
+        threshold: 0.2,
         tokenize: true,
         minMatchCharLength: 3,
         maxPatternLength: 50,

@@ -61,6 +61,7 @@ const translations = {
 
   // form bank
   "click for form details": "Click for form details",
+  "show forms under construction": "Show forms that are under construction and not fully ready to use.",
 
   // motion to waive fees
   "motion to waive fees name": "Motion to Waive Fees",
