@@ -86,6 +86,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("petition for drug conviction")}
+              readyForUsers={false}
               keywords="drug conviction petition"
               shortDescription={__("petition for drug conviction short description")}
               appUrl={this.props.match.url + '/petition-for-drug-conviction'}
