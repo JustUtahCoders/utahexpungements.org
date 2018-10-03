@@ -1,6 +1,6 @@
 import { database } from './firebase'
 import context from  '../context'
-import { isEmpty, get, omitBy, isUndefined } from 'lodash'
+import {isEmpty, get, omitBy, isUndefined} from 'lodash'
 
 export const getPeople = uid =>
   database.collection('people').where('uid', '==', uid).get()

@@ -1,4 +1,4 @@
-const config = require('./webpack.config.analyze.js')
+const config = require('./webpack.config.js')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 config.mode = 'production'

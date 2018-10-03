@@ -1,5 +1,5 @@
 import React from 'react'
-import { isEmpty, isEqual, get, set } from 'lodash'
+import {isEmpty, isEqual, get, set} from 'lodash'
 import { database } from '../../firebase'
 
 export const DataContainerContext = React.createContext()

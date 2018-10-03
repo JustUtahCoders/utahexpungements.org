@@ -1,6 +1,6 @@
 import React from 'react'
 import { database } from '../../firebase'
-import { groupBy, partial } from 'lodash'
+import {groupBy, partial} from 'lodash'
 import context from '../../context'
 
 export default class PeopleList extends React.Component {

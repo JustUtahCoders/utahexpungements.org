@@ -34,5 +34,9 @@ module.exports = {
       __dirname,
       'node_modules',
     ],
+    alias: {
+      moment: path.resolve(__dirname, 'node_modules/moment/min/moment.min.js'),
+      lodash: 'lodash-es',
+    },
   },
 }
