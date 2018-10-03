@@ -8,8 +8,8 @@ import PetitionForConviction_Web from '../petition-for-conviction/petition-for-c
 import PetitionForConviction_Pdf from '../petition-for-conviction/petition-for-conviction.pdf.component.js'
 import MotionToWaiveFees_Web from '../motion-to-waive-fees/motion-to-waive-fees.web.component.js'
 import MotionToWaiveFees_Pdf from '../motion-to-waive-fees/motion-to-waive-fees.pdf.component.js'
-import AppForCOENoFees_Web from '../app-for-coe-no-fees/app-for-coe-no-fees.web.component.js'
-import AppForCOENoFees_Pdf from '../app-for-coe-no-fees/app-for-coe-no-fees.pdf.component.js'
+import AppForCOEWithRelease_Web from '../app-for-coe-with-release/app-for-coe-with-release.web.component.js'
+import AppForCOEWithRelease_Pdf from '../app-for-coe-with-release/app-for-coe-with-release.pdf.component.js'
 
 export default class FormBank extends React.Component {
   render() {
@@ -51,12 +51,12 @@ export default class FormBank extends React.Component {
           )}
         />
       <Route
-        path={this.props.match.url + '/application-for-coe-no-fees'}
+        path={this.props.match.url + '/application-for-coe-with-release'}
         render={props => (
           <GovernmentForm
-            name={__("app for coe no fees")}
-            WebForm={AppForCOENoFees_Web}
-            PdfForm={AppForCOENoFees_Pdf}
+            name={__("app for coe with release")}
+            WebForm={AppForCOEWithRelease_Web}
+            PdfForm={AppForCOEWithRelease_Pdf}
           />
         )}
       />

@@ -49,15 +49,15 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name={__("app for coe no fees")}
-              readyForUsers={false}
-              keyworks="application certificate eligibility fees"
-              shortDescription={__("app for coe no fees short descr")}
-              appUrl={this.props.match.url + '/application-for-coe-no-fees'}
-              downloadUrl="/static/forms/application-for-coe-no-fees/BCI_Third_Party_Release_Form_and_Application.pdf"
+              name={__("app for coe with release")}
+              readyForUsers={true}
+              keyworks="application certificate eligibility release third party"
+              shortDescription={__("app for coe with release short descr")}
+              appUrl={this.props.match.url + '/application-for-coe-with-release'}
+              downloadUrl="/static/forms/application-for-coe-with-release/BCI_Third_Party_Release_Form_and_Application.pdf"
               previewUrls={[
-                '/static/forms/application-for-coe-no-fees/BCI_Third_Party_Release_Form_and_Application-1.png',
-                '/static/forms/application-for-coe-no-fees/BCI_Third_Party_Release_Form_and_Application-2.png',
+                '/static/forms/application-for-coe-with-release/BCI_Third_Party_Release_Form_and_Application-1.png',
+                '/static/forms/application-for-coe-with-release/BCI_Third_Party_Release_Form_and_Application-2.png',
               ]}
             />
             <FillableForm

@@ -94,9 +94,9 @@ const translations = {
   "are you filling this out for yourself": "Are you filling this out for yourself?",
   "explain why expunging this crime is not contrary to the public's interest": "Explain why expunging this crime is not contrary to the public's interest",
 
-  // app for coe no fees form
-  "app for coe no fees": "Application for Certificate of Eligibility (No Fees)",
-  "app for coe no fees short descr": "A special version of the Application for Certificate of Eligibility Form. You should only use this if instructed by a government representative",
+  // app for coe with release form
+  "app for coe with release": "Application for Certificate of Eligibility (Third Party Release)",
+  "app for coe with release short descr": "A special version of the Application for COE. This allows you to send certificates to someone else's address. Only use if instructed by a lawyer or government official.",
   "coe recipient explanation": "Would you like to send your certificate of eligibility to someone else's address?",
   "coe recipient name": "What is the name of the person you'd like to send the Certificate of Eligibility documents to?",
   "coe recipient agency": "What is the name of the agency they work for? (If applicable)",

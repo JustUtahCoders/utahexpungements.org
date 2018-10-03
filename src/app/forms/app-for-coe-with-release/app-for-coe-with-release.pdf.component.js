@@ -10,7 +10,7 @@ export default class AppForCOENoFees_Pdf extends React.Component {
 
     return (
       <>
-        <RenderPage url="/static/forms/application-for-coe-no-fees/BCI_Third_Party_Release_Form_and_Application-1.png">
+        <RenderPage url="/static/forms/application-for-coe-with-release/BCI_Third_Party_Release_Form_and_Application-1.png">
           {data.person.coeRecipient === 'someone-else-is-recipient' &&
             <>
               <PositionedString dataKey="person.coeRecipientName" left="10.84%" top="19.94%" />
@@ -33,7 +33,7 @@ export default class AppForCOENoFees_Pdf extends React.Component {
             </>
           }
         </RenderPage>
-        <RenderPage url="/static/forms/application-for-coe-no-fees/BCI_Third_Party_Release_Form_and_Application-2.png">
+        <RenderPage url="/static/forms/application-for-coe-with-release/BCI_Third_Party_Release_Form_and_Application-2.png">
           <Scoped css={css}>
             <div className="slanted">
               <PositionedString dataKey="person.lastName" left="12.23%" top="14.39%" />
