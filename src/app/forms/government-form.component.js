@@ -33,7 +33,7 @@ export default class GovernmentForm extends React.Component {
     )
   }
   componentWillUnmount() {
-    document.querySelector('head').textContent = this.state.originalPageTitle
+    document.querySelector('title').textContent = this.state.originalPageTitle
   }
 }
 
