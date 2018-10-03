@@ -4,6 +4,12 @@ import {Scoped} from 'kremling'
 import {darkGray, lightGray} from 'src/styleguide.js'
 
 export default class GovernmentForm extends React.Component {
+  state = {
+    originalPageTitle: document.querySelector('title').textContent,
+  }
+  componentDidMount() {
+    document.querySelector('title').textContent = this.props.name
+  }
   render() {
     return (
       <Scoped css={css}>
@@ -25,6 +31,9 @@ export default class GovernmentForm extends React.Component {
         </DataContainerContext.Consumer>
       </Scoped>
     )
+  }
+  componentWillUnmount() {
+    document.querySelector('head').textContent = this.state.originalPageTitle
   }
 }
 
