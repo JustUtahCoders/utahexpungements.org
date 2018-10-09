@@ -108,7 +108,6 @@ export const css = `
     }
   }
 
-
   & .main-content {
     width: 75vw;
     max-width: 936rem;
