@@ -27,7 +27,7 @@ export default class Footer extends React.Component {
               </a>
             </ul>
             <ul className="links">
-              <Link to='/app/about-us'>
+              <Link to='/about-us'>
                 <li>
                   {__("about us")}
                 </li>

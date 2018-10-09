@@ -32,7 +32,7 @@ export default class Home extends React.Component {
             <DetailHighlight
               icon="/static/icons/svg/007-user-4.svg"
               title={__("free to use")}
-              description={<>{__("ftu descr")[0]}<Link className="underline" to="/app/about-us">{__("ftu descr")[1]}</Link>{__("ftu descr")[2]}</>}
+              description={<>{__("ftu descr")[0]}<Link className="underline" to="/about-us">{__("ftu descr")[1]}</Link>{__("ftu descr")[2]}</>}
             />
             <DetailHighlight
               icon="/static/icons/svg/008-chat-2.svg"

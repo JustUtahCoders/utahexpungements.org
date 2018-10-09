@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Scoped } from 'kremling'
+import {Scoped} from 'kremling'
+import {darkGray, rawNavbarHeight} from 'src/styleguide.js'
 
 class AboutUs extends React.Component {
   state = {
@@ -12,35 +13,31 @@ class AboutUs extends React.Component {
         return response.json();
       })
       .then((myJson)  => {
-        console.log('this is myJson', myJson)
         this.setState({ people: myJson })
       });
   }
 
   render () {
-    console.log('this is this.state', this.state)
     return (
       <Scoped css={css}>
-      <div className="container">
-        <h1>Who We Are</h1>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-          {this.state.people.map(person => (
-
-            <div 
-              className="image-container"
-              style={{ position: 'relative', backgroundImage: `url(${person.avatar_url})`, cursor: 'pointer' }}
-              onClick={() => window.location = 'github.com/users/'}
-            >
-              <div className="name-card">{person.login}</div>
+        <div className="main-content card">
+          <div className="container">
+            <h1>Who We Are</h1>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+              {this.state.people.map(person => (
+                <div
+                  key={person.id}
+                  className="image-container"
+                  style={{ position: 'relative', backgroundImage: `url(${person.avatar_url})`, cursor: 'pointer' }}
+                  onClick={() => window.location = 'github.com/users/'}
+                >
+                  <div className="name-card">{person.login}</div>
+                </div>
+                ))}
             </div>
-            ))}
-          
-
+          </div>
         </div>
-
-      </div>
-    </Scoped>
+      </Scoped>
     )
   }
 }
@@ -70,8 +67,13 @@ export const css = `
     opacity: 0.85;
   }
 
-
-  
+  & .main-content {
+    width: 75vw;
+    max-width: 936rem;
+    margin: ${rawNavbarHeight + 32}rem auto;
+    padding: 32rem;
+    border: 1rem solid ${darkGray};
+  }
 `
 
 export default AboutUs
