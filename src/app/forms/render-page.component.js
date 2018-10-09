@@ -19,13 +19,9 @@ export default class RenderPage extends React.Component {
 const css = `
   @media print {
     & .form-page {
-      /* to try to fix safari */
-      width: 100%;
-      height: 100%;
-
       /* not quite 11in because chrome causes an extra page when you do that */
       width: 8.5in;
-      height: 10.9in;
+      height: 11in;
     }
   }
 
