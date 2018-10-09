@@ -29,7 +29,7 @@ const css = `
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 99%;
   }
 
   & .form-page {
