@@ -13,7 +13,8 @@ class AboutUs extends React.Component {
         return response.json();
       })
       .then((myJson)  => {
-        this.setState({ people: myJson })
+        //filter out joel hoelting and set to state
+        this.setState({ people: myJson.filter(p => p.id !== 17229217) })
       });
   }
 
