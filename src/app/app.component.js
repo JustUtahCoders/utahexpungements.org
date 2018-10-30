@@ -10,6 +10,7 @@ import Login from './user/login.component.js'
 import SignUp from './user/sign-up.component.js'
 import Dashboard from './user/dashboard.component.js'
 import Footer from 'src/footer/footer.component.js'
+import Banner from './banner.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
 import {mediaDesktop, mediaMobile, darkGray, lightGray} from 'src/styleguide.js'
 import FormBank from './forms/bank/form-bank.component.js'
@@ -24,7 +25,8 @@ export default class App extends React.Component {
           <Breadcrumbs {...this.props} />
           <div style={{ minHeight: '100vh' }}>
             <div style={{ padding: '20px', paddingBottom: '211px' }}>
-              <div className="app breadcrumb-margin-top" >
+              <div className="app breadcrumb-margin-top content-container" >
+                <Banner {...this.props} />
                 <div className="card main-content" >
                   <AppContext.Consumer>
                     {authContext =>
@@ -91,8 +93,8 @@ export const css = `
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   ${mediaDesktop} {
@@ -108,9 +110,13 @@ export const css = `
     }
   }
 
-  & .main-content {
+  & .content-container {
     width: 75vw;
     max-width: 936rem;
+  }
+
+  & .main-content {
+    width: 100%;
     margin: 16rem 0;
     padding: 32rem;
     border: 1rem solid ${darkGray};

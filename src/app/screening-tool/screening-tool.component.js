@@ -12,7 +12,7 @@ const Steps = {
   },
   step1: {
     id: 1,
-    yesHandler: 2, 
+    yesHandler: 2,
     noHandler: 9,
     content: () => <div><h2>Does your crime have a conviction?</h2><p>This means that you either went to trial or pleaded guilty. Don't worry &mdash; everyone makes mistakes.</p></div>,
     url: '/conviction'
@@ -152,7 +152,7 @@ export default class ScreeningTool extends React.Component {
 
 
                 <Link to={noUrl}>
-                  {step.id === 0 || step.id === 6 ? (
+                  {step.id === 0 ? (
                     <button
                       className="primary"
                       onClick={() => this.setState({
@@ -160,10 +160,35 @@ export default class ScreeningTool extends React.Component {
                       })}
                       style={{ marginRight: 20, paddingLeft: 40, paddingRight: 40 }}
                     >
-                      OK
+                      Get Started
                     </button>
                   ) : null}
                 </Link>
+
+                {step.id === 6 && (
+                  <div>
+                    <Link to="/app/expungements-overview">
+                      <button
+                        className="primary"
+                        style={{ marginRight: 20, paddingLeft: 40, paddingRight: 40 }}
+                      >
+                        Back to Expungement Overview
+                      </button>
+                    </Link>
+                    <Link to={noUrl}>
+                      <button
+                        className="secondary"
+                        onClick={() => this.setState({
+                          step: Steps['step' + step.noHandler]
+                        })}
+                        style={{ marginRight: 20, paddingLeft: 40, paddingRight: 40 }}
+                      >
+                        Start Again
+                      </button>
+                    </Link>
+                  </div>
+                )}
+
               </div>
 
             </div>
