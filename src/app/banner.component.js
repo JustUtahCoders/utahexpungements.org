@@ -14,7 +14,7 @@ export default class Banner extends React.Component {
               <div className="banner default card">
                 <strong>Pro Tip</strong>: You can get an official copy of your criminal history at <a href="https://bci.utah.gov">Utah's BCI office</a>,
                 located at 3888 W 5400 S, Taylorsville, UT 84129. The office is open Monday &mdash; Friday, 8am to 5pm.
-                It costs $15 and should only take about 10-15 minutes.
+                It costs $15 and should only take about 15-20 minutes.
               </div>
             )}
           />
