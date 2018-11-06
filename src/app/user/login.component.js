@@ -69,10 +69,18 @@ class Login extends React.Component {
               Error: {error}
             </div>
           }
-          Need an account?{' '}
-          <Link to="/app/sign-up">
-            Sign up
-          </Link>
+          <div>
+            Need an account?{' '}
+            <Link to="/app/sign-up">
+              Sign up
+            </Link>
+          </div>
+          <div>
+            Forgot password?{' '}
+            <Link to="/app/forgot-password">
+              Reset it
+            </Link>
+          </div>
         </div>
       </Scoped>
     )

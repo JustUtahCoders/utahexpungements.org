@@ -8,6 +8,7 @@ import FilePetition from './file-petition/file-petition.component.js'
 import ServePetition from './serve-petition/serve-petition.component.js'
 import Login from './user/login.component.js'
 import SignUp from './user/sign-up.component.js'
+import ForgotPassword from './user/forgot-password.component.js'
 import Dashboard from './user/dashboard.component.js'
 import Footer from 'src/footer/footer.component.js'
 import Banner from './banner.component.js'
@@ -63,6 +64,10 @@ export default class App extends React.Component {
                         <Route
                           path={this.props.match.url + '/sign-up'}
                           component={SignUp}
+                        />
+                        <Route
+                          path={this.props.match.url + '/forgot-password'}
+                          component={ForgotPassword}
                         />
                         <Route
                           path={this.props.match.url + '/login'}
