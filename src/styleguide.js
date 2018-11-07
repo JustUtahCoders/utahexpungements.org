@@ -129,6 +129,16 @@ export default `
     cursor: default;
   }
 
+  & button.unstyled {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
   input {
     font-family: ${fontFamily};
     background-color: ${lightGray};

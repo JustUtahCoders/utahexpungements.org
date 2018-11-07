@@ -1,20 +1,26 @@
 import React from 'react'
+import AppContext from '../app-context.component.js'
 import {Scoped} from 'kremling'
 import Hamburger from './hamburger.component.js'
 import MenuItems from './menu-items.component.js'
 import Logo from './logo.component.js'
+import UserDropdown from './user-dropdown.component.js'
 
 export default class Navbar extends React.Component {
   render() {
     return (
-      <Scoped css={css}>
-        <nav className="navbar bg-primary">
-          <Hamburger {...this.props} />
-          <div>
-            <Logo />
-          </div>
-        </nav>
-      </Scoped>
+      <AppContext.Consumer>
+        {context =>
+          <Scoped css={css}>
+            <nav className="navbar bg-primary">
+              <Hamburger {...this.props} />
+              <div>
+                <UserDropdown context={context} />
+              </div>
+            </nav>
+          </Scoped>
+        }
+      </AppContext.Consumer>
     )
   }
 }
@@ -29,7 +35,6 @@ const css = `
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-right: 16px;
     z-index: 1000;
   }
 `

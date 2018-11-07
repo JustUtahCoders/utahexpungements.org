@@ -28,5 +28,6 @@ const css = `
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding-right: 16px;
   }
 `

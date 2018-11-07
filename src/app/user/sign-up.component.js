@@ -67,6 +67,7 @@ class SignUp extends React.Component {
       <Scoped css={css}>
         <div>
           <h1>Sign Up</h1>
+          <p>With an account, your personal and case data will be saved and automatically populated across different forms. You can even manage multiple cases for multiple people.</p>
           <form className="signupForm" onSubmit={this.onSubmit}>
             <input
               type="text"

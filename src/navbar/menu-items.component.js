@@ -13,7 +13,6 @@ export default class MenuItems extends React.Component {
           <Scoped css={css}>
             <nav className={a("side-menu").m('off-screen', !this.props.visible)}>
               <ul className={a("menu-items")}>
-                {this.authSection(context)}
                 {context.authUser && this.createLink('/app/dashboard', 'menu item - dashboard')}
                 {this.createLink('/', 'menu item - home')}
                 {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'menu item - ask a question')}
@@ -49,39 +48,6 @@ export default class MenuItems extends React.Component {
         </li>
       </a>
     )
-  }
-  authSection = context => {
-    const { authUser, activeCase, activePerson } = context
-    return (
-      <div className="auth-section">
-        {authUser ? (
-          <div>
-            Welcome {authUser.email}.{' '}
-            <a href="" onClick={this.logout}>Logout</a>
-            {activeCase &&
-              <p>
-                You are working on case <strong>{activeCase.name}</strong> for <strong>{activePerson.name}</strong>.{' '}
-                <Link to="/app/dashboard">Choose a different case</Link>.
-              </p>
-            }
-          </div>
-        ) : (
-          <div>
-            <Link to="/app/login">
-              Login
-            </Link>
-            {' '}or{' '}
-            <Link to="/app/sign-up">
-              Sign up
-            </Link>
-          </div>
-        )}
-      </div>
-    )
-  }
-  logout = () => {
-    auth.doSignOut()
-    window.location = "/"
   }
   subItem = (url, stringId) => {
     return (
