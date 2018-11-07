@@ -40,13 +40,13 @@ const translations = {
   "menu item - step 2": "Step 2: Certificate of Eligibility",
   "menu item - step 3": "Step 3: File Petition",
   "menu item - step 4": "Step 4: Serve Petition",
-  "menu item - about": "About us",
+  "menu item - about": "About",
 
   // footer
   "home page": "Home",
   "what is expg": "What is an expungement?",
   "ask a question": "Ask a question",
-  "about us": "About us",
+  "about": "About",
   "report problem": "Report a problem",
   "cover image credit": "Cover image",
 

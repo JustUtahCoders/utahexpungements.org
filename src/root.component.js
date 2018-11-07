@@ -7,7 +7,7 @@ import styleguide from './styleguide.js'
 import {Scoped} from 'kremling'
 import I18N from './i18n.component.js'
 import withAuthentication from './authentication.component.js'
-import AboutUs from './about-us/about-us.component.js'
+import About from './about/about.component.js'
 
 class Root extends React.Component {
   render() {
@@ -20,8 +20,8 @@ class Root extends React.Component {
                 <>
                   <Route children={props => <Navbar {...props} />} />
                   <Route
-                    path='/about-us'
-                    component={AboutUs}
+                    path='/about'
+                    component={About}
                   />
                   <LazyRoute exact path="/" loadRoute={() => import(/* webpackChunkName: "home" */'./home/home.component.js')} />
                   <LazyRoute path="/app" loadRoute={() => import(/* webpackChunkName: "app" */'./app/app.component.js')} />

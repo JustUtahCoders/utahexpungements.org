@@ -35,7 +35,7 @@ const translations = {
   "home page": "Página de inico",
   "what is expg": "¿Qué es un expungement?",
   "ask a question": "Hacer una pregunta",
-  "about us": "Acerca de",
+  "about": "Acerca de",
   "report problem": "Reportar un problema",
 }
 

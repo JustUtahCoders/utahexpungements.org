@@ -1,8 +1,9 @@
 import * as React from 'react'
 import {Scoped} from 'kremling'
 import {darkGray, rawNavbarHeight} from 'src/styleguide.js'
+import {Link} from 'react-router-dom'
 
-class AboutUs extends React.Component {
+class About extends React.Component {
   state = {
     people: []
   }
@@ -23,7 +24,23 @@ class AboutUs extends React.Component {
       <Scoped css={css}>
         <div className="main-content card">
           <div className="container">
-            <h1>Who We Are</h1>
+            <h1>About this website</h1>
+            <p>
+              We've built this tool to help people with the process of expunging their criminal records in Utah. Here you can <Link to="/app/expungements-overview">read about expungements</Link>, <Link to="/app/forms">fill out forms</Link>, and <Link to="/app/sign-up">create an account</Link> to save your data and manage your cases.
+            </p>
+            <p>
+              This tool is a work-in-progress. There will be frequent changes and updates, and, occasionally, bugs.
+            </p>
+            <p>
+              You can track all the latest updates to the project <a href="https://github.com/UtahAccessToJustice/utahexpungements.org/commits/master">here</a>.
+            </p>
+            <p>
+              If you have an idea for a new feature or you run into a problem, please let us know by going <a href="https://github.com/UtahAccessToJustice/utahexpungements.org/issues">here</a> and clicking the green "New Issue" button on the right. We appreciate your help in making this tool as useful as it can be!
+            </p>
+            <h1>Who we are</h1>
+            <p>
+              We're a group of developers based in Utah who believe that legal processes should be accessible to everyone.
+            </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
               {this.state.people.map(person => (
                 <a
@@ -77,5 +94,4 @@ export const css = `
   }
 `
 
-export default AboutUs
-
+export default About
