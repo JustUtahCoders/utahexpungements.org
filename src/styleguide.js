@@ -6,6 +6,7 @@ export const secondary = `#AB9B96`
 export const darkSecondary = `#594b47`
 export const tertiary = `#F0E7D8`
 export const info = `#78b4bd`
+export const success = `#3e9a3e`
 export const rawNavbarHeight = 50
 export const navbarHeight = `50rem`
 const rawBreadcrumbHeight = rawNavbarHeight

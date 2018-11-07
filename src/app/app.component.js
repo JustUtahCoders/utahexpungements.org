@@ -10,6 +10,7 @@ import Login from './user/login.component.js'
 import SignUp from './user/sign-up.component.js'
 import ForgotPassword from './user/forgot-password.component.js'
 import Dashboard from './user/dashboard.component.js'
+import CreateCase from './user/create-case.component.js'
 import Footer from 'src/footer/footer.component.js'
 import Banner from './banner.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
@@ -73,10 +74,18 @@ export default class App extends React.Component {
                           path={this.props.match.url + '/login'}
                           component={Login}
                         />
-                        <Route
-                          path={this.props.match.url + '/dashboard'}
-                          component={Dashboard}
-                        />
+                        {authContext.authUser &&
+                          <Route
+                            path={this.props.match.url + '/dashboard'}
+                            render={props => <Dashboard {...props} context={authContext} />}
+                          />
+                        }
+                        {authContext.authUser &&
+                          <Route
+                            path={this.props.match.url + '/cases/create'}
+                            render={props => <CreateCase {...props} context={authContext} />}
+                          />
+                        }
                       </DataContainer>
                     }
                   </AppContext.Consumer>

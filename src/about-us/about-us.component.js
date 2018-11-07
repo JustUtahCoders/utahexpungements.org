@@ -26,15 +26,15 @@ class AboutUs extends React.Component {
             <h1>Who We Are</h1>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
               {this.state.people.map(person => (
-                <div
+                <a
                   key={person.id}
+                  href={`http://github.com/${person.login}`}
                   className="image-container"
                   style={{ position: 'relative', backgroundImage: `url(${person.avatar_url})`, cursor: 'pointer' }}
-                  onClick={() => window.location = 'github.com/users/'}
                 >
                   <div className="name-card">{person.login}</div>
-                </div>
-                ))}
+                </a>
+              ))}
             </div>
           </div>
         </div>
