@@ -26,12 +26,12 @@ export default class App extends React.Component {
         <div>
           <Breadcrumbs {...this.props} />
           <div style={{ minHeight: '100vh' }}>
-            <div style={{ padding: '20px', paddingBottom: '211px' }}>
-              <div className="app breadcrumb-margin-top content-container" >
-                <Banner {...this.props} />
-                <div className="card main-content" >
-                  <AppContext.Consumer>
-                    {authContext =>
+            <AppContext.Consumer>
+              {authContext =>
+                <div style={{ padding: '20px', paddingBottom: '211px' }}>
+                  <div className="app breadcrumb-margin-top content-container" >
+                    <Banner {...this.props} authContext={authContext} />
+                    <div className="card main-content" >
                       <DataContainer authContext={authContext}>
                         <Route
                           path={this.props.match.url}
@@ -87,11 +87,11 @@ export default class App extends React.Component {
                           />
                         }
                       </DataContainer>
-                    }
-                  </AppContext.Consumer>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              }
+            </AppContext.Consumer>
           </div>
           <div style={{ height: '211px', marginTop: '-211px' }}>
             <Footer />
