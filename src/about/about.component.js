@@ -34,8 +34,12 @@ class About extends React.Component {
             <p>
               You can track all the latest updates to the project <a href="https://github.com/UtahAccessToJustice/utahexpungements.org/commits/master">here</a>.
             </p>
+            <h1>Get in touch</h1>
             <p>
-              If you have an idea for a new feature or you run into a problem, please let us know by going <a href="https://github.com/UtahAccessToJustice/utahexpungements.org/issues">here</a> and clicking the green "New Issue" button on the right. We appreciate your help in making this tool as useful as it can be!
+              If you have an idea for a new feature or you run into a problem, please let us know by going <a href="https://github.com/UtahAccessToJustice/utahexpungements.org/issues">here</a> and clicking the green "New Issue" button on the right. Thanks for your help!
+            </p>
+            <p>
+              Are you working on an expungement case of your own? We want to help! Your participation will also help us make these tools more useful as we build them. You can join our next meeting in Salt Lake City, or just chat with us via email. Please contact us at <a href="mailto:utahexpungementsorg@gmail.com">utahexpungementsorg@gmail.com</a>.
             </p>
             <h1>Who we are</h1>
             <p>
