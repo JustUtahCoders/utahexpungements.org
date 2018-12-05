@@ -20,7 +20,8 @@ export default class PeopleList extends React.Component {
     })
   }
 
-  chooseCase = (person, kase) => {
+  chooseCase = (person, kase, e) => {
+    e.preventDefault()
     context.setContext({
       activePerson: person,
       activeCase: kase,
@@ -40,7 +41,7 @@ export default class PeopleList extends React.Component {
               <ul>
                 {personCases && personCases.map(kase =>
                   <li key={kase.id}>
-                    <a href="" onClick={partial(this.chooseCase, person, kase)}>
+                    <a href="#" onClick={partial(this.chooseCase, person, kase)}>
                       {kase.name}
                     </a>
                   </li>
