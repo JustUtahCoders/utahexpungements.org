@@ -1,7 +1,7 @@
 import React from 'react'
 import {Scoped, a, m} from 'kremling'
 import {Route} from 'react-router-dom'
-import {info} from 'src/styleguide.js'
+import {info, mediaDesktop} from 'src/styleguide.js'
 import {Link} from 'react-router-dom'
 
 export default class Banner extends React.Component {
@@ -47,6 +47,12 @@ export default class Banner extends React.Component {
 const css = `
   & .banner-container {
     width: 100%;
+  }
+
+  ${mediaDesktop} {
+    & .banner-container {
+      margin-top: 20rem;
+    }
   }
 
   & .banner {

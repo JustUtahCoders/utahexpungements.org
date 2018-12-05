@@ -3,6 +3,7 @@ import {Scoped} from 'kremling'
 import {mediaDesktop, navbarHeight, primary, darkPrimary, secondary, boxShadow3} from 'src/styleguide.js'
 import MenuItems from './menu-items.component.js'
 import {Portal} from 'react-portal'
+import styleguideCss from 'src/styleguide.js'
 
 export default class Hamburger extends React.Component {
   state = {
@@ -29,9 +30,13 @@ export default class Hamburger extends React.Component {
           </Portal>
         }
         <Portal>
-          <MenuItems
-            visible={this.state.menuOpen}
-          />
+          <Scoped css={styleguideCss}>
+            <div>
+              <MenuItems
+                visible={this.state.menuOpen}
+              />
+            </div>
+          </Scoped>
         </Portal>
       </Scoped>
     )

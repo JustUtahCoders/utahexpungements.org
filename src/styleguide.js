@@ -34,13 +34,7 @@ export default `
   }
 
   *, *:before, *:after {
-    -webkit-box-sizing: border-box; 
-    -moz-box-sizing: border-box; 
     box-sizing: border-box;
-  }
-
-  a:focus {
-    outline: none;
   }
 
   & .navbar {
@@ -71,52 +65,47 @@ export default `
     background-color: ${secondary};
   }
 
-  a {
+  & a {
     color: initial;
   }
 
-  .no-underline {
+  & .no-underline {
     text-decoration: none;
   }
 
-  a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
+  & a.button {
     text-decoration: none;
     color: initial;
+    cursor: default;
   }
 
-  & button {
-    cursor: pointer;
+  & button, & a.button {
+    cursor: default;
     font-size: 18rem;
     border-radius: 6rem;
     padding: 8px 12px;
     border: none;
+    font-family: ${fontFamily};
+    text-align: center;
   }
 
-  & button:focus {
-    outline: none;
-  }
-
-  & button.primary {
+  & button.primary, & a.primary {
     background-color: ${primary};
     color: white;
     transition: background-color .2s;
   }
 
-  & button.primary:hover {
+  & button.primary:hover, & a.button.primary:hover {
     background-color: ${darkPrimary};
   }
 
-  & button.secondary {
+  & button.secondary, & a.button.secondary {
     transition: background-color 0.2s, color 0.2s;
     color: white;
     background-color: ${secondary};
   }
 
-  & button.secondary:hover {
+  & button.secondary:hover, & a.button.secondary:hover {
     background-color: ${darkSecondary};
   }
 
@@ -124,7 +113,7 @@ export default `
     margin: 24rem 0 0 32rem;
   }
 
-  & button:disabled, & button:disabled:hover {
+  & button:disabled, & a.button:disabled, & button:disabled:hover, & a.button:disabled:hover {
     color: ${lightGray};
     background-color: ${semiTransparentGray};
     cursor: default;
@@ -140,7 +129,36 @@ export default `
     outline: inherit;
   }
 
-  input {
+  & .responsive-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  ${mediaMobile} {
+    & .responsive-flex {
+      flex-direction: column;
+    }
+
+    & button + button, & button + .button, & .button + .button, & .button + button {
+      margin-top: 16rem;
+    }
+  }
+
+  ${mediaDesktop} {
+    & .responsive-flex {
+      flex-direction: row;
+    }
+
+    & button + button, & button + .button, & .button + .button, & .button + button {
+      margin-left: 16rem;
+    }
+
+    & .card {
+      border-radius: 6px;
+    }
+  }
+
+  & input {
     font-family: ${fontFamily};
     background-color: ${lightGray};
     border-radius: 5px;
@@ -150,7 +168,7 @@ export default `
     padding: 8px 12px;
   }
 
-  ul {
+  & ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -158,8 +176,11 @@ export default `
 
   & .card {
     background-color: white;
-    border-radius: 6px;
     box-shadow: 0 10px 30px -24px #4b4e53;
+  }
+
+  & .card > h1:first-child, & .card > h2:first-child, & .card > h3:first-child, & .card > h4:first-child, & .card > h5:first-child {
+    margin-top: 0;
   }
 
   @media print {

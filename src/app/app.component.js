@@ -25,10 +25,10 @@ export default class App extends React.Component {
       <Scoped css={css}>
         <div>
           <Breadcrumbs {...this.props} />
-          <div style={{ minHeight: '100vh' }}>
+          <div>
             <AppContext.Consumer>
               {authContext =>
-                <div style={{ padding: '20px', paddingBottom: '211px' }}>
+                <div className="padded-container">
                   <div className="app breadcrumb-margin-top content-container" >
                     <Banner {...this.props} authContext={authContext} />
                     <div className="card main-content" >
@@ -93,9 +93,6 @@ export default class App extends React.Component {
               }
             </AppContext.Consumer>
           </div>
-          <div style={{ height: '211px', marginTop: '-211px' }}>
-            <Footer />
-          </div>
         </div>
       </Scoped>
     )
@@ -113,26 +110,38 @@ export const css = `
 
   ${mediaDesktop} {
     & .app {
-      width: 75%;
       max-width: 1400px;
+    }
+
+    & .padded-container {
+      padding: 0rem 50rem;
+    }
+
+    & .main-content {
+      margin: 20rem 0;
+      border: 1rem solid ${darkGray};
+      padding: 32rem 24rem;
     }
   }
 
   ${mediaMobile} {
-    & .app {
-      width: 95%;
+    & .padded-container {
+      padding: 0 0;
+    }
+
+    & .main-content {
+      margin-top: 0;
+      border: none;
+      padding: 16rem 24rem;
     }
   }
 
   & .content-container {
-    width: 75vw;
+    width: 100%;
     max-width: 936rem;
   }
 
   & .main-content {
     width: 100%;
-    margin: 16rem 0;
-    padding: 32rem;
-    border: 1rem solid ${darkGray};
   }
 `

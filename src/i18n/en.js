@@ -7,7 +7,7 @@ const translations = {
   "free to use": "Free to use!",
   "ftu descr": [
     "This website is ",
-    "built by Utah community members for Utah community members",
+    "built by Utahns to help other Utahns",
     `. We'll never charge you anything.`
   ],
   "ask questions": "Ask and answer questions",
@@ -49,6 +49,33 @@ const translations = {
   "about": "About",
   "report problem": "Report a problem",
   "cover image credit": "Cover image",
+
+  // overview
+  "get started": "Get started",
+  "skip intro": "Skip introduction",
+  "overview landing": "Let's clear your criminal record",
+  "overview landing 1": `A criminal record can prevent you from getting a job or housing. But after an expungement, employers and landlords won't see your criminal record anymore during background checks.`,
+  "overview landing 2": `A note about this website`,
+  "overview landing 3": `This website always will be completely free to use. It is`,
+  "overview landing 4": `and is meant to especially help people who don't have access to a lawyer.`,
+  "overview landing 5": `You can create an account if you want to save your data, but you can also use the website without an account.`,
+  "overview landing 6": [
+    `Feel free to`,
+    `report an issue`,
+    `, `,
+    `email us directly`,
+    `, or `,
+    `ask a question in our public forum.`,
+  ],
+
+  // Expungement clinic info
+  "location": "Location",
+  "first thur": "First Thursday of every month",
+  "date": "Date",
+  "time": "Time",
+  "clinic time": "5:00pm - 6:00pm. (Please plan to arrive no later than 6 pm otherwise you will have to wait until the following month)",
+  "sponsored by": "Sponsored by",
+  "clinic sponsored by": "S.J. Quinney College of Law and Utah Legal Services",
 
   // application for coe form
   "app for coe short descr": "This form requests a certificate that can be used to petition for an expungement.",
