@@ -38,8 +38,8 @@
     "lodash-es": "^4.17.11",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
-    "react": "16.7.0-alpha.0",
-    "react-dom": "16.7.0-alpha.0",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
     "react-icons": "^3.2.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1"

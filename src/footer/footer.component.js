@@ -15,12 +15,12 @@ export default class Footer extends React.Component {
                   {__("home page")}
                 </li>
               </Link>
-              <Link to='/app/expungements-overview'>
+              <Link to='/app/overview'>
                 <li>
                   {__("what is expg")}
                 </li>
               </Link>
-              <a href="https://utahexpungements.freeflarum.com" target="_blank">
+              <a href="https://utahexpungements.boards.net" target="_blank">
                 <li>
                   {__("ask a question")}
                 </li>
@@ -32,7 +32,7 @@ export default class Footer extends React.Component {
                   {__("about")}
                 </li>
               </Link>
-              <a href="https://utahexpungements.freeflarum.com" target="_blank">
+              <a href="https://utahexpungements.boards.net" target="_blank">
                 <li>
                   {__("community forum")}
                 </li>

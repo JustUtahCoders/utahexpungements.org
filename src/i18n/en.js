@@ -34,8 +34,9 @@ const translations = {
   "menu item - home": "Home",
   "menu item - ask a question": "Ask a question",
   "menu item - forms" : "Forms",
-  "menu item - tool": "Expungement tool",
   "menu item - overview": "Overview",
+  "menu item - vocabulary": "Vocabulary",
+  "menu item - tool": "Expungement tool",
   "menu item - step 1": "Step 1: Are you eligible?",
   "menu item - step 2": "Step 2: Certificate of Eligibility",
   "menu item - step 3": "Step 3: File Petition",
@@ -51,7 +52,7 @@ const translations = {
   "cover image credit": "Cover image",
 
   // overview
-  "get started": "Get started",
+  "continue": "Continue",
   "skip intro": "Skip introduction",
   "overview landing": "Let's clear your criminal record",
   "overview landing 1": `A criminal record can prevent you from getting a job or housing. But after an expungement, employers and landlords won't see your criminal record anymore during background checks.`,
@@ -67,6 +68,76 @@ const translations = {
     `, or `,
     `ask a question in our public forum.`,
   ],
+
+  // overview basics
+  "expungement basics": "The basics",
+  "basics crumb": "Basics",
+  "expg defn": `
+    An expungement is the process of sealing court records.
+    This means that after an expungement, employers and landlords will no longer see previous
+    criminal convictions in a background check.
+  `,
+  "why does it matter": "Why does it matter?",
+  "reason it matters": `
+    Passing a background check can make the difference when getting a job or housing. After you get an expungement,
+    employers and landlords will no longer be able to see those previous convictions.
+  `,
+  "do i qualify": "Do I qualify?",
+  "qualify descr": [
+    `The `,
+    ` defines the rules for expungements. We've put together `,
+    `a tool`,
+    ` to help you know how those rules apply to you.`,
+  ],
+  "if multiple convictions": `
+    If you have multiple criminal convictions, you will sometimes be able to expunge all of them, sometimes only some of them,
+    and sometimes none of them, depending on a variety of factors.
+  `,
+  "how long does it take": "How long does the process take?",
+  "how long answer": [
+    `About 8-16 months. If you're interested in helping speed things up, check out our `,
+    `change.org petition`,
+    ` where we explain why it takes so long and how we think it could be improved.`,
+  ],
+  "what is cost": "How much does it cost?",
+  "cost answer": [
+    `A `,
+    `preliminary check`,
+    ` to see if you qualify for an expungement costs only $15.
+      If you decide to proceed with an expungement cost, it costs about $200 if you have one criminal conviction and about
+      $100 more for each additional conviction.`,
+  ],
+  "if cannot afford": `If you cannot afford the cost, some of the fees can be waived, which we'll show you how to do later.`,
+  "how does website help": "How does this website help?",
+  "how website helps": `
+    This website is a self-service tool that allows people to fill out expungement forms online. We also
+    provide information to help people know whether they qualify and what the steps are.
+  `,
+  "not lawyers": [
+    `We are not lawyers and cannot represent you in court. But feel free to `,
+    `email us`,
+    ` or `,
+    `ask a question`,
+    ` if you'd like to talk with us.`,
+  ],
+
+  // overview vocabulary
+  "vocabulary": "Vocabulary",
+  "get started": "Get started",
+  "def word - expungement": "expungement",
+  "def - expungement": "Defn",
+  "def word - case": "case",
+  "def - case": "Defn",
+  "def word - incident": "incident",
+  "def - incident": "Defn",
+  "def word - bci": "BCI (Bureau of Criminal Identification)",
+  "def - bci": "Defn",
+  "def word - certificate of eligibility": "Certificate of Eligibility",
+  "def - certificate of eligibility": "Defn",
+  "def word - conviction": "conviction",
+  "def - conviction": "Defn",
+  "def word - court action": "court action",
+  "def - court action": "Defn",
 
   // Expungement clinic info
   "location": "Location",

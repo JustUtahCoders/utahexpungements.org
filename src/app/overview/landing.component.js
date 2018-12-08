@@ -6,10 +6,10 @@ export default function Landing(props) {
   return (
     <OverviewCard
       title={__("overview landing")}
-      primaryText={__("get started")}
-      primaryHref={"/app/expungements-overview/what-is-an-expungement"}
+      primaryText={__("continue")}
+      primaryHref={"/app/overview/basics"}
       secondaryText={__("skip intro")}
-      secondaryHref="/app/expungements-overview/start-an-expungement"
+      secondaryHref="/app/tool"
     >
       <p>
         {__("overview landing 1")}
@@ -26,7 +26,7 @@ export default function Landing(props) {
       <p>
         {__("overview landing 6")[0]} <Link to="/contribute">{__("overview landing 6")[1]}</Link>
         {__("overview landing 6")[2]} <a href="mailto:utahexpungementsorg@gmail.com">{__("overview landing 6")[3]}</a> (utahexpungementsorg@gmail.com)
-        {__("overview landing 6")[4]}<a target="_blank" rel="noopener" href="https://utahexpungements.freeflarum.org">{__("overview landing 6")[5]}</a>
+        {__("overview landing 6")[4]}<a target="_blank" rel="noopener" href="https://utahexpungements.boards.net">{__("overview landing 6")[5]}</a>
       </p>
     </OverviewCard>
   )

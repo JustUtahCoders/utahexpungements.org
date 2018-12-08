@@ -15,14 +15,16 @@ export default class MenuItems extends React.Component {
               <ul className={a("menu-items")}>
                 {context.authUser && this.createLink('/app/dashboard', 'menu item - dashboard')}
                 {this.createLink('/', 'menu item - home')}
-                {this.createExternalLink('https://utahexpungements.freeflarum.com/', 'menu item - ask a question')}
+                {this.createExternalLink('https://utahexpungements.boards.net', 'menu item - ask a question')}
                 {this.createLink('/app/forms', 'menu item - forms')}
-                {this.createLink('/app', 'menu item - tool')}
-                {this.subItem('/app/expungements-overview', 'menu item - overview')}
-                {this.subItem('/app/are-you-eligible', 'menu item - step 1')}
-                {this.subItem('/app/certificate-of-eligibility', 'menu item - step 2')}
-                {this.subItem('/app/file-petition', 'menu item - step 3')}
-                {this.subItem('/app/serve-petition', 'menu item - step 4')}
+                {this.createLink('/app/overview', 'menu item - overview')}
+                {this.subItem('/app/overview/basics', 'expungement basics')}
+                {this.subItem('/app/overview/vocabulary', 'menu item - vocabulary')}
+                {this.createLink('/app/tool', 'menu item - tool')}
+                {this.subItem('/app/tool/are-you-eligible', 'menu item - step 1')}
+                {this.subItem('/app/tool/certificate-of-eligibility', 'menu item - step 2')}
+                {this.subItem('/app/tool/file-petition', 'menu item - step 3')}
+                {this.subItem('/app/tool/serve-petition', 'menu item - step 4')}
                 {this.createLink('/about', 'menu item - about')}
               </ul>
             </nav>

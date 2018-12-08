@@ -26,7 +26,7 @@ class About extends React.Component {
           <div className="container">
             <h1>About this website</h1>
             <p>
-              We've built this tool to help people with the process of expunging their criminal records in Utah. Here you can <Link to="/app/expungements-overview">read about expungements</Link>, <Link to="/app/forms">fill out forms</Link>, and <Link to="/app/sign-up">create an account</Link> to save your data and manage your cases.
+              We've built this tool to help people with the process of expunging their criminal records in Utah. Here you can <Link to="/app/overview">read about expungements</Link>, <Link to="/app/forms">fill out forms</Link>, and <Link to="/app/sign-up">create an account</Link> to save your data and manage your cases.
             </p>
             <p>
               This tool is a work-in-progress. There will be frequent changes and updates, and, occasionally, bugs.

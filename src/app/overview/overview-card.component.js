@@ -9,18 +9,20 @@ export default function OverviewCard(props) {
       <div>
         <h2 className="title">{props.title}</h2>
         {props.children}
-        <div className="responsive-flex actions">
-          {props.primaryText &&
-            <Link className="primary button" to={props.primaryHref}>
-              {props.primaryText}
-            </Link>
-          }
-          {props.secondaryText &&
-            <Link className="secondary button" to={props.secondaryHref}>
-              {props.secondaryText}
-            </Link>
-          }
-        </div>
+        {(props.primaryText || props.secondaryText) &&
+          <div className="responsive-flex actions">
+            {props.primaryText &&
+              <Link className="primary button" to={props.primaryHref}>
+                {props.primaryText}
+              </Link>
+            }
+            {props.secondaryText &&
+              <Link className="secondary button" to={props.secondaryHref}>
+                {props.secondaryText}
+              </Link>
+            }
+          </div>
+        }
       </div>
     </Scoped>
   )
@@ -33,5 +35,9 @@ const css = `
 
   & .actions {
     margin-top: 16rem;
+  }
+
+  & p:last-child {
+    margin-bottom: 0;
   }
 `

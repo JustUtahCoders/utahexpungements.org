@@ -37,7 +37,7 @@ export default class Home extends React.Component {
             <DetailHighlight
               icon="/static/icons/svg/008-chat-2.svg"
               title={__("ask questions")}
-              description={<>{__("ask questions descr")[0]}<a className="underline" href="https://utahexpungements.freeflarum.com" target="_blank">{__("ask questions descr")[1]}</a>{__("ask questions descr")[2]}</>}
+              description={<>{__("ask questions descr")[0]}<a className="underline" href="https://utahexpungements.boards.net" target="_blank">{__("ask questions descr")[1]}</a>{__("ask questions descr")[2]}</>}
             />
             <DetailHighlight
               icon="/static/icons/svg/025-presentation.svg"

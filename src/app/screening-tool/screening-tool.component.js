@@ -107,10 +107,8 @@ export default class ScreeningTool extends React.Component {
 
   route (step) {
     const ContentComponent = step.content
-    console.log('this is contentComponent', ContentComponent)
     const yesUrl = this.props.match.url + Steps['step' + step.yesHandler].url
     const noUrl = this.props.match.url + Steps['step' + step.noHandler].url
-    console.log('this is this.props.match.url', this.props.match.url + step.url)
 
     return (
       <Route
@@ -167,7 +165,7 @@ export default class ScreeningTool extends React.Component {
 
                 {step.id === 6 && (
                   <div>
-                    <Link to="/app/expungements-overview">
+                    <Link to="/app/overview">
                       <button
                         className="primary"
                         style={{ marginRight: 20, paddingLeft: 40, paddingRight: 40 }}
