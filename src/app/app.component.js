@@ -7,6 +7,7 @@ import SignUp from './user/sign-up.component.js'
 import ForgotPassword from './user/forgot-password.component.js'
 import Dashboard from './user/dashboard.component.js'
 import CreateCase from './user/create-case.component.js'
+import Person from './user/person.component.js'
 import Footer from 'src/footer/footer.component.js'
 import Banner from './banner.component.js'
 import Breadcrumbs from './breadcrumbs.component.js'
@@ -68,6 +69,12 @@ export default function App(props) {
                         <Route
                           path={props.match.url + '/cases/create'}
                           render={props => <CreateCase {...props} context={authContext} />}
+                        />
+                      }
+                      {authContext.authUser &&
+                        <Route
+                          path={props.match.url + '/people/:id'}
+                          render={props => <Person {...props} context={authContext} />}
                         />
                       }
                     </DataContainer>

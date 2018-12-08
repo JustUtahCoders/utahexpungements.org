@@ -8,8 +8,22 @@ export const getPeople = uid =>
       querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
     )
 
+export const getPerson = (personId) =>
+  database.collection('people').doc(personId).get()
+    .then(doc =>
+      ({ id: doc.id, ...doc.data() })
+    )
+
 export const getCases = uid =>
   database.collection('cases').where('uid', '==', uid).get()
+    .then(querySnapshot =>
+      querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    )
+
+export const getCasesForPerson = (uid, personId) =>
+  database.collection('cases')
+    .where('uid', '==', uid)
+    .where('personid', '==', personId).get()
     .then(querySnapshot =>
       querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
     )

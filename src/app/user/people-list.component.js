@@ -2,6 +2,10 @@ import React from 'react'
 import { database } from '../../firebase'
 import {groupBy, partial} from 'lodash'
 import context from '../../context'
+import Accordion from '../utils/accordion.component.js'
+import CasesList from './cases-list.component.js'
+import {Scoped} from 'kremling'
+import {Link} from 'react-router-dom'
 
 export default class PeopleList extends React.Component {
   constructor (props) {
@@ -30,27 +34,59 @@ export default class PeopleList extends React.Component {
 
   render () {
     const { cases, people } = this.state
+    const { activeCase } = this.props
+
     const groupedCases = groupBy(cases, 'personid')
+    const accordionItems = people.map(person => {
+      const personCases = groupedCases[person.id]
+      return {
+        heading: <span>
+          <strong>{person.name}</strong>
+          &nbsp;
+          <small className="secondary">
+            (<Link to={`/app/people/${person.id}`}>view/edit data</Link>)
+          </small>
+        </span>,
+        body: <div className="accordionBody">
+          <CasesList
+            cases={personCases}
+            chooseCase={partial(this.chooseCase, person)}
+            activeCase={activeCase}
+          />
+        </div>
+      }
+    })
+
     return (
-      <div>
-        {people.map(person => {
-          const personCases = groupedCases[person.id]
-          return (
-            <div key={person.id}>
-              {person.name}
-              <ul>
-                {personCases && personCases.map(kase =>
-                  <li key={kase.id}>
-                    <a href="#" onClick={partial(this.chooseCase, person, kase)}>
-                      {kase.name}
-                    </a>
-                  </li>
-                )}
-              </ul>
-            </div>
-          )
-        })}
-      </div>
+      <Scoped css={css}>
+        <div>
+          <Accordion
+            items={accordionItems}
+            openIndex={0}
+            headingClassName="accordionHeading"
+          />
+        </div>
+      </Scoped>
     )
   }
 }
+
+const css = `
+  & .accordionHeading {
+    height: 36px;
+    display: flex;
+    align-items: center;
+  }
+
+  & .accordionHeading small {
+    display: none;
+  }
+
+  & .accordionHeading:hover small {
+    display: inline;
+  }
+
+  & .accordionBody {
+    margin-bottom: 4px;
+  }
+`

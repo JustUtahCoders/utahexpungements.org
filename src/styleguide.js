@@ -7,6 +7,8 @@ export const darkSecondary = `#594b47`
 export const tertiary = `#F0E7D8`
 export const info = `#78b4bd`
 export const success = `#3e9a3e`
+export const danger = `#bb3434`
+export const darkDanger = `#8f2828`
 export const rawNavbarHeight = 50
 export const navbarHeight = `50rem`
 const rawBreadcrumbHeight = rawNavbarHeight
@@ -17,6 +19,7 @@ export const boxShadow1 = `0 10px 30px -24px #4b4e53`
 export const boxShadow2 = `0 10px 40px -24px #393b3f`
 export const boxShadow3 = `0 16px 50px -24px #212224`
 export const semiTransparentGray = `rgba(171, 155, 150, 0.9)`
+export const veryLightGray = `#eeeeee`
 export const lightGray = `#D3D3D3`
 export const darkGray = `#afafaf`
 export const fontFamily = `'Roboto Condensed', sans-serif`
@@ -80,13 +83,16 @@ export default `
   }
 
   & button, & a.button {
-    cursor: default;
     font-size: 18rem;
     border-radius: 6rem;
     padding: 8px 12px;
     border: none;
     font-family: ${fontFamily};
     text-align: center;
+  }
+
+  & button.small {
+    font-size: 14rem;
   }
 
   & button.primary, & a.primary {
@@ -109,6 +115,16 @@ export default `
     background-color: ${darkSecondary};
   }
 
+  & button.danger, & a.button.danger {
+    transition: background-color 0.2s, color 0.2s;
+    color: white;
+    background-color: ${danger};
+  }
+
+  & button.danger:hover, & a.button.danger:hover {
+    background-color: ${darkDanger};
+  }
+
   & .web-form-input {
     margin: 24rem 0 0 32rem;
   }
@@ -126,7 +142,6 @@ export default `
     padding: 0;
     font: inherit;
     cursor: pointer;
-    outline: inherit;
   }
 
   & .responsive-flex {

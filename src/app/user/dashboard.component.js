@@ -15,7 +15,10 @@ export default class Dashboard extends React.Component {
           </p>
         }
         <p>Choose a case to work on or <Link to="/app/cases/create">create a new case</Link>.</p>
-        <PeopleList user={context.authUser} />
+        <PeopleList
+          user={context.authUser}
+          activeCase={context.activeCase}
+        />
       </div>
     )
   }
