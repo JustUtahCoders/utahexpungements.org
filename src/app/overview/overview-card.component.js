@@ -36,8 +36,4 @@ const css = `
   & .actions {
     margin-top: 16rem;
   }
-
-  & p:last-child {
-    margin-bottom: 0;
-  }
 `

@@ -29,6 +29,14 @@ export default `
     font-size: 1px; /* for 1rem to be 1px */
     font-family: ${fontFamily};
     background-color: ${lightGray};
+    --color-primary: ${primary};
+    --color-dark-primary: ${darkPrimary};
+    --color-secondary: ${secondary};
+    --color-dark-secondary: ${darkSecondary};
+    --color-tertiary: ${tertiary};
+    --color-info: ${info};
+    --color-success: ${success};
+    --color-light-gray: ${lightGray};
   }
 
   body {
@@ -149,12 +157,16 @@ export default `
     align-items: center;
   }
 
+  & .vertical-margin-8 {
+    margin: 8rem 0;
+  }
+
   ${mediaMobile} {
     & .responsive-flex {
       flex-direction: column;
     }
 
-    & button + button, & button + .button, & .button + .button, & .button + button {
+    & button:not(.unstyled) + button:not(.unstyled), & button:not(.unstyled) + .button:not(.unstyled), & .button:not(.unstyled) + .button:not(.unstyled), & .button:not(.unstyled) + button:not(.unstyled) {
       margin-top: 16rem;
     }
   }
@@ -164,7 +176,7 @@ export default `
       flex-direction: row;
     }
 
-    & button + button, & button + .button, & .button + .button, & .button + button {
+    & button:not(.unstyled) + button:not(.unstyled), & button:not(.unstyled) + .button:not(.unstyled), & .button:not(.unstyled) + .button:not(.unstyled), & .button:not(.unstyled) + button:not(.unstyled) {
       margin-left: 16rem;
     }
 
@@ -183,10 +195,14 @@ export default `
     padding: 8px 12px;
   }
 
-  & ul {
+  & ul:not(.with-bullets) {
     padding: 0;
     margin: 0;
     list-style-type: none;
+  }
+
+  & ul.with-bullets li:not(last-child) {
+    margin-bottom: 8rem;
   }
 
   & .card {
@@ -196,6 +212,10 @@ export default `
 
   & .card > h1:first-child, & .card > h2:first-child, & .card > h3:first-child, & .card > h4:first-child, & .card > h5:first-child {
     margin-top: 0;
+  }
+
+  & .bold {
+    font-weight: bold;
   }
 
   @media print {

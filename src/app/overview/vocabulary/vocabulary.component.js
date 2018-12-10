@@ -1,9 +1,34 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import OverviewCard from '../overview-card.component.js'
-import definedWords from './defined-words.helper.js'
+import {definitionComponents, definedWords} from './defined-terms.helper.js'
 import {Scoped} from 'kremling'
 
 export default function Vocabulary(props) {
+  const containerDiv = useRef(null)
+
+  useEffect(() => {
+    if (!window.location.hash) {
+      return
+    }
+
+    let anchoredWord
+    try {
+      anchoredWord = containerDiv.current.querySelector(window.location.hash)
+    } catch (err) {
+      // invalid selector is in the hash. Do nothing
+    }
+
+    if (anchoredWord) {
+      anchoredWord.open = true
+      const timeoutId = setTimeout(() => {
+        anchoredWord.offsetParent.scrollTop = anchoredWord.offsetTop
+      })
+
+      return () => clearTimeout(timeoutId)
+    }
+  }, [window.location.hash])
+
   return (
     <OverviewCard
       title={__("vocabulary")}
@@ -11,26 +36,54 @@ export default function Vocabulary(props) {
       primaryHref="/app/tool"
     >
       <Scoped css={css}>
-        <p>
-          As you work on your expungement, here are some words that will come up that are good ones to know:
-        </p>
-        {definedWords.map(definedWord => (
-          <section key={definedWord}>
-            <details>
-              <summary className="defined-word">
-                {__(`def word - ${definedWord}`)}
-              </summary>
-              {__(`def - ${definedWord}`)}
-            </details>
-          </section>
-        ))}
+        <div ref={containerDiv}>
+          <p>
+            As you work on your expungement, here are some words that will come up that are good ones to know.
+          </p>
+          {definedWords.map(definedWord => {
+            const Definition = definitionComponents[definedWord]
+            const id = definedWord.replace(/ /g, '-')
+
+            return (
+              <section key={definedWord}>
+                <details className="defined-word" id={id}>
+                  <summary className="summary">
+                    <span className="expandable-word">
+                      {__(`def word - ${definedWord}`)}
+                    </span>
+                    <Link to={`#${id}`} className="link-to-word">
+                      link
+                    </Link>
+                  </summary>
+                  <Definition />
+                </details>
+              </section>
+            )
+          })}
+        </div>
       </Scoped>
     </OverviewCard>
   )
 }
 
 const css = `
-  & .defined-word {
+  & .expandable-word {
     text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  & .link-to-word {
+    display: none;
+    text-decoration: none;
+    margin-left: 8rem;
+    color: var(--color-secondary);
+  }
+
+  & .link-to-word:hover {
+    text-decoration: underline;
+  }
+
+  & .summary:hover .link-to-word, .summary:focus .link-to-word {
+    display: inline;
   }
 `
