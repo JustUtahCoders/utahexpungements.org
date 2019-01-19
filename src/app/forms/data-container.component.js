@@ -40,12 +40,10 @@ export default class DataContainer extends React.Component {
     this.setState(prevState => {
       return set(prevState, key, value)
     }, () => {
-      const databaseUpdate = set({}, key, value)
-
       const { authContext } = this.props
       if (authContext.authUser && authContext.activePerson && authContext.activeCase) {
         database
-          .persistFormData(authContext.activePerson.id, authContext.activeCase.id, databaseUpdate)
+          .persistFormData(authContext.activePerson.id, authContext.activeCase.id, this.state)
           .catch(err => {
             console.error(err)
           })
