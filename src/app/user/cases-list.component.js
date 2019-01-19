@@ -45,7 +45,7 @@ export default class CasesList extends React.Component {
 
 const css = `
   & .row {
-    height: 34px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,5 +64,6 @@ const css = `
 
   & .row button:last-child {
     margin-right: 0;
+    margin-left: 0;
   }
 `

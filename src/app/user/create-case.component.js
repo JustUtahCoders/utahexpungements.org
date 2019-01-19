@@ -208,7 +208,7 @@ export default class CreateCase extends React.Component {
                 You are now working on this case.
               </p>
               <p>
-                <Link to="/app/dashboard">View all of your cases</Link> or <Link to="/app/certificate-of-eligibility/adult-coe-form">start filling out the application for certificate of eligibility</Link> for this case.
+                <Link to="/app/dashboard">View all your cases</Link> or <Link to="/app/tool/certificate-of-eligibility">get started</Link> on this case.
               </p>
             </div>
           }
