@@ -71,7 +71,7 @@ export default class Home extends React.Component {
             <DetailHighlight
               icon="/static/icons/svg/025-presentation.svg"
               title={__("find out qualify")}
-              description={<>{__("foq descr")[0]}<Link className="underline" to="/app/are-you-eligible">{__("foq descr")[1]}</Link>{__("foq descr")[2]}</>}
+              description={<>{__("foq descr")[0]}<Link className="underline" to="/app/tool/are-you-eligible">{__("foq descr")[1]}</Link>{__("foq descr")[2]}</>}
             />
             <DetailHighlight
               icon="/static/icons/svg/003-laptop.svg"

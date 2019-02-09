@@ -20,7 +20,7 @@ export default class MenuItems extends React.Component {
                 {this.createLink('/app/overview', 'menu item - overview')}
                 {this.subItem('/app/overview/basics', 'expungement basics')}
                 {this.subItem('/app/overview/vocabulary', 'menu item - vocabulary')}
-                {this.createLink('/app/tool', 'menu item - tool')}
+                {this.createLink('/app/tool/are-you-eligible', 'menu item - tool')}
                 {this.subItem('/app/tool/are-you-eligible', 'menu item - step 1')}
                 {this.subItem('/app/tool/certificate-of-eligibility', 'menu item - step 2')}
                 {this.subItem('/app/tool/file-petition', 'menu item - step 3')}
