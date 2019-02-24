@@ -103,5 +103,5 @@ export const updateCaseData = (caseId, data) => {
 }
 
 export function createLead(email) {
-  return database.collection('leads').add({email})
+  return database.collection('leads').add({email, signUpDate: new Date()})
 }
