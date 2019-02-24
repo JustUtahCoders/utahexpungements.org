@@ -1,3 +1,5 @@
+import React from 'react'
+
 const translations = {
   // home page
   "home page title": "Expunge a criminal conviction in Utah",
@@ -72,11 +74,6 @@ const translations = {
   // overview basics
   "expungement basics": "The basics",
   "basics crumb": "Basics",
-  "expg defn": `
-    An expungement is the process of sealing court records.
-    This means that after an expungement, employers and landlords will no longer see previous
-    criminal convictions in a background check.
-  `,
   "why does it matter": "Why does it matter?",
   "reason it matters": `
     Passing a background check can make the difference when getting a job or housing. After you get an expungement,
@@ -121,23 +118,81 @@ const translations = {
     ` if you'd like to talk with us.`,
   ],
 
+  "got it": "Got it!",
+
   // overview vocabulary
   "vocabulary": "Vocabulary",
   "get started": "Get started",
   "def word - expungement": "expungement",
-  "def - expungement": "Defn",
-  "def word - case": "case",
-  "def - case": "Defn",
+  "def - expungement": [
+    `An expungement is the process of sealing court records.
+      This means that after an expungement, employers and landlords will no longer see previous `,
+    `criminal convictions`,
+    ` or `,
+    `charges`,
+    ` in a background check.`
+  ],
+  "def word - expungement order": "expungement order",
+  "def - expungement order": "Defn",
+  "def word - court case": "court case",
+  "def - court case": [
+    `A court case is a legal proceeding where you are `,
+    `charged`,
+    ` with one or more crimes. After you are arrested or accused of a crime,
+      a court case is what determines whether you are guilty and what happens
+      next. This may involve you going to court, although sometimes the result
+      will be decided without going to court.`,
+    `Court cases are important to expungements because you must expunge each court case individually.
+      When you expunge a court case, all records of the corresponding charges
+      are sealed.`,
+  ],
   "def word - incident": "incident",
   "def - incident": "Defn",
-  "def word - bci": "BCI (Bureau of Criminal Identification)",
-  "def - bci": "Defn",
+  "def word - bci": "BCI",
+  "def - bci": [
+    `The Bureau of Criminal Identification (BCI) is a government agency located in the Salt Lake City area. It provides two services
+      that are helpful for expungements:`,
+    `Printout of a person's criminal history`,
+    `. This is useful for knowing whether you might qualify for an expungement. It takes about 15 minutes and costs $15.`,
+    `Certificates of eligibility for an expungement`,
+    `. These are necessary in order to get an expungement. You must fill out an application for this one and it takes $65 and about
+      7 months for your application to be processed. `,
+    `Contact information`,
+    `8:00am - 5:00pm, Monday through Friday`,
+  ],
   "def word - certificate of eligibility": "Certificate of Eligibility",
-  "def - certificate of eligibility": "Defn",
+  "def - coe": [
+    `A certificate of eligibility is a paper document that you get after filling out `,
+    `an application`,
+    ` and submitting it to the `,
+    `. This document means that you qualify for an expungement and can proceed to `,
+    `file a petition`,
+    ` with the court to receive an expungement order.`,
+    `You must obtain a separate certificate of eligibility for each `,
+    ` that you'd like expunged. It costs $65 to apply for one or more certificates. Once your application goes through, it costs another $65 for each
+      certificate.`,
+    `You can read more about certificates of eligibility at `,
+  ],
   "def word - conviction": "conviction",
   "def - conviction": "Defn",
-  "def word - court action": "court action",
-  "def - court action": "Defn",
+  "def word - charge": "charge",
+  "def - charge": "Defn",
+  "def word - disposition": "disposition",
+  "def - disposition": [
+    `Acquitted`,
+    `This means that you were found Not Guilty of the crime. However, the court case still might appear in background checks, so you still might need
+      an expungement for this.`,
+    `Convicted`,
+    `This means that you were found Guilty of the crime. This will show up in a background check until you get it expunged and will factor into whether
+      you qualify for an expungement.`,
+    `Dismissed without prejudice`,
+    `This means that the government decided to drop the charges against you forever, which means they're not ever going to prosecute you for this.`,
+    `Dismissed with prejudice`,
+    `This means that the government decided to drop the charges against you for now, but reserves the right to bring them back later if they want to.`,
+    `Plea with abeyance`,
+    `This means that you admit fault or plead no contest, but are not convicted or punished as long as you comply with specific conditions. Often (but not always),
+      the conditions involve not committing a similar crime for certain period of time.`,
+  ],
 
   // Expungement clinic info
   "location": "Location",
@@ -204,12 +259,25 @@ const translations = {
   "coe recipient agency": "What is the name of the agency they work for? (If applicable)",
 }
 
-window.__ = function(name) {
+export default translations
+
+window.__ = function(name, ...args) {
   const translation = translations[name]
   if (!translation) {
-    throw new Error(`No english translation for '${name}'`)
+    throw Error(`No english translation for '${name}'`)
   }
 
-  return translation
+  if (translation.includes('{}')) {
+    const translationParts = translation.split('{}')
+    if (translationParts.length !== args.length) {
+      throw Error(`Improper use of translation of ${name} with {} in it -- expected ${translationParts.length} parts but got ${args.length}`)
+    }
+
+    return translationParts.map((part, index) => (
+      <React.Fragment key={index}>{part}{args[index]}</React.Fragment>
+    ))
+  } else {
+    return translation
+  }
 }
 

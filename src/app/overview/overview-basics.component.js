@@ -1,6 +1,7 @@
 import React from 'react'
 import OverviewCard from './overview-card.component.js'
 import {Link} from 'react-router-dom'
+import ExpungementDefn from './vocabulary/words/expungement.component.js'
 
 export default function OverviewBasics(props) {
   return (
@@ -14,9 +15,7 @@ export default function OverviewBasics(props) {
       <h4>
         {__("what is expg")}
       </h4>
-      <p>
-        {__("expg defn")}
-      </p>
+      <ExpungementDefn />
       <h4>
         {__("why does it matter")}
       </h4>

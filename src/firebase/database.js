@@ -101,3 +101,7 @@ export const updateCaseData = (caseId, data) => {
     data
   })
 }
+
+export function createLead(email) {
+  return database.collection('leads').add({email})
+}

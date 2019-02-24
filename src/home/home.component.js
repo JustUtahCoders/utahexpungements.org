@@ -4,29 +4,58 @@ import {Link} from 'react-router-dom'
 import {mediaMobile, mediaDesktop, primary, lightGray} from 'src/styleguide.js'
 import DetailHighlight from './detail-highlight.component.js'
 import Footer from 'src/footer/footer.component.js'
+import emailValidator from 'email-validator'
+import {createLead} from 'src/firebase/database.js'
 
 export default class Home extends React.Component {
+  state = {
+    emailSignup: '',
+    signedUp: false,
+  }
   render() {
     return (
       <Scoped css={css}>
         <div className="navbar-margin-top home">
           <div className="hero">
-            <h1>
-              {__("home page title")}
-            </h1>
-            <div className="actions">
-              <Link to="/app">
-                <button className="primary">
-                  {__("home page primary action")}
-                </button>
-              </Link>
-              <Link to="/app/forms">
-                <button className="secondary">
-                  {__("fill out forms")}
-                </button>
-              </Link>
+            <div className="hero-main" onSubmit={this.createLead}>
+              <div className="main-content">
+                <h1>
+                  Expunge a criminal conviction in Utah
+                </h1>
+                {this.state.signedUp
+                  ?
+                    <>
+                      <div className="enter-your-email">
+                        Thanks! We'll get back to you soon. In the meantime...
+                      </div>
+                      <div className="actions">
+                        <Link to="/app">
+                          <button className="primary">
+                            {__("home page primary action")}
+                          </button>
+                        </Link>
+                        <Link to="/app/forms">
+                          <button className="secondary" style={{border: '1px solid white', marginLeft: '16rem'}}>
+                            {__("fill out forms")}
+                          </button>
+                        </Link>
+                      </div>
+                    </>
+                  :
+                    <>
+                      <div className="enter-your-email">
+                        Enter your email address to join our list of beta testers.
+                      </div>
+                      <form className="actions">
+                        <input className="juicy-input" type="text" value={this.state.emailSignup} onChange={this.changeEmail} placeholder="youremail@gmail.com" />
+                        <button className="primary" type="submit">
+                          Sign up
+                        </button>
+                      </form>
+                    </>
+                }
+              </div>
             </div>
-            <div className="padding-below" />
           </div>
           <div className="more-details">
             <DetailHighlight
@@ -42,7 +71,7 @@ export default class Home extends React.Component {
             <DetailHighlight
               icon="/static/icons/svg/025-presentation.svg"
               title={__("find out qualify")}
-              description={<>{__("foq descr")[0]}<Link className="underline" to="/app/are-you-eligible">{__("foq descr")[1]}</Link>{__("foq descr")[2]}</>}
+              description={<>{__("foq descr")[0]}<Link className="underline" to="/app/tool/are-you-eligible">{__("foq descr")[1]}</Link>{__("foq descr")[2]}</>}
             />
             <DetailHighlight
               icon="/static/icons/svg/003-laptop.svg"
@@ -63,6 +92,18 @@ export default class Home extends React.Component {
       </Scoped>
     )
   }
+  changeEmail = evt => {
+    this.setState({emailSignup: evt.target.value})
+  }
+  createLead = evt => {
+    evt.preventDefault()
+    const email = this.state.emailSignup
+    if (emailValidator.validate(email)) {
+      this.setState({emailSignup: '', signedUp: true}, () => {
+        createLead(email)
+      })
+    }
+  }
 }
 
 const css = `
@@ -81,7 +122,7 @@ const css = `
     background-color: ${lightGray};
     background-size: cover;
     text-align: center;
-    height: 500rem;
+    height: 350rem;
   }
 
   & .hero > h1 {
@@ -89,45 +130,64 @@ const css = `
     text-shadow: 0 0 20px black;
   }
 
-  & .hero button {
-    box-shadow: 0 0 20px black;
-  }
-
   & .padding-below {
     padding-bottom: 10%;
   }
 
+  & .hero-main {
+    padding: 30rem 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .hero-main h1 {
+    margin: 0 0 20rem 0;
+  }
+
+  & .enter-your-email {
+    font-size: 20rem;
+  }
+
+  & .actions {
+    margin-top: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .juicy-input {
+    font-size: 24rem;
+  }
+
   ${mediaDesktop} {
-    & .actions {
-      display: flex;
-      flex-direction: row;
+    & .actions > *:first-child {
+      margin-right: 24rem;
     }
 
-    & .actions > * {
-      margin-right: 16px;
-    }
-
-    & .actions > *:last-child {
-      margin-right: 0;
+    & .hero-main {
+      padding: 0% 20%;
     }
   }
 
   ${mediaMobile} {
-    & .actions {
-      display: flex;
-      flex-direction: column;
-    }
-
-    & .actions > * {
-      margin-bottom: 16px;
-    }
-
-    & .actions > *:last-child {
-      margin-bottom: 0;
-    }
-
     & .more-details {
       flex-direction: column;
+    }
+
+    & .actions {
+      flex-direction: column;
+    }
+
+    & .actions > *:first-child {
+      margin-bottom: 24rem;
+    }
+
+    & .hero-main {
+      padding: 0% 5%;
     }
   }
 
