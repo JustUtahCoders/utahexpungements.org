@@ -33,7 +33,7 @@ export default function Vocabulary(props) {
     <OverviewCard
       title={__("vocabulary")}
       primaryText={__("get started")}
-      primaryHref="/app/tool"
+      primaryHref="/app/tool/are-you-eligible"
     >
       <Scoped css={css}>
         <div ref={containerDiv}>
