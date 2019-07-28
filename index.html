@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Utah Expungements</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i"
+      rel="stylesheet"
+    />
 
-    <link rel="shortcut icon" type="image/png" href="./static/utah.png"/>
+    <link rel="shortcut icon" type="image/png" href="./static/utah.png" />
   </head>
   <body>
     <script src="/utah-expungements.js"></script>
@@ -26,30 +29,44 @@
       (function(l) {
         if (l.search) {
           var q = {};
-          l.search.slice(1).split('&').forEach(function(v) {
-            var a = v.split('=');
-            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
-          });
+          l.search
+            .slice(1)
+            .split("&")
+            .forEach(function(v) {
+              var a = v.split("=");
+              q[a[0]] = a
+                .slice(1)
+                .join("=")
+                .replace(/~and~/g, "&");
+            });
           if (q.p !== undefined) {
-            window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + (q.p || '') +
-              (q.q ? ('?' + q.q) : '') +
-              l.hash
+            window.history.replaceState(
+              null,
+              null,
+              l.pathname.slice(0, -1) +
+                (q.p || "") +
+                (q.q ? "?" + q.q : "") +
+                l.hash
             );
           }
         }
-      }(window.location))
+      })(window.location);
     </script>
     <!-- End Single Page Apps for GitHub Pages -->
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122319727-1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-122319727-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-			gtag('config', 'UA-122319727-1');
-		</script>
+      gtag("config", "UA-122319727-1");
+    </script>
   </body>
 </html>
