@@ -1,33 +1,33 @@
-import React, {useRef, useEffect} from 'react'
-import {Link} from 'react-router-dom'
-import OverviewCard from '../overview-card.component.js'
-import {definitionComponents, definedWords} from './defined-terms.helper.js'
-import {Scoped} from 'kremling'
+import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import OverviewCard from "../overview-card.component.js";
+import { definitionComponents, definedWords } from "./defined-terms.helper.js";
+import { Scoped } from "kremling";
 
 export default function Vocabulary(props) {
-  const containerDiv = useRef(null)
+  const containerDiv = useRef(null);
 
   useEffect(() => {
     if (!window.location.hash) {
-      return
+      return;
     }
 
-    let anchoredWord
+    let anchoredWord;
     try {
-      anchoredWord = containerDiv.current.querySelector(window.location.hash)
+      anchoredWord = containerDiv.current.querySelector(window.location.hash);
     } catch (err) {
       // invalid selector is in the hash. Do nothing
     }
 
     if (anchoredWord) {
-      anchoredWord.open = true
+      anchoredWord.open = true;
       const timeoutId = setTimeout(() => {
-        anchoredWord.offsetParent.scrollTop = anchoredWord.offsetTop
-      })
+        anchoredWord.offsetParent.scrollTop = anchoredWord.offsetTop;
+      });
 
-      return () => clearTimeout(timeoutId)
+      return () => clearTimeout(timeoutId);
     }
-  }, [window.location.hash])
+  }, [window.location.hash]);
 
   return (
     <OverviewCard
@@ -38,11 +38,12 @@ export default function Vocabulary(props) {
       <Scoped css={css}>
         <div ref={containerDiv}>
           <p>
-            As you work on your expungement, here are some words that will come up that are good ones to know.
+            As you work on your expungement, here are some words that will come
+            up that are good ones to know.
           </p>
           {definedWords.map(definedWord => {
-            const Definition = definitionComponents[definedWord]
-            const id = definedWord.replace(/ /g, '-')
+            const Definition = definitionComponents[definedWord];
+            const id = definedWord.replace(/ /g, "-");
 
             return (
               <section key={definedWord}>
@@ -58,12 +59,12 @@ export default function Vocabulary(props) {
                   <Definition />
                 </details>
               </section>
-            )
+            );
           })}
         </div>
       </Scoped>
     </OverviewCard>
-  )
+  );
 }
 
 const css = `
@@ -86,4 +87,4 @@ const css = `
   & .summary:hover .link-to-word, .summary:focus .link-to-word {
     display: inline;
   }
-`
+`;

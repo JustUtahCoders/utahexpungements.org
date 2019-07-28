@@ -1,16 +1,16 @@
-import React from 'react'
-import AppContext from '../app-context.component.js'
-import {Scoped} from 'kremling'
-import Hamburger from './hamburger.component.js'
-import MenuItems from './menu-items.component.js'
-import Logo from './logo.component.js'
-import UserDropdown from './user-dropdown.component.js'
+import React from "react";
+import AppContext from "../app-context.component.js";
+import { Scoped } from "kremling";
+import Hamburger from "./hamburger.component.js";
+import MenuItems from "./menu-items.component.js";
+import Logo from "./logo.component.js";
+import UserDropdown from "./user-dropdown.component.js";
 
 export default class Navbar extends React.Component {
   render() {
     return (
       <AppContext.Consumer>
-        {context =>
+        {context => (
           <Scoped css={css}>
             <nav className="navbar bg-primary">
               <Hamburger {...this.props} />
@@ -19,9 +19,9 @@ export default class Navbar extends React.Component {
               </div>
             </nav>
           </Scoped>
-        }
+        )}
       </AppContext.Consumer>
-    )
+    );
   }
 }
 
@@ -37,4 +37,4 @@ const css = `
     align-items: center;
     z-index: 1000;
   }
-`
+`;

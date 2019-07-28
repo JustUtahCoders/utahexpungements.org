@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const translations = {
   // home page
@@ -16,26 +16,26 @@ const translations = {
   "ask questions descr": [
     `Join our `,
     `discussion forum`,
-    ` to ask and answer questions about the expungement process in Utah.`,
+    ` to ask and answer questions about the expungement process in Utah.`
   ],
   "find out qualify": "Find out if you qualify",
   "foq descr": [
     "Our ",
     "screening tool",
-    " will help you understand if and when your convictions are ready to be expunged from your criminal record.",
+    " will help you understand if and when your convictions are ready to be expunged from your criminal record."
   ],
   "fill out paperwork": "Fill out the paperwork online",
   "fop descr": [
     `Enter your information in a web form and `,
     `we'll generate the documents`,
-    ` you'll need to file with the courts.`,
+    ` you'll need to file with the courts.`
   ],
 
   // menu items
   "menu item - dashboard": "Dashboard",
   "menu item - home": "Home",
   "menu item - ask a question": "Ask a question",
-  "menu item - forms" : "Forms",
+  "menu item - forms": "Forms",
   "menu item - overview": "Overview",
   "menu item - vocabulary": "Vocabulary",
   "menu item - tool": "Expungement tool",
@@ -49,12 +49,12 @@ const translations = {
   "home page": "Home",
   "what is expg": "What is an expungement?",
   "ask a question": "Ask a question",
-  "about": "About",
+  about: "About",
   "report problem": "Report a problem",
   "cover image credit": "Cover image",
 
   // overview
-  "continue": "Continue",
+  continue: "Continue",
   "skip intro": "Skip introduction",
   "overview landing": "Let's clear your criminal record",
   "overview landing 1": `A criminal record can prevent you from getting a job or housing. But after an expungement, employers and landlords won't see your criminal record anymore during background checks.`,
@@ -68,7 +68,7 @@ const translations = {
     `, `,
     `email us directly`,
     `, or `,
-    `ask a question in our public forum.`,
+    `ask a question in our public forum.`
   ],
 
   // overview basics
@@ -84,7 +84,7 @@ const translations = {
     `The `,
     ` defines the rules for expungements. We've put together `,
     `a tool`,
-    ` to help you know how those rules apply to you.`,
+    ` to help you know how those rules apply to you.`
   ],
   "if multiple convictions": `
     If you have multiple criminal convictions, you will sometimes be able to expunge all of them, sometimes only some of them,
@@ -94,7 +94,7 @@ const translations = {
   "how long answer": [
     `About 8-16 months. If you're interested in helping speed things up, check out our `,
     `change.org petition`,
-    ` where we explain why it takes so long and how we think it could be improved.`,
+    ` where we explain why it takes so long and how we think it could be improved.`
   ],
   "what is cost": "How much does it cost?",
   "cost answer": [
@@ -102,7 +102,7 @@ const translations = {
     `preliminary check`,
     ` to see if you qualify for an expungement costs only $15.
       If you decide to proceed with an expungement cost, it costs about $200 if you have one criminal conviction and about
-      $100 more for each additional conviction.`,
+      $100 more for each additional conviction.`
   ],
   "if cannot afford": `If you cannot afford the cost, some of the fees can be waived, which we'll show you how to do later.`,
   "how does website help": "How does this website help?",
@@ -115,13 +115,13 @@ const translations = {
     `email us`,
     ` or `,
     `ask a question`,
-    ` if you'd like to talk with us.`,
+    ` if you'd like to talk with us.`
   ],
 
   "got it": "Got it!",
 
   // overview vocabulary
-  "vocabulary": "Vocabulary",
+  vocabulary: "Vocabulary",
   "get started": "Get started",
   "def word - expungement": "expungement",
   "def - expungement": [
@@ -144,7 +144,7 @@ const translations = {
       will be decided without going to court.`,
     `Court cases are important to expungements because you must expunge each court case individually.
       When you expunge a court case, all records of the corresponding charges
-      are sealed.`,
+      are sealed.`
   ],
   "def word - incident": "incident",
   "def - incident": "Defn",
@@ -158,7 +158,7 @@ const translations = {
     `. These are necessary in order to get an expungement. You must fill out an application for this one and it takes $65 and about
       7 months for your application to be processed. `,
     `Contact information`,
-    `8:00am - 5:00pm, Monday through Friday`,
+    `8:00am - 5:00pm, Monday through Friday`
   ],
   "def word - certificate of eligibility": "Certificate of Eligibility",
   "def - coe": [
@@ -171,7 +171,7 @@ const translations = {
     `You must obtain a separate certificate of eligibility for each `,
     ` that you'd like expunged. It costs $65 to apply for one or more certificates. Once your application goes through, it costs another $65 for each
       certificate.`,
-    `You can read more about certificates of eligibility at `,
+    `You can read more about certificates of eligibility at `
   ],
   "def word - conviction": "conviction",
   "def - conviction": "Defn",
@@ -191,49 +191,56 @@ const translations = {
     `This means that the government decided to drop the charges against you for now, but reserves the right to bring them back later if they want to.`,
     `Plea with abeyance`,
     `This means that you admit fault or plead no contest, but are not convicted or punished as long as you comply with specific conditions. Often (but not always),
-      the conditions involve not committing a similar crime for certain period of time.`,
+      the conditions involve not committing a similar crime for certain period of time.`
   ],
 
   // Expungement clinic info
-  "location": "Location",
+  location: "Location",
   "first thur": "First Thursday of every month",
-  "date": "Date",
-  "time": "Time",
-  "clinic time": "5:00pm - 6:00pm. (Please plan to arrive no later than 6 pm otherwise you will have to wait until the following month)",
+  date: "Date",
+  time: "Time",
+  "clinic time":
+    "5:00pm - 6:00pm. (Please plan to arrive no later than 6 pm otherwise you will have to wait until the following month)",
   "sponsored by": "Sponsored by",
   "clinic sponsored by": "S.J. Quinney College of Law and Utah Legal Services",
 
   // application for coe form
-  "app for coe short descr": "This form requests a certificate that can be used to petition for an expungement.",
+  "app for coe short descr":
+    "This form requests a certificate that can be used to petition for an expungement.",
   "is traffic expungement": "Is this a traffic expungement?",
-  "is acquittal expungement": "Is this expungement for an acquittal or dismissal?",
+  "is acquittal expungement":
+    "Is this expungement for an acquittal or dismissal?",
 
   // petition conviction form
   "petition conviction name": "Petition to Expunge Records (Conviction)",
-  "petition conviction short descr": "This form requests a court order for an expungement. You must first obtain a Certificate of Eligibility before filing this form.",
+  "petition conviction short descr":
+    "This form requests a court order for an expungement. You must first obtain a Certificate of Eligibility before filing this form.",
 
   // form bank
   "click for form details": "Click for form details",
-  "show forms under construction": "Show forms that are under construction and not fully ready to use.",
+  "show forms under construction":
+    "Show forms that are under construction and not fully ready to use.",
 
   // motion to waive fees
   "motion to waive fees name": "Motion to Waive Fees",
-  "motion to waive fees short descr": "This form can be filed with other forms to request that the court remove the fees for filing a form.",
+  "motion to waive fees short descr":
+    "This form can be filed with other forms to request that the court remove the fees for filing a form.",
 
   // petition for drug conviction
   "petition for drug conviction": "Petition for Drug Conviction",
-  "petition for drug conviction short description": "This form requests a court order for expungement of a drug conviction. You must first obtain a Certificate of Eligibility before filing this form.",
+  "petition for drug conviction short description":
+    "This form requests a court order for expungement of a drug conviction. You must first obtain a Certificate of Eligibility before filing this form.",
   // global form data
   "first name": "First Name",
   "last name": "Last Name",
   "middle name": "Middle Name",
   "previously used names": "Previously used names",
-  "birthday": "Birthday",
-  "street": "Street Address",
-  "city": "City",
-  "state": "State",
-  "zip": "Zip Code",
-  "phone": "Phone Number",
+  birthday: "Birthday",
+  street: "Street Address",
+  city: "City",
+  state: "State",
+  zip: "Zip Code",
+  phone: "Phone Number",
   "email address": "Email Address",
   "social security number": "Social security number",
   "drivers license #": "Drivers license number",
@@ -248,36 +255,47 @@ const translations = {
   // petition for conviction form
   "judge full name": "Judge Full Name",
   "case number": "Case Number",
-  "are you filling this out for yourself": "Are you filling this out for yourself?",
-  "explain why expunging this crime is not contrary to the public's interest": "Explain why expunging this crime is not contrary to the public's interest",
+  "are you filling this out for yourself":
+    "Are you filling this out for yourself?",
+  "explain why expunging this crime is not contrary to the public's interest":
+    "Explain why expunging this crime is not contrary to the public's interest",
 
   // app for coe with release form
-  "app for coe with release": "Application for Certificate of Eligibility (Third Party Release)",
-  "app for coe with release short descr": "A special version of the Application for COE. This allows you to send certificates to someone else's address. Only use if instructed by a lawyer or government official.",
-  "coe recipient explanation": "Would you like to send your certificate of eligibility to someone else's address?",
-  "coe recipient name": "What is the name of the person you'd like to send the Certificate of Eligibility documents to?",
-  "coe recipient agency": "What is the name of the agency they work for? (If applicable)",
-}
+  "app for coe with release":
+    "Application for Certificate of Eligibility (Third Party Release)",
+  "app for coe with release short descr":
+    "A special version of the Application for COE. This allows you to send certificates to someone else's address. Only use if instructed by a lawyer or government official.",
+  "coe recipient explanation":
+    "Would you like to send your certificate of eligibility to someone else's address?",
+  "coe recipient name":
+    "What is the name of the person you'd like to send the Certificate of Eligibility documents to?",
+  "coe recipient agency":
+    "What is the name of the agency they work for? (If applicable)"
+};
 
-export default translations
+export default translations;
 
 window.__ = function(name, ...args) {
-  const translation = translations[name]
+  const translation = translations[name];
   if (!translation) {
-    throw Error(`No english translation for '${name}'`)
+    throw Error(`No english translation for '${name}'`);
   }
 
-  if (translation.includes('{}')) {
-    const translationParts = translation.split('{}')
+  if (translation.includes("{}")) {
+    const translationParts = translation.split("{}");
     if (translationParts.length !== args.length) {
-      throw Error(`Improper use of translation of ${name} with {} in it -- expected ${translationParts.length} parts but got ${args.length}`)
+      throw Error(
+        `Improper use of translation of ${name} with {} in it -- expected ${translationParts.length} parts but got ${args.length}`
+      );
     }
 
     return translationParts.map((part, index) => (
-      <React.Fragment key={index}>{part}{args[index]}</React.Fragment>
-    ))
+      <React.Fragment key={index}>
+        {part}
+        {args[index]}
+      </React.Fragment>
+    ));
   } else {
-    return translation
+    return translation;
   }
-}
-
+};

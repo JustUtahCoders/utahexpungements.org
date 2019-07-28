@@ -1,60 +1,64 @@
-import React from 'react'
-import {Scoped, always, sometimes} from 'kremling'
-import {MdKeyboardArrowDown, MdKeyboardArrowUp} from 'react-icons/md'
-import classnames from 'classnames'
+import React from "react";
+import { Scoped, always, sometimes } from "kremling";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import classnames from "classnames";
 
 export default class Dropdown extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       dropdownOpen: false
-    }
+    };
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.closeDropdown)
+    document.removeEventListener("click", this.closeDropdown);
   }
 
   openDropdown = () => {
-    this.setState({dropdownOpen: true}, () => {
-      document.addEventListener('click', this.closeDropdown)
-    })
-  }
+    this.setState({ dropdownOpen: true }, () => {
+      document.addEventListener("click", this.closeDropdown);
+    });
+  };
 
   closeDropdown = () => {
-    document.removeEventListener('click', this.closeDropdown)
-    this.setState({dropdownOpen: false})
-  }
+    document.removeEventListener("click", this.closeDropdown);
+    this.setState({ dropdownOpen: false });
+  };
 
   toggleDropdown = () => {
     if (this.state.dropdownOpen) {
-      this.closeDropdown()
+      this.closeDropdown();
     } else {
-      this.openDropdown()
+      this.openDropdown();
     }
-  }
+  };
 
   render() {
-    const {children, contents, className, openClassName, buttonClassName} = this.props
-    const {dropdownOpen} = this.state
+    const {
+      children,
+      contents,
+      className,
+      openClassName,
+      buttonClassName
+    } = this.props;
+    const { dropdownOpen } = this.state;
 
     return (
       <Scoped css={css}>
-        <div className={classnames(className, { [openClassName]: dropdownOpen })}>
+        <div
+          className={classnames(className, { [openClassName]: dropdownOpen })}
+        >
           <button className="unstyled" onClick={this.toggleDropdown}>
             <div className={classnames(buttonClassName, "dropdown-target")}>
               {children}
               {dropdownOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
             </div>
           </button>
-          {dropdownOpen &&
-            <div className="dropdown">
-              {contents}
-            </div>
-          }
+          {dropdownOpen && <div className="dropdown">{contents}</div>}
         </div>
       </Scoped>
-    )
+    );
   }
 }
 
@@ -71,5 +75,4 @@ const css = `
     display: flex;
     align-items: center;
   }
-`
-
+`;

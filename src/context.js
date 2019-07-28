@@ -1,31 +1,31 @@
-import {noop} from 'lodash'
+import { noop } from "lodash";
 
-let context = {}
-let changeCallback = noop
+let context = {};
+let changeCallback = noop;
 
 function onContextChanged(callback) {
-  changeCallback = callback
+  changeCallback = callback;
 }
 
 function removeOnContextChanged() {
-  changeCallback = noop
+  changeCallback = noop;
 }
 
 function getContext() {
-  return context
+  return context;
 }
 
 function setContext(newContext) {
   context = {
     ...context,
     ...newContext
-  }
-  changeCallback(context)
+  };
+  changeCallback(context);
 }
 
 export default {
   onContextChanged,
   removeOnContextChanged,
   getContext,
-  setContext,
-}
+  setContext
+};

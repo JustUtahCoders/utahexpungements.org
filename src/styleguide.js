@@ -1,28 +1,28 @@
 // https://coolors.co/acbea3-40476d-826754-ad5d4e-eb6534
 // https://coolors.co/a63a50-f0e7d8-ab9b96-a1674a-ba6e6e
-export const primary = `#A1674A`
+export const primary = `#A1674A`;
 export const darkPrimary = LightenDarkenColor(primary, -20);
-export const secondary = `#AB9B96`
-export const darkSecondary = `#594b47`
-export const tertiary = `#F0E7D8`
-export const info = `#78b4bd`
-export const success = `#3e9a3e`
-export const danger = `#bb3434`
-export const darkDanger = `#8f2828`
-export const rawNavbarHeight = 50
-export const navbarHeight = `50rem`
-const rawBreadcrumbHeight = rawNavbarHeight
-export const breadcrumbHeight = rawBreadcrumbHeight + `rem`
-export const mediaMobile = `@media screen and (max-width: 720px) and (min-width: 1px)`
-export const mediaDesktop = `@media screen and (min-width: 720px)`
-export const boxShadow1 = `0 10px 30px -24px #4b4e53`
-export const boxShadow2 = `0 10px 40px -24px #393b3f`
-export const boxShadow3 = `0 16px 50px -24px #212224`
-export const semiTransparentGray = `rgba(171, 155, 150, 0.9)`
-export const veryLightGray = `#eeeeee`
-export const lightGray = `#D3D3D3`
-export const darkGray = `#afafaf`
-export const fontFamily = `'Roboto Condensed', sans-serif`
+export const secondary = `#AB9B96`;
+export const darkSecondary = `#594b47`;
+export const tertiary = `#F0E7D8`;
+export const info = `#78b4bd`;
+export const success = `#3e9a3e`;
+export const danger = `#bb3434`;
+export const darkDanger = `#8f2828`;
+export const rawNavbarHeight = 50;
+export const navbarHeight = `50rem`;
+const rawBreadcrumbHeight = rawNavbarHeight;
+export const breadcrumbHeight = rawBreadcrumbHeight + `rem`;
+export const mediaMobile = `@media screen and (max-width: 720px) and (min-width: 1px)`;
+export const mediaDesktop = `@media screen and (min-width: 720px)`;
+export const boxShadow1 = `0 10px 30px -24px #4b4e53`;
+export const boxShadow2 = `0 10px 40px -24px #393b3f`;
+export const boxShadow3 = `0 16px 50px -24px #212224`;
+export const semiTransparentGray = `rgba(171, 155, 150, 0.9)`;
+export const veryLightGray = `#eeeeee`;
+export const lightGray = `#D3D3D3`;
+export const darkGray = `#afafaf`;
+export const fontFamily = `'Roboto Condensed', sans-serif`;
 
 export default `
   :root {
@@ -241,10 +241,9 @@ export default `
     margin: 0mm; /* this affects the margin in the printer settings */
   }
 
-`
+`;
 
 function LightenDarkenColor(col, amt) {
-
   var usePound = false;
 
   if (col[0] == "#") {
@@ -252,23 +251,22 @@ function LightenDarkenColor(col, amt) {
     usePound = true;
   }
 
-  var num = parseInt(col,16);
+  var num = parseInt(col, 16);
 
   var r = (num >> 16) + amt;
 
   if (r > 255) r = 255;
-  else if  (r < 0) r = 0;
+  else if (r < 0) r = 0;
 
-  var b = ((num >> 8) & 0x00FF) + amt;
+  var b = ((num >> 8) & 0x00ff) + amt;
 
   if (b > 255) b = 255;
-  else if  (b < 0) b = 0;
+  else if (b < 0) b = 0;
 
-  var g = (num & 0x0000FF) + amt;
+  var g = (num & 0x0000ff) + amt;
 
   if (g > 255) g = 255;
   else if (g < 0) g = 0;
 
-  return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
-
+  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
 }

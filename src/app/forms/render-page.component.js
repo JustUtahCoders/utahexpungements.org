@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {Scoped} from 'kremling'
+import React from "react";
+import ReactDOM from "react-dom";
+import { Scoped } from "kremling";
 
 export default class RenderPage extends React.Component {
   render() {
@@ -11,8 +11,8 @@ export default class RenderPage extends React.Component {
           {this.props.children}
         </div>
       </Scoped>,
-      document.getElementById('print-element')
-    )
+      document.getElementById("print-element")
+    );
   }
 }
 
@@ -35,4 +35,4 @@ const css = `
   & .form-page {
     position: relative;
   }
-`
+`;

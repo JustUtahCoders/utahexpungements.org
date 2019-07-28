@@ -1,19 +1,17 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {darkGray, lightGray} from 'src/styleguide.js'
+import React from "react";
+import { Scoped } from "kremling";
+import { darkGray, lightGray } from "src/styleguide.js";
 
 export default class Section extends React.Component {
   render() {
     return (
       <Scoped css={css}>
         <div className="section">
-          <div className="section-header">
-            {this.props.name}
-          </div>
+          <div className="section-header">{this.props.name}</div>
           {this.props.children}
         </div>
       </Scoped>
-    )
+    );
   }
 }
 
@@ -26,4 +24,4 @@ const css = `
     line-height: 28rem;
     margin: 24rem 0 16rem 0;
   }
-`
+`;
