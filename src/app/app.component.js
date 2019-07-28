@@ -1,21 +1,26 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {Route, Redirect} from 'react-router-dom'
-import Overview from './overview/overview.component.js'
-import Login from './user/login.component.js'
-import SignUp from './user/sign-up.component.js'
-import ForgotPassword from './user/forgot-password.component.js'
-import Dashboard from './user/dashboard.component.js'
-import CreateCase from './user/create-case.component.js'
-import Person from './user/person.component.js'
-import Footer from 'src/footer/footer.component.js'
-import Banner from './banner.component.js'
-import Breadcrumbs from './breadcrumbs.component.js'
-import {mediaDesktop, mediaMobile, darkGray, lightGray} from 'src/styleguide.js'
-import FormBank from './forms/bank/form-bank.component.js'
-import DataContainer from './forms/data-container.component.js'
-import AppContext from 'src/app-context.component.js'
-import ExpungementsTool from './expungements-tool/expungements-tool.component.js'
+import React from "react";
+import { Scoped } from "kremling";
+import { Route, Redirect } from "react-router-dom";
+import Overview from "./overview/overview.component.js";
+import Login from "./user/login.component.js";
+import SignUp from "./user/sign-up.component.js";
+import ForgotPassword from "./user/forgot-password.component.js";
+import Dashboard from "./user/dashboard.component.js";
+import CreateCase from "./user/create-case.component.js";
+import Person from "./user/person.component.js";
+import Footer from "src/footer/footer.component.js";
+import Banner from "./banner.component.js";
+import Breadcrumbs from "./breadcrumbs.component.js";
+import {
+  mediaDesktop,
+  mediaMobile,
+  darkGray,
+  lightGray
+} from "src/styleguide.js";
+import FormBank from "./forms/bank/form-bank.component.js";
+import DataContainer from "./forms/data-container.component.js";
+import AppContext from "src/app-context.component.js";
+import ExpungementsTool from "./expungements-tool/expungements-tool.component.js";
 
 export default function App(props) {
   return (
@@ -24,69 +29,77 @@ export default function App(props) {
         <Breadcrumbs {...props} />
         <div>
           <AppContext.Consumer>
-            {authContext =>
+            {authContext => (
               <div className="padded-container">
-                <div className="app breadcrumb-margin-top content-container" >
+                <div className="app breadcrumb-margin-top content-container">
                   <Banner {...props} authContext={authContext} />
-                  <div className="card main-content" >
+                  <div className="card main-content">
                     <DataContainer authContext={authContext}>
                       <Route
                         path={props.match.url}
                         exact
-                        render={() => <Redirect to={props.match.url + '/overview'} />}
+                        render={() => (
+                          <Redirect to={props.match.url + "/overview"} />
+                        )}
                       />
                       <Route
-                        path={props.match.url + '/overview'}
+                        path={props.match.url + "/overview"}
                         component={Overview}
                       />
                       <Route
-                        path={props.match.url + '/tool'}
+                        path={props.match.url + "/tool"}
                         component={ExpungementsTool}
                       />
                       <Route
-                        path={props.match.url + '/forms'}
+                        path={props.match.url + "/forms"}
                         component={FormBank}
                       />
                       <Route
-                        path={props.match.url + '/sign-up'}
+                        path={props.match.url + "/sign-up"}
                         component={SignUp}
                       />
                       <Route
-                        path={props.match.url + '/forgot-password'}
+                        path={props.match.url + "/forgot-password"}
                         component={ForgotPassword}
                       />
                       <Route
-                        path={props.match.url + '/login'}
+                        path={props.match.url + "/login"}
                         component={Login}
                       />
-                      {authContext.authUser &&
+                      {authContext.authUser && (
                         <Route
-                          path={props.match.url + '/dashboard'}
-                          render={props => <Dashboard {...props} context={authContext} />}
+                          path={props.match.url + "/dashboard"}
+                          render={props => (
+                            <Dashboard {...props} context={authContext} />
+                          )}
                         />
-                      }
-                      {authContext.authUser &&
+                      )}
+                      {authContext.authUser && (
                         <Route
-                          path={props.match.url + '/cases/create'}
-                          render={props => <CreateCase {...props} context={authContext} />}
+                          path={props.match.url + "/cases/create"}
+                          render={props => (
+                            <CreateCase {...props} context={authContext} />
+                          )}
                         />
-                      }
-                      {authContext.authUser &&
+                      )}
+                      {authContext.authUser && (
                         <Route
-                          path={props.match.url + '/people/:id'}
-                          render={props => <Person {...props} context={authContext} />}
+                          path={props.match.url + "/people/:id"}
+                          render={props => (
+                            <Person {...props} context={authContext} />
+                          )}
                         />
-                      }
+                      )}
                     </DataContainer>
                   </div>
                 </div>
               </div>
-            }
+            )}
           </AppContext.Consumer>
         </div>
       </div>
     </Scoped>
-  )
+  );
 }
 
 export const css = `
@@ -134,4 +147,4 @@ export const css = `
   & .main-content {
     width: 100%;
   }
-`
+`;

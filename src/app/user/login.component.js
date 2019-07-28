@@ -1,47 +1,45 @@
-import {auth} from '../../firebase'
-import React from 'react'
-import {Scoped} from 'kremling'
-import {Link, withRouter} from 'react-router-dom'
-import {isEmpty, partial} from 'lodash'
+import { auth } from "../../firebase";
+import React from "react";
+import { Scoped } from "kremling";
+import { Link, withRouter } from "react-router-dom";
+import { isEmpty, partial } from "lodash";
 
 class Login extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      email: '',
-      password: '',
-      error: null,
-    }
+      email: "",
+      password: "",
+      error: null
+    };
   }
 
   handleInputChange = (key, e) => {
     this.setState({
       [key]: e.target.value
-    })
-  }
+    });
+  };
 
   onSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const {
-      email,
-      password,
-    } = this.state
+    const { email, password } = this.state;
 
-    auth.doSignInWithEmailAndPassword(email, password)
+    auth
+      .doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
-        this.props.history.push('/app/dashboard')
+        this.props.history.push("/app/dashboard");
       })
       .catch(error => {
         this.setState({
           error: error.message
-        })
-      })
-  }
+        });
+      });
+  };
 
-  render () {
-    const { email, error, password } = this.state
-    const isInvalid = isEmpty(email) || isEmpty(password)
+  render() {
+    const { email, error, password } = this.state;
+    const isInvalid = isEmpty(email) || isEmpty(password);
 
     return (
       <Scoped css={css}>
@@ -52,42 +50,32 @@ class Login extends React.Component {
               type="text"
               placeholder="Email"
               value={email}
-              onChange={partial(this.handleInputChange, 'email')}
+              onChange={partial(this.handleInputChange, "email")}
             />
             <input
               type="password"
               placeholder="Password"
               value={password}
-              onChange={partial(this.handleInputChange, 'password')}
+              onChange={partial(this.handleInputChange, "password")}
             />
             <button className="primary" disabled={isInvalid} type="submit">
               Login
             </button>
           </form>
-          {error &&
-            <div className="errorMessage">
-              Error: {error}
-            </div>
-          }
+          {error && <div className="errorMessage">Error: {error}</div>}
           <div>
-            Need an account?{' '}
-            <Link to="/app/sign-up">
-              Sign up
-            </Link>
+            Need an account? <Link to="/app/sign-up">Sign up</Link>
           </div>
           <div>
-            Forgot password?{' '}
-            <Link to="/app/forgot-password">
-              Reset it
-            </Link>
+            Forgot password? <Link to="/app/forgot-password">Reset it</Link>
           </div>
         </div>
       </Scoped>
-    )
+    );
   }
 }
 
-export default withRouter(Login)
+export default withRouter(Login);
 
 const css = `
   & .loginForm {
@@ -104,4 +92,4 @@ const css = `
     margin-bottom: 12px;
     color: red;
   }
-`
+`;

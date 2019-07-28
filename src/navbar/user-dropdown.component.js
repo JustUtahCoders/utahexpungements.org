@@ -1,53 +1,71 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {Link} from 'react-router-dom'
-import Dropdown from '../app/utils/dropdown.component.js'
-import {MdFolderShared, MdCreateNewFolder, MdExitToApp, MdPerson, MdPersonAdd} from 'react-icons/md'
-import {darkPrimary, lightGray} from 'src/styleguide.js'
-import {noop} from 'lodash'
-import {auth} from '../firebase'
+import React from "react";
+import { Scoped } from "kremling";
+import { Link } from "react-router-dom";
+import Dropdown from "../app/utils/dropdown.component.js";
+import {
+  MdFolderShared,
+  MdCreateNewFolder,
+  MdExitToApp,
+  MdPerson,
+  MdPersonAdd
+} from "react-icons/md";
+import { darkPrimary, lightGray } from "src/styleguide.js";
+import { noop } from "lodash";
+import { auth } from "../firebase";
 
 export default class UserDropdown extends React.Component {
   createDropdownLink = (label, icon, href) => (
     <Link key={label} to={href}>
       {this.createDropdownButton(label, icon)}
     </Link>
-  )
+  );
 
   createDropdownButton = (label, icon, onClick) => (
-    <button key={label} className="unstyled user-dropdown-item-button" onClick={onClick || noop}>
+    <button
+      key={label}
+      className="unstyled user-dropdown-item-button"
+      onClick={onClick || noop}
+    >
       <div className="user-dropdown-item">
         {icon}
         <div className="user-dropdown-item-label">{label}</div>
       </div>
     </button>
-  )
+  );
 
   logout = () => {
-    auth.doSignOut()
-    window.location = "/"
-  }
+    auth.doSignOut();
+    window.location = "/";
+  };
 
   render() {
-    const { activePerson, activeCase, authUser } = this.props.context
+    const { activePerson, activeCase, authUser } = this.props.context;
 
-    const dropdownContents = authUser ? [
-      this.createDropdownLink("Dashboard", <MdFolderShared />, "/app/dashboard"),
-      this.createDropdownLink("Start a new case", <MdCreateNewFolder />, "/app/cases/create"),
-      this.createDropdownButton("Log out", <MdExitToApp />, this.logout),
-    ] : [
-      this.createDropdownLink("Log in", <MdPerson />, "/app/login"),
-      this.createDropdownLink("Sign up", <MdPersonAdd />, "/app/sign-up"),
-    ]
+    const dropdownContents = authUser
+      ? [
+          this.createDropdownLink(
+            "Dashboard",
+            <MdFolderShared />,
+            "/app/dashboard"
+          ),
+          this.createDropdownLink(
+            "Start a new case",
+            <MdCreateNewFolder />,
+            "/app/cases/create"
+          ),
+          this.createDropdownButton("Log out", <MdExitToApp />, this.logout)
+        ]
+      : [
+          this.createDropdownLink("Log in", <MdPerson />, "/app/login"),
+          this.createDropdownLink("Sign up", <MdPersonAdd />, "/app/sign-up")
+        ];
 
     return (
       <Scoped css={css}>
         <div>
           <Dropdown
             contents={
-              <div className="user-dropdown-contents">
-                {dropdownContents}
-              </div>
+              <div className="user-dropdown-contents">{dropdownContents}</div>
             }
             className="user-dropdown"
             openClassName="user-dropdown-open"
@@ -56,19 +74,19 @@ export default class UserDropdown extends React.Component {
             {authUser ? (
               <div className="user-info">
                 Welcome, {authUser.email}
-                {(activePerson && activeCase) &&
-                    <span className="subtitle">Current case: {activePerson.name}, {activeCase.name}</span>
-                }
+                {activePerson && activeCase && (
+                  <span className="subtitle">
+                    Current case: {activePerson.name}, {activeCase.name}
+                  </span>
+                )}
               </div>
             ) : (
-              <div className="user-info">
-                utahexpungements.org
-              </div>
+              <div className="user-info">utahexpungements.org</div>
             )}
           </Dropdown>
         </div>
       </Scoped>
-    )
+    );
   }
 }
 
@@ -125,4 +143,4 @@ const css = `
     display: flex;
     flex-direction: column;
   }
-`
+`;

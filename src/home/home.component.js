@@ -1,17 +1,22 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {Link} from 'react-router-dom'
-import {mediaMobile, mediaDesktop, primary, lightGray} from 'src/styleguide.js'
-import DetailHighlight from './detail-highlight.component.js'
-import Footer from 'src/footer/footer.component.js'
-import emailValidator from 'email-validator'
-import {createLead} from 'src/firebase/database.js'
+import React from "react";
+import { Scoped } from "kremling";
+import { Link } from "react-router-dom";
+import {
+  mediaMobile,
+  mediaDesktop,
+  primary,
+  lightGray
+} from "src/styleguide.js";
+import DetailHighlight from "./detail-highlight.component.js";
+import Footer from "src/footer/footer.component.js";
+import emailValidator from "email-validator";
+import { createLead } from "src/firebase/database.js";
 
 export default class Home extends React.Component {
   state = {
-    emailSignup: '',
-    signedUp: false,
-  }
+    emailSignup: "",
+    signedUp: false
+  };
   render() {
     return (
       <Scoped css={css}>
@@ -19,41 +24,50 @@ export default class Home extends React.Component {
           <div className="hero">
             <div className="hero-main" onSubmit={this.createLead}>
               <div className="main-content">
-                <h1>
-                  Expunge a criminal conviction in Utah
-                </h1>
-                {this.state.signedUp
-                  ?
-                    <>
-                      <div className="enter-your-email">
-                        Thanks! We'll get back to you soon. In the meantime...
-                      </div>
-                      <div className="actions">
-                        <Link to="/app">
-                          <button className="primary">
-                            {__("home page primary action")}
-                          </button>
-                        </Link>
-                        <Link to="/app/forms">
-                          <button className="secondary" style={{border: '1px solid white', marginLeft: '16rem'}}>
-                            {__("fill out forms")}
-                          </button>
-                        </Link>
-                      </div>
-                    </>
-                  :
-                    <>
-                      <div className="enter-your-email">
-                        Enter your email address to join our list of beta testers.
-                      </div>
-                      <form className="actions">
-                        <input className="juicy-input" type="text" value={this.state.emailSignup} onChange={this.changeEmail} placeholder="youremail@gmail.com" />
-                        <button className="primary" type="submit">
-                          Sign up
+                <h1>Expunge a criminal conviction in Utah</h1>
+                {this.state.signedUp ? (
+                  <>
+                    <div className="enter-your-email">
+                      Thanks! We'll get back to you soon. In the meantime...
+                    </div>
+                    <div className="actions">
+                      <Link to="/app">
+                        <button className="primary">
+                          {__("home page primary action")}
                         </button>
-                      </form>
-                    </>
-                }
+                      </Link>
+                      <Link to="/app/forms">
+                        <button
+                          className="secondary"
+                          style={{
+                            border: "1px solid white",
+                            marginLeft: "16rem"
+                          }}
+                        >
+                          {__("fill out forms")}
+                        </button>
+                      </Link>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="enter-your-email">
+                      Enter your email address to join our list of beta testers.
+                    </div>
+                    <form className="actions">
+                      <input
+                        className="juicy-input"
+                        type="text"
+                        value={this.state.emailSignup}
+                        onChange={this.changeEmail}
+                        placeholder="youremail@gmail.com"
+                      />
+                      <button className="primary" type="submit">
+                        Sign up
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -61,17 +75,45 @@ export default class Home extends React.Component {
             <DetailHighlight
               icon="/static/icons/svg/007-user-4.svg"
               title={__("free to use")}
-              description={<>{__("ftu descr")[0]}<Link className="underline" to="/about">{__("ftu descr")[1]}</Link>{__("ftu descr")[2]}</>}
+              description={
+                <>
+                  {__("ftu descr")[0]}
+                  <Link className="underline" to="/about">
+                    {__("ftu descr")[1]}
+                  </Link>
+                  {__("ftu descr")[2]}
+                </>
+              }
             />
             <DetailHighlight
               icon="/static/icons/svg/008-chat-2.svg"
               title={__("ask questions")}
-              description={<>{__("ask questions descr")[0]}<a className="underline" href="https://utahexpungements.boards.net" target="_blank">{__("ask questions descr")[1]}</a>{__("ask questions descr")[2]}</>}
+              description={
+                <>
+                  {__("ask questions descr")[0]}
+                  <a
+                    className="underline"
+                    href="https://utahexpungements.boards.net"
+                    target="_blank"
+                  >
+                    {__("ask questions descr")[1]}
+                  </a>
+                  {__("ask questions descr")[2]}
+                </>
+              }
             />
             <DetailHighlight
               icon="/static/icons/svg/025-presentation.svg"
               title={__("find out qualify")}
-              description={<>{__("foq descr")[0]}<Link className="underline" to="/app/tool/are-you-eligible">{__("foq descr")[1]}</Link>{__("foq descr")[2]}</>}
+              description={
+                <>
+                  {__("foq descr")[0]}
+                  <Link className="underline" to="/app/tool/are-you-eligible">
+                    {__("foq descr")[1]}
+                  </Link>
+                  {__("foq descr")[2]}
+                </>
+              }
             />
             <DetailHighlight
               icon="/static/icons/svg/003-laptop.svg"
@@ -90,20 +132,20 @@ export default class Home extends React.Component {
           <Footer />
         </div>
       </Scoped>
-    )
+    );
   }
   changeEmail = evt => {
-    this.setState({emailSignup: evt.target.value})
-  }
+    this.setState({ emailSignup: evt.target.value });
+  };
   createLead = evt => {
-    evt.preventDefault()
-    const email = this.state.emailSignup
+    evt.preventDefault();
+    const email = this.state.emailSignup;
     if (emailValidator.validate(email)) {
-      this.setState({emailSignup: '', signedUp: true}, () => {
-        createLead(email)
-      })
+      this.setState({ emailSignup: "", signedUp: true }, () => {
+        createLead(email);
+      });
     }
-  }
+  };
 }
 
 const css = `
@@ -203,4 +245,4 @@ const css = `
   & .underline {
     text-decoration: underline;
   }
-`
+`;

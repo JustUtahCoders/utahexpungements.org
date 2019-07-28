@@ -1,14 +1,21 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {mediaDesktop, navbarHeight, primary, darkPrimary, secondary, boxShadow3} from 'src/styleguide.js'
-import MenuItems from './menu-items.component.js'
-import {Portal} from 'react-portal'
-import styleguideCss from 'src/styleguide.js'
+import React from "react";
+import { Scoped } from "kremling";
+import {
+  mediaDesktop,
+  navbarHeight,
+  primary,
+  darkPrimary,
+  secondary,
+  boxShadow3
+} from "src/styleguide.js";
+import MenuItems from "./menu-items.component.js";
+import { Portal } from "react-portal";
+import styleguideCss from "src/styleguide.js";
 
 export default class Hamburger extends React.Component {
   state = {
-    menuOpen: false,
-  }
+    menuOpen: false
+  };
   render() {
     return (
       <Scoped css={css}>
@@ -17,7 +24,7 @@ export default class Hamburger extends React.Component {
           <div />
           <div />
         </div>
-        {this.state.menuOpen &&
+        {this.state.menuOpen && (
           <Portal>
             <Scoped css={sideMenuCss}>
               <div className="close-hamburger">
@@ -28,31 +35,29 @@ export default class Hamburger extends React.Component {
               <div className="modal-overlay" />
             </Scoped>
           </Portal>
-        }
+        )}
         <Portal>
           <Scoped css={styleguideCss}>
             <div>
-              <MenuItems
-                visible={this.state.menuOpen}
-              />
+              <MenuItems visible={this.state.menuOpen} />
             </div>
           </Scoped>
         </Portal>
       </Scoped>
-    )
+    );
   }
   componentWillUnmount() {
-    document.removeEventListener('click', this.closeMenu)
+    document.removeEventListener("click", this.closeMenu);
   }
   openMenu = () => {
-    this.setState({menuOpen: true}, () => {
-      document.addEventListener('click', this.closeMenu)
-    })
-  }
+    this.setState({ menuOpen: true }, () => {
+      document.addEventListener("click", this.closeMenu);
+    });
+  };
   closeMenu = () => {
-    document.removeEventListener('click', this.closeMenu)
-    this.setState({menuOpen: false})
-  }
+    document.removeEventListener("click", this.closeMenu);
+    this.setState({ menuOpen: false });
+  };
 }
 
 const css = `
@@ -73,7 +78,7 @@ const css = `
     margin: 0 16rem 4rem 16rem;
     display: block;
   }
-`
+`;
 
 const sideMenuCss = `
   & .modal-overlay {
@@ -114,4 +119,4 @@ const sideMenuCss = `
     margin: 0 16rem 4rem 16rem;
     display: block;
   }
-`
+`;

@@ -1,6 +1,6 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {mediaMobile} from 'src/styleguide.js'
+import React from "react";
+import { Scoped } from "kremling";
+import { mediaMobile } from "src/styleguide.js";
 
 export default class DetailHighlight extends React.Component {
   render() {
@@ -9,16 +9,12 @@ export default class DetailHighlight extends React.Component {
         <div className="detail-highlight">
           <img className="icon" src={this.props.icon} />
           <div className="text">
-            <h3>
-              {this.props.title}
-            </h3>
-            <div>
-              {this.props.description}
-            </div>
+            <h3>{this.props.title}</h3>
+            <div>{this.props.description}</div>
           </div>
         </div>
       </Scoped>
-    )
+    );
   }
 }
 
@@ -42,4 +38,4 @@ const css = `
   & .text {
     max-width: 200rem;
   }
-`
+`;

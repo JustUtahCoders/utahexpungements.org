@@ -1,10 +1,10 @@
-import React from 'react'
-import {Route} from 'react-router-dom'
-import Breadcrumb from '../breadcrumb.component.js'
+import React from "react";
+import { Route } from "react-router-dom";
+import Breadcrumb from "../breadcrumb.component.js";
 
 export default class CertificateOfEligibilityCrumb extends React.Component {
   render() {
-    const baseUrl = this.props.match.url + '/certificate-of-eligibility'
+    const baseUrl = this.props.match.url + "/certificate-of-eligibility";
     return (
       <Route
         path={baseUrl}
@@ -14,11 +14,11 @@ export default class CertificateOfEligibilityCrumb extends React.Component {
             url={baseUrl}
             childCrumbs={
               <Route
-                path={baseUrl + '/adult-coe-form'}
+                path={baseUrl + "/adult-coe-form"}
                 render={() => (
                   <Breadcrumb
                     name="Fill out form"
-                    url={baseUrl + '/adult-coe-form'}
+                    url={baseUrl + "/adult-coe-form"}
                   />
                 )}
               />
@@ -26,6 +26,6 @@ export default class CertificateOfEligibilityCrumb extends React.Component {
           />
         )}
       />
-    )
+    );
   }
 }

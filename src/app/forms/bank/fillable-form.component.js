@@ -1,19 +1,17 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {lightGray} from 'src/styleguide.js'
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Scoped } from "kremling";
+import { lightGray } from "src/styleguide.js";
+import { Link } from "react-router-dom";
 
 export default class FillableForm extends React.Component {
-  rootEl = React.createRef()
+  rootEl = React.createRef();
   render() {
     return (
       <Scoped css={css}>
         <div className="fillable-form" ref={this.rootEl}>
           <div className="details">
             <div>
-              <h4 className="name">
-                {this.props.name}
-              </h4>
+              <h4 className="name">{this.props.name}</h4>
               <div>
                 {this.props.shortDescription}
                 <div className="raw-form">
@@ -25,21 +23,20 @@ export default class FillableForm extends React.Component {
             </div>
             <div className="links">
               <Link to={this.props.appUrl}>
-                <button className="primary">
-                  Fill out form
-                </button>
+                <button className="primary">Fill out form</button>
               </Link>
             </div>
           </div>
           <div className="summary">
-            <img className="preview-thumbnail" src={this.props.previewUrls[0]} />
-            <div className="name">
-              {this.props.name}
-            </div>
+            <img
+              className="preview-thumbnail"
+              src={this.props.previewUrls[0]}
+            />
+            <div className="name">{this.props.name}</div>
           </div>
         </div>
       </Scoped>
-    )
+    );
   }
 }
 
@@ -104,4 +101,4 @@ const css = `
   & .raw-form {
     margin: 8rem 0;
   }
-`
+`;
