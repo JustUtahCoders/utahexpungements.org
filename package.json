@@ -10,6 +10,7 @@
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "yarn clean && yarn webpack && yarn copy-files",
     "analyze": "webpack --config webpack.config.analyze.js",
+    "check-format": "prettier '**/* --check",
     "deploy": "yarn build && gh-pages -d dist"
   },
   "husky": {
