@@ -6,6 +6,7 @@ import PositionedCheckmark from '../pdf-rendering/positioned-checkmark.component
 export default class PetitionForDrugConviction_Pdf extends React.Component {
   render() {
     const {renderData, data} = this.props
+    console.log('this is data', data)
     return (
       <>
         <RenderPage url="/static/forms/petition-for-drug-conviction/01_Petition_to_Expunge_Records_Criminal-drug_possession-1.png">
@@ -30,10 +31,23 @@ export default class PetitionForDrugConviction_Pdf extends React.Component {
           <PositionedString dataKey="case.judicialDistrict" left="34%" top="40%" />
           <PositionedString dataKey="case.county" left="52%" top="40%" />
           <PositionedString dataKey="case.courtAddress" left="25%" top="42%" />
+          <PositionedString dataKey="case.petitioner" left="11%" top="52%" />
+          <PositionedString dataKey="case.number" left="65%" top="52%" />
+          <PositionedString dataKey="case.number" left="25%" top="65.5%" />
+          <PositionedString dataKey="case.judgeName" left="65%" top="56%" />
+          {data.drugConviction && (
+            <>
+        <PositionedCheckmark debugKey="no" left="24%" top="81%" shouldShow={data.drugConviction.pryingquestion === 'no'} />
+<PositionedCheckmark debugKey="yes" left="24%" top="84%" shouldShow={data.drugConviction.pryingquestion === 'yes'} />
+            </>
+
+          )}
 
 
         </RenderPage>
         <RenderPage url="/static/forms/petition-for-drug-conviction/01_Petition_to_Expunge_Records_Criminal-drug_possession-2.png">
+          <PositionedString dataKey="drugConviction.pryingquestionAnswer" left="17.4%" top="10%" />
+          <PositionedString dataKey="case.publicInterest" left="17.4%" top="29%" style={{width: '74%', height: '15%', lineHeight: '30px', overflowY: 'hidden'}} />
         </RenderPage>
       </>
     )
