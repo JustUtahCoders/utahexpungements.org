@@ -4,6 +4,58 @@ import RenderPage from "../render-page.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 
+var JudicialDistrict = "";
+function judical(value) {
+  switch (value) {
+    case "Box Elder":
+    case "Rich":
+    case "Cache":
+      JudicialDistrict = "First";
+      break;
+    case "Davis":
+    case "Morgan":
+    case "Weber":
+      JudicialDistrict = "Second";
+      break;
+    case "Salt Lake":
+    case "Summit":
+    case "Tooele":
+      JudicialDistrict = "Third";
+      break;
+    case "Juab":
+    case "Millard":
+    case "Utah":
+    case "Wasatch":
+      JudicialDistrict = "Fourth";
+      break;
+    case "Beaver":
+    case "Iron":
+    case "Washington":
+      JudicialDistrict = "Fifth";
+      break;
+    case "Garfield":
+    case "Kane":
+    case "Piute":
+    case "Sanpete":
+    case "Sevier":
+    case "Wayne":
+      JudicialDistrict = "Sixth";
+      break;
+    case "Carbon":
+    case "Emery":
+    case "Grand":
+    case "San Juan":
+      JudicialDistrict = "Seventh";
+      break;
+    case "Daggett":
+    case "Duchesne":
+    case "Uintah":
+      JudicialDistrict = "Eighth";
+      break;
+  }
+  return JudicialDistrict;
+}
+
 export default class PetitionForConviction_Pdf extends React.Component {
   render() {
     const { data, renderData } = this.props;
@@ -16,63 +68,122 @@ export default class PetitionForConviction_Pdf extends React.Component {
               "person.middleName"
             )} ${renderData("person.lastName")}`}
           </PositionedString>
+
           <PositionedString
+            debugKey="streetAddress"
             dataKey="person.addressStreet"
             left={farLeft}
-            top="17.67%"
+            top="17.50%"
           />
+
           <PositionedString debugKey="lineAddress" left={farLeft} top="20.90%">
             {`${renderData("person.addressCity")} ${renderData(
               "person.addressState"
             )} ${renderData("person.addressZip")}`}
           </PositionedString>
+
           <PositionedString
+            debugKey="dayphone"
             dataKey="person.dayPhone"
             left={farLeft}
-            top="24.75%"
+            top="24.45%"
           />
-          <PositionedString dataKey="person.email" left={farLeft} top="28.3%" />
+
+          <PositionedString
+            debugKey="email"
+            dataKey="person.email"
+            left={farLeft}
+            top="27.95%"
+          />
+
           <PositionedCheckmark
             debugKey="petitionerRepresentingThemself"
             left={petRepLeft}
-            top="31.75%"
+            top="31%"
             shouldShow={data.person.petitionerRepresentative === "petitioner"}
           />
+
           <PositionedCheckmark
             debugKey="petitionerHasAttorney"
             left={petRepLeft}
-            top="33.25%"
+            top="32.75%"
             shouldShow={data.person.petitionerRepresentative === "attorney"}
           />
+
           <PositionedString
-            dataKey="person.barNumber"
+            debugKey="barnumber"
+            dataKey="person.petitionerBarNumber"
             left={barNumberLeft}
-            top="33.15"
+            top="32.75%"
           />
-          <PositionedString debugKey="addressCourt" left="27.8%" top="43.6%">
+
+          <PositionedCheckmark
+            debugKey="caseCourtType"
+            left="37.5%"
+            top="36.5%"
+            dataKey="case.districtCourt"
+          />
+
+          <PositionedCheckmark
+            debugKey="caseCourtType"
+            left="48%"
+            top="36.5%"
+            dataKey="case.justiceCourt"
+          />
+
+          <PositionedString
+            debugKey="county"
+            dataKey="case.county"
+            left="50.90%"
+            top="39.75%"
+          />
+
+          <PositionedString debugKey="todaysDate" left="27%" top="39.75%">
+            {this.props.data.case.county
+              ? judical(this.props.data.case.county)
+              : null}
+          </PositionedString>
+
+          <PositionedString debugKey="addressCourt" left="27.8%" top="43.1%">
             {`${renderData("case.addressCourtStreet")}, ${renderData(
               "case.addressCourtCity"
             )}, ${renderData("case.addressCourtState")} ${renderData(
               "case.addressCourtZip"
             )}`}
           </PositionedString>
-          <PositionedString debugKey="petitionerName" left="11.9%" top="53%">
+
+          <PositionedString debugKey="petitionerName" left="11.9%" top="52.9%">
             {`${renderData("person.firstName")} ${renderData(
               "person.middleName"
             )} ${renderData("person.lastName")}`}
           </PositionedString>
-          <PositionedString dataKey="case.caseNumber" left="54.1%" top="53%" />
-          <PositionedString dataKey="case.judgeName" left="54.1%" top="58%" />
+
           <PositionedString
+            debugKey="casenumber"
             dataKey="case.caseNumber"
-            debugKey="caseNumberConviction"
-            left="17.4%"
-            top="65.8%"
+            left="54.1%"
+            top="52.9%"
           />
+
           <PositionedString
+            debugKey="judgename"
+            dataKey="case.judgeName"
+            left="54.1%"
+            top="57.5%"
+          />
+
+          <PositionedString
+            debugKey="caseNumberConviction"
+            dataKey="case.caseNumber"
+            left="17.4%"
+            top="65.5%"
+          />
+
+          <PositionedString
+            debugKey="publicinterest"
             dataKey="case.publicInterest"
             left="17.4%"
-            top="79%"
+            top="78%"
             style={{
               width: "74%",
               height: "15%",
@@ -81,11 +192,13 @@ export default class PetitionForConviction_Pdf extends React.Component {
             }}
           />
         </RenderPage>
+
         <RenderPage url="/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-2.png">
           <PositionedString debugKey="todaysDate" left="54.4%" top="39.7%">
             {moment().format("L")}
           </PositionedString>
-          <PositionedString debugKey="printedName" left="54.4%" top="39.7%">
+
+          <PositionedString debugKey="printedName" left="54.4%" top="36.5%">
             {`${renderData("person.firstName")} ${renderData(
               "person.middleName"
             )} ${renderData("person.lastName")}`}
