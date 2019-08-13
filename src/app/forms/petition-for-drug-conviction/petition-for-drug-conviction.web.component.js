@@ -10,53 +10,16 @@ export default class PetitionForDrugConviction_Web extends React.Component {
       <Scoped css={css}>
         <FormThatPrints>
           <Section name="1. Personal information">
-            <TextInput
-              dataKey="person.firstName"
-              label="First name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.middleName"
-              label="Middle name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.lastName"
-              label="Last name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressStreet"
-              label="Street"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressCity"
-              label="City"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressState"
-              label="State"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressZip"
-              label="Zip"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressZip"
-              label="Zip"
-              {...this.props}
-            />
+            <TextInput dataKey="person.firstName" label="First name" />
+            <TextInput dataKey="person.middleName" label="Middle name" />
+            <TextInput dataKey="person.lastName" label="Last name" />
+            <TextInput dataKey="person.addressStreet" label="Street" />
+            <TextInput dataKey="person.addressCity" label="City" />
+            <TextInput dataKey="person.addressState" label="State" />
+            <TextInput dataKey="person.addressZip" label="Zip" />
+            <TextInput dataKey="person.addressZip" label="Zip" />
 
-            <TextInput
-              dataKey="person.homePhone"
-              label="Home Phone Number"
-              {...this.props}
-            />
-            <TextInput dataKey="person.email" label="Email" {...this.props} />
+            <TextInput dataKey="person.homePhone" label="Home Phone Number" />
           </Section>
         </FormThatPrints>
       </Scoped>
