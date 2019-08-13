@@ -49,134 +49,70 @@ export default class PetitionForConviction_Web extends React.Component {
   render() {
     return (
       <FormThatPrints>
-        <TextInput
-          dataKey="person.lastName"
-          label={__("last name")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.lastName" label={__("last name")} />
 
-        <TextInput
-          dataKey="person.firstName"
-          label={__("first name")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.firstName" label={__("first name")} />
 
-        <TextInput
-          dataKey="person.middleName"
-          label={__("middle name")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.middleName" label={__("middle name")} />
 
-        <TextInput
-          dataKey="person.addressStreet"
-          label={__("street")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.addressStreet" label={__("street")} />
 
-        <TextInput
-          dataKey="person.addressCity"
-          label={__("city")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.addressCity" label={__("city")} />
 
-        <TextInput
-          dataKey="person.addressState"
-          label={__("state")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.addressState" label={__("state")} />
 
-        <TextInput
-          dataKey="person.addressZip"
-          label={__("zip")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.addressZip" label={__("zip")} />
 
-        <TextInput
-          dataKey="person.dayPhone"
-          label={__("phone")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.dayPhone" label={__("phone")} />
 
-        <TextInput
-          dataKey="person.email"
-          label={__("email address")}
-          {...this.props}
-        />
+        <TextInput dataKey="person.email" label={__("email address")} />
 
         <Select
           dataKey="person.petitionerRepresentative"
           label={__("are you filling this out for yourself")}
           options={petitionerRepresentativeOptions}
-          {...this.props}
         />
 
         {this.props.data.person.petitionerRepresentative === "attorney" && (
           <TextInput
             dataKey="person.petitionerBarNumber"
             label="What is your Utah Bar number?"
-            {...this.props}
           />
         )}
         {/* TODO: Add in fields for the District, Justice Court, County and Judicial Court , needs clarity on particular data*/}
-        <Checkbox
-          dataKey="case.districtCourt"
-          label="District Court"
-          {...this.props}
-        />
+        <Checkbox dataKey="case.districtCourt" label="District Court" />
 
-        <Checkbox
-          dataKey="case.justiceCourt"
-          label="Justice Court"
-          {...this.props}
-        />
+        <Checkbox dataKey="case.justiceCourt" label="Justice Court" />
 
-        <Select
-          dataKey="case.county"
-          options={countyOptions}
-          label="County"
-          {...this.props}
-        />
+        <Select dataKey="case.county" options={countyOptions} label="County" />
 
         <TextInput
           dataKey="case.addressCourtStreet"
           label={__("court address street")}
-          {...this.props}
         />
 
         <TextInput
           dataKey="case.addressCourtCity"
           label={__("court address city")}
-          {...this.props}
         />
 
         <TextInput
           dataKey="case.addressCourtState"
           label={__("court address state")}
-          {...this.props}
         />
 
         <TextInput
           dataKey="case.addressCourtZip"
           label={__("court address zip")}
-          {...this.props}
         />
 
-        <TextInput
-          dataKey="case.caseNumber"
-          label={__("case number")}
-          {...this.props}
-        />
+        <TextInput dataKey="case.caseNumber" label={__("case number")} />
 
-        <TextInput
-          dataKey="case.judgeName"
-          label={__("judge full name")}
-          {...this.props}
-        />
+        <TextInput dataKey="case.judgeName" label={__("judge full name")} />
 
         <TextArea
           dataKey="case.publicInterest"
           label="explain why expunging this crime is not contrary to the public's interest"
-          {...this.props}
         />
       </FormThatPrints>
     );

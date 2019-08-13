@@ -10,21 +10,9 @@ export default class MotionToWaiveFees_Web extends React.Component {
       <Scoped css={css}>
         <FormThatPrints>
           <Section name="1. Personal information">
-            <TextInput
-              dataKey="person.firstName"
-              label="First name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.middleName"
-              label="Middle name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.lastName"
-              label="Last name"
-              {...this.props}
-            />
+            <TextInput dataKey="person.firstName" label="First name" />
+            <TextInput dataKey="person.middleName" label="Middle name" />
+            <TextInput dataKey="person.lastName" label="Last name" />
           </Section>
         </FormThatPrints>
       </Scoped>

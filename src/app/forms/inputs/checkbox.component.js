@@ -1,31 +1,32 @@
 import React from "react";
-import { Scoped } from "kremling";
+import { useCss } from "kremling";
 import { get } from "lodash";
+import { DataContainerContext } from "../data-container.component";
 
-export default class Checkbox extends React.Component {
-  state = {
-    value: get(this.props.data, this.props.dataKey, false)
-  };
-  render() {
-    return (
-      <Scoped css={css}>
-        <div className="web-form-input">
-          <label>
-            <input
-              type="checkbox"
-              checked={this.state.value}
-              onChange={evt => this.setState({ value: evt.target.checked })}
-              onBlur={this.handleBlur}
-            />
-            {this.props.label}
-          </label>
-        </div>
-      </Scoped>
-    );
+export default function Checkbox(props) {
+  const [value, setValue] = React.useState(
+    get(props.data, props.dataKey, false)
+  );
+  const scope = useCss(css);
+  const dataContext = React.useContext(DataContainerContext);
+
+  return (
+    <div className="web-form-input" {...scope}>
+      <label>
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={evt => setValue(evt.target.checked)}
+          onBlur={handleBlur}
+        />
+        {props.label}
+      </label>
+    </div>
+  );
+
+  function handleBlur() {
+    dataContext.setData(props.dataKey, value);
   }
-  handleBlur = () => {
-    this.props.setData(this.props.dataKey, this.state.value);
-  };
 }
 
 const css = `
