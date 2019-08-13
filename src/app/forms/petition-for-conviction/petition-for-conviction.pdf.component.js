@@ -5,7 +5,7 @@ import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 
 var JudicialDistrict = "";
-function judical(value) {
+function judicial(value) {
   switch (value) {
     case "Box Elder":
     case "Rich":
@@ -138,9 +138,9 @@ export default class PetitionForConviction_Pdf extends React.Component {
             top="39.75%"
           />
 
-          <PositionedString debugKey="todaysDate" left="27%" top="39.75%">
+          <PositionedString left="27%" top="39.75%">
             {this.props.data.case.county
-              ? judical(this.props.data.case.county)
+              ? judicial(this.props.data.case.county)
               : null}
           </PositionedString>
 
