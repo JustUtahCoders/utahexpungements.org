@@ -8,7 +8,11 @@
 
 ## How to contribute
 
-Create an issue or submit a pull request.
+### Creating a form
+See [tutorial video](https://www.youtube.com/watch?v=U6AM0o4NG2E) and [commit to get things started](https://github.com/JustUtahCoders/utahexpungements.org/pull/39).
+
+### Anything else
+Create an issue or PR!
 
 ## How to run locally
 
