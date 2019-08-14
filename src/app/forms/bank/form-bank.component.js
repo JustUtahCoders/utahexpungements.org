@@ -12,6 +12,8 @@ import AppForCOEWithRelease_Web from "../app-for-coe-with-release/app-for-coe-wi
 import AppForCOEWithRelease_Pdf from "../app-for-coe-with-release/app-for-coe-with-release.pdf.component.js";
 import PetitionForDrugConviction_Web from "../petition-for-drug-conviction/petition-for-drug-conviction.web.component.js";
 import PetitionForDrugConviction_Pdf from "../petition-for-drug-conviction/petition-for-drug-conviction.pdf.component.js";
+import AcceptanceOfService_Web from "../acceptance-of-service/acceptance-of-service.web.component.js";
+import AcceptanceOfService_Pdf from "../acceptance-of-service/acceptance-of-service.pdf.component.js";
 
 export default class FormBank extends React.Component {
   render() {
@@ -65,6 +67,16 @@ export default class FormBank extends React.Component {
               name={__("petition for drug conviction")}
               WebForm={PetitionForDrugConviction_Web}
               PdfForm={PetitionForDrugConviction_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={this.props.match.url + "/acceptance-of-service"}
+          render={props => (
+            <GovernmentForm
+              name="Acceptance of Service"
+              WebForm={AcceptanceOfService_Web}
+              PdfForm={AcceptanceOfService_Pdf}
             />
           )}
         />
