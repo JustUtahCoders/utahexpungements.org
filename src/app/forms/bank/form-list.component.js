@@ -110,6 +110,17 @@ export default class FormList extends React.Component {
                 "/static/forms/petition-for-drug-conviction/01_Petition_to_Expunge_Records_Criminal-drug_possession-2.png"
               ]}
             />
+            <FillableForm
+              name="Acceptance of Service"
+              readyForUsers={false}
+              keywords="prosecutor acceptance serve"
+              shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
+              appUrl={this.props.match.url + "/acceptance-of-service"}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/09_Acceptance_of_service.pdf"
+              previewUrls={[
+                "/static/forms/acceptance-of-service/Acceptance_of_service-1.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>
