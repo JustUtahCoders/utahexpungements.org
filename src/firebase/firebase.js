@@ -1,6 +1,6 @@
-import 'firebase/auth'
-import 'firebase/firestore'
-import firebase from 'firebase/app'
+import "firebase/auth";
+import "firebase/firestore";
+import firebase from "firebase/app";
 
 const config = {
   apiKey: "AIzaSyB-dKhsYMQNLdC2cIZxDeQgR-xp51kAOkE",
@@ -9,19 +9,16 @@ const config = {
   projectId: "utah-expungements-org",
   storageBucket: "utah-expungements-org.appspot.com",
   messagingSenderId: "50371694028"
-}
+};
 
 if (!firebase.apps.length) {
-  firebase.initializeApp(config)
+  firebase.initializeApp(config);
 }
 
-const auth = firebase.auth()
+const auth = firebase.auth();
 
-const database = firebase.firestore()
-const settings = { timestampsInSnapshots: true}
-database.settings(settings)
+const database = firebase.firestore();
+const settings = { timestampsInSnapshots: true };
+database.settings(settings);
 
-export {
-  auth,
-  database
-}
+export { auth, database };

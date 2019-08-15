@@ -64,9 +64,9 @@ export default class PetitionForDrugConviction_Web extends React.Component {
 
         </FormThatPrints>
       </Scoped>
-    )
+    );
   }
 }
 
 const css = `
-`
+`;

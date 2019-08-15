@@ -1,21 +1,25 @@
-import React from 'react'
+import React from "react";
 
 export default class FormThatPrints extends React.Component {
   static defaultProps = {
-    submitText: 'Print Form'
-  }
+    submitText: "Print Form"
+  };
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         {this.props.children}
-        <button className="primary" type="submit" style={{marginTop: '16rem'}}>
+        <button
+          className="primary"
+          type="submit"
+          style={{ marginTop: "16rem" }}
+        >
           {this.props.submitText}
         </button>
       </form>
-    )
+    );
   }
   handleSubmit = evt => {
-    evt.preventDefault()
-    window.print()
-  }
+    evt.preventDefault();
+    window.print();
+  };
 }

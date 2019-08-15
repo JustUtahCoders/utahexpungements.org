@@ -1,29 +1,30 @@
-import React, {useState, useRef, useEffect, useContext} from 'react'
-import {Link, Route} from 'react-router-dom'
-import {Scoped, a, m} from 'kremling'
-import {definitionComponents} from './defined-terms.helper.js'
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { Link, Route } from "react-router-dom";
+import { Scoped, a, m } from "kremling";
+import { definitionComponents } from "./defined-terms.helper.js";
 
-const DefinedTermContext = React.createContext({alwaysLink: false})
+const DefinedTermContext = React.createContext({ alwaysLink: false });
 
 export default function DefinedTerm(props) {
-  const [tooltipOpen, setTooltipOpen] = useState(false)
-  const containerRef = useRef(null)
-  const alwaysLink = useContext(DefinedTermContext).alwaysLink || props.alwaysLink
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const containerRef = useRef(null);
+  const alwaysLink =
+    useContext(DefinedTermContext).alwaysLink || props.alwaysLink;
   useEffect(() => {
     if (tooltipOpen) {
-      document.addEventListener('click', maybeCloseTooltip)
+      document.addEventListener("click", maybeCloseTooltip);
     } else {
-      document.removeEventListener('click', maybeCloseTooltip)
+      document.removeEventListener("click", maybeCloseTooltip);
     }
 
     return () => {
-      document.removeEventListener('click', maybeCloseTooltip)
-    }
-  }, [tooltipOpen])
+      document.removeEventListener("click", maybeCloseTooltip);
+    };
+  }, [tooltipOpen]);
 
-  const children = props.children || __(`def word - ${props.term}`)
-  const Definition = definitionComponents[props.term]
-  const containerEl = containerRef.current
+  const children = props.children || __(`def word - ${props.term}`);
+  const Definition = definitionComponents[props.term];
+  const containerEl = containerRef.current;
 
   return (
     <Scoped css={css}>
@@ -32,12 +33,18 @@ export default function DefinedTerm(props) {
           path="/app/overview/vocabulary"
           children={routeProps =>
             routeProps.match || alwaysLink ? (
-              <Link to={`/app/overview/vocabulary#${props.term.replace(/ /g, '-')}`}>
+              <Link
+                to={`/app/overview/vocabulary#${props.term.replace(/ /g, "-")}`}
+              >
                 {children}
               </Link>
             ) : (
               <>
-                <button className="unstyled tooltip-trigger" onClick={openTooltip} onFocus={openTooltip}>
+                <button
+                  className="unstyled tooltip-trigger"
+                  onClick={openTooltip}
+                  onFocus={openTooltip}
+                >
                   {children}
                 </button>
                 {tooltipOpen && tooltip()}
@@ -47,17 +54,25 @@ export default function DefinedTerm(props) {
         />
       </span>
     </Scoped>
-  )
+  );
 
   function tooltip() {
-    const horizontalProperty = containerEl.offsetLeft <= containerEl.offsetParent.clientWidth / 2 ? 'left' : 'right'
-    const capitalizedHorizontalProperty = horizontalProperty.charAt(0).toUpperCase() + horizontalProperty.slice(1)
+    const horizontalProperty =
+      containerEl.offsetLeft <= containerEl.offsetParent.clientWidth / 2
+        ? "left"
+        : "right";
+    const capitalizedHorizontalProperty =
+      horizontalProperty.charAt(0).toUpperCase() + horizontalProperty.slice(1);
     return (
-      <div className="popup" style={{
-        top: containerEl.offsetTop + containerEl.offsetHeight + 4 + "px",
-        [horizontalProperty]: containerEl[`offset${capitalizedHorizontalProperty}`] + "px",
-      }}>
-        <DefinedTermContext.Provider value={{alwaysLink: true}}>
+      <div
+        className="popup"
+        style={{
+          top: containerEl.offsetTop + containerEl.offsetHeight + 4 + "px",
+          [horizontalProperty]:
+            containerEl[`offset${capitalizedHorizontalProperty}`] + "px"
+        }}
+      >
+        <DefinedTermContext.Provider value={{ alwaysLink: true }}>
           <Definition />
         </DefinedTermContext.Provider>
         <div className="got-it">
@@ -66,24 +81,27 @@ export default function DefinedTerm(props) {
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   function openTooltip() {
-    setTooltipOpen(true)
+    setTooltipOpen(true);
   }
 
   function maybeCloseTooltip(evt) {
-    if (containerRef.current === evt.target || containerRef.current.contains(evt.target)) {
+    if (
+      containerRef.current === evt.target ||
+      containerRef.current.contains(evt.target)
+    ) {
       // clicked on or inside of the popup
-      return
+      return;
     } else {
-      closeTooltip()
+      closeTooltip();
     }
   }
 
   function closeTooltip() {
-    setTooltipOpen(false)
+    setTooltipOpen(false);
   }
 }
 
@@ -109,4 +127,4 @@ const css = `
     justify-content: center;
     margin: 8rem 0;
   }
-`
+`;

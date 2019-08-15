@@ -10,40 +10,49 @@
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "yarn clean && yarn webpack && yarn copy-files",
     "analyze": "webpack --config webpack.config.analyze.js",
+    "check-format": "prettier 'src/**/*' --check",
     "deploy": "yarn build && gh-pages -d dist"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "copyfiles": "^2.1.0",
+    "babel-loader": "^8.0.6",
+    "copyfiles": "^2.1.1",
     "gh-pages": "^2.0.1",
+    "husky": "^3.0.1",
     "i18n-webpack-plugin": "^1.0.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "react-portal": "^4.2.0",
     "rimraf": "^2.6.3",
-    "webpack": "^4.30.0",
+    "webpack": "^4.38.0",
     "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
     "classnames": "^2.2.6",
     "email-validator": "^2.0.4",
-    "firebase": "^5.9.4",
-    "fuse.js": "^3.4.4",
-    "kremling": "^1.2.4",
-    "lodash-es": "^4.17.11",
+    "firebase": "^6.3.3",
+    "fuse.js": "^3.4.5",
+    "kremling": "^2.0.1",
+    "lodash-es": "^4.17.15",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-icons": "^3.5.0",
-    "react-router": "^5.0.0",
-    "react-router-dom": "^5.0.0"
+    "react-icons": "^3.7.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1"
   },
   "browserslist": [
     "Safari >= 10",

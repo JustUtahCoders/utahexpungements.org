@@ -1,18 +1,16 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Scoped } from "kremling";
+import { Link } from "react-router-dom";
 
 export default class Logo extends React.Component {
   render() {
     return (
       <Scoped css={css}>
         <Link to="/" className="logo no-underline">
-          <div className="logo-text">
-            utahexpungements.org
-          </div>
+          <div className="logo-text">utahexpungements.org</div>
         </Link>
       </Scoped>
-    )
+    );
   }
 }
 
@@ -30,4 +28,4 @@ const css = `
     justify-content: center;
     padding-right: 16px;
   }
-`
+`;

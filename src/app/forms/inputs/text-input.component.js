@@ -1,41 +1,33 @@
-import React from 'react'
-import {Scoped} from 'kremling'
-import {get} from 'lodash'
-import {govtWebFormVerticalRhythm} from 'src/styleguide.js'
+import React from "react";
+import { useCss } from "kremling";
+import { get } from "lodash";
+import { DataContainerContext } from "../data-container.component";
 
-export default class TextInput extends React.Component {
-  state = {
-    value: get(this.props.data, this.props.dataKey)
-  }
-  componentDidUpdate(prevProps) {
-    // Update for context changes
-    const prevContextValue = get(prevProps.data, prevProps.dataKey)
-    const newContextValue = get(this.props.data, this.props.dataKey)
-    if (prevContextValue !== newContextValue) {
-      this.setState({
-        value: newContextValue
-      })
-    }
-  }
-  render() {
-    return (
-      <Scoped css={css}>
-        <div className="web-form-input text-input">
-          <label>
-            {this.props.label}
-          </label>
-          <input
-            type="text"
-            value={this.state.value || ''}
-            onChange={evt => this.setState({value: evt.target.value})}
-            onBlur={this.handleBlur}
-          />
-        </div>
-      </Scoped>
-    )
-  }
-  handleBlur = () => {
-    this.props.setData(this.props.dataKey, this.state.value)
+export default function TextInput(props) {
+  const dataContext = React.useContext(DataContainerContext);
+  const [value, setValue] = React.useState(
+    get(dataContext.data, props.dataKey)
+  );
+  const scope = useCss(css);
+
+  React.useEffect(() => {
+    setValue(get(dataContext.data, props.dataKey));
+  }, [dataContext]);
+
+  return (
+    <div className="web-form-input text-input" {...scope}>
+      <label>{props.label}</label>
+      <input
+        type="text"
+        value={value || ""}
+        onChange={evt => setValue(evt.target.value)}
+        onBlur={handleBlur}
+      />
+    </div>
+  );
+
+  function handleBlur(evt) {
+    dataContext.setData(props.dataKey, value);
   }
 }
 
@@ -44,4 +36,4 @@ const css = `
     display: flex;
     flex-direction: column;
   }
-`
+`;
