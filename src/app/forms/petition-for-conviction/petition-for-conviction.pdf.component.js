@@ -121,14 +121,14 @@ export default class PetitionForConviction_Pdf extends React.Component {
             debugKey="caseCourtType"
             left="37.5%"
             top="36.5%"
-            dataKey="case.districtCourt"
+            shouldShow={data.case.courtType === "District"}
           />
 
           <PositionedCheckmark
             debugKey="caseCourtType"
-            left="48%"
-            top="36.5%"
-            dataKey="case.justiceCourt"
+            left="47.9%"
+            top="36.6%"
+            shouldShow={data.case.courtType === "Justice"}
           />
 
           <PositionedString
@@ -138,7 +138,7 @@ export default class PetitionForConviction_Pdf extends React.Component {
             top="39.75%"
           />
 
-          <PositionedString left="27%" top="39.75%" debugKey="county">
+          <PositionedString left="26.1%" top="39.75%" debugKey="county">
             {this.props.data.case.county
               ? judicial(this.props.data.case.county)
               : null}
