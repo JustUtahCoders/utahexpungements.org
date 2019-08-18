@@ -4,6 +4,7 @@ import TextInput from "../inputs/text-input.component.js";
 import TextArea from "../inputs/text-area.component.js";
 import Select from "../inputs/select.component.js";
 import Checkbox from "../inputs/checkbox.component.js";
+import Radio from "../inputs/radio.component.js";
 
 const petitionerRepresentativeOptions = [
   { label: "Yes. I am the petitioner.", value: "petitioner" },
@@ -45,6 +46,11 @@ var countyOptions = [
   { label: "Weber", value: "Weber" }
 ];
 
+const courtTypeOptions = [
+  { label: "District Court", value: "District" },
+  { label: "Justice Court", value: "Justice" }
+];
+
 export default class PetitionForConviction_Web extends React.Component {
   render() {
     return (
@@ -80,9 +86,14 @@ export default class PetitionForConviction_Web extends React.Component {
           />
         )}
         {/* TODO: Add in fields for the District, Justice Court, County and Judicial Court , needs clarity on particular data*/}
-        <Checkbox dataKey="case.districtCourt" label="District Court" />
+        {/* <Checkbox dataKey="case.districtCourt" label="District Court" />
+        <Checkbox dataKey="case.justiceCourt" label="Justice Court" /> */}
 
-        <Checkbox dataKey="case.justiceCourt" label="Justice Court" />
+        <Radio
+          label="Court Type"
+          dataKey="case.courtType"
+          options={courtTypeOptions}
+        />
 
         <Select dataKey="case.county" options={countyOptions} label="County" />
 
