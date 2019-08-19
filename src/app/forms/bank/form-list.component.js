@@ -121,6 +121,19 @@ export default class FormList extends React.Component {
                 "/static/forms/acceptance-of-service/Acceptance_of_service-1.png"
               ]}
             />
+            <FillableForm
+              name="Draft court order for expungement conviction"
+              readyForUsers={false}
+              keywords="prosecutor acceptance serve"
+              shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
+              appUrl={this.props.match.url + "/draft-court-order-conviction"}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-conviction.pdf"
+              previewUrls={[
+                "/static/forms/draft-court-order-conviction/draft_court_order_conviction-1.png",
+                "/static/forms/draft-court-order-conviction/draft_court_order_conviction-2.png",
+                "/static/forms/draft-court-order-conviction/draft_court_order_conviction-3.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>
