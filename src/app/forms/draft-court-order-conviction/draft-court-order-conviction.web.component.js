@@ -6,12 +6,11 @@ import Select from "../inputs/select.component.js";
 import Checkbox from "../inputs/checkbox.component.js";
 import Radio from "../inputs/radio.component.js";
 import {
-  petitionerRepresentativeOptions,
   courtTypeOptions,
   countyOptions
 } from "../form-common-options/form-common-options";
 
-export default class PetitionForConviction_Web extends React.Component {
+export default class DraftCourtOrderConviction_Web extends React.Component {
   render() {
     return (
       <FormThatPrints>
@@ -33,25 +32,9 @@ export default class PetitionForConviction_Web extends React.Component {
 
         <TextInput dataKey="person.email" label={__("email address")} />
 
-        <Select
-          dataKey="person.petitionerRepresentative"
-          label={__("are you filling this out for yourself")}
-          options={petitionerRepresentativeOptions}
-        />
-
-        {this.props.data.person.petitionerRepresentative === "attorney" && (
-          <TextInput
-            dataKey="person.petitionerBarNumber"
-            label="What is your Utah Bar number?"
-          />
-        )}
-        {/* TODO: Add in fields for the District, Justice Court, County and Judicial Court , needs clarity on particular data*/}
-        {/* <Checkbox dataKey="case.districtCourt" label="District Court" />
-        <Checkbox dataKey="case.justiceCourt" label="Justice Court" /> */}
-
         <Radio
-          label="Court Type"
           dataKey="case.courtType"
+          label="Court Type"
           options={courtTypeOptions}
         />
 
@@ -80,11 +63,6 @@ export default class PetitionForConviction_Web extends React.Component {
         <TextInput dataKey="case.caseNumber" label={__("case number")} />
 
         <TextInput dataKey="case.judgeName" label={__("judge full name")} />
-
-        <TextArea
-          dataKey="case.publicInterest"
-          label="explain why expunging this crime is not contrary to the public's interest"
-        />
       </FormThatPrints>
     );
   }

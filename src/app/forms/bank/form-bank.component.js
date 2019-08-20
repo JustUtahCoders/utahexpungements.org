@@ -14,6 +14,8 @@ import PetitionForDrugConviction_Web from "../petition-for-drug-conviction/petit
 import PetitionForDrugConviction_Pdf from "../petition-for-drug-conviction/petition-for-drug-conviction.pdf.component.js";
 import AcceptanceOfService_Web from "../acceptance-of-service/acceptance-of-service.web.component.js";
 import AcceptanceOfService_Pdf from "../acceptance-of-service/acceptance-of-service.pdf.component.js";
+import DraftCourtOrderConviction_Web from "../draft-court-order-conviction/draft-court-order-conviction.web.component";
+import DraftCourtOrderConviction_Pdf from "../draft-court-order-conviction/draft-court-order-conviction.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -37,6 +39,16 @@ export default class FormBank extends React.Component {
               name={__("petition conviction name")}
               WebForm={PetitionForConviction_Web}
               PdfForm={PetitionForConviction_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={this.props.match.url + "/draft-court-order-conviction"}
+          render={props => (
+            <GovernmentForm
+              name="Court order for Expungement conviction"
+              WebForm={DraftCourtOrderConviction_Web}
+              PdfForm={DraftCourtOrderConviction_Pdf}
             />
           )}
         />

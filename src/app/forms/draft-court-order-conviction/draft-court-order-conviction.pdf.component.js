@@ -5,13 +5,13 @@ import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 import { getJudicialDistrictFromCounty } from "../form-common-options/form-common-options";
 
-export default class PetitionForConviction_Pdf extends React.Component {
+export default class DraftCourtOrderConviction_Pdf extends React.Component {
   render() {
     const { data, renderData } = this.props;
 
     return (
       <>
-        <RenderPage url="/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-1.png">
+        <RenderPage url="/static/forms/draft-court-order-conviction/draft_court_order_conviction-1.png">
           <PositionedString debugKey="name" left={farLeft} top="14.06%">
             {`${renderData("person.firstName")} ${renderData(
               "person.middleName"
@@ -43,53 +43,28 @@ export default class PetitionForConviction_Pdf extends React.Component {
           />
 
           <PositionedCheckmark
-            dataKey="person.petitionerRepresentative"
-            left={petRepLeft}
-            top="31%"
-            shouldShow={data.person.petitionerRepresentative === "petitioner"}
-          />
-
-          <PositionedCheckmark
-            dataKey="person.petitionerRepresentative"
-            left={petRepLeft}
-            top="32.75%"
-            shouldShow={data.person.petitionerRepresentative === "attorney"}
-          />
-
-          <PositionedString
-            dataKey="person.petitionerBarNumber"
-            left={barNumberLeft}
-            top="32.75%"
-          />
-
-          <PositionedCheckmark
             dataKey="case.courtType"
             left="37.5%"
-            top="36.5%"
+            top="34.1%"
             shouldShow={data.case.courtType === "District"}
           />
 
           <PositionedCheckmark
             dataKey="case.courtType"
             left="47.9%"
-            top="36.6%"
+            top="34.1%"
             shouldShow={data.case.courtType === "Justice"}
           />
 
-          <PositionedString
-            debugKey="county"
-            dataKey="case.county"
-            left="50.90%"
-            top="39.75%"
-          />
+          <PositionedString dataKey="case.county" left="51.4%" top="37.35%" />
 
-          <PositionedString left="26.1%" top="39.75%" debugKey="county">
+          <PositionedString left="26.5%" top="37.35%" debugKey="county">
             {this.props.data.case.county
               ? getJudicialDistrictFromCounty(this.props.data.case.county)
               : null}
           </PositionedString>
 
-          <PositionedString debugKey="addressCourt" left="27.8%" top="43.1%">
+          <PositionedString debugKey="addressCourt" left="27.8%" top="39.8%">
             {`${renderData("case.addressCourtStreet")}, ${renderData(
               "case.addressCourtCity"
             )}, ${renderData("case.addressCourtState")} ${renderData(
@@ -97,7 +72,7 @@ export default class PetitionForConviction_Pdf extends React.Component {
             )}`}
           </PositionedString>
 
-          <PositionedString debugKey="petitionerName" left="11.9%" top="52.9%">
+          <PositionedString debugKey="petitionerName" left="12.5%" top="50.2%">
             {`${renderData("person.firstName")} ${renderData(
               "person.middleName"
             )} ${renderData("person.lastName")}`}
@@ -106,36 +81,31 @@ export default class PetitionForConviction_Pdf extends React.Component {
           <PositionedString
             dataKey="case.caseNumber"
             left="54.1%"
-            top="52.9%"
+            top="50.5%"
           />
 
-          <PositionedString dataKey="case.judgeName" left="54.1%" top="57.5%" />
+          <PositionedString dataKey="case.judgeName" left="54.1%" top="55.1%" />
+        </RenderPage>
 
+        <RenderPage url="/static/forms/draft-court-order-conviction/draft_court_order_conviction-2.png">
           <PositionedString
             dataKey="case.caseNumber"
-            left="17.4%"
-            top="65.5%"
+            left="37.1%"
+            top="22.5%"
           />
-
           <PositionedString
-            dataKey="case.publicInterest"
-            left="17.4%"
-            top="78%"
-            style={{
-              width: "74%",
-              height: "15%",
-              lineHeight: "30px",
-              overflowY: "hidden"
-            }}
+            dataKey="case.caseNumber"
+            left="37.1%"
+            top="31.5%"
           />
         </RenderPage>
 
-        <RenderPage url="/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-2.png">
-          <PositionedString debugKey="todaysDate" left="11.5%" top="36.5%">
+        <RenderPage url="/static/forms/draft-court-order-conviction/draft_court_order_conviction-3.png">
+          <PositionedString debugKey="todaysDate" left="11.5%" top="33.2%">
             {moment().format("L")}
           </PositionedString>
 
-          <PositionedString debugKey="printedName" left="54.4%" top="39.6%">
+          <PositionedString debugKey="printedName" left="61.4%" top="36.9%">
             {`${renderData("person.firstName")} ${renderData(
               "person.middleName"
             )} ${renderData("person.lastName")}`}
