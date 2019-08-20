@@ -3,7 +3,7 @@ import moment from "moment";
 import RenderPage from "../render-page.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
-import { formCommonOptions } from "../form-common-options/form-common-options";
+import { getJudicialDistrictFromCounty } from "../form-common-options/form-common-options";
 
 export default class DraftCourtOrderConviction_Pdf extends React.Component {
   render() {
@@ -60,9 +60,7 @@ export default class DraftCourtOrderConviction_Pdf extends React.Component {
 
           <PositionedString left="26.5%" top="37.35%" debugKey="county">
             {this.props.data.case.county
-              ? formCommonOptions.getJudicialDistrictFromCounty(
-                  this.props.data.case.county
-                )
+              ? getJudicialDistrictFromCounty(this.props.data.case.county)
               : null}
           </PositionedString>
 

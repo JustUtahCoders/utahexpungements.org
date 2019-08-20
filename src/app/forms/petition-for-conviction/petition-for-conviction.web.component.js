@@ -5,7 +5,11 @@ import TextArea from "../inputs/text-area.component.js";
 import Select from "../inputs/select.component.js";
 import Checkbox from "../inputs/checkbox.component.js";
 import Radio from "../inputs/radio.component.js";
-import { formCommonOptions } from "../form-common-options/form-common-options";
+import {
+  petitionerRepresentativeOptions,
+  courtTypeOptions,
+  countyOptions
+} from "../form-common-options/form-common-options";
 
 export default class PetitionForConviction_Web extends React.Component {
   render() {
@@ -32,7 +36,7 @@ export default class PetitionForConviction_Web extends React.Component {
         <Select
           dataKey="person.petitionerRepresentative"
           label={__("are you filling this out for yourself")}
-          options={formCommonOptions.petitionerRepresentativeOptions}
+          options={petitionerRepresentativeOptions}
         />
 
         {this.props.data.person.petitionerRepresentative === "attorney" && (
@@ -48,14 +52,10 @@ export default class PetitionForConviction_Web extends React.Component {
         <Radio
           label="Court Type"
           dataKey="case.courtType"
-          options={formCommonOptions.courtTypeOptions}
+          options={courtTypeOptions}
         />
 
-        <Select
-          dataKey="case.county"
-          options={formCommonOptions.countyOptions}
-          label="County"
-        />
+        <Select dataKey="case.county" options={countyOptions} label="County" />
 
         <TextInput
           dataKey="case.addressCourtStreet"
