@@ -92,3 +92,16 @@ export function getJudicialDistrictFromCounty(value) {
       break;
   }
 }
+
+export const resolutionOptions = [
+  { label: "A hearing", value: "hearing" },
+  { label: "The pleadings and other papers of the parties", value: "pleadings" }
+];
+
+export const serviceMethods = [
+  { label: "Mail", value: "mail" },
+  { label: "Hand Delivery", value: "hand" },
+  { label: "E-filed", value: "efile" },
+  { label: "Email", value: "email" },
+  { label: "Left at business", value: "leftAtBusiness" }
+];
