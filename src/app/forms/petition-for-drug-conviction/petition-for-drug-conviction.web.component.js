@@ -1,39 +1,39 @@
-import React from 'react';
-import {Scoped} from 'kremling';
-import TextInput from '../inputs/text-input.component.js';
-import Select from '../inputs/select.component.js';
-import TextArea from '../inputs/text-area.component.js';
-import FormThatPrints from '../inputs/form-that-prints.component.js';
-import Section from '../inputs/section.component.js';
+import React from "react";
+import { Scoped } from "kremling";
+import TextInput from "../inputs/text-input.component.js";
+import Select from "../inputs/select.component.js";
+import TextArea from "../inputs/text-area.component.js";
+import FormThatPrints from "../inputs/form-that-prints.component.js";
+import Section from "../inputs/section.component.js";
 
 const petitionerRepresentativeOptions = [
-  {label: 'Yes. I am the petitioner.', value: 'petitioner'},
+  { label: "Yes. I am the petitioner.", value: "petitioner" },
   {
-    label: 'No. I am an attorney representing the petitioner.',
-    value: 'attorney',
-  },
+    label: "No. I am an attorney representing the petitioner.",
+    value: "attorney"
+  }
 ];
 
 const courtOptions = [
-  {label: 'District', value: 'district'},
-  {label: 'Justice Court of Utah', value: 'justice'},
+  { label: "District", value: "district" },
+  { label: "Justice Court of Utah", value: "justice" }
 ];
 
 const pryingQuestionOptions = [
   {
-    label: 'I have not been diagnosted as having a substance abuse addiction.',
-    value: 'no',
+    label: "I have not been diagnosted as having a substance abuse addiction.",
+    value: "no"
   },
   {
     label:
-      'I have been diagnosed as having a substance abuse addiction and I am managing my addiction by:',
-    value: 'yes',
-  },
+      "I have been diagnosed as having a substance abuse addiction and I am managing my addiction by:",
+    value: "yes"
+  }
 ];
 
 export default class PetitionForDrugConviction_Web extends React.Component {
   render() {
-    console.log('this.props', this.props);
+    console.log("this.props", this.props);
     return (
       <Scoped css={css}>
         <FormThatPrints>
@@ -82,7 +82,7 @@ export default class PetitionForDrugConviction_Web extends React.Component {
             <TextInput dataKey="person.email" label="Email" {...this.props} />
             <Select
               dataKey="person.petitionerRepresentative"
-              label={__('are you filling this out for yourself')}
+              label={__("are you filling this out for yourself")}
               options={petitionerRepresentativeOptions}
               {...this.props}
             />
@@ -126,7 +126,7 @@ export default class PetitionForDrugConviction_Web extends React.Component {
               {...this.props}
             />
             {this.props.data.drugConviction &&
-              this.props.data.drugConviction.pryingquestion === 'yes' && (
+              this.props.data.drugConviction.pryingquestion === "yes" && (
                 <TextInput
                   dataKey="drugConviction.pryingquestionAnswer"
                   label="I am managing my addiction by:"
@@ -137,7 +137,7 @@ export default class PetitionForDrugConviction_Web extends React.Component {
             <TextArea
               dataKey="case.publicInterest"
               label={__(
-                "explain why expunging this crime is not contrary to the public's interest",
+                "explain why expunging this crime is not contrary to the public's interest"
               )}
               {...this.props}
             />
