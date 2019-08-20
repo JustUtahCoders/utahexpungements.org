@@ -33,7 +33,6 @@ const pryingQuestionOptions = [
 
 export default class PetitionForDrugConviction_Web extends React.Component {
   render() {
-    console.log("this.props", this.props);
     return (
       <Scoped css={css}>
         <FormThatPrints>

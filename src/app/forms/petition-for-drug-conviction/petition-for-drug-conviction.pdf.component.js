@@ -6,7 +6,6 @@ import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component
 export default class PetitionForDrugConviction_Pdf extends React.Component {
   render() {
     const { renderData, data } = this.props;
-    console.log("this is data", data);
     return (
       <>
         <RenderPage url="/static/forms/petition-for-drug-conviction/01_Petition_to_Expunge_Records_Criminal-drug_possession-1.png">
