@@ -12,7 +12,6 @@ import {
   countyOptions
 } from "../form-common-options/form-common-options";
 
-
 const resolutionOptions = [
   { label: "A hearing", value: "hearing" },
   { label: "The pleadings and other papers of the parties", value: "pleadings" }
@@ -26,12 +25,10 @@ const serviceMethods = [
   { label: "Left at business", value: "leftAtBusiness" }
 ];
 
-
 export default class DraftCourtOrderConviction_Web extends React.Component {
   render() {
     return (
       <FormThatPrints>
-
         <Section name="1. Personal Information">
           <TextInput dataKey="person.lastName" label={__("last name")} />
 
@@ -184,7 +181,6 @@ export default class DraftCourtOrderConviction_Web extends React.Component {
         <TextInput dataKey="case.caseNumber" label={__("case number")} />
 
         <TextInput dataKey="case.judgeName" label={__("judge full name")} />
-
       </FormThatPrints>
     );
   }

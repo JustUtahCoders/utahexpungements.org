@@ -86,7 +86,6 @@ export default class DraftCourtOrderConviction_Pdf extends React.Component {
 
           <PositionedString dataKey="case.judgeName" left="54.1%" top="55.1%" />
 
-
           <PositionedCheckmark
             dataKey="case.resolutionType"
             left="12.1%"
@@ -106,7 +105,6 @@ export default class DraftCourtOrderConviction_Pdf extends React.Component {
             left="35%"
             top="68.9%"
           />
-
         </RenderPage>
 
         <RenderPage url="/static/forms/draft-court-order-conviction/draft_court_order_conviction-2.png">
@@ -123,7 +121,6 @@ export default class DraftCourtOrderConviction_Pdf extends React.Component {
         </RenderPage>
 
         <RenderPage url="/static/forms/draft-court-order-conviction/draft_court_order_conviction-3.png">
-
           <PositionedString dataKey="case.prosecutor" left="12%" top="26%" />
 
           <PositionedCheckmark
@@ -179,7 +176,6 @@ export default class DraftCourtOrderConviction_Pdf extends React.Component {
             left="79.2%"
             top="23.4%"
           />
-
 
           <PositionedString debugKey="todaysDate" left="11.5%" top="33.2%">
             {moment().format("L")}
