@@ -87,23 +87,10 @@ export default class DraftCourtOrderConviction_Pdf extends React.Component {
           <PositionedString dataKey="case.judgeName" left="54.1%" top="55.1%" />
 
           <PositionedCheckmark
-            dataKey="case.resolutionType"
-            left="12.1%"
-            top="68.8%"
-            shouldShow={data.case.resolutionType === "hearing"}
-          />
-
-          <PositionedCheckmark
-            dataKey="case.resolutionType"
+            debugKey="resolutionType"
             left="12.1%"
             top="65.7%"
-            shouldShow={data.case.resolutionType === "pleadings"}
-          />
-
-          <PositionedString
-            dataKey="case.resolutionDate"
-            left="35%"
-            top="68.9%"
+            shouldShow={true}
           />
         </RenderPage>
 
@@ -120,73 +107,7 @@ export default class DraftCourtOrderConviction_Pdf extends React.Component {
           />
         </RenderPage>
 
-        <RenderPage url="/static/forms/draft-court-order-conviction/draft_court_order_conviction-3.png">
-          <PositionedString dataKey="case.prosecutor" left="12%" top="26%" />
-
-          <PositionedCheckmark
-            dataKey="case.serviceMethod"
-            top="22.6%"
-            left="31.9%"
-            shouldShow={data.case.serviceMethod === "mail"}
-          />
-          <PositionedCheckmark
-            dataKey="case.serviceMethod"
-            top="24.1%"
-            left="31.9%"
-            shouldShow={data.case.serviceMethod === "hand"}
-          />
-          <PositionedCheckmark
-            dataKey="case.serviceMethod"
-            top="25.6%"
-            left="31.9%"
-            shouldShow={data.case.serviceMethod === "efile"}
-          />
-          <PositionedCheckmark
-            dataKey="case.serviceMethod"
-            top="27%"
-            left="31.9%"
-            shouldShow={data.case.serviceMethod === "email"}
-          />
-          <PositionedCheckmark
-            dataKey=""
-            top="28.4%"
-            left="31.9%"
-            shouldShow={data.case.serviceMethod === "leftAtBusiness"}
-          />
-
-          <PositionedString
-            top="23.2%"
-            left="61.6%"
-            dataKey="case.addressServiceStreet"
-          />
-          <PositionedString
-            top="24.7%"
-            left="61.6%"
-            dataKey="case.addressServiceCity"
-          />
-
-          <PositionedString debugKey="serviceStateZip" left="61.6%" top="26.2%">
-            {`${renderData("case.addressServiceState")}, ${renderData(
-              "case.addressServiceZip"
-            )}`}
-          </PositionedString>
-
-          <PositionedString
-            dataKey="case.serviceDate"
-            left="79.2%"
-            top="23.4%"
-          />
-
-          <PositionedString debugKey="todaysDate" left="11.5%" top="33.2%">
-            {moment().format("L")}
-          </PositionedString>
-
-          <PositionedString debugKey="printedName" left="61.4%" top="36.9%">
-            {`${renderData("person.firstName")} ${renderData(
-              "person.middleName"
-            )} ${renderData("person.lastName")}`}
-          </PositionedString>
-        </RenderPage>
+        <RenderPage url="/static/forms/draft-court-order-conviction/draft_court_order_conviction-3.png" />
       </>
     );
   }
