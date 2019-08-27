@@ -11,7 +11,7 @@ export default function Select(props) {
   const scope = useCss(css);
 
   return (
-    <div {...scope}>
+    <div {...scope} className="web-form-select">
       <div className="select-label">{props.label}</div>
       <select value={value} onChange={handleChange}>
         <option value="nothingSelected">Please select an option</option>

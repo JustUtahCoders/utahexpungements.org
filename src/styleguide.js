@@ -137,6 +137,10 @@ export default `
     margin: 24rem 0 0 32rem;
   }
 
+  & .web-form-select {
+    margin: 24rem 0 0 32rem;
+  }
+
   & button:disabled, & a.button:disabled, & button:disabled:hover, & a.button:disabled:hover {
     color: ${lightGray};
     background-color: ${semiTransparentGray};
