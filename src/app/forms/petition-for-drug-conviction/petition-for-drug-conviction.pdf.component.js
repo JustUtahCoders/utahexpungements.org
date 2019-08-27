@@ -72,19 +72,19 @@ export default class PetitionForDrugConviction_Pdf extends React.Component {
               <PositionedCheckmark
                 left="24%"
                 top="81.2%"
-                shouldShow={data.drugConviction.pryingquestion === "no"}
+                shouldShow={data.drugConviction.pryingQuestion === "no"}
               />
               <PositionedCheckmark
                 left="24%"
                 top="84%"
-                shouldShow={data.drugConviction.pryingquestion === "yes"}
+                shouldShow={data.drugConviction.pryingQuestion === "yes"}
               />
             </>
           )}
         </RenderPage>
         <RenderPage url="/static/forms/petition-for-drug-conviction/01_Petition_to_Expunge_Records_Criminal-drug_possession-2.png">
           <PositionedString
-            dataKey="drugConviction.pryingquestionAnswer"
+            dataKey="drugConviction.pryingQuestionAnswer"
             left="17.4%"
             top="10%"
           />

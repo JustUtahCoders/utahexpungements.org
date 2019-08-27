@@ -21,7 +21,7 @@ const courtOptions = [
 
 const pryingQuestionOptions = [
   {
-    label: "I have not been diagnosted as having a substance abuse addiction.",
+    label: "I have not been diagnosed as having a substance abuse addiction.",
     value: "no"
   },
   {
@@ -37,99 +37,46 @@ export default class PetitionForDrugConviction_Web extends React.Component {
       <Scoped css={css}>
         <FormThatPrints>
           <Section name="1. Personal information">
-            <TextInput
-              dataKey="person.firstName"
-              label="First name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.middleName"
-              label="Middle name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.lastName"
-              label="Last name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressStreet"
-              label="Street"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressCity"
-              label="City"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressState"
-              label="State"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="person.addressZip"
-              label="Zip"
-              {...this.props}
-            />
+            <TextInput dataKey="person.firstName" label="First name" />
+            <TextInput dataKey="person.middleName" label="Middle name" />
+            <TextInput dataKey="person.lastName" label="Last name" />
+            <TextInput dataKey="person.addressStreet" label="Street" />
+            <TextInput dataKey="person.addressCity" label="City" />
+            <TextInput dataKey="person.addressState" label="State" />
+            <TextInput dataKey="person.addressZip" label="Zip" />
 
-            <TextInput
-              dataKey="person.homePhone"
-              label="Home Phone Number"
-              {...this.props}
-            />
-            <TextInput dataKey="person.email" label="Email" {...this.props} />
+            <TextInput dataKey="person.homePhone" label="Home Phone Number" />
+            <TextInput dataKey="person.email" label="Email" />
             <Select
               dataKey="person.petitionerRepresentative"
               label={__("are you filling this out for yourself")}
               options={petitionerRepresentativeOptions}
-              {...this.props}
             />
 
             <Select
               dataKey="case.courtType"
               label="In which court was the case"
               options={courtOptions}
-              {...this.props}
             />
             <TextInput
               dataKey="case.judicialDistrict"
               label="Judicial District"
-              {...this.props}
             />
             <TextInput dataKey="case.county" label="County" {...this.props} />
-            <TextInput
-              dataKey="case.courtAddress"
-              label="Court Address"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="case.petitioner"
-              label="Petitioner Name"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="case.number"
-              label="Case Number"
-              {...this.props}
-            />
-            <TextInput
-              dataKey="case.judgeName"
-              label="Judge Name"
-              {...this.props}
-            />
+            <TextInput dataKey="case.courtAddress" label="Court Address" />
+            <TextInput dataKey="case.petitioner" label="Petitioner Name" />
+            <TextInput dataKey="case.number" label="Case Number" />
+            <TextInput dataKey="case.judgeName" label="Judge Name" />
             <Select
-              dataKey="drugConviction.pryingquestion"
+              dataKey="drugConviction.pryingQuestion"
               label="Choose One"
               options={pryingQuestionOptions}
-              {...this.props}
             />
             {this.props.data.drugConviction &&
-              this.props.data.drugConviction.pryingquestion === "yes" && (
+              this.props.data.drugConviction.pryingQuestion === "yes" && (
                 <TextInput
-                  dataKey="drugConviction.pryingquestionAnswer"
+                  dataKey="drugConviction.pryingQuestionAnswer"
                   label="I am managing my addiction by:"
-                  {...this.props}
                 />
               )}
 
@@ -138,7 +85,6 @@ export default class PetitionForDrugConviction_Web extends React.Component {
               label={__(
                 "explain why expunging this crime is not contrary to the public's interest"
               )}
-              {...this.props}
             />
           </Section>
         </FormThatPrints>
