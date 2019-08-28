@@ -1,3 +1,6 @@
+import DistrictCourtOption from "./districtCourts.json";
+import JusticeCourtOption from "./justiceCourts.json";
+
 export const petitionerRepresentativeOptions = [
   { label: "Yes. I am the petitioner.", value: "petitioner" },
   {
@@ -90,6 +93,22 @@ export function getJudicialDistrictFromCounty(value) {
     case "Uintah":
       return "Eighth";
       break;
+  }
+}
+
+export function getCourtOptions(courtType, county) {
+  if (courtType === "District") {
+    if (county) {
+      return DistrictCourtOption.filter(address => {
+        return address.name[0].includes(county);
+      });
+    }
+  } else if (courtType === "Justice") {
+    if (county) {
+      return JusticeCourtOption.filter(address => {
+        return address.name[0].includes(county);
+      });
+    }
   }
 }
 

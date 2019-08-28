@@ -63,14 +63,20 @@ export default class DraftCourtOrderConviction_Pdf extends React.Component {
               ? getJudicialDistrictFromCounty(this.props.data.case.county)
               : null}
           </PositionedString>
-
+          {/* 
           <PositionedString debugKey="addressCourt" left="27.8%" top="39.8%">
             {`${renderData("case.addressCourtStreet")}, ${renderData(
               "case.addressCourtCity"
             )}, ${renderData("case.addressCourtState")} ${renderData(
               "case.addressCourtZip"
             )}`}
-          </PositionedString>
+          </PositionedString> */}
+
+          <PositionedString
+            dataKey="case.courtAddress"
+            left="27.8%"
+            top="39.8%"
+          />
 
           <PositionedString debugKey="petitionerName" left="12.5%" top="50.2%">
             {`${renderData("person.firstName")} ${renderData(

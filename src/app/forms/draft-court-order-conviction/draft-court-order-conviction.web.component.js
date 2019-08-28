@@ -1,15 +1,14 @@
 import React from "react";
 import FormThatPrints from "../inputs/form-that-prints.component.js";
 import TextInput from "../inputs/text-input.component.js";
-import TextArea from "../inputs/text-area.component.js";
 import Select from "../inputs/select.component.js";
-import Checkbox from "../inputs/checkbox.component.js";
 import Radio from "../inputs/radio.component.js";
 import Section from "../inputs/section.component.js";
 
 import {
   courtTypeOptions,
-  countyOptions
+  countyOptions,
+  getCourtOptions
 } from "../form-common-options/form-common-options";
 
 export default class DraftCourtOrderConviction_Web extends React.Component {
@@ -49,25 +48,17 @@ export default class DraftCourtOrderConviction_Web extends React.Component {
             label="County"
           />
 
-          <TextInput
-            dataKey="case.addressCourtStreet"
-            label={__("court address street")}
-          />
-
-          <TextInput
-            dataKey="case.addressCourtCity"
-            label={__("court address city")}
-          />
-
-          <TextInput
-            dataKey="case.addressCourtState"
-            label={__("court address state")}
-          />
-
-          <TextInput
-            dataKey="case.addressCourtZip"
-            label={__("court address zip")}
-          />
+          {!!this.props.data.case.courtType &&
+            !!this.props.data.case.county && (
+              <Select
+                label="Court Address"
+                dataKey="case.courtAddress"
+                options={getCourtOptions(
+                  this.props.data.case.courtType,
+                  this.props.data.case.county
+                )}
+              />
+            )}
 
           <TextInput dataKey="case.caseNumber" label={__("case number")} />
 
