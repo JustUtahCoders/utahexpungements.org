@@ -98,7 +98,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("petition for drug conviction")}
-              readyForUsers={false}
+              readyForUsers
               keywords="drug conviction petition"
               shortDescription={__(
                 "petition for drug conviction short description"
