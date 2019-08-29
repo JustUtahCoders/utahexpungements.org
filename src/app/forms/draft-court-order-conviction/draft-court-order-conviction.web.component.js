@@ -48,17 +48,16 @@ export default class DraftCourtOrderConviction_Web extends React.Component {
             label="County"
           />
 
-          {!!this.props.data.case.courtType &&
-            !!this.props.data.case.county && (
-              <Select
-                label="Court Address"
-                dataKey="case.courtAddress"
-                options={getCourtOptions(
-                  this.props.data.case.courtType,
-                  this.props.data.case.county
-                )}
-              />
-            )}
+          {this.props.data.case.courtType && this.props.data.case.county && (
+            <Select
+              label="Court Address"
+              dataKey="case.courtAddress"
+              options={getCourtOptions(
+                this.props.data.case.courtType,
+                this.props.data.case.county
+              )}
+            />
+          )}
 
           <TextInput dataKey="case.caseNumber" label={__("case number")} />
 

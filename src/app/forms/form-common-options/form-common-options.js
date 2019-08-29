@@ -97,16 +97,14 @@ export function getJudicialDistrictFromCounty(value) {
 }
 
 export function getCourtOptions(courtType, county) {
-  if (courtType === "District") {
-    if (county) {
+  if (county) {
+    if (courtType === "District") {
       return DistrictCourtOption.filter(address => {
-        return address.name[0].includes(county);
+        return address.name.includes(county);
       });
-    }
-  } else if (courtType === "Justice") {
-    if (county) {
+    } else if (courtType === "Justice") {
       return JusticeCourtOption.filter(address => {
-        return address.name[0].includes(county);
+        return address.name.includes(county);
       });
     }
   }
