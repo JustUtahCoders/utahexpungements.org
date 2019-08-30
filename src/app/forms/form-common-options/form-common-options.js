@@ -100,11 +100,11 @@ export function getCourtOptions(courtType, county) {
   if (county) {
     if (courtType === "District") {
       return DistrictCourtOption.filter(address => {
-        return address.name.includes(county);
+        return address.county.includes(county);
       });
     } else if (courtType === "Justice") {
       return JusticeCourtOption.filter(address => {
-        return address.name.includes(county);
+        return address.county.includes(county);
       });
     }
   }
