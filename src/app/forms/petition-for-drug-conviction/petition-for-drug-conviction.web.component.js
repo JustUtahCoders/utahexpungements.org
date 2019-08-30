@@ -64,7 +64,6 @@ export default class PetitionForDrugConviction_Web extends React.Component {
             />
             <TextInput dataKey="case.county" label="County" {...this.props} />
             <TextInput dataKey="case.courtAddress" label="Court Address" />
-            <TextInput dataKey="case.petitioner" label="Petitioner Name" />
             <TextInput dataKey="case.number" label="Case Number" />
             <TextInput dataKey="case.judgeName" label="Judge Name" />
             <Select

@@ -10,7 +10,8 @@ export default class PetitionForDrugConviction_Pdf extends React.Component {
       <>
         <RenderPage url="/static/forms/petition-for-drug-conviction/01_Petition_to_Expunge_Records_Criminal-drug_possession-1.png">
           <PositionedString left="11%" top="13.94%">
-            {renderData("person.firstName")} {renderData("person.lastName")}
+            {renderData("person.firstName")} {renderData("person.middleName")}{" "}
+            {renderData("person.lastName")}
           </PositionedString>
           <PositionedString
             dataKey="person.addressStreet"
@@ -63,7 +64,10 @@ export default class PetitionForDrugConviction_Pdf extends React.Component {
             left="27%"
             top="42.5%"
           />
-          <PositionedString dataKey="case.petitioner" left="11%" top="52.5%" />
+          <PositionedString debugKey="petitionerName" left="11.9%" top="52.7%">
+            {renderData("person.firstName")} {renderData("person.middleName")}{" "}
+            {renderData("person.lastName")}
+          </PositionedString>
           <PositionedString dataKey="case.number" left="65%" top="52.5%" />
           <PositionedString dataKey="case.number" left="25%" top="65.5%" />
           <PositionedString dataKey="case.judgeName" left="65%" top="57.5%" />
