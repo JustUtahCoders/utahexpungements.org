@@ -52,7 +52,8 @@ export default class PetitionForDrugConviction_Web extends React.Component {
               label={__("are you filling this out for yourself")}
               options={petitionerRepresentativeOptions}
             />
-
+          </Section>
+          <Section name="2. Case information">
             <Select
               dataKey="case.courtType"
               label="In which court was the case"
