@@ -1,13 +1,12 @@
-const webpack = require("webpack");
 const path = require("path");
+const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/utah-expungements.js"),
+  entry: path.resolve(__dirname, "frontend/utah-expungements.js"),
   output: {
     filename: "utah-expungements.js",
     path: path.resolve(__dirname, "dist"),
-    chunkFilename: "[name].js",
-    publicPath: "/"
+    chunkFilename: "[name].js"
   },
   mode: "production",
   module: {
@@ -21,11 +20,7 @@ module.exports = {
   },
   devtool: "source-map",
   devServer: {
-    contentBase: __dirname,
-    open: true,
-    historyApiFallback: {
-      rewrites: [{ from: /./, to: "/src/index.html" }]
-    }
+    port: 9000
   },
   resolve: {
     modules: [__dirname, "node_modules"],
@@ -33,5 +28,6 @@ module.exports = {
       moment: path.resolve(__dirname, "node_modules/moment/min/moment.min.js"),
       lodash: "lodash-es"
     }
-  }
+  },
+  plugins: [new CleanWebpackPlugin()]
 };
