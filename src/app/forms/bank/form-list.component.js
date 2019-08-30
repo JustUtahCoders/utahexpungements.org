@@ -112,7 +112,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Acceptance of Service"
-              readyForUsers={false}
+              readyForUsers
               keywords="prosecutor acceptance serve"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
               appUrl={this.props.match.url + "/acceptance-of-service"}
