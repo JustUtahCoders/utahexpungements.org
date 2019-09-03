@@ -9,9 +9,11 @@
 ## How to contribute
 
 ### Creating a form
+
 See [tutorial video](https://www.youtube.com/watch?v=U6AM0o4NG2E) and [commit to get things started](https://github.com/JustUtahCoders/utahexpungements.org/pull/39).
 
 ### Anything else
+
 Create an issue or PR!
 
 ## How to run locally
@@ -22,7 +24,7 @@ Install [git](https://git-scm.com/downloads) and [yarn](https://yarnpkg.com/en/)
 git clone git@github.com:JustUtahCoders/utahexpungements.org.git
 cd utahexpungements.org
 yarn install
-yarn start
+yarn develop
 ```
 
-This will open a browser tab that has the app running
+Now open http://localhost:8080 in a browser.
