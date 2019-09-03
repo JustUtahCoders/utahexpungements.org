@@ -25,7 +25,6 @@ export default class I18N extends React.Component {
       baseUrl: languageToUse === urlLanguage ? `/${languageToUse}` : ""
     });
 
-    console.log("about to import", __webpack_public_path__);
     import(/* webpackChunkName: "i18n-" */ `./i18n/${languageToUse}.js`)
       .then(mod => mod.default)
       .then(translations => this.setState({ translations }));
