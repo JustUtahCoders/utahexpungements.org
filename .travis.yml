@@ -7,6 +7,7 @@ deploy:
   provider: gae
   keyfile: app-engine-secret.json
   project: utah-expungements-org
+  skip_cleanup: true
   on:
     branch: master
 before_install:
