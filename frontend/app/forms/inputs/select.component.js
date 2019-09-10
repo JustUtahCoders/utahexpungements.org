@@ -5,15 +5,16 @@ import { DataContainerContext } from "../data-container.component";
 
 export default function Select(props) {
   const dataContext = React.useContext(DataContainerContext);
-  const [value, setValue] = React.useState(
-    get(dataContext.data, props.dataKey)
-  );
+  const value = get(dataContext.data, props.dataKey);
   const scope = useCss(css);
 
   return (
     <div className="web-form-input" {...scope}>
       <div className="select-label">{props.label}</div>
-      <select value={value} onChange={handleChange}>
+      <select
+        value={value}
+        onChange={evt => dataContext.setData(props.dataKey, evt.target.value)}
+      >
         <option value="nothingSelected">Please select an option</option>
         {props.options.map(option => (
           <option key={option.value} value={option.value}>
@@ -23,12 +24,6 @@ export default function Select(props) {
       </select>
     </div>
   );
-
-  function handleChange(evt) {
-    const value = evt.target.value;
-    setValue(value);
-    dataContext.setData(props.dataKey, value);
-  }
 }
 
 const css = `
