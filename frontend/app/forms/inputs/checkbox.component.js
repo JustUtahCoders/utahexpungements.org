@@ -4,11 +4,9 @@ import { get } from "lodash";
 import { DataContainerContext } from "../data-container.component";
 
 export default function Checkbox(props) {
-  const [value, setValue] = React.useState(
-    get(props.data, props.dataKey, false)
-  );
-  const scope = useCss(css);
   const dataContext = React.useContext(DataContainerContext);
+  const value = get(dataContext.data, props.dataKey, false);
+  const scope = useCss(css);
 
   return (
     <div className="web-form-input" {...scope}>
@@ -16,17 +14,14 @@ export default function Checkbox(props) {
         <input
           type="checkbox"
           checked={value}
-          onChange={evt => setValue(evt.target.checked)}
-          onBlur={handleBlur}
+          onChange={evt =>
+            dataContext.setData(props.dataKey, evt.target.checked)
+          }
         />
         {props.label}
       </label>
     </div>
   );
-
-  function handleBlur() {
-    dataContext.setData(props.dataKey, value);
-  }
 }
 
 const css = `

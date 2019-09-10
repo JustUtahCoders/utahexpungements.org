@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useCss } from "kremling";
 import { get } from "lodash";
 import { DataContainerContext } from "../data-container.component";
 
 export default function Radio(props) {
-  const [value, setValue] = React.useState(get(props.data, props.dataKey));
-  const scope = useCss(css);
   const dataContext = React.useContext(DataContainerContext);
-
-  useEffect(() => {
-    dataContext.setData(props.dataKey, value);
-  }, [value]);
+  const value = get(dataContext.data, props.dataKey);
+  const scope = useCss(css);
 
   return (
     <div className="web-form-input" {...scope}>
@@ -23,7 +19,9 @@ export default function Radio(props) {
             name={option.label}
             value={option.value}
             checked={value == option.value}
-            onChange={evt => setValue(evt.target.value)}
+            onChange={evt =>
+              dataContext.setData(props.dataKey, evt.target.value)
+            }
           />
         </label>
       ))}

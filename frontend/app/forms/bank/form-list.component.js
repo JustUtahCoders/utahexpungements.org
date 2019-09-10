@@ -134,6 +134,22 @@ export default class FormList extends React.Component {
                 "/static/forms/draft-court-order-conviction/draft_court_order_conviction-3.png"
               ]}
             />
+            <FillableForm
+              name="Draft court order for expungement (drug possession conviction)"
+              readyForUsers={false}
+              keywords="prosecutor acceptance serve"
+              shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement (drug possession)"
+              appUrl={
+                this.props.match.url +
+                "/draft-court-order-drug-possession-conviction"
+              }
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-drug_possession.pdf"
+              previewUrls={[
+                "/static/forms/draft-court-order-drug-possession-conviction/draft_court_order_drug_possession_conviction-1.png",
+                "/static/forms/draft-court-order-drug-possession-conviction/draft_court_order_drug_possession_conviction-2.png",
+                "/static/forms/draft-court-order-drug-possession-conviction/draft_court_order_drug_possession_conviction-3.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>

@@ -16,6 +16,8 @@ import AcceptanceOfService_Web from "../acceptance-of-service/acceptance-of-serv
 import AcceptanceOfService_Pdf from "../acceptance-of-service/acceptance-of-service.pdf.component.js";
 import DraftCourtOrderConviction_Web from "../draft-court-order-conviction/draft-court-order-conviction.web.component";
 import DraftCourtOrderConviction_Pdf from "../draft-court-order-conviction/draft-court-order-conviction.pdf.component";
+import DraftCourtOrderDrugPossessionConviction_Web from "../draft-court-order-drug-possession-conviction/draft-court-order-drug-possession-conviction.web.component";
+import DraftCourtOrderDrugPossessionConviction_Pdf from "../draft-court-order-drug-possession-conviction/draft-court-order-drug-possession-conviction.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -89,6 +91,19 @@ export default class FormBank extends React.Component {
               name="Acceptance of Service"
               WebForm={AcceptanceOfService_Web}
               PdfForm={AcceptanceOfService_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={
+            this.props.match.url +
+            "/draft-court-order-drug-possession-conviction"
+          }
+          render={props => (
+            <GovernmentForm
+              name="Order on Petition to Expunge Records (Drug possession conviction)"
+              WebForm={DraftCourtOrderDrugPossessionConviction_Web}
+              PdfForm={DraftCourtOrderDrugPossessionConviction_Pdf}
             />
           )}
         />
