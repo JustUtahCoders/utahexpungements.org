@@ -1,5 +1,7 @@
-import DistrictCourtOption from "./districtCourts.json";
-import JusticeCourtOption from "./justiceCourts.json";
+import DistrictCourtList from "./DistrictCourtList";
+import JusticeCourtList from "./JusticeCourtList";
+
+export { DistrictCourtList, JusticeCourtList };
 
 export const petitionerRepresentativeOptions = [
   { label: "Yes. I am the petitioner.", value: "petitioner" },
@@ -46,7 +48,38 @@ export const courtTypeOptions = [
   { label: "Justice Court", value: "Justice" }
 ];
 
-export function getJudicialDistrictFromCounty(value) {
+export function getJudicialDistrict(courtAddress, courtType) {
+  var judicialDistrict, county;
+  if (courtAddress) {
+    if (courtType === "District") {
+      DistrictCourtList.map(court => {
+        court.options.filter(address => {
+          if (address.value == courtAddress) {
+            county = court.name.replace(" County", "");
+            judicialDistrict = getJudicialDistrictFromCounty(
+              court.name.replace(" County", "")
+            );
+          }
+        });
+      });
+    }
+    if (courtType === "Justice") {
+      JusticeCourtList.map(court => {
+        court.options.filter(address => {
+          if (address.value == courtAddress) {
+            county = court.name.replace(" County", "");
+            judicialDistrict = getJudicialDistrictFromCounty(
+              court.name.replace(" County", "")
+            );
+          }
+        });
+      });
+    }
+    return { judicialDistrict, county };
+  }
+}
+
+function getJudicialDistrictFromCounty(value) {
   switch (value) {
     case "Box Elder":
     case "Rich":
@@ -95,30 +128,3 @@ export function getJudicialDistrictFromCounty(value) {
       break;
   }
 }
-
-export function getCourtOptions(courtType, county) {
-  if (county) {
-    if (courtType === "District") {
-      return DistrictCourtOption.filter(address => {
-        return address.name.includes(county);
-      });
-    } else if (courtType === "Justice") {
-      return JusticeCourtOption.filter(address => {
-        return address.name.includes(county);
-      });
-    }
-  }
-}
-
-export const resolutionOptions = [
-  { label: "A hearing", value: "hearing" },
-  { label: "The pleadings and other papers of the parties", value: "pleadings" }
-];
-
-export const serviceMethods = [
-  { label: "Mail", value: "mail" },
-  { label: "Hand Delivery", value: "hand" },
-  { label: "E-filed", value: "efile" },
-  { label: "Email", value: "email" },
-  { label: "Left at business", value: "leftAtBusiness" }
-];

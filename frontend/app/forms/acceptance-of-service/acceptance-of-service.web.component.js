@@ -3,14 +3,14 @@ import FormThatPrints from "../inputs/form-that-prints.component";
 import TextInput from "../inputs/text-input.component";
 import Section from "../inputs/section.component.js";
 import Radio from "../inputs/radio.component.js";
-import Select from "../inputs/select.component.js";
+import GroupSelect from "../inputs/group-select.component.js";
 import {
   courtTypeOptions,
-  countyOptions,
-  getCourtOptions
+  JusticeCourtList,
+  DistrictCourtList
 } from "../form-common-options/form-common-options";
 
-export default function AcceptanceOfService_Web(props) {
+export default function AcceptanceOfService_Web({ data }) {
   return (
     <FormThatPrints>
       <Section name="1. Personal Information">
@@ -25,25 +25,26 @@ export default function AcceptanceOfService_Web(props) {
         <TextInput dataKey="person.email" label={__("email address")} />
       </Section>
       <Section name="2. Case Information">
-        <TextInput dataKey="case.caseNumber" label={__("case number")} />
         <Radio
           dataKey="case.courtType"
           label="Court Type"
           options={courtTypeOptions}
         />
-
-        <Select dataKey="case.county" options={countyOptions} label="County" />
-
-        {props.data.case.courtType && props.data.case.county && (
-          <Select
-            label="Court Address"
+        {data.case.courtType === "District" && (
+          <GroupSelect
             dataKey="case.courtAddress"
-            options={getCourtOptions(
-              props.data.case.courtType,
-              props.data.case.county
-            )}
+            label="District Courts"
+            groupOptions={DistrictCourtList}
           />
         )}
+        {data.case.courtType === "Justice" && (
+          <GroupSelect
+            dataKey="case.courtAddress"
+            label="Justice Courts"
+            groupOptions={JusticeCourtList}
+          />
+        )}
+        <TextInput dataKey="case.caseNumber" label={__("case number")} />
         <TextInput dataKey="case.judgeName" label={__("judge full name")} />
       </Section>
     </FormThatPrints>
