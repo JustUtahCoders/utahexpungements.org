@@ -12,10 +12,12 @@ export default function Select(props) {
     <div className="web-form-input" {...scope}>
       <div className="select-label">{props.label}</div>
       <select
-        value={value}
         onChange={evt => dataContext.setData(props.dataKey, evt.target.value)}
+        defaultValue={"DEFAULT"}
       >
-        <option value="nothingSelected">Please select an option</option>
+        <option disabled value="DEFAULT">
+          Please select an option
+        </option>
         {props.options.map(option => (
           <option key={option.value} value={option.value}>
             {option.label}

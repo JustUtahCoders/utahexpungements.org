@@ -3,7 +3,10 @@ import moment from "moment";
 import RenderPage from "../render-page.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
-import { getJudicialDistrict } from "../form-common-options/form-common-options";
+import {
+  getJudicialDistrict,
+  getCounty
+} from "../form-common-options/form-common-options";
 
 export default function PetitionForConviction_Pdf({ data, renderData }) {
   return (
@@ -72,17 +75,13 @@ export default function PetitionForConviction_Pdf({ data, renderData }) {
         <PositionedString dataKey="case.courtAddress" left="27.8%" top="43%" />
 
         <PositionedString left="25.9%" top="39.55%" debugKey="judicialDistrict">
-          {data.case.courtAddress
-            ? getJudicialDistrict(data.case.courtAddress, data.case.courtType)
-                .judicialDistrict
-            : null}
+          {data.case.courtAddress &&
+            getJudicialDistrict(data.case.courtAddress, data.case.courtType)}
         </PositionedString>
 
         <PositionedString left="50.7%" top="39.55%" debugKey="county">
-          {data.case.courtAddress
-            ? getJudicialDistrict(data.case.courtAddress, data.case.courtType)
-                .county
-            : null}
+          {data.case.courtAddress &&
+            getCounty(data.case.courtAddress, data.case.courtType)}
         </PositionedString>
 
         <PositionedString debugKey="petitionerName" left="11.9%" top="52.9%">

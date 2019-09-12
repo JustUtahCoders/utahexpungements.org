@@ -2,7 +2,10 @@ import React from "react";
 import RenderPage from "../render-page.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
-import { getJudicialDistrict } from "../form-common-options/form-common-options";
+import {
+  getJudicialDistrict,
+  getCounty
+} from "../form-common-options/form-common-options";
 
 export default ({
   data: {
@@ -49,15 +52,11 @@ export default ({
       />
 
       <PositionedString left="25.9%" top="37.35%" debugKey="judicialDistrict">
-        {courtAddress
-          ? getJudicialDistrict(courtAddress, courtType).judicialDistrict
-          : null}
+        {courtAddress && getJudicialDistrict(courtAddress, courtType)}
       </PositionedString>
 
       <PositionedString left="50.7%" top="37.35%" debugKey="county">
-        {courtAddress
-          ? getJudicialDistrict(courtAddress, courtType).county
-          : null}
+        {courtAddress && getCounty(courtAddress, courtType)}
       </PositionedString>
 
       <PositionedString dataKey="case.courtAddress" left="27.8%" top="39.8%" />

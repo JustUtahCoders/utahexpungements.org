@@ -12,10 +12,12 @@ export default function GroupSelect(props) {
     <div className="web-form-input" {...scope}>
       <div className="select-label">{props.label}</div>
       <select
-        value={value}
         onChange={evt => dataContext.setData(props.dataKey, evt.target.value)}
+        defaultValue={"DEFAULT"}
       >
-        <option value="nothingSelected">Please select an option.</option>
+        <option disabled value="DEFAULT">
+          Please select an option.
+        </option>
         {props.groupOptions.map(groupOption => (
           <optgroup key={groupOption.name} label={groupOption.name}>
             {groupOption.options.map(option => (

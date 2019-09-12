@@ -11,6 +11,17 @@ export const petitionerRepresentativeOptions = [
   }
 ];
 
+export const petitionerRepresentativeOptionsCOE = [
+  {
+    label: `Yes. I'd like documents to be sent to someone besides myself`,
+    value: "someone-else-is-recipient"
+  },
+  {
+    label: `No. I'd like documents to be sent to me directly`,
+    value: "petitioner-is-recipient"
+  }
+];
+
 export const countyOptions = [
   { label: "Beaver", value: "Beaver" },
   { label: "Box Elder", value: "Box Elder" },
@@ -48,35 +59,36 @@ export const courtTypeOptions = [
   { label: "Justice Court", value: "Justice" }
 ];
 
-export function getJudicialDistrict(courtAddress, courtType) {
-  var judicialDistrict, county;
-  if (courtAddress) {
-    if (courtType === "District") {
-      DistrictCourtList.map(court => {
-        court.options.filter(address => {
-          if (address.value == courtAddress) {
-            county = court.name.replace(" County", "");
-            judicialDistrict = getJudicialDistrictFromCounty(
-              court.name.replace(" County", "")
-            );
-          }
-        });
-      });
-    }
-    if (courtType === "Justice") {
-      JusticeCourtList.map(court => {
-        court.options.filter(address => {
-          if (address.value == courtAddress) {
-            county = court.name.replace(" County", "");
-            judicialDistrict = getJudicialDistrictFromCounty(
-              court.name.replace(" County", "")
-            );
-          }
-        });
-      });
-    }
-    return { judicialDistrict, county };
+export const pryingQuestionOptions = [
+  {
+    label: "I have not been diagnosed as having a substance abuse addiction.",
+    value: "no"
+  },
+  {
+    label:
+      "I have been diagnosed as having a substance abuse addiction and I am managing my addiction by:",
+    value: "yes"
   }
+];
+
+export function getJudicialDistrict(courtAddress, courtType) {
+  const courtList =
+    courtType === "District" ? DistrictCourtList : JusticeCourtList;
+  const court = courtList.find(court =>
+    court.options.some(option => option.value === courtAddress)
+  );
+  return court
+    ? getJudicialDistrictFromCounty(court.name.replace(" County", ""))
+    : "";
+}
+
+export function getCounty(courtAddress, courtType) {
+  const courtList =
+    courtType === "District" ? DistrictCourtList : JusticeCourtList;
+  const court = courtList.find(court =>
+    court.options.some(option => option.value === courtAddress)
+  );
+  return court ? court.name.replace(" County", "") : "";
 }
 
 function getJudicialDistrictFromCounty(value) {
