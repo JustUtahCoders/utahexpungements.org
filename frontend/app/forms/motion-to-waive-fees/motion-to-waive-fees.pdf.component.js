@@ -7,12 +7,15 @@ export default class MotionToWaiveFees_Pdf extends React.Component {
     const { renderData } = this.props;
     return (
       <>
-        <RenderPage url="/static/forms/motion-to-waive-fees/01_Motion_and_Affidavit_to_Waive_Fees-1.png">
-          <PositionedString debugKey="name" left="11%" top="14.04%">
-            {renderData("person.firstName")} {renderData("person.lastName")}
-          </PositionedString>
-        </RenderPage>
-        <RenderPage url="/static/forms/motion-to-waive-fees/01_Motion_and_Affidavit_to_Waive_Fees-2.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-01.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-02.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-03.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-04.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-05.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-06.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-07.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-09.png"></RenderPage>
+        <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-10.png"></RenderPage>
       </>
     );
   }
