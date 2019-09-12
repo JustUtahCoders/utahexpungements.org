@@ -1,0 +1,637 @@
+[
+  {
+    "name": "Millard County",
+    "options": [
+      {
+        "label": "Millard County - Delta City Justice Court ",
+        "value": "71 South 200 West P.O. Box 854 Delta, UT 84624"
+      },
+      {
+        "label": "Millard County - Fillmore City Justice Court ",
+        "value": "75 West Center St. Fillmore, UT 84631"
+      },
+      {
+        "label": "Millard County - Millard County Justice Court - East Courtroom",
+        "value": "765 South Highway 99 Suite 2 Fillmore, UT 84631"
+      },
+      {
+        "label": "Millard County - Millard County Justice Court - West Courtroom",
+        "value": "71 South 200 West P.O. Box 854 Delta, UT 84624"
+      }
+    ]
+  },
+  {
+    "name": "Rich County",
+    "options": [
+      {
+        "label": "Rich County - Rich Justice Court",
+        "value": "P. O. Box 218 Randolph, UT 84064"
+      }
+    ]
+  },
+  {
+    "name": "Garfield County",
+    "options": [
+      {
+        "label": "Garfield County - Garfield County Justice Court ",
+        "value": "740 North Main St (temp) P.O. Box 77 Panguitch, UT 84759"
+      },
+      {
+        "label": "Garfield County - Panguitch Justice Court ",
+        "value": "P.O. Box 77 Panguitch, UT 84759"
+      }
+    ]
+  },
+  {
+    "name": "Davis County",
+    "options": [
+      {
+        "label": "Davis County - Centerville Justice Court",
+        "value": "250 North Main Centerville, UT 84014-1824"
+      },
+      {
+        "label": "Davis County - Clearfield Justice Court",
+        "value": "55 South State Clearfield, UT 84015"
+      },
+      {
+        "label": "Davis County - Clinton City Justice Court ",
+        "value": "2267 North 1500 West Clinton, UT 84015"
+      },
+      {
+        "label": "Davis County - Davis County Justice Court ",
+        "value": "800 West State Street P.O. Box 618 Farmington, UT 84025"
+      },
+      {
+        "label": "Davis County - North Salt Lake Justice Court ",
+        "value": "10 East Center St. North Salt Lake, UT 84054"
+      },
+      {
+        "label": "Davis County - South Weber Justice Court",
+        "value": "1600 East South Weber Drive South Weber, UT 84405"
+      },
+      {
+        "label": "Davis County - Sunset Justice Court",
+        "value": "200 West 1300 North Sunset, UT 84015"
+      },
+      {
+        "label": "Davis County - Syracuse Justice Court",
+        "value": "1979 West 1900 South Syracuse, UT 84705"
+      },
+      {
+        "label": "Davis County - Woods Cross Justice Court",
+        "value": "1555 South 800 West Woods Cross, UT 84087"
+      }
+    ]
+  },
+  {
+    "name": "Summit County",
+    "options": [
+      {
+        "label": "Summit County - Summit County Justice Court ",
+        "value": "6300 N. Justice Center Road Park City, UT 84098"
+      }
+    ]
+  },
+  {
+    "name": "Morgan County",
+    "options": [
+      {
+        "label": "Morgan County - Morgan County Justice Court ",
+        "value": "48 West Young Street P.O. Box 786 Morgan, UT 84050"
+      }
+    ]
+  },
+  {
+    "name": "Juab County",
+    "options": [
+      {
+        "label": "Juab County - Juab County Justice Court",
+        "value": "146 North Main Nephi, UT 84648"
+      },
+      {
+        "label": "Juab County - Levan City Justice Court",
+        "value": "P.O. Box 40 Levan, UT 84639"
+      },
+      {
+        "label": "Juab County - Nephi City Justice Court",
+        "value": "42 East 200 North Nephi, UT 84648"
+      }
+    ]
+  },
+  {
+    "name": "Cache County",
+    "options": [
+      {
+        "label": "Cache County - Hyrum Justice Court",
+        "value": "60 West Main Hyrum, UT 84319"
+      },
+      {
+        "label": "Cache County - Logan Justice Court",
+        "value": "446 North 1st West Logan, UT 84321"
+      },
+      {
+        "label": "Cache County - North Logan / Hyde Park Justice Court",
+        "value": "113 East Center PO Box 489 Hyde Park, UT 84318"
+      },
+      {
+        "label": "Cache County - Providence Justice Court",
+        "value": "164 North Gateway Drive Providence, Utah, UT 84332"
+      },
+      {
+        "label": "Cache County - Richmond Justice Court",
+        "value": "90 South 100 West P.O. Box 9 Richmond, UT 84333"
+      },
+      {
+        "label": "Cache County - Smithfield Justice Court",
+        "value": "96 South Main P.O. Box 96 Smithfield, UT 84335"
+      },
+      {
+        "label": "Cache County - Wellsville Justice Court",
+        "value": "75 East Main P.O. Box 6 Wellsville, UT 84339"
+      }
+    ]
+  },
+  {
+    "name": "Box Elder County",
+    "options": [
+      {
+        "label": "Box Elder County - Box Elder County Justice Court",
+        "value": "81 North Main Street Ste. 103 Brigham City, UT 84302-4909"
+      },
+      {
+        "label": "Box Elder County - Garland Justice Court",
+        "value": "72 North Main P.O. Box 129 Garland, UT 84312"
+      },
+      {
+        "label": "Box Elder County - Mantua Justice Court",
+        "value": "409 North Main Mantua, UT 84324"
+      },
+      {
+        "label": "Box Elder County - Tremonton Justice Court ",
+        "value": "102 South Tremont Tremonton, UT 84337"
+      },
+      {
+        "label": "Box Elder County - Willard Justice Court",
+        "value": "P.O. Box 593 Willard, UT 84340"
+      }
+    ]
+  },
+  {
+    "name": "Weber County",
+    "options": [
+      {
+        "label": "Weber County - Farr West Justice Court",
+        "value": "1896 North 1800 West Farr West, UT 84404"
+      },
+      {
+        "label": "Weber County - Harrisville Justice Court",
+        "value": "363 West Independence Blvd Harrisville, UT 84404"
+      },
+      {
+        "label": "Weber County - North Ogden Justice Court",
+        "value": "515 East 2600 North North Ogden, UT 84414"
+      },
+      {
+        "label": "Weber County - Ogden Justice Court",
+        "value": "310 26th Street Ogden, UT 84401"
+      },
+      {
+        "label": "Weber County - Plain City Justice Court",
+        "value": "4160 West 2200 North Plain City, UT 84404"
+      },
+      {
+        "label": "Weber County - Pleasant View Justice Court ",
+        "value": "520 West Elberta Drive Pleasant View, UT 84414"
+      },
+      {
+        "label": "Weber County - Riverdale Justice Court",
+        "value": "4600 South Weber River Road Riverdale, UT 84414"
+      },
+      {
+        "label": "Weber County - Roy Justice Court",
+        "value": "5051 South 1900 West Roy, UT 84067"
+      },
+      {
+        "label": "Weber County - South Ogden Justice Court",
+        "value": "3950 Adams Avenue South Ogden, UT 84403"
+      },
+      {
+        "label": "Weber County - Uintah Justice Court",
+        "value": "2191 East 6550 South Uintah, UT 84405"
+      },
+      {
+        "label": "Weber County - Washington Terrace Justice Court ",
+        "value": "5249 South 400 East Washington Terrace, UT 84405"
+      }
+    ]
+  },
+  {
+    "name": "Tooele County",
+    "options": [
+      {
+        "label": "Tooele County - Grantsville Justice Court ",
+        "value": "429 East Main Grantsville, UT 84029"
+      },
+      {
+        "label": "Tooele County - Stockton Justice Court",
+        "value": "P.O. Box 240 Stockton, UT 84071"
+      },
+      {
+        "label": "Tooele County - Tooele County Justice Court - Wendover Precinct",
+        "value": "920 East Wendover Blvd. P.O. Box 665 Wendover, UT 84083"
+      },
+      {
+        "label": "Tooele County - Tooele Valley Justice Court ",
+        "value": "74 S 100 E Ste 12 Tooele, UT 84074"
+      }
+    ]
+  },
+  {
+    "name": "Kane County",
+    "options": [
+      {
+        "label": "Kane County - Big Water Justice Court",
+        "value": "P.O. Box 410182 Big Water, UT 84741-2182"
+      },
+      {
+        "label": "Kane County - Kane County Justice Court",
+        "value": "76 North Main Kanab, UT 84741"
+      },
+      {
+        "label": "Kane County - Orderville Justice Court",
+        "value": "P.O. Box 165 Orderville, UT 84758"
+      }
+    ]
+  },
+  {
+    "name": "Salt Lake County",
+    "options": [
+      {
+        "label": "Salt Lake County - Alta Justice Court",
+        "value": "P.O.Box 8016 Alta, UT 84092"
+      },
+      {
+        "label": "Salt Lake County - Bluffdale Justice Court ",
+        "value": "2222 West 14400 South Bluffdale, UT 84065"
+      },
+      {
+        "label": "Salt Lake County - Draper Justice Court",
+        "value": "1020 E. Pioneer Road Draper, UT 84020-9628"
+      },
+      {
+        "label": "Salt Lake County - Herriman City, Justice Court ",
+        "value": "5355 W. Herriman Main Street, RM 2100 Herriman, UT 84096"
+      },
+      {
+        "label": "Salt Lake County - Holladay Justice Court ",
+        "value": "4580 South 2300 East Holladay, UT 84117"
+      },
+      {
+        "label": "Salt Lake County - Midvale Justice Court",
+        "value": "7505 S. Holden St Midvale, UT 84047"
+      },
+      {
+        "label": "Salt Lake County - Murray City Justice Court ",
+        "value": "688 East Vine St. Murray, UT 84107"
+      },
+      {
+        "label": "Salt Lake County - Riverton Justice Court ",
+        "value": "12830 South 1700 West Riverton, UT 84065"
+      },
+      {
+        "label": "Salt Lake County - Salt Lake City Justice Court ",
+        "value": "333 S 200 E Salt Lake City, UT 84111"
+      },
+      {
+        "label": "Salt Lake County - Salt Lake County Justice Court",
+        "value": "2001 S. State St. S4200 P.O. Box 144575 Salt Lake City, UT 84114-4575"
+      },
+      {
+        "label": "Salt Lake County - Sandy City Justice Court ",
+        "value": "210 W Sego Lily Drive Attorney Filings - Sandy, UT 84070"
+      },
+      {
+        "label": "Salt Lake County - South Jordan Justice Court ",
+        "value": "1600 West Towne Center Drive South Jordan, UT 84095"
+      },
+      {
+        "label": "Salt Lake County - South Salt Lake Justice Court",
+        "value": "220 East Morris Avenue (2430 South) South Salt Lake, UT 84115"
+      },
+      {
+        "label": "Salt Lake County - Taylorsville Justice Court ",
+        "value": "2600 West Taylorsville Blvd. Taylorsville, UT 84118"
+      },
+      {
+        "label": "Salt Lake County - West Jordan Justice Court ",
+        "value": "8040 South Redwood Road West Jordan, UT 84088"
+      },
+      {
+        "label": "Salt Lake County - West Valley Justice Court ",
+        "value": "3590 South 2700 West West Valley, UT 84119"
+      }
+    ]
+  },
+
+  {
+    "name": "Iron County",
+    "options": [
+      {
+        "label": "Iron County - Iron County Justice Court",
+        "value": "82 North 100 East #101 Cedar City, UT 84720"
+      },
+      {
+        "label": "Iron County - Parowan City Justice Court",
+        "value": "35 East 100 North P.O. Box 1118 Parowan, UT 84761"
+      }
+    ]
+  },
+  {
+    "name": "Wasatch County",
+    "options": [
+      {
+        "label": "Wasatch County - Heber City Justice Court ",
+        "value": "301 Main Street Ste. 101 Heber City, UT 84032"
+      },
+      {
+        "label": "Wasatch County - Wasatch County Justice Court ",
+        "value": "1361 South Hwy 40, Ste 100 Heber City, UT 84032"
+      }
+    ]
+  },
+  {
+    "name": "Sanpete County",
+    "options": [
+      {
+        "label": "Sanpete County - Ephraim Justice Court",
+        "value": "5 South Main Street Ephraim, UT 84627"
+      },
+      {
+        "label": "Sanpete County - Fairview Justice Court",
+        "value": "165 North Main P.O. Box 97 Fairview, UT 84629"
+      },
+      {
+        "label": "Sanpete County - Fountain Green Justice Court ",
+        "value": "P.O. Box 97 260 W 100 N Fountain Green, UT 84632"
+      },
+      {
+        "label": "Sanpete County - Gunnison Justice Court",
+        "value": "38 West Center P.O. Box 790 Gunnison, UT 84634"
+      },
+      {
+        "label": "Sanpete County - Manti Justice Court",
+        "value": "50 South Main Street Manti, UT 84642"
+      },
+      {
+        "label": "Sanpete County - Moroni City Justice Court ",
+        "value": "80 S 200 W P.O. Box 870 Moroni, UT 84646-0010"
+      },
+      {
+        "label": "Sanpete County - Mount Pleasant Justice Court ",
+        "value": "115 West Main Street Mt. Pleasant, UT 84647"
+      },
+      {
+        "label": "Sanpete County - Sanpete County Justice Court ",
+        "value": "160 North Main Street Suite 301 Manti, UT 84642"
+      },
+      {
+        "label": "Sanpete County - Spring City Justice Court ",
+        "value": "150 East Center P.O. Box 189 Spring City, UT 84662"
+      }
+    ]
+  },
+  {
+    "name": "Beaver County",
+    "options": [
+      {
+        "label": "Beaver County - Beaver County Justice Court ",
+        "value": "600 West 2160 South P.O. Box 387 Beaver, UT 84713"
+      },
+      {
+        "label": "Beaver County - Beaver County Justice Court - Milford",
+        "value": "P.O. Box 922 Milford, UT 84751"
+      },
+      {
+        "label": "Beaver County - Beaver County/Minersville Justice Court",
+        "value": "P.O. Box 268 Minersville, UT 84752"
+      }
+    ]
+  },
+  {
+    "name": "Utah County",
+    "options": [
+      {
+        "label": "Utah County - Alpine Justice Court",
+        "value": "5400 West Civic Center Dr. Suite 4 Highland, UT 84003"
+      },
+      {
+        "label": "Utah County - Genola Justice Court",
+        "value": "275 West Main Santaquin, UT 84655"
+      },
+      {
+        "label": "Utah County - Goshen Justice Court",
+        "value": "275 West Main Santaquin, UT 84655"
+      },
+      {
+        "label": "Utah County - Highland Justice Court",
+        "value": "5400 West Civic Center Dr. Suite 4 Highland, UT 84003"
+      },
+      {
+        "label": "Utah County - Lehi City Justice Court",
+        "value": "154 North Center Lehi, UT 84043"
+      },
+      {
+        "label": "Utah County - Lindon City Justice Court",
+        "value": "100 North State Street Lindon, UT 84042"
+      },
+      {
+        "label": "Utah County - Mapleton Justice Court",
+        "value": "125 West 400 North Mapleton, UT 84664"
+      },
+      {
+        "label": "Utah County - Orem Justice Court",
+        "value": "97 E Center Orem, UT 84057"
+      },
+      {
+        "label": "Utah County - Payson Justice Court",
+        "value": "439 West Utah Avenue Payson, UT 84651"
+      },
+      {
+        "label": "Utah County - Pleasant Grove Justice Court ",
+        "value": "Public Safety Building 70 South 100 East Pleasant Grove, UT 84062"
+      },
+      {
+        "label": "Utah County - Provo City Justice Court",
+        "value": "75 E 1700 S Ste 100 Provo, UT 84606"
+      },
+      {
+        "label": "Utah County - Santaquin Justice Court",
+        "value": "275 West Main Santaquin, UT 84655"
+      },
+      {
+        "label": "Utah County - Saratoga Springs",
+        "value": "1307 North Commerce Drive Suite 200 Saratoga Springs, UT 84043"
+      },
+      {
+        "label": "Utah County - Springville Justice Court",
+        "value": "110 S Main Street Springville, UT 84663"
+      },
+      {
+        "label": "Utah County - Utah County Justice Court",
+        "value": "151 South University Ave., Suite 3300 Provo, UT 84601"
+      }
+    ]
+  },
+  {
+    "name": "San Juan County",
+    "options": [
+      {
+        "label": "San Juan County - Blanding Justice Court",
+        "value": "167 East 500 North Blanding, UT 84511"
+      },
+      {
+        "label": "San Juan County - San Juan County Justice Court ",
+        "value": "297 South Main St. P.O. Box 833 Monticello, UT 84535"
+      },
+      {
+        "label": "San Juan County - Monticello Justice Court ",
+        "value": "P.O. Box 1158 Monticello, UT 84535"
+      }
+    ]
+  },
+  {
+    "name": "Carbon County",
+    "options": [
+      {
+        "label": "Carbon County - Carbon County Justice Court ",
+        "value": "751 E 100 N Ste 1600 Price, UT 84501"
+      },
+      {
+        "label": "Carbon County - East Carbon City Justice Court ",
+        "value": "101 West Geneva Drive P.O. Box 70 East Carbon, UT 84520"
+      },
+      {
+        "label": "Carbon County - Wellington Justice Court",
+        "value": "P.O. Box 559 Wellington, UT 84542"
+      }
+    ]
+  },
+
+  {
+    "name": "Grand County",
+    "options": [
+      {
+        "label": "Grand County - Grand County Justice Court ",
+        "value": "125 East Center St. Moab, UT 84532"
+      }
+    ]
+  },
+  {
+    "name": "Emery County",
+    "options": [
+      {
+        "label": "Emery County - Emery County Justice Court ",
+        "value": "P.O. Box 555 Castle Dale, UT 84513"
+      }
+    ]
+  },
+  {
+    "name": "Wayne County",
+    "options": [
+      {
+        "label": "Wayne County - Wayne County Justice Court ",
+        "value": "P.O. Box 327 Loa, UT 84747"
+      }
+    ]
+  },
+  {
+    "name": "Daggett County",
+    "options": [
+      {
+        "label": "Daggett County - Daggett County Justice Court - Manila",
+        "value": "95 North 100 West P.O. Box 219 Manila, UT 84046"
+      }
+    ]
+  },
+  {
+    "name": "Piute County",
+    "options": [
+      {
+        "label": "Piute County - Piute County Justice Court ",
+        "value": "Piute County Courthouse P.O. Box 99 Junction, UT 84740"
+      }
+    ]
+  },
+  {
+    "name": "Washington County",
+    "options": [
+      {
+        "label": "Washington County - Enterprise Justice Court ",
+        "value": "P.O. Box 340 Enterprise, UT 84725"
+      },
+      {
+        "label": "Washington County - Hildale Justice Court ",
+        "value": "320 East Newel Avenue P.O. Box 840490 Hildale, UT 84784-0490"
+      },
+      {
+        "label": "Washington County - Hurricane Justice Court ",
+        "value": "70 South 700 West Hurricane, UT 84737"
+      },
+      {
+        "label": "Washington County - Santa Clara Justice Court ",
+        "value": "2603 Santa Clara Drive Santa Clara, UT 84765"
+      },
+      {
+        "label": "Washington County - Washington City Justice Court",
+        "value": "111 North 100 East Washington City, UT 84780"
+      },
+      {
+        "label": "Washington County - Washington County Justice Court",
+        "value": "87 North 200 East, Third Floor St. George, UT 84770-3401"
+      }
+    ]
+  },
+  {
+    "name": "Uintah County",
+    "options": [
+      {
+        "label": "Uintah County - Naples Justice Court",
+        "value": "1420 East 2850 South Naples, UT 84078"
+      },
+      {
+        "label": "Uintah County - Vernal Justice Court",
+        "value": "374 East Main Street Vernal, UT 84078"
+      },
+      {
+        "label": "Uintah County - Uintah County Justice Court ",
+        "value": "641 East 300 South, Suite 100 Vernal, UT 84078"
+      }
+    ]
+  },
+  {
+    "name": "Sevier County",
+    "options": [
+      {
+        "label": "Sevier County - Aurora Justice Court",
+        "value": "20 S 1020 E P.O. Box 477 Aurora, UT 84620"
+      },
+      {
+        "label": "Sevier County - Salina Justice Court",
+        "value": "90 West Main St. P.O. Box 69 Salina, UT 84654"
+      },
+      {
+        "label": "Sevier County - Sevier County Justice Court ",
+        "value": "250 North Main Suite #124 Richfield, UT 84701"
+      }
+    ]
+  },
+  {
+    "name": "Duchesne County",
+    "options": [
+      {
+        "label": "Duchesne County - Duchesne Justice Court - West Precinct",
+        "value": "P.O. Box 15 Duchesne, UT 84021"
+      }
+    ]
+  }
+]

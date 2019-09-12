@@ -1,14 +1,14 @@
 import React from "react";
 import FormThatPrints from "../inputs/form-that-prints.component.js";
 import TextInput from "../inputs/text-input.component.js";
-import Select from "../inputs/select.component.js";
+import GroupSelect from "../inputs/group-select.component.js";
 import Radio from "../inputs/radio.component.js";
 import Section from "../inputs/section.component.js";
 
 import {
   courtTypeOptions,
-  countyOptions,
-  getCourtOptions
+  JusticeCourtList,
+  DistrictCourtList
 } from "../form-common-options/form-common-options";
 
 export default ({
@@ -44,13 +44,18 @@ export default ({
         options={courtTypeOptions}
       />
 
-      <Select dataKey="case.county" options={countyOptions} label="County" />
-
-      {courtType && county && (
-        <Select
-          label="Court Address"
+      {courtType === "District" && (
+        <GroupSelect
           dataKey="case.courtAddress"
-          options={getCourtOptions(courtType, county)}
+          label="District Courts"
+          groupOptions={DistrictCourtList}
+        />
+      )}
+      {courtType === "Justice" && (
+        <GroupSelect
+          dataKey="case.courtAddress"
+          label="Justice Courts"
+          groupOptions={JusticeCourtList}
         />
       )}
 

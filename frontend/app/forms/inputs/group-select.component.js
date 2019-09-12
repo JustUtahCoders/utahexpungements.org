@@ -3,7 +3,7 @@ import { useCss } from "kremling";
 import { get } from "lodash";
 import { DataContainerContext } from "../data-container.component";
 
-export default function Select(props) {
+export default function GroupSelect(props) {
   const dataContext = React.useContext(DataContainerContext);
   const value = get(dataContext.data, props.dataKey);
   const scope = useCss(css);
@@ -16,12 +16,16 @@ export default function Select(props) {
         defaultValue={"DEFAULT"}
       >
         <option disabled value="DEFAULT">
-          Please select an option
+          Please select an option.
         </option>
-        {props.options.map(option => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
+        {props.groupOptions.map(groupOption => (
+          <optgroup key={groupOption.name} label={groupOption.name}>
+            {groupOption.options.map(option => (
+              <option key={option.label} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </optgroup>
         ))}
       </select>
     </div>
@@ -29,7 +33,7 @@ export default function Select(props) {
 }
 
 const css = `
-  & .select-label {
-    margin-bottom: 8rem;
-  }
+        & .select-label {
+            margin-bottom: 8rem
+        }
 `;

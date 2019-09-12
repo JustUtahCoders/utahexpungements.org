@@ -1,0 +1,296 @@
+[
+  {
+    "name": "Millard County",
+    "options": [
+      {
+        "label": "Millard County - Millard County - Fillmore District Court",
+        "value": "765 South Highway 99 Suite 6 Fillmore, UT 84631"
+      }
+    ]
+  },
+  {
+    "name": "Rich County",
+    "options": [
+      {
+        "label": "Rich County - Rich County",
+        "value": "Rich County Courthouse 20 South Main Randolph, UT 84064"
+      }
+    ]
+  },
+  {
+    "name": "Garfield County",
+    "options": [
+      {
+        "label": "Garfield County - Garfield County",
+        "value": "55 South Main P.O. Box 77 Panguitch, UT 84759"
+      }
+    ]
+  },
+  {
+    "name": "Davis County",
+    "options": [
+      {
+        "label": "Davis County - Davis County - Bountiful District Court",
+        "value": "805 South Main Bountiful, UT 84010"
+      },
+      {
+        "label": "Davis County - Davis County - Layton District Court",
+        "value": "425 N. Wasatch Layton, UT 84041"
+      }
+    ]
+  },
+  {
+    "name": "Summit County",
+    "options": [
+      {
+        "label": "Summit County - Summit County - Silver Summit District Court",
+        "value": "6300 Justice Center Road Ste A Park City, UT 84098"
+      }
+    ]
+  },
+  {
+    "name": "Morgan County",
+    "options": [
+      {
+        "label": "Morgan County - Morgan County - Morgan District Court",
+        "value": "48 W Young Street PO Box 466 Morgan, UT 84050"
+      }
+    ]
+  },
+  {
+    "name": "Juab County",
+    "options": [
+      {
+        "label": "Juab County - Juab County - Nephi District Court",
+        "value": "102 East 200 North Nephi, UT 84648"
+      }
+    ]
+  },
+  {
+    "name": "Cache County",
+    "options": [
+      {
+        "label": "Cache County - 1st District (District Court) - Box Elder, Cache & Rich Counties",
+        "value": "135 North 100 West Logan, UT 84321"
+      }
+    ]
+  },
+  {
+    "name": "Box Elder County",
+    "options": [
+      {
+        "label": "Box Elder County - First District - Box Elder ",
+        "value": "43 North Main P.O.Box 873 Brigham City, UT 84302-0873"
+      }
+    ]
+  },
+  {
+    "name": "Weber County",
+    "options": [
+      {
+        "label": "Weber County - Weber County - Ogden District Court",
+        "value": "2525 Grant Avenue Ogden, UT 84401"
+      }
+    ]
+  },
+  {
+    "name": "Tooele County",
+    "options": [
+      {
+        "label": "Tooele County - Tooele County - Tooele District Court",
+        "value": "74 S. 100 East, Suite 14 Tooele, UT 84074"
+      }
+    ]
+  },
+  {
+    "name": "Kane County",
+    "options": [
+      {
+        "label": "Kane County - Kane County",
+        "value": "76 North Main Street Suite 2 Kanab, UT 84741"
+      }
+    ]
+  },
+  {
+    "name": "Salt Lake County",
+    "options": [
+      {
+        "label": "Salt Lake County - Salt Lake City District Court",
+        "value": "Matheson Courthouse 450 South State St P.O. Box 1860 Salt Lake City, UT 84114-1860"
+      },
+      {
+        "label": "Salt Lake County - West Jordan District Court ",
+        "value": "8080 S Redwood Rd. Ste. 1701 West Jordan, UT 84088"
+      }
+    ]
+  },
+  {
+    "name": "Iron County",
+    "options": [
+      {
+        "label": "Iron County - Iron County - Cedar City District Court",
+        "value": "40 North 100 East Cedar City, UT 84720"
+      },
+      {
+        "label": "Iron County - Iron County - Parowan District Court",
+        "value": "P.O. Box 608 Parowan, UT 84761"
+      }
+    ]
+  },
+
+  {
+    "name": "Wasatch County",
+    "options": [
+      {
+        "label": "Wasatch County - Wasatch County - Heber City District Court",
+        "value": "1361 South Highway 40, Ste 110 Heber City, UT 84032"
+      }
+    ]
+  },
+  {
+    "name": "Sanpete County",
+    "options": [
+      {
+        "label": "Sanpete County - Sanpete County",
+        "value": "Sanpete County Courthouse 160 North Main, Room 303 P.O. Box 219 Manti, UT 84642"
+      }
+    ]
+  },
+  {
+    "name": "Beaver County",
+    "options": [
+      {
+        "label": "Beaver County - Beaver County - Beaver District Court",
+        "value": "2270 South 525 West PO Box 1683 Beaver, UT 84713"
+      }
+    ]
+  },
+  {
+    "name": "Utah County",
+    "options": [
+      {
+        "label": "Utah County - 4th District (District Court) - Juab, Millard, Utah & Wasatch Counties",
+        "value": "137 N Freedom Blvd Provo, UT 84601"
+      },
+      {
+        "label": "Utah County - Utah County - American Fork District Court",
+        "value": "Church St. and E Main St. (Approximate Address) 75 East 80 North, Suite 202 American Fork, UT 84003-0986"
+      },
+      {
+        "label": "Utah County - Utah County - Provo District Court",
+        "value": "137 N Freedom Blvd Suite 100 Provo, UT 84601"
+      },
+      {
+        "label": "Utah County - Utah County - Salem District Court",
+        "value": "30 West 100 South PO Box 901 Salem, UT 84653"
+      },
+      {
+        "label": "Utah County - Utah County - Spanish Fork District Court",
+        "value": "775 West Center Spanish Fork, UT 84660"
+      }
+    ]
+  },
+  {
+    "name": "San Juan County",
+    "options": [
+      {
+        "label": "San Juan County - San Juan County",
+        "value": "297 South Main P.O. Box 68 Monticello, UT 84535"
+      }
+    ]
+  },
+  {
+    "name": "Carbon County",
+    "options": [
+      {
+        "label": "Carbon County - Carbon County",
+        "value": "120 East Main Street Price, UT 84501"
+      }
+    ]
+  },
+  {
+    "name": "Grand County",
+    "options": [
+      {
+        "label": "Grand County - Grand County",
+        "value": "125 East Center Street Moab, UT 84532"
+      }
+    ]
+  },
+  {
+    "name": "Emery County",
+    "options": [
+      {
+        "label": "Emery County - Emery County",
+        "value": "1850 North Des Bee Dove Road P.O. Box 635 Castle Dale, UT 84513"
+      }
+    ]
+  },
+  {
+    "name": "Wayne County",
+    "options": [
+      {
+        "label": "Wayne County - Wayne County",
+        "value": "Wayne County Courthouse Loa, UT 84747-0189"
+      }
+    ]
+  },
+  {
+    "name": "Daggett County",
+    "options": [
+      {
+        "label": "Daggett County - Daggett County",
+        "value": "95 North 100 West P.O. Box 400 Manila, UT 84046"
+      }
+    ]
+  },
+  {
+    "name": "Piute County",
+    "options": [
+      {
+        "label": "Piute County - Piute County ",
+        "value": "550 North Main PO Box 99 Junction, UT 84740"
+      }
+    ]
+  },
+  {
+    "name": "Washington County",
+    "options": [
+      {
+        "label": "Washington County - Washington County - St. George District Court",
+        "value": "206 West Tabernacle Suite 100 St. George, UT 84770"
+      }
+    ]
+  },
+  {
+    "name": "Uintah County",
+    "options": [
+      {
+        "label": "Uintah County - Uintah County",
+        "value": "920 East Highway 40 Vernal, UT 84078"
+      }
+    ]
+  },
+  {
+    "name": "Sevier County",
+    "options": [
+      {
+        "label": "Sevier County - Sevier County",
+        "value": "845 East 300 North Richfield Richfield, UT 84701"
+      }
+    ]
+  },
+  {
+    "name": "Duchesne County",
+    "options": [
+      {
+        "label": "Duchesne County - Duchesne County",
+        "value": "21554 West 9000 South P.O. Box 990 Duchesne, UT 84021"
+      },
+      {
+        "label": "Duchesne County - Duchesne County - Roosevelt ",
+        "value": "255 S. State P.O. Box 1286 Roosevelt, UT 84066"
+      }
+    ]
+  }
+]

@@ -1,11 +1,24 @@
-import DistrictCourtOption from "./districtCourts.json";
-import JusticeCourtOption from "./justiceCourts.json";
+import DistrictCourtList from "./DistrictCourtList";
+import JusticeCourtList from "./JusticeCourtList";
+
+export { DistrictCourtList, JusticeCourtList };
 
 export const petitionerRepresentativeOptions = [
   { label: "Yes. I am the petitioner.", value: "petitioner" },
   {
     label: "No. I am an attorney representing the petitioner.",
     value: "attorney"
+  }
+];
+
+export const petitionerRepresentativeOptionsCOE = [
+  {
+    label: `Yes. I'd like documents to be sent to someone besides myself`,
+    value: "someone-else-is-recipient"
+  },
+  {
+    label: `No. I'd like documents to be sent to me directly`,
+    value: "petitioner-is-recipient"
   }
 ];
 
@@ -46,7 +59,39 @@ export const courtTypeOptions = [
   { label: "Justice Court", value: "Justice" }
 ];
 
-export function getJudicialDistrictFromCounty(value) {
+export const pryingQuestionOptions = [
+  {
+    label: "I have not been diagnosed as having a substance abuse addiction.",
+    value: "no"
+  },
+  {
+    label:
+      "I have been diagnosed as having a substance abuse addiction and I am managing my addiction by:",
+    value: "yes"
+  }
+];
+
+export function getJudicialDistrict(courtAddress, courtType) {
+  const courtList =
+    courtType === "District" ? DistrictCourtList : JusticeCourtList;
+  const court = courtList.find(court =>
+    court.options.some(option => option.value === courtAddress)
+  );
+  return court
+    ? getJudicialDistrictFromCounty(court.name.replace(" County", ""))
+    : "";
+}
+
+export function getCounty(courtAddress, courtType) {
+  const courtList =
+    courtType === "District" ? DistrictCourtList : JusticeCourtList;
+  const court = courtList.find(court =>
+    court.options.some(option => option.value === courtAddress)
+  );
+  return court ? court.name.replace(" County", "") : "";
+}
+
+function getJudicialDistrictFromCounty(value) {
   switch (value) {
     case "Box Elder":
     case "Rich":
@@ -95,30 +140,3 @@ export function getJudicialDistrictFromCounty(value) {
       break;
   }
 }
-
-export function getCourtOptions(courtType, county) {
-  if (county) {
-    if (courtType === "District") {
-      return DistrictCourtOption.filter(address => {
-        return address.name.includes(county);
-      });
-    } else if (courtType === "Justice") {
-      return JusticeCourtOption.filter(address => {
-        return address.name.includes(county);
-      });
-    }
-  }
-}
-
-export const resolutionOptions = [
-  { label: "A hearing", value: "hearing" },
-  { label: "The pleadings and other papers of the parties", value: "pleadings" }
-];
-
-export const serviceMethods = [
-  { label: "Mail", value: "mail" },
-  { label: "Hand Delivery", value: "hand" },
-  { label: "E-filed", value: "efile" },
-  { label: "Email", value: "email" },
-  { label: "Left at business", value: "leftAtBusiness" }
-];
