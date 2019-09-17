@@ -222,6 +222,10 @@ const translations = {
     "Show forms that are under construction and not fully ready to use.",
 
   // motion to waive fees
+  Coversheet: "Coversheet",
+  "Civil Filing Coversheet": "Civil Filing Coversheet",
+
+  // motion to waive fees
   "motion to waive fees name": "Motion to Waive Fees",
   "motion to waive fees short descr":
     "This form can be filed with other forms to request that the court remove the fees for filing a form.",
