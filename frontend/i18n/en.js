@@ -221,6 +221,10 @@ const translations = {
   "show forms under construction":
     "Show forms that are under construction and not fully ready to use.",
 
+  // Coversheet
+  Coversheet: "Coversheet",
+  "Civil Filing Coversheet": "Civil Filing Coversheet",
+
   // motion to waive fees
   "motion to waive fees name": "Motion to Waive Fees",
   "motion to waive fees short descr":

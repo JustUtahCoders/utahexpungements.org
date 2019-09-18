@@ -97,6 +97,18 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
+              name={__("Coversheet")}
+              readyForUsers={false}
+              keywords="coversheet"
+              shortDescription={__("Civil Filing Coversheet")}
+              appUrl={this.props.match.url + "/coversheet"}
+              downloadUrl="https://www.utcourts.gov/resources/forms/waiver/docs/Civil_Filing_Coversheet.pdf"
+              previewUrls={[
+                "/static/forms/coversheet/coversheet-1.png",
+                "/static/forms/coversheet/coversheet-2.png"
+              ]}
+            />
+            <FillableForm
               name={__("petition for drug conviction")}
               readyForUsers
               keywords="drug conviction petition"
