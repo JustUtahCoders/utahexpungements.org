@@ -11,16 +11,18 @@ export default class Coversheet_Web extends React.Component {
     return (
       <Scoped css={css}>
         <FormThatPrints>
-          <TextInput dataKey="person.firstName" label="First name" />
-          <TextInput dataKey="person.middleName" label="Middle name" />
-          <TextInput dataKey="person.lastName" label="Last name" />
-          <TextInput dataKey="person.addressStreet" label="Street" />
-          <TextInput dataKey="person.addressCity" label="City" />
-          <TextInput dataKey="person.addressState" label="State" />
-          <TextInput dataKey="person.addressZip" label="Zip" />
+          <Section name="1. Personal information">
+            <TextInput dataKey="person.firstName" label="First name" />
+            <TextInput dataKey="person.middleName" label="Middle name" />
+            <TextInput dataKey="person.lastName" label="Last name" />
+            <TextInput dataKey="person.addressStreet" label="Street" />
+            <TextInput dataKey="person.addressCity" label="City" />
+            <TextInput dataKey="person.addressState" label="State" />
+            <TextInput dataKey="person.addressZip" label="Zip" />
 
-          <TextInput dataKey="person.homePhone" label="Home Phone Number" />
-          <TextInput dataKey="person.email" label="Email" />
+            <TextInput dataKey="person.homePhone" label="Home Phone Number" />
+            <TextInput dataKey="person.email" label="Email" />
+          </Section>
         </FormThatPrints>
       </Scoped>
     );
