@@ -27,8 +27,11 @@ export default class Coversheet_Pdf extends React.Component {
           </PositionedString>
           <PositionedString dataKey="person.homePhone" left="5%" top="23.6%" />
           <PositionedString dataKey="person.email" left="25%" top="23.6%" />
+          <PositionedCheckmark left="68%" top="60.8%" shouldShow={true} />
         </RenderPage>
-        <RenderPage url="/static/forms/coversheet/coversheet-2.png"></RenderPage>
+        <RenderPage url="/static/forms/coversheet/coversheet-2.png">
+          <PositionedCheckmark left="58.5%" top="63.9%" shouldShow={true} />
+        </RenderPage>
       </>
     );
   }
