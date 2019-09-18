@@ -22,6 +22,14 @@ export default class Coversheet_Web extends React.Component {
 
             <TextInput dataKey="person.homePhone" label="Home Phone Number" />
             <TextInput dataKey="person.email" label="Email" />
+            <TextInput
+              dataKey="person.petitionerAttorneyName"
+              label="Attorney Name"
+            />
+            <TextInput
+              dataKey="person.petitionerBarNumber"
+              label="Attorney Bar Number"
+            />
           </Section>
         </FormThatPrints>
       </Scoped>
