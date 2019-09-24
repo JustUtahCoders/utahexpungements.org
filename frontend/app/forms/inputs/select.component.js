@@ -5,7 +5,10 @@ import { DataContainerContext } from "../data-container.component";
 
 export default function Select(props) {
   const dataContext = React.useContext(DataContainerContext);
-  const value = get(dataContext.data, props.dataKey);
+  let value = get(dataContext.data, props.dataKey);
+  if (!props.options.find(opt => opt.value === value)) {
+    value = "DEFAULT";
+  }
   const scope = useCss(css);
 
   return (
@@ -13,7 +16,7 @@ export default function Select(props) {
       <div className="select-label">{props.label}</div>
       <select
         onChange={evt => dataContext.setData(props.dataKey, evt.target.value)}
-        defaultValue={"DEFAULT"}
+        value={value}
       >
         <option disabled value="DEFAULT">
           Please select an option

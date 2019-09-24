@@ -1,26 +1,33 @@
 import React from "react";
 import { useCss } from "kremling";
-import { get } from "lodash";
+import { get, sortBy } from "lodash";
 import { DataContainerContext } from "../data-container.component";
 
-export default function GroupSelect(props) {
+export default function GroupSelect({ dataKey, label, groupOptions }) {
   const dataContext = React.useContext(DataContainerContext);
-  const value = get(dataContext.data, props.dataKey);
+  let value = get(dataContext.data, dataKey);
+  if (
+    !groupOptions.find(({ options }) =>
+      options.find(opt => opt.value === value)
+    )
+  ) {
+    value = "DEFAULT";
+  }
   const scope = useCss(css);
 
   return (
     <div className="web-form-input" {...scope}>
-      <div className="select-label">{props.label}</div>
+      <div className="select-label">{label}</div>
       <select
-        onChange={evt => dataContext.setData(props.dataKey, evt.target.value)}
-        defaultValue={"DEFAULT"}
+        onChange={evt => dataContext.setData(dataKey, evt.target.value)}
+        value={value}
       >
         <option disabled value="DEFAULT">
           Please select an option.
         </option>
-        {props.groupOptions.map(groupOption => (
+        {sortBy(groupOptions, ({ name }) => name).map(groupOption => (
           <optgroup key={groupOption.name} label={groupOption.name}>
-            {groupOption.options.map(option => (
+            {sortBy(groupOption.options, ({ label }) => label).map(option => (
               <option key={option.label} value={option.value}>
                 {option.label}
               </option>

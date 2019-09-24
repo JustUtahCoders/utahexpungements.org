@@ -20,6 +20,7 @@ export default function TextInput(props) {
       <input
         type="text"
         value={value || ""}
+        placeholder={props.placeholder}
         onChange={evt => setValue(evt.target.value)}
         onBlur={handleBlur}
       />
