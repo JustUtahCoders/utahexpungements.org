@@ -149,7 +149,7 @@ export default class FormList extends React.Component {
             <FillableForm
               name="Draft court order for expungement (drug possession conviction)"
               readyForUsers={false}
-              keywords="prosecutor acceptance serve"
+              keywords="court order expunge drug possession conviction"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement (drug possession)"
               appUrl={
                 this.props.match.url +
@@ -160,6 +160,21 @@ export default class FormList extends React.Component {
                 "/static/forms/draft-court-order-drug-possession-conviction/draft_court_order_drug_possession_conviction-1.png",
                 "/static/forms/draft-court-order-drug-possession-conviction/draft_court_order_drug_possession_conviction-2.png",
                 "/static/forms/draft-court-order-drug-possession-conviction/draft_court_order_drug_possession_conviction-3.png"
+              ]}
+            />
+            <FillableForm
+              name="Draft court order on motion to waive fees"
+              readyForUsers={false}
+              keywords="draft court order motion waive fees"
+              shortDescription="A form you file with the courts along with your expungement petition so the judge can rule on your motion to waive fees"
+              appUrl={
+                this.props.match.url + "/draft-court-order-motion-waive-fees"
+              }
+              downloadUrl="https://www.utcourts.gov/resources/forms/waiver/docs/1302GE_Order_on_Motion_to_Waive_Fees.pdf"
+              previewUrls={[
+                "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-1.png",
+                "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-2.png",
+                "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-3.png"
               ]}
             />
           </FilteredForms>

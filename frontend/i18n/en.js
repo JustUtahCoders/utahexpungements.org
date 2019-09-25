@@ -259,6 +259,7 @@ const translations = {
   // petition for conviction form
   "judge full name": "Judge Full Name",
   "case number": "Case Number",
+  defendant: "Defendant",
   "are you filling this out for yourself":
     "Are you filling this out for yourself?",
   "explain why expunging this crime is not contrary to the public's interest":

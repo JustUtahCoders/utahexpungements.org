@@ -21,6 +21,8 @@ import DraftCourtOrderConviction_Web from "../draft-court-order-conviction/draft
 import DraftCourtOrderConviction_Pdf from "../draft-court-order-conviction/draft-court-order-conviction.pdf.component";
 import DraftCourtOrderDrugPossessionConviction_Web from "../draft-court-order-drug-possession-conviction/draft-court-order-drug-possession-conviction.web.component";
 import DraftCourtOrderDrugPossessionConviction_Pdf from "../draft-court-order-drug-possession-conviction/draft-court-order-drug-possession-conviction.pdf.component";
+import DraftCourtOrderMotionWaiveFees_Web from "../draft-court-order-motion-waive-fees/draft-court-order-motion-waive-fees.web.component";
+import DraftCourtOrderMotionWaiveFees_Pdf from "../draft-court-order-motion-waive-fees/draft-court-order-motion-waive-fees.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -117,6 +119,16 @@ export default class FormBank extends React.Component {
               name="Order on Petition to Expunge Records (Drug possession conviction)"
               WebForm={DraftCourtOrderDrugPossessionConviction_Web}
               PdfForm={DraftCourtOrderDrugPossessionConviction_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={this.props.match.url + "/draft-court-order-motion-waive-fees"}
+          render={props => (
+            <GovernmentForm
+              name="Order on Motion to Waive Fees"
+              WebForm={DraftCourtOrderMotionWaiveFees_Web}
+              PdfForm={DraftCourtOrderMotionWaiveFees_Pdf}
             />
           )}
         />
