@@ -15,10 +15,10 @@ import {
 } from "../form-common-options/form-common-options.js";
 
 const waiveFeeRelationship = [
-  { value: "plantiffPetitioner", label: "Plantiff / Petitioner" },
+  { value: "plaintiffPetitioner", label: "plaintiff / Petitioner" },
   {
-    value: "plantiffPetitionerAttorney",
-    label: "Plantiff / Petitioner's Attorney"
+    value: "plaintiffPetitionerAttorney",
+    label: "plaintiff / Petitioner's Attorney"
   },
   { value: "defendantRespondent", label: "Defendant / Respondent" },
   {
@@ -54,7 +54,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         />
 
         {data.person.relation && data.person.relation.includes("Attorney") && (
-          <TextInput label="Bar Number" dataKey="person.attorney" />
+          <TextInput label="Bar Number" dataKey="person.attorney.barNumber" />
         )}
       </Section>
 
@@ -140,15 +140,24 @@ export default function MotionToWaiveFees_Web({ data }) {
         />
         {data.case.appealFee && (
           <>
-            <CheckBox label="$225 Filing fee" dataKey="case.appealFeeLarge" />
+            <CheckBox
+              label="$225 Filing fee"
+              dataKey="case.appealFeeLarge"
+              name="filingFeeAmount"
+            />
             <CheckBox
               label="$10 small claims appeal"
               dataKey="case.appealFeeSmall"
+              name="filingFeeAmount"
             />
             <small className="web-form-input">(Justice Court)</small>
           </>
         )}
-        <CheckBox dataKey="case.otherFeeToWaive" label="Other" />
+        <CheckBox
+          dataKey="case.otherFeeToWaive"
+          label="Other"
+          name="feesToWaive"
+        />
         {data.case.otherFeeToWaive && (
           <>
             <TextInput label="Explain" dataKey="case.otherFeeToWaive.name" />
@@ -158,31 +167,49 @@ export default function MotionToWaiveFees_Web({ data }) {
       </Section>
 
       <Section name="4. Employment">
-        <CheckBox dataKey="case.employed" label="I am employed" />
+        <CheckBox
+          dataKey="case.employed"
+          label="I am employed"
+          name="employmentStatuses"
+        />
         {data.case.employed && (
           <>
             <small className="web-form-input">(Choose all that apply):</small>
             <CheckBox
               dataKey="case.hourlyEmployee"
               label="An hourly employee"
+              name="employmentType"
             />
             <small className="web-form-input">(Form W-2)</small>
             <CheckBox
               dataKey="case.salaryEmployee"
               label="A salaried employee"
+              name="employmentType"
             />
             <small className="web-form-input">(Form W-2)</small>
-            <CheckBox dataKey="case.selfEmployed" label="Self-employeed" />
+            <CheckBox
+              dataKey="case.selfEmployed"
+              label="Self-employed"
+              name="employmentType"
+            />
             <small className="web-form-input">
               (Form 1099, Form K-1, Schedule C, etc.)
             </small>
-            <CheckBox dataKey="case.otherEmployment" label="other" />
+            <CheckBox
+              dataKey="case.otherEmployment"
+              label="other"
+              name="employmentType"
+            />
             {data.case.otherEmployment && (
               <TextInput dataKey="case.otherEmployeeExplain" label="Explain" />
             )}
           </>
         )}
-        <CheckBox dataKey="case.unemployed" label="I am unemployed" />
+        <CheckBox
+          dataKey="case.unemployed"
+          label="I am unemployed"
+          name="employmentStatuses"
+        />
         {data.case.unemployed && (
           <TextArea dataKey="case.unemployedExplanation" label="Explain" />
         )}
@@ -216,7 +243,7 @@ export default function MotionToWaiveFees_Web({ data }) {
           <>
             <TextInput label="Work" dataKey="person.income.work" />
             <small className="web-form-input">
-              (Including self employment, wages, salaries, commisions, bonuses,
+              (Including self employment, wages, salaries, commissions, bonuses,
               tips and overtime)
             </small>
             <TextInput
@@ -260,12 +287,12 @@ export default function MotionToWaiveFees_Web({ data }) {
             />
             <small className="web-form-input">(Other than SSDI or SSI)</small>
             <TextInput
-              label="Unemployment benifits"
-              dataKey="person.income.unemploymentBenifits"
+              label="Unemployment benefits"
+              dataKey="person.income.unemploymentBenefits"
             />
             <TextInput
-              label="Educational benifits"
-              dataKey="person.income.educationalBenifits"
+              label="Educational benefits"
+              dataKey="person.income.educationalBenefits"
             />
             <small className="web-form-input">
               (Including grants, loans, cash scholarships, etc.)
@@ -281,10 +308,10 @@ export default function MotionToWaiveFees_Web({ data }) {
             />
             <TextInput
               label="Payments from civil litigation "
-              dataKey="person.income.cilvilPayments"
+              dataKey="person.income.civilPayments"
             />
             <TextInput
-              label="Victim resitutuion"
+              label="Victim restitution"
               dataKey="person.income.victimRestitution"
             />
             <TextInput
@@ -295,11 +322,11 @@ export default function MotionToWaiveFees_Web({ data }) {
               (Including AFDC, FEP, TANF, welfare, etc.)
             </small>
             <TextInput
-              label="Finacial support from household members"
-              dataKey="person.income.householdFinacialSupport"
+              label="Financial support from household members"
+              dataKey="person.income.householdFinancialSupport"
             />
             <TextInput
-              label="Finacial support from non-household members"
+              label="Financial support from non-household members"
               dataKey="person.income.otherFinancialSupport"
             />
             <TextInput
@@ -316,6 +343,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         <CheckBox
           label="I have no income because:"
           dataKey="person.noGrossMonthlyIncome"
+          name="grossMonthlyIncome"
         />
         {data.person.noGrossMonthlyIncome && (
           <TextArea
@@ -329,6 +357,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         <CheckBox
           label="I have the following monthly tax deductions."
           dataKey="person.monthlyTaxDeductions"
+          name="monthlyTaxDeductions"
         />
         {data.person.monthlyTaxDeductions && (
           <>
@@ -348,6 +377,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         <CheckBox
           label="I have no monthly tax deductions because I have no income."
           dataKey="person.noMonthlyTaxDeductions"
+          name="monthlyTaxDeductions"
         />
       </Section>
 
@@ -369,7 +399,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         <small className="web-form-input">(if not included in mortgage)</small>
         <TextInput
           label="Real estate maintenance"
-          dataKey="person.income.realEstateMaintenace"
+          dataKey="person.income.realEstateMaintenance"
         />
         <TextInput
           label="Food and household supplies"
@@ -386,8 +416,8 @@ export default function MotionToWaiveFees_Web({ data }) {
         />
         <TextInput label="Automobile fuel" dataKey="person.income.autoFuel" />
         <TextInput
-          label="Automobile maintenace"
-          dataKey="person.income.maintenace"
+          label="Automobile maintenance"
+          dataKey="person.income.maintenance"
         />
         <TextInput
           label="Other transportation costs"
@@ -398,7 +428,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         </small>
         <TextInput label="Utilities" dataKey="person.income.utilities" />
         <small className="web-form-input">
-          (such as electricitym gas, water, sewage, garbage)
+          (such as electricity gas, water, sewage, garbage)
         </small>
         <TextInput label="Telephone" dataKey="person.income.telephone" />
         <TextInput
@@ -434,7 +464,7 @@ export default function MotionToWaiveFees_Web({ data }) {
           dataKey="person.income.healthExpenses"
         />
         <small className="web-form-input">
-          (exluding insurance listed above)
+          (excluding insurance listed above)
         </small>
         <TextInput
           label="Other insurance"
@@ -456,7 +486,7 @@ export default function MotionToWaiveFees_Web({ data }) {
           dataKey="person.income.unionDues"
         />
         <TextInput
-          label="Garnishments or income witholding order"
+          label="Garnishments or income withholding order"
           dataKey="person.income.garnishments"
         />
         <TextInput
@@ -472,29 +502,38 @@ export default function MotionToWaiveFees_Web({ data }) {
         <CheckBox
           label="I have no business interests"
           dataKey="person.businessInterest"
+          name="businessInterests"
         />
         <CheckBox
           label="I have the following business interests"
           dataKey="person.noBusinessInterest"
+          name="businessInterests"
         />
       </Section>
 
       <Section name="9. Financial Assets">
         <CheckBox
-          label="I have no finicial assets."
+          label="I have no financial assets."
           dataKey="person.financialAssets"
+          name="financialAssets"
         />
         <CheckBox
-          label="I have the following finicial assets."
+          label="I have the following financial assets."
           dataKey="person.noFinancialAssets"
+          name="financialAssets"
         />
       </Section>
 
       <Section name="10. Real Estate">
-        <CheckBox label="I have no real estate" dataKey="person.realEstate" />
+        <CheckBox
+          label="I have no real estate"
+          dataKey="person.realEstate"
+          name="realEstate"
+        />
         <CheckBox
           label="I have the following real estate"
           dataKey="person.noRealEstate"
+          name="realEstate"
         />
       </Section>
 
@@ -502,18 +541,25 @@ export default function MotionToWaiveFees_Web({ data }) {
         <CheckBox
           label="I have no personal property"
           dataKey="person.personalProperty"
+          name="personalProperty"
         />
         <CheckBox
           label="I have the following personal property"
           dataKey="person.noPersonalProperty"
+          name="personalProperty"
         />
       </Section>
 
       <Section name="12. Debts Owed">
-        <CheckBox label="I do not owe any debts" dataKey="person.debtsOwed" />
+        <CheckBox
+          label="I do not owe any debts"
+          dataKey="person.debtsOwed"
+          name="debtsOwed"
+        />
         <CheckBox
           label="I do owe the following debts"
           dataKey="person.noDebtsOwed"
+          name="debtsOwed"
         />
       </Section>
 
@@ -521,9 +567,10 @@ export default function MotionToWaiveFees_Web({ data }) {
         <CheckBox
           label="The following facts also show why I cannot pay these court fees."
           dataKey="person.otherReasonNotToPay"
+          name="otherFacts"
         />
         {data.person.otherReasonNotToPay && (
-          <TextArea label="Explain" dataKey="person.otherNoPayExplanantion" />
+          <TextArea label="Explain" dataKey="person.otherNoPayExplanation" />
         )}
       </Section>
     </FormThatPrints>
