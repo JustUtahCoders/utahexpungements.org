@@ -34,13 +34,13 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           dataKey="person.relation"
           left="16.4%"
           top="31.68%"
-          shouldShow={data.person.relation === "plantiffPetitioner"}
+          shouldShow={data.person.relation === "plaintiffPetitioner"}
         />
         <PositionedCheckmark
           dataKey="person.relation"
           left="16.4%"
           top="33.08%"
-          shouldShow={data.person.relation === "plantiffPetitionerAttorney"}
+          shouldShow={data.person.relation === "plaintiffPetitionerAttorney"}
         />
         <PositionedCheckmark
           dataKey="person.relation"
@@ -158,9 +158,13 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="56.3%"
           top="13.2%"
         />
-        <PositionedString debugKey="otherFeeToWaive" left="64.8%" top="13.3%">
-          {`${renderData("case.otherFeeToWaive.name")} ( $${renderData(
-            "case.otherFeeToWaive.amount"
+        <PositionedString
+          debugKey="otherFeeToWaiveExplanation"
+          left="64.8%"
+          top="13.3%"
+        >
+          {`${renderData("case.otherFeeToWaiveName")} ( $${renderData(
+            "case.otherFeeToWaiveAmount"
           )} )`}
         </PositionedString>
 
@@ -218,7 +222,11 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="18%"
           top="16.8%"
         />
-        <PositionedString dataKey="person.income.work" left="76%" top="27%" />
+        <PositionedString
+          dataKey="person.income.workIncome"
+          left="76%"
+          top="27%"
+        />
         <PositionedString
           dataKey="person.income.rentalIncome"
           left="76%"
@@ -262,12 +270,12 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           top="49.9%"
         />
         <PositionedString
-          dataKey="person.income.unemploymentBenifits"
+          dataKey="person.income.unemploymentBenefits"
           left="76%"
           top="52.3%"
         />
         <PositionedString
-          dataKey="person.income.educationalBenifits"
+          dataKey="person.income.educationalBenefits"
           left="76%"
           top="54.4%"
         />
@@ -287,7 +295,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           top="61.6%"
         />
         <PositionedString
-          dataKey="person.income.cilvilPayments"
+          dataKey="person.income.civilPayments"
           left="76%"
           top="63.7%"
         />
@@ -302,7 +310,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           top="68.4%"
         />
         <PositionedString
-          dataKey="person.income.householdFinacialSupport"
+          dataKey="person.income.householdFinancialSupport"
           left="76%"
           top="70.7%"
         />
@@ -329,7 +337,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           top="13.4%"
         />
         <PositionedString
-          dataKey="person.noGrossMonthlyIncome.explanation"
+          dataKey="person.noGrossMonthlyIncomeExplanation"
           left="18%"
           top="15.7%"
         />
@@ -340,9 +348,10 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="18%"
         />
         <PositionedCheckmark
-          dataKey="person.noMonthlyTaxDeductions"
+          dataKey="person.monthlyTaxDeductions"
           top="28.3%"
           left="18%"
+          shouldShow={data.person.monthlyTaxDeductions === false}
         />
 
         <PositionedString dataKey="person.tax.federal" top="36.7%" left="49%" />
@@ -360,169 +369,169 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
         />
 
         <PositionedString
-          dataKey="person.income.rent"
+          dataKey="person.expenses.rent"
           top="81.5%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.realEstateTax"
+          dataKey="person.expenses.realEstateTax"
           top="83.4%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.realEstateInsurance"
+          dataKey="person.expenses.realEstateInsurance"
           top="85.8%"
           left="69.5%"
         />
       </RenderPage>
       <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-05.png">
         <PositionedString
-          dataKey="person.income.realEstateMaintenace"
+          dataKey="person.expenses.realEstateMaintenance"
           top="17.7%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.foodHomeSupplies"
+          dataKey="person.expenses.foodHomeSupplies"
           top="19.9%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.clothing"
+          dataKey="person.expenses.clothing"
           top="22.3%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.autoPayments"
+          dataKey="person.expenses.autoPayments"
           top="24.5%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.autoInsurance"
+          dataKey="person.expenses.autoInsurance"
           top="27%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.autoFuel"
+          dataKey="person.expenses.autoFuel"
           top="29.2%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.maintenace"
+          dataKey="person.expenses.maintenance"
           top="31.5%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.transportation"
+          dataKey="person.expenses.transportation"
           top="33.9%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.utilities"
+          dataKey="person.expenses.utilities"
           top="36.3%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.telephone"
+          dataKey="person.expenses.telephone"
           top="38.5%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.television"
+          dataKey="person.expenses.television"
           top="40.8%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.internet"
+          dataKey="person.expenses.internet"
           top="43.3%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.creditCardPayments"
+          dataKey="person.expenses.creditCardPayments"
           top="45.5%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.loanAndOtherDebt"
+          dataKey="person.expenses.loanAndOtherDebt"
           top="47.7%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.alimony"
+          dataKey="person.expenses.alimony"
           top="50%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.childSupport"
+          dataKey="person.expenses.childSupport"
           top="52.5%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.childCare"
+          dataKey="person.expenses.childCare"
           top="54.7%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.extraActivitiesChildren"
+          dataKey="person.expenses.extraActivitiesChildren"
           top="57%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.educationChild"
+          dataKey="person.expenses.educationChild"
           top="59.4%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.educationSelf"
+          dataKey="person.expenses.educationSelf"
           top="61.7%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.healthInsurance"
+          dataKey="person.expenses.healthInsurance"
           top="64%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.healthExpenses"
+          dataKey="person.expenses.healthExpenses"
           top="66.3%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.otherInsurance"
+          dataKey="person.expenses.otherInsurance"
           top="68.6%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.entertainment"
+          dataKey="person.expenses.entertainment"
           top="70.9%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.laundryDryClean"
+          dataKey="person.expenses.laundryDryClean"
           top="73.2%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.donations"
+          dataKey="person.expenses.donations"
           top="75.5%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.gifts"
+          dataKey="person.expenses.gifts"
           top="77.9%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.unionDues"
+          dataKey="person.expenses.unionDues"
           top="80.2%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.garnishments"
+          dataKey="person.expenses.garnishments"
           top="82.6%"
           left="69.5%"
         />
         <PositionedString
-          dataKey="person.income.retireDeposits"
+          dataKey="person.expenses.retireDeposits"
           top="84.8%"
           left="69.5%"
         />
@@ -534,9 +543,10 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="18%"
         />
         <PositionedCheckmark
-          dataKey="person.noBusinessInterest"
+          dataKey="person.businessInterest"
           top="25.7%"
           left="18%"
+          shouldShow={data.person.businessInterest != true}
         />
         <PositionedCheckmark
           dataKey="person.financialAssets"
@@ -544,18 +554,20 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="18%"
         />
         <PositionedCheckmark
-          dataKey="person.noFinancialAssets"
+          dataKey="person.financialAssets"
           top="64.1%"
           left="18%"
+          shouldShow={data.person.financialAssets != true}
         />
       </RenderPage>
       <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-07.png"></RenderPage>
       <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-08.png">
         <PositionedCheckmark dataKey="person.realEstate" top="29%" left="18%" />
         <PositionedCheckmark
-          dataKey="person.noRealEstate"
+          dataKey="person.realEstate"
           top="26.4%"
           left="18%"
+          shouldShow={data.person.realEstate != true}
         />
         <PositionedCheckmark
           dataKey="person.personalProperty"
@@ -563,9 +575,10 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="18%"
         />
         <PositionedCheckmark
-          dataKey="person.noPersonalProperty"
+          dataKey="person.personalProperty"
           top="77.8%"
           left="18%"
+          shouldShow={data.person.personalProperty != true}
         />
       </RenderPage>
       <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-09.png">
@@ -575,9 +588,10 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="18%"
         />
         <PositionedCheckmark
-          dataKey="person.noDebtsOwed"
+          dataKey="person.debtsOwed"
           top="40.3%"
           left="18%"
+          shouldShow={data.person.debtsOwed != true}
         />
         <PositionedCheckmark
           dataKey="person.otherReasonNotToPay"
@@ -585,7 +599,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="18%"
         />
         <PositionedString
-          dataKey="person.otherNoPayExplanantion"
+          dataKey="person.otherNoPayExplanation"
           top="77.6%"
           left="18%"
         />

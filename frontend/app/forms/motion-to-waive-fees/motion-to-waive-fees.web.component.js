@@ -160,8 +160,8 @@ export default function MotionToWaiveFees_Web({ data }) {
         />
         {data.case.otherFeeToWaive && (
           <>
-            <TextInput label="Explain" dataKey="case.otherFeeToWaive.name" />
-            <TextInput label="Amount" dataKey="case.otherFeeToWaive.amount" />
+            <TextInput label="Explain" dataKey="case.otherFeeToWaiveName" />
+            <TextInput label="Amount" dataKey="case.otherFeeToWaiveAmount" />
           </>
         )}
       </Section>
@@ -241,7 +241,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         </small>
         {data.person.grossMonthlyIncome && (
           <>
-            <TextInput label="Work" dataKey="person.income.work" />
+            <TextInput label="Work" dataKey="person.income.workIncome" />
             <small className="web-form-input">
               (Including self employment, wages, salaries, commissions, bonuses,
               tips and overtime)
@@ -348,7 +348,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         {data.person.noGrossMonthlyIncome && (
           <TextArea
             label="Explain"
-            dataKey="person.noGrossMonthlyIncome.explanation"
+            dataKey="person.noGrossMonthlyIncomeExplanation"
           />
         )}
       </Section>
@@ -374,11 +374,6 @@ export default function MotionToWaiveFees_Web({ data }) {
             <TextInput label="Medicare" dataKey="person.tax.medicare" />
           </>
         )}
-        <CheckBox
-          label="I have no monthly tax deductions because I have no income."
-          dataKey="person.noMonthlyTaxDeductions"
-          name="monthlyTaxDeductions"
-        />
       </Section>
 
       <Section name="7. Monthly expenses">
@@ -386,112 +381,115 @@ export default function MotionToWaiveFees_Web({ data }) {
           (Include amounts you pay for yourself and any spouse, children or
           other dependents in your household)
         </small>
-        <TextInput label="Rent or mortgage" dataKey="person.income.rent" />
+        <TextInput label="Rent or mortgage" dataKey="person.expenses.rent" />
         <TextInput
           label="Real estate taxes"
-          dataKey="person.income.realEstateTax"
+          dataKey="person.expenses.realEstateTax"
         />
         <small className="web-form-input">(if not included in mortgage)</small>
         <TextInput
           label="real estate insurance"
-          dataKey="person.income.realEstateInsurance"
+          dataKey="person.expenses.realEstateInsurance"
         />
         <small className="web-form-input">(if not included in mortgage)</small>
         <TextInput
           label="Real estate maintenance"
-          dataKey="person.income.realEstateMaintenance"
+          dataKey="person.expenses.realEstateMaintenance"
         />
         <TextInput
           label="Food and household supplies"
-          dataKey="person.income.foodHomeSupplies"
+          dataKey="person.expenses.foodHomeSupplies"
         />
-        <TextInput label="Clothing" dataKey="person.income.clothing" />
+        <TextInput label="Clothing" dataKey="person.expenses.clothing" />
         <TextInput
           label="Automobile payments"
-          dataKey="person.income.autoPayments"
+          dataKey="person.expenses.autoPayments"
         />
         <TextInput
           label="Automobile insurance"
-          dataKey="person.income.autoInsurance"
+          dataKey="person.expenses.autoInsurance"
         />
-        <TextInput label="Automobile fuel" dataKey="person.income.autoFuel" />
+        <TextInput label="Automobile fuel" dataKey="person.expenses.autoFuel" />
         <TextInput
           label="Automobile maintenance"
-          dataKey="person.income.maintenance"
+          dataKey="person.expenses.maintenance"
         />
         <TextInput
           label="Other transportation costs"
-          dataKey="person.income.transportation"
+          dataKey="person.expenses.transportation"
         />
         <small className="web-form-input">
           (public transportation, parking, etc.)
         </small>
-        <TextInput label="Utilities" dataKey="person.income.utilities" />
+        <TextInput label="Utilities" dataKey="person.expenses.utilities" />
         <small className="web-form-input">
           (such as electricity gas, water, sewage, garbage)
         </small>
-        <TextInput label="Telephone" dataKey="person.income.telephone" />
+        <TextInput label="Telephone" dataKey="person.expenses.telephone" />
         <TextInput
           label="Paid television, cable, satellite"
-          dataKey="person.income.television"
+          dataKey="person.expenses.television"
         />
-        <TextInput label="Internet" dataKey="person.income.internet" />
+        <TextInput label="Internet" dataKey="person.expenses.internet" />
         <TextInput
           label="Credit card payments"
-          dataKey="person.income.creditCardPayments"
+          dataKey="person.expenses.creditCardPayments"
         />
         <TextInput
           label="Loan and other debt payments"
-          dataKey="person.income.loanAndOtherDebt"
+          dataKey="person.expenses.loanAndOtherDebt"
         />
-        <TextInput label="Alimony" dataKey="person.income.alimony" />
-        <TextInput label="Child support" dataKey="person.income.childSupport" />
-        <TextInput label="Child care" dataKey="person.income.childCare" />
+        <TextInput label="Alimony" dataKey="person.expenses.alimony" />
+        <TextInput
+          label="Child support"
+          dataKey="person.expenses.childSupport"
+        />
+        <TextInput label="Child care" dataKey="person.expenses.childCare" />
         <TextInput
           label="Extracurricular activities for children"
-          dataKey="person.income.extraActivitiesChildren"
+          dataKey="person.expenses.extraActivitiesChildren"
         />
-        <TextInput label="Education" dataKey="person.income.educationChild" />
+        <TextInput label="Education" dataKey="person.expenses.educationChild" />
         <small className="web-form-input">(children)</small>
-        <TextInput label="Education" dataKey="person.income.educationSelf" />
+        <TextInput label="Education" dataKey="person.expenses.educationSelf" />
         <small className="web-form-input">(self)</small>
         <TextInput
           label="Health care insurance"
-          dataKey="person.income.healthInsurance"
+          dataKey="person.expenses.healthInsurance"
         />
         <TextInput
           label="Health care expenses"
-          dataKey="person.income.healthExpenses"
+          dataKey="person.expenses.healthExpenses"
         />
         <small className="web-form-input">
           (excluding insurance listed above)
         </small>
         <TextInput
           label="Other insurance"
-          dataKey="person.income.otherInsurance"
+          dataKey="person.expenses.otherInsurance"
         />
         <small className="web-form-input">(describe)</small>
         <TextInput
           label="Entertainment"
-          dataKey="person.income.entertainment"
+          dataKey="person.expenses.entertainment"
         />
         <TextInput
           label="Laundry and dry cleaning"
-          dataKey="person.income.laundryDryClean"
+          dataKey="person.expenses.laundryDryClean"
         />
-        <TextInput label="Donations" dataKey="person.income.donations" />
-        <TextInput label="Gifts" dataKey="person.income.gifts" />
+        <TextInput label="Donations" dataKey="person.expenses.donations" />
+        <TextInput label="Gifts" dataKey="person.expenses.gifts" />
         <TextInput
           label="Union and other dues"
-          dataKey="person.income.unionDues"
+          dataKey="person.expenses.unionDues"
         />
         <TextInput
-          label="Garnishments or income withholding order"
-          dataKey="person.income.garnishments"
+          label="Garnishments or expense withholding order"
+          dataKey="person.expenses.garnishments"
         />
         <TextInput
           label="Retirement deposits"
-          dataKey="person.income.retireDeposits"
+          dataKey="person.expenses.retireDeposits"
         />
         <small className="web-form-input">
           (including pensions, 401(k), IRA, etc.)
@@ -500,65 +498,40 @@ export default function MotionToWaiveFees_Web({ data }) {
 
       <Section name="8. Business Interest">
         <CheckBox
-          label="I have no business interests"
-          dataKey="person.businessInterest"
-          name="businessInterests"
-        />
-        <CheckBox
           label="I have the following business interests"
-          dataKey="person.noBusinessInterest"
+          dataKey="person.businessInterest"
           name="businessInterests"
         />
       </Section>
 
       <Section name="9. Financial Assets">
         <CheckBox
-          label="I have no financial assets."
-          dataKey="person.financialAssets"
-          name="financialAssets"
-        />
-        <CheckBox
           label="I have the following financial assets."
-          dataKey="person.noFinancialAssets"
+          dataKey="person.financialAssets"
           name="financialAssets"
         />
       </Section>
 
       <Section name="10. Real Estate">
         <CheckBox
-          label="I have no real estate"
-          dataKey="person.realEstate"
-          name="realEstate"
-        />
-        <CheckBox
           label="I have the following real estate"
-          dataKey="person.noRealEstate"
+          dataKey="person.realEstate"
           name="realEstate"
         />
       </Section>
 
       <Section name="11. Personal Property">
         <CheckBox
-          label="I have no personal property"
-          dataKey="person.personalProperty"
-          name="personalProperty"
-        />
-        <CheckBox
           label="I have the following personal property"
-          dataKey="person.noPersonalProperty"
+          dataKey="person.personalProperty"
           name="personalProperty"
         />
       </Section>
 
       <Section name="12. Debts Owed">
         <CheckBox
-          label="I do not owe any debts"
-          dataKey="person.debtsOwed"
-          name="debtsOwed"
-        />
-        <CheckBox
           label="I do owe the following debts"
-          dataKey="person.noDebtsOwed"
+          dataKey="person.debtsOwed"
           name="debtsOwed"
         />
       </Section>
