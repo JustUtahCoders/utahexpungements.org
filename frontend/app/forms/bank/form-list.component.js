@@ -92,8 +92,8 @@ export default class FormList extends React.Component {
               appUrl={this.props.match.url + "/motion-to-waive-fees"}
               downloadUrl="https://www.utcourts.gov/resources/forms/waiver/docs/01_Motion_and_Affidavit_to_Waive_Fees.pdf"
               previewUrls={[
-                "/static/forms/motion-to-waive-fees/01_Motion_and_Affidavit_to_Waive_Fees-1.png",
-                "/static/forms/motion-to-waive-fees/01_Motion_and_Affidavit_to_Waive_Fees-2.png"
+                "/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-01.png",
+                "/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-02.png"
               ]}
             />
             <FillableForm

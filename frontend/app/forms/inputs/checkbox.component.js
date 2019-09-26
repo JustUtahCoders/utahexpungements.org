@@ -12,6 +12,7 @@ export default function Checkbox(props) {
     <div className="web-form-input" {...scope}>
       <label>
         <input
+          name={props.name}
           type="checkbox"
           checked={value}
           onChange={evt =>
