@@ -23,7 +23,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           top="17.50%"
         />
         <PositionedString debugKey="lineAddress" left={farLeft} top="20.90%">
-          {`${renderData("person.addressCity")} ${renderData(
+          {`${renderData("person.addressCity")}, ${renderData(
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>
@@ -546,7 +546,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           dataKey="person.businessInterest"
           top="25.7%"
           left="18%"
-          shouldShow={data.person.businessInterest != true}
+          shouldShow={data.person.businessInterest !== true}
         />
         <PositionedCheckmark
           dataKey="person.financialAssets"
@@ -557,7 +557,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           dataKey="person.financialAssets"
           top="64.1%"
           left="18%"
-          shouldShow={data.person.financialAssets != true}
+          shouldShow={data.person.financialAssets !== true}
         />
       </RenderPage>
       <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-07.png"></RenderPage>
@@ -567,7 +567,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           dataKey="person.realEstate"
           top="26.4%"
           left="18%"
-          shouldShow={data.person.realEstate != true}
+          shouldShow={data.person.realEstate !== true}
         />
         <PositionedCheckmark
           dataKey="person.personalProperty"
@@ -578,7 +578,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           dataKey="person.personalProperty"
           top="77.8%"
           left="18%"
-          shouldShow={data.person.personalProperty != true}
+          shouldShow={data.person.personalProperty !== true}
         />
       </RenderPage>
       <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-09.png">
@@ -591,7 +591,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           dataKey="person.debtsOwed"
           top="40.3%"
           left="18%"
-          shouldShow={data.person.debtsOwed != true}
+          shouldShow={data.person.debtsOwed !== true}
         />
         <PositionedCheckmark
           dataKey="person.otherReasonNotToPay"
