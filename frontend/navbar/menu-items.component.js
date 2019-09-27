@@ -126,6 +126,7 @@ const css = `
     z-index: 10000;
     left: 0;
     transition: left 0.3s;
+    overflow-y: scroll;
   }
 
   & .side-menu.off-screen {
