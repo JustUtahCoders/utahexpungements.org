@@ -177,6 +177,20 @@ export default class FormList extends React.Component {
                 "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-3.png"
               ]}
             />
+            <FillableForm
+              name="Petition to Expunge Records (Dismissal or Acquittal)"
+              readyForUsers={false}
+              keywords="petition to expunge records dismissal or acquittal"
+              shortDescription="This form requests a court order for an expungement. You must first obtain a Certificate of Eligibility before filing this form."
+              appUrl={
+                this.props.match.url + "/petition-for-dismissal-or-acquittal"
+              }
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-1.png",
+                "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-2.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>
