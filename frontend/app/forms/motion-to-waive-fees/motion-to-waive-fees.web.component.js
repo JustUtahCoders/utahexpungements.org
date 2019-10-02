@@ -214,16 +214,22 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="employmentType"
             />
             {data.case.otherEmployment && (
-              <TextInput dataKey="case.otherEmployeeExplain" label="Explain" />
+              <TextArea dataKey="case.otherEmployeeExplain" label="Explain" />
             )}
           </>
         )}
-        <TextInputGroup
-          groupLabel="Current Employer's"
-          buttonLabel="Employer"
-          inputs={employerInputs}
-          dataKey="person.currentEmployment"
-        />
+        {data.case.employed &&
+          (data.case.hourlyEmployee ||
+            data.case.salaryEmployee ||
+            data.case.selfEmployed ||
+            data.case.otherEmployment) && (
+            <TextInputGroup
+              groupLabel="Current Employer's"
+              buttonLabel="Employer"
+              inputs={employerInputs}
+              dataKey="person.currentEmployment"
+            />
+          )}
         <CheckBox
           dataKey="case.unemployed"
           label="I am unemployed"
