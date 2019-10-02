@@ -177,6 +177,19 @@ export default class FormList extends React.Component {
                 "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-3.png"
               ]}
             />
+            <FillableForm
+              name="Order on Petition to Expunge Records (Charges never filed)"
+              readyForUsers={false}
+              keywords="order on petition to expunge records charges never filed"
+              shortDescription="Court order given to the judge when charges are dropped"
+              appUrl={`${this.props.match.url}/order-on-petition-charges-not-filed`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-charges_never_filed.pdf"
+              previewUrls={[
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-1.png",
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-2.png",
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-3.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>
