@@ -13,6 +13,7 @@ import {
   JusticeCourtList,
   courtTypeOptions
 } from "../form-common-options/form-common-options.js";
+import TextInputGroup from "../inputs/text-input-group.component.js";
 
 const waiveFeeRelationship = [
   { value: "plaintiffPetitioner", label: "plaintiff / Petitioner" },
@@ -27,8 +28,20 @@ const waiveFeeRelationship = [
   }
 ];
 
+const employerInputs = [
+  {
+    NameOfEmployer: "",
+    EmployersAddress: "",
+    EmployersPhone: "",
+    JobTitle: "",
+    HourlyRateOrAnnualSalary: "",
+    HoursPerWeek: ""
+  }
+];
+
 export default function MotionToWaiveFees_Web({ data }) {
   const scope = useCss(css);
+  console.log(data);
   return (
     <FormThatPrints {...css}>
       <h1 className="web-from-input">This is a private record</h1>
@@ -205,6 +218,12 @@ export default function MotionToWaiveFees_Web({ data }) {
             )}
           </>
         )}
+        <TextInputGroup
+          groupLabel="Current Employer's"
+          buttonLabel="Employer"
+          inputs={employerInputs}
+          dataKey="person.currentEmployment"
+        />
         <CheckBox
           dataKey="case.unemployed"
           label="I am unemployed"
