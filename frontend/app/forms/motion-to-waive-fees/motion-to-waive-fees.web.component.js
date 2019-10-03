@@ -41,7 +41,6 @@ const employerInputs = [
 
 export default function MotionToWaiveFees_Web({ data }) {
   const scope = useCss(css);
-  console.log(data);
   return (
     <FormThatPrints {...css}>
       <h1 className="web-from-input">This is a private record</h1>
@@ -224,7 +223,7 @@ export default function MotionToWaiveFees_Web({ data }) {
             data.case.selfEmployed ||
             data.case.otherEmployment) && (
             <TextInputGroup
-              groupLabel="Current Employer's"
+              groupLabel="Current Employers"
               buttonLabel="Employer"
               inputs={employerInputs}
               dataKey="person.currentEmployment"

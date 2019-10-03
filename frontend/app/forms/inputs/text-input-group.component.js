@@ -16,8 +16,9 @@ export default function TextInputGroup(props) {
           <React.Fragment key={`${input}-${idx}`}>
             {Object.entries(input).map(([key, val]) => (
               <div key={`${key}-${idx}`} className="web-form-input text-input">
-                <label>{key}</label>
+                <label for={`${idx}-${key}`}>{formatLabel(key)}</label>
                 <input
+                  id={`${idx}-${key}`}
                   type="text"
                   value={input[key]}
                   onChange={evt => handleChange(evt, key, idx)}
@@ -41,6 +42,11 @@ export default function TextInputGroup(props) {
     </div>
   );
 
+  function formatLabel(label) {
+    label = label.split(/(?=[A-Z])/).join(" ");
+    return label.charAt(0).toUpperCase() + label.slice(1).toLowerCase();
+  }
+
   function handleChange(evt, key, idx) {
     const values = [...inputList];
     values[idx][key] = evt.target.value;
@@ -48,14 +54,12 @@ export default function TextInputGroup(props) {
   }
   function handleAddGroup(evt) {
     evt.preventDefault();
-    const values = [...inputList];
-    values.push(inputs);
+    const values = [...inputList, inputs];
     setInputList(values);
   }
   function handleRemoveGroup(evt, i) {
     evt.preventDefault();
-    const values = [...inputList];
-    values.splice(i, 1);
+    const values = inputList.filter((item, idx) => idx !== i);
     dataContext.setData(props.dataKey, values);
     setInputList(values);
   }
@@ -66,10 +70,8 @@ export default function TextInputGroup(props) {
 }
 
 const css = `
-	& .text-input {
-		display:flex;
-		flex-direction:column
-	}
-
-	
+  & .text-input {
+    display:flex;
+    flex-direction:column;
+  }
 `;
