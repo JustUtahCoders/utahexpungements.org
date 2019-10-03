@@ -8,6 +8,8 @@ import PositionedString from "../pdf-rendering/positioned-string.component.js";
 export default class ApplicationForCOE_Pdf extends React.Component {
   render() {
     const { renderData, data } = this.props;
+    console.log(css);
+    alert(JSON.stringify(css));
 
     return (
       <>

@@ -234,6 +234,12 @@ const translations = {
   "petition for drug conviction": "Petition for Drug Conviction",
   "petition for drug conviction short description":
     "This form requests a court order for expungement of a drug conviction. You must first obtain a Certificate of Eligibility before filing this form.",
+  //petition for acquittal or dismissal
+  "arrested date": "Arrested Date",
+  "the law enforcement agency's file number":
+    "The Law Enforcement Agency's File Number",
+  "the following court case was filed as a result of the arrest":
+    "The following court case was filed as a result of the arrest",
   // global form data
   "first name": "First Name",
   "last name": "Last Name",
