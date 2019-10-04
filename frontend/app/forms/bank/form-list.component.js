@@ -191,6 +191,20 @@ export default class FormList extends React.Component {
                 "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-2.png"
               ]}
             />
+            <FillableForm
+              name="Petition for Charges Never Filed"
+              readyForUsers={false}
+              keywords="petition to expungement charges never filed"
+              shortDescription="This form requests a court order for an expungement. You must first obtain a Certificate of Eligibility before filing this form."
+              appUrl={
+                this.props.match.url + "/petition-for-charges-never-filed"
+              }
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-1.png",
+                "/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-2.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>
