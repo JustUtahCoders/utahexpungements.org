@@ -23,8 +23,8 @@ import DraftCourtOrderDrugPossessionConviction_Web from "../draft-court-order-dr
 import DraftCourtOrderDrugPossessionConviction_Pdf from "../draft-court-order-drug-possession-conviction/draft-court-order-drug-possession-conviction.pdf.component";
 import DraftCourtOrderMotionWaiveFees_Web from "../draft-court-order-motion-waive-fees/draft-court-order-motion-waive-fees.web.component";
 import DraftCourtOrderMotionWaiveFees_Pdf from "../draft-court-order-motion-waive-fees/draft-court-order-motion-waive-fees.pdf.component";
-import OrderOnPetitionChargesNotFiled_Web from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-files.web.component";
-import OrderOnPetitionChargesNotFiled_Pdf from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-files.pdf.component";
+import OrderOnPetitionChargesNotFiled_Web from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-filed.web.component";
+import OrderOnPetitionChargesNotFiled_Pdf from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-filed.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
