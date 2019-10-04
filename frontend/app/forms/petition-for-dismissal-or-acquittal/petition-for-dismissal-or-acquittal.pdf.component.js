@@ -118,7 +118,7 @@ export default function PetitionForDismissalOrAcquittal_Pdf({
           left="22.5%"
           top="84.86%"
         />
-        {data.case.dismissalStatus !== "" && (
+        {data.case.dismissalStatus && (
           <PositionedCheckmark
             dataKey="case.dismissalStatus"
             left="22.5%"
@@ -127,7 +127,7 @@ export default function PetitionForDismissalOrAcquittal_Pdf({
         )}
       </RenderPage>
       <RenderPage url="/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-2.png">
-        {data.case.dismissalStatus === "dissmissed-with-prejudice" && (
+        {data.case.dismissalStatus === "dismissed-with-prejudice" && (
           <PositionedCheckmark
             dataKey="case.dismissalStatus"
             top="13.5%"

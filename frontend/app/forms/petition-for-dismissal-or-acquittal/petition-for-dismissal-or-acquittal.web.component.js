@@ -110,7 +110,7 @@ export default function PetitionForDismissalOrAcquittal_Web({ data }) {
 var caseStatusOptions = [
   {
     label: "The case was dismissed with prejudice.",
-    value: "dissmissed-with-prejudice"
+    value: "dismissed-with-prejudice"
   },
   {
     label: "The case was dismissed without prejudice or without condition.",

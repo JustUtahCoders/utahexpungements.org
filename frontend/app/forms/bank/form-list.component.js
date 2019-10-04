@@ -126,7 +126,7 @@ export default class FormList extends React.Component {
               name="Petition for Dismissal or Acquittal"
               readyForUsers={true}
               keywords="petition to expunge records dismissal or acquittal"
-              shortDescription="This form requests a court order for an expungement. You must first obtain a Certificate of Eligibility before filing this form."
+              shortDescription="This form is a court order that you ask the judge to sign to expunge a Dismissal or Acquittal. You must first obtain a Certificate of Eligibility before filing this form."
               appUrl={
                 this.props.match.url + "/petition-for-dismissal-or-acquittal"
               }
