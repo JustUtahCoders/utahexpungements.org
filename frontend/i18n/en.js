@@ -229,7 +229,8 @@ const translations = {
   "motion to waive fees name": "Motion to Waive Fees",
   "motion to waive fees short descr":
     "This form can be filed with other forms to request that the court remove the fees for filing a form.",
-
+  // Petition to expunge records
+  "arrested date": "Arrested Date",
   // petition for drug conviction
   "petition for drug conviction": "Petition for Drug Conviction",
   "petition for drug conviction short description":
