@@ -25,6 +25,8 @@ import DraftCourtOrderMotionWaiveFees_Web from "../draft-court-order-motion-waiv
 import DraftCourtOrderMotionWaiveFees_Pdf from "../draft-court-order-motion-waive-fees/draft-court-order-motion-waive-fees.pdf.component";
 import OrderOnPetitionChargesNotFiled_Web from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-filed.web.component";
 import OrderOnPetitionChargesNotFiled_Pdf from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-filed.pdf.component";
+import PetitionForDismissalOrAcquittal_Pdf from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.pdf.component.js";
+import PetitionForDismissalOrAcquittal_Web from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.web.component.js";
 
 export default class FormBank extends React.Component {
   render() {
@@ -135,12 +137,22 @@ export default class FormBank extends React.Component {
           )}
         />
         <Route
-          path={`${this.props.match.url}/order-on-petition-charges-not-filed`}
+          path={this.props.match.url + "/petition-for-dismissal-or-acquittal"}
           render={props => (
             <GovernmentForm
-              name="Order on Petition to Expunge Records (Charges never filed)"
-              WebForm={OrderOnPetitionChargesNotFiled_Web}
-              PdfForm={OrderOnPetitionChargesNotFiled_Pdf}
+              name="Petition to Expunge Records (Dismissal or Acquittal)"
+              WebForm={PetitionForDismissalOrAcquittal_Web}
+              PdfForm={PetitionForDismissalOrAcquittal_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={this.props.match.url + "/petition-for-dismissal-or-acquittal"}
+          render={props => (
+            <GovernmentForm
+              name="Petition to Expunge Records (Dismissal or Acquittal)"
+              WebForm={PetitionForDismissalOrAcquittal_Web}
+              PdfForm={PetitionForDismissalOrAcquittal_Pdf}
             />
           )}
         />
