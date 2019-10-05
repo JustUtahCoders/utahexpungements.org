@@ -134,7 +134,7 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
       </RenderPage>
 
       <RenderPage url={thirdPageUrl}>
-        {/* Is the "person's name" field on the third page the prosecutor's name? */}
+        {/* Service Address */}
         <PositionedString debugKey="certificateProsecutorFullName" left={farLeft} top={certificateTop}>
           {renderData("certificate.prosecutorFullName")}
         </PositionedString>
@@ -183,6 +183,8 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
         <PositionedString debugKey="certificateServiceDate" left="79.40%" top={certificateTop}>
           {renderData("certificate.serviceDate")}
         </PositionedString>
+
+        {/* User's signature */}
         <PositionedString debugKey="certificateDate" left={farLeft} top="33.90%">
           {renderData("certificate.signDate")}
         </PositionedString>
