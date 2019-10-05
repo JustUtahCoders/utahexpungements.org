@@ -64,6 +64,14 @@ export const resolvedByOptions = [
   { label: "Hearing", value: "Hearing" }
 ];
 
+export const serviceMethods = [
+  { label: "Mail", value: "Mail" },
+  { label: "Hand Delivery", value: "Hand Delivery" },
+  { label: "E-filed", value: "E-filed" },
+  { label: "Email", value: "Email" },
+  { label: "Left at business", value: "Left at business"}
+];
+
 export const pryingQuestionOptions = [
   {
     label: "I have not been diagnosed as having a substance abuse addiction.",
