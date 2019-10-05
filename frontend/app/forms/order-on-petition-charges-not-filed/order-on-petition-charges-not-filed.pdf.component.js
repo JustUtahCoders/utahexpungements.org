@@ -1,8 +1,15 @@
 import React from "react";
-import RenderPage from "../render-page.component";
+import { getJudicialDistrict, getCounty } from "../form-common-options/form-common-options";
+import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component";
+import RenderPage from "../render-page.component";
 
-const farLeft = `11.28%`;
+const farLeft = '11.28%';
+const courtTypeTop = '34.00%';
+const courtDistrictTop = '37.40%';
+const caseInformationLeft = '54.00%';
+const resolvedByLeft = '12.00%';
+const hearingTop = "68.80%";
 
 export default function OrderOnPetitionChargesNotFiled_Pdf({
   data,
@@ -17,10 +24,86 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
   return (
     <>
       <RenderPage url={firstPageUrl}>
+        {/* Personal Information */}
         <PositionedString debugKey="fullName" left={farLeft} top="14.06%">
           {`${renderData("person.firstName")} ${renderData(
             "person.middleName"
           )} ${renderData("person.lastName")}`}
+        </PositionedString>
+        <PositionedString debugKey="addressStreet" left={farLeft} top="17.46%">
+          {renderData("person.addressStreet")}
+        </PositionedString>
+        <PositionedString debugKey="addressStreetCityZip" left={farLeft} top="20.86%">
+          {`${renderData("person.addressCity")} ${renderData("person.addressState")} ${renderData("person.addressZip")}`}
+        </PositionedString>
+        <PositionedString debugKey="phone" left={farLeft} top="24.26%">
+          {renderData("person.phone")}
+        </PositionedString>
+        <PositionedString debugKey="email" left={farLeft} top="28.16%">
+          {renderData("person.email")}
+        </PositionedString>
+
+        {/* Case information */}
+        <PositionedCheckmark
+          debugKey="courtTypeDistrict"
+          dataKey="case.courtType"
+          left="37.35%"
+          top={courtTypeTop}
+          shouldShow={data.case.courtType === "District"}
+        />
+        <PositionedCheckmark
+          debugKey="courtTypeJustice"
+          dataKey="case.courtType"
+          left="47.7%"
+          top={courtTypeTop}
+          shouldShow={data.case.courtType === "Justice"}
+        />
+        <PositionedString
+          debugKey="courtDistrict"
+          left="25.9%"
+          top={courtDistrictTop}
+        >
+          {data.case.courtAddress &&
+            getJudicialDistrict(data.case.courtAddress, data.case.courtType)}
+        </PositionedString>
+        <PositionedString
+          debugKey="courtCounty"
+          left="52.00%"
+          top={courtDistrictTop}
+        >
+          {data.case.courtAddress &&
+            getCounty(data.case.courtAddress, data.case.courtType)}
+        </PositionedString>
+        <PositionedString
+          dataKey="case.courtAddress"
+          left="27.8%"
+          top="39.75%"
+        />
+        <PositionedString debugKey="petitionerFullName" left="11.78%" top="50.40%">
+          {`${renderData("person.firstName")} ${renderData(
+              "person.middleName"
+            )} ${renderData("person.lastName")}`}
+        </PositionedString>
+        <PositionedString debugKey="caseNumber" left={caseInformationLeft} top="50.50%">
+          {renderData("case.caseNumber")}
+        </PositionedString>
+        <PositionedString debugKey="judgeFullName" left={caseInformationLeft} top="55.1%">
+          {renderData("case.judgeName")}
+        </PositionedString>
+        <PositionedCheckmark
+          debugKey="resolvedByPleadings"
+          left={resolvedByLeft}
+          top="65.50%"
+          shouldShow={data.case.resolvedBy === "Pleadings"}
+        />
+        <PositionedCheckmark
+          debugKey="resolvedByHearing"
+          left={resolvedByLeft}
+          top={hearingTop}
+          shouldShow={data.case.resolvedBy === "Hearing"}
+        />
+        <PositionedString debugKey="hearingDate" left="31.00%" top={hearingTop}>
+          {renderData("case.hearingDate")}
         </PositionedString>
       </RenderPage>
     </>

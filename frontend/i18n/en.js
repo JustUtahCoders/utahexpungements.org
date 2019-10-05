@@ -288,7 +288,11 @@ const translations = {
   "coe recipient name":
     "What is the name of the person you'd like to send the Certificate of Eligibility documents to?",
   "coe recipient agency":
-    "What is the name of the agency they work for? (If applicable)"
+    "What is the name of the agency they work for? (If applicable)",
+
+  // charges not filed form
+  "will be resolved by": "Will Be Resolved By",
+  "hearing date": "Hearing Date"
 };
 
 export default translations;
