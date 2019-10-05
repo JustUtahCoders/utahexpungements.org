@@ -1,17 +1,20 @@
 import React from "react";
-import { getJudicialDistrict, getCounty } from "../form-common-options/form-common-options";
+import {
+  getJudicialDistrict,
+  getCounty
+} from "../form-common-options/form-common-options";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component";
 import RenderPage from "../render-page.component";
 
-const farLeft = '11.28%';
-const courtTypeTop = '34.00%';
-const courtDistrictTop = '37.40%';
-const caseInformationLeft = '54.00%';
-const resolvedByLeft = '12.00%';
+const farLeft = "11.28%";
+const courtTypeTop = "34.00%";
+const courtDistrictTop = "37.40%";
+const caseInformationLeft = "54.00%";
+const resolvedByLeft = "12.00%";
 const hearingTop = "68.80%";
 const courtOrdersLeaTop = "34.95%";
-const certificateTop = "23.75%"
+const certificateTop = "23.75%";
 const serviceMethodLeft = "32.00%";
 const serviceAddressLeft = "62.00%";
 
@@ -37,8 +40,14 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
         <PositionedString debugKey="addressStreet" left={farLeft} top="17.46%">
           {renderData("person.addressStreet")}
         </PositionedString>
-        <PositionedString debugKey="addressStreetCityZip" left={farLeft} top="20.86%">
-          {`${renderData("person.addressCity")} ${renderData("person.addressState")} ${renderData("person.addressZip")}`}
+        <PositionedString
+          debugKey="addressStreetCityZip"
+          left={farLeft}
+          top="20.86%"
+        >
+          {`${renderData("person.addressCity")} ${renderData(
+            "person.addressState"
+          )} ${renderData("person.addressZip")}`}
         </PositionedString>
         <PositionedString debugKey="phone" left={farLeft} top="24.26%">
           {renderData("person.phone")}
@@ -83,15 +92,27 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
           left="27.8%"
           top="39.75%"
         />
-        <PositionedString debugKey="petitionerFullName" left="11.78%" top="50.40%">
+        <PositionedString
+          debugKey="petitionerFullName"
+          left="11.78%"
+          top="50.40%"
+        >
           {`${renderData("person.firstName")} ${renderData(
-              "person.middleName"
-            )} ${renderData("person.lastName")}`}
+            "person.middleName"
+          )} ${renderData("person.lastName")}`}
         </PositionedString>
-        <PositionedString debugKey="caseNumber" left={caseInformationLeft} top="50.50%">
+        <PositionedString
+          debugKey="caseNumber"
+          left={caseInformationLeft}
+          top="50.50%"
+        >
           {renderData("case.caseNumber")}
         </PositionedString>
-        <PositionedString debugKey="judgeFullName" left={caseInformationLeft} top="55.1%">
+        <PositionedString
+          debugKey="judgeFullName"
+          left={caseInformationLeft}
+          top="55.1%"
+        >
           {renderData("case.judgeName")}
         </PositionedString>
         <PositionedCheckmark
@@ -118,77 +139,133 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
         <PositionedString debugKey="leaName" left="18.40%" top="24.95%">
           {renderData("resolution.leaName")}
         </PositionedString>
-        <PositionedString debugKey="leaFileNumber" left="28.65%" top={courtOrdersLeaTop}>
+        <PositionedString
+          debugKey="leaFileNumber"
+          left="28.65%"
+          top={courtOrdersLeaTop}
+        >
           {renderData("resolution.leaFileNumber")}
         </PositionedString>
-        <PositionedString debugKey="leaName" left="67.25%" top={courtOrdersLeaTop}>
+        <PositionedString
+          debugKey="leaName"
+          left="67.25%"
+          top={courtOrdersLeaTop}
+        >
           {renderData("resolution.leaName")}
         </PositionedString>
         <PositionedString debugKey="resolutionDate" left={farLeft} top="79.90%">
           {renderData("resolution.date")}
         </PositionedString>
         {/* Is this going to be the same judge? */}
-        <PositionedString debugKey="resolutionJudgeFullName" left="53.50%" top="82.60%">
+        <PositionedString
+          debugKey="resolutionJudgeFullName"
+          left="53.50%"
+          top="82.60%"
+        >
           {renderData("case.judgeName")}
         </PositionedString>
       </RenderPage>
 
       <RenderPage url={thirdPageUrl}>
         {/* Service Address */}
-        <PositionedString debugKey="certificateProsecutorFullName" left={farLeft} top={certificateTop}>
+        <PositionedString
+          debugKey="certificateProsecutorFullName"
+          left={farLeft}
+          top={certificateTop}
+        >
           {renderData("certificate.prosecutorFullName")}
         </PositionedString>
         <PositionedCheckmark
           debugKey="serviceByMail"
           left={serviceMethodLeft}
           top="23.50%"
-          shouldShow={data.certificate && data.certificate.serviceMethod === "Mail"}
+          shouldShow={
+            data.certificate && data.certificate.serviceMethod === "Mail"
+          }
         />
         <PositionedCheckmark
           debugKey="serviceByHandDelivery"
           left={serviceMethodLeft}
           top="24.90%"
-          shouldShow={data.certificate && data.certificate.serviceMethod === "Hand Delivery"}
+          shouldShow={
+            data.certificate &&
+            data.certificate.serviceMethod === "Hand Delivery"
+          }
         />
         <PositionedCheckmark
           debugKey="serviceByEFile"
           left={serviceMethodLeft}
           top="26.30%"
-          shouldShow={data.certificate && data.certificate.serviceMethod === "E-filed"}
+          shouldShow={
+            data.certificate && data.certificate.serviceMethod === "E-filed"
+          }
         />
         <PositionedCheckmark
           debugKey="serviceByEmail"
           left={serviceMethodLeft}
           top="27.70%"
-          shouldShow={data.certificate && data.certificate.serviceMethod === "Email"}
+          shouldShow={
+            data.certificate && data.certificate.serviceMethod === "Email"
+          }
         />
         <PositionedCheckmark
           debugKey="serviceByLeftAtBusiness"
           left={serviceMethodLeft}
           top="29.10%"
-          shouldShow={data.certificate && data.certificate.serviceMethod === "Left at business"}
+          shouldShow={
+            data.certificate &&
+            data.certificate.serviceMethod === "Left at business"
+          }
         />
-        <PositionedString debugKey="certificateServiceAddressStreet" left={serviceAddressLeft} top={certificateTop}>
+        <PositionedString
+          debugKey="certificateServiceAddressStreet"
+          left={serviceAddressLeft}
+          top={certificateTop}
+        >
           {renderData("certificate.serviceAddressStreet")}
         </PositionedString>
-        <PositionedString debugKey="certificateServiceAddressCity" left={serviceAddressLeft} top="25.00%">
+        <PositionedString
+          debugKey="certificateServiceAddressCity"
+          left={serviceAddressLeft}
+          top="25.00%"
+        >
           {renderData("certificate.serviceAddressCity")}
         </PositionedString>
-        <PositionedString debugKey="certificateServiceAddressState" left={serviceAddressLeft} top="26.25%">
+        <PositionedString
+          debugKey="certificateServiceAddressState"
+          left={serviceAddressLeft}
+          top="26.25%"
+        >
           {renderData("certificate.serviceAddressState")}
         </PositionedString>
-        <PositionedString debugKey="certificateServiceAddressZip" left={serviceAddressLeft} top="27.50%">
+        <PositionedString
+          debugKey="certificateServiceAddressZip"
+          left={serviceAddressLeft}
+          top="27.50%"
+        >
           {renderData("certificate.serviceAddressZip")}
         </PositionedString>
-        <PositionedString debugKey="certificateServiceDate" left="79.40%" top={certificateTop}>
+        <PositionedString
+          debugKey="certificateServiceDate"
+          left="79.40%"
+          top={certificateTop}
+        >
           {renderData("certificate.serviceDate")}
         </PositionedString>
 
         {/* User's signature */}
-        <PositionedString debugKey="certificateDate" left={farLeft} top="33.90%">
+        <PositionedString
+          debugKey="certificateDate"
+          left={farLeft}
+          top="33.90%"
+        >
           {renderData("certificate.signDate")}
         </PositionedString>
-        <PositionedString debugKey="certificateFullName" left="62.00%" top="37.70%">
+        <PositionedString
+          debugKey="certificateFullName"
+          left="62.00%"
+          top="37.70%"
+        >
           {`${renderData("person.firstName")} ${renderData(
             "person.middleName"
           )} ${renderData("person.lastName")}`}

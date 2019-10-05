@@ -69,7 +69,7 @@ export const serviceMethods = [
   { label: "Hand Delivery", value: "Hand Delivery" },
   { label: "E-filed", value: "E-filed" },
   { label: "Email", value: "Email" },
-  { label: "Left at business", value: "Left at business"}
+  { label: "Left at business", value: "Left at business" }
 ];
 
 export const pryingQuestionOptions = [
