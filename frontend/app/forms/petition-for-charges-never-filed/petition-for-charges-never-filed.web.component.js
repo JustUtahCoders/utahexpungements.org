@@ -5,6 +5,7 @@ import TextArea from "../inputs/text-area.component.js";
 import Section from "../inputs/section.component.js";
 import Select from "../inputs/select.component.js";
 import GroupSelect from "../inputs/group-select.component.js";
+import Checkbox from "../inputs/checkbox.component.js";
 import Radio from "../inputs/radio.component.js";
 import {
   petitionerRepresentativeOptions,
@@ -70,9 +71,32 @@ export default function PetitonForChargesNeverFiled_Web({ data }) {
         )}
 
         <TextInput dataKey="case.caseNumber" label={__("case number")} />
-
         <TextInput dataKey="case.judgeName" label={__("judge full name")} />
         <TextInput dataKey="case.arrestedDate" label={__("arrested date")} />
+        <TextInput
+          dataKey="case.lawEnforcementAgency"
+          label={__("law enforcement agency")}
+        />
+        <TextInput
+          dataKey="case.lawEnforcementAgencysFileNumber"
+          label={__("the law enforcement agency's file number")}
+        />
+      </Section>
+      <Section name="3. Choose all that applies">
+        <Checkbox
+          dataKey="case.atLeast30DaysSinceArrest"
+          label={__("at least 30 days have passed since I was arrested")}
+        />
+        <Checkbox
+          dataKey="case.noArrestSinceThisArrest"
+          label={__("i have not been arrested since this arrest")}
+        />
+        <Checkbox
+          dataKey="case.noChargesWereFiled"
+          label={__("no charges were filed")}
+        />
+      </Section>
+      <Section name="4. Public Interest">
         <TextArea
           dataKey="case.publicInterest"
           label="explain why expunging this crime is not contrary to the public's interest"

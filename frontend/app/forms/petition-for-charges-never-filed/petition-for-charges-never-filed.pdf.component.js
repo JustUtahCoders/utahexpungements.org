@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import RenderPage from "../render-page.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
@@ -47,14 +48,14 @@ export default function PetitonForChargesNeverFiled_Pdf({ data, renderData }) {
 
         <PositionedCheckmark
           dataKey="case.courtType"
-          left="37.5%"
-          top="36.5%"
+          left="38%"
+          top="37%"
           shouldShow={data.case.courtType === "District"}
         />
         <PositionedCheckmark
           dataKey="case.courtType"
           left="48%"
-          top="38%"
+          top="37%"
           shouldShow={data.case.courtType === "Justice"}
         />
 
@@ -66,18 +67,42 @@ export default function PetitonForChargesNeverFiled_Pdf({ data, renderData }) {
           {data.case.courtAddress &&
             getCounty(data.case.courtAddress, data.case.courtType)}
         </PositionedString>
-        <PositionedString dataKey="case.courtAddress" left="27%" top="42.5%" />
+        <PositionedString dataKey="case.courtAddress" left="27%" top="43.5%" />
         <PositionedString debugKey="petitionerName" left="11.9%" top="52.7%">
           {renderData("person.firstName")} {renderData("person.middleName")}{" "}
           {renderData("person.lastName")}
         </PositionedString>
-        <PositionedString dataKey="case.number" left="65%" top="52.5%" />
-        <PositionedString dataKey="case.number" left="25%" top="65.5%" />
+        <PositionedString dataKey="case.caseNumber" left="54.1%" top="52.9%" />
         <PositionedString dataKey="case.judgeName" left="65%" top="57.5%" />
         <PositionedString
           dataKey="case.arrestedDate"
           left="47.4%"
           top="63.25%"
+        />
+        <PositionedString
+          dataKey="case.lawEnforcementAgency"
+          left="17.6%"
+          top="65.9%"
+        />
+        <PositionedString
+          dataKey="case.lawEnforcementAgencysFileNumber"
+          left="49.4%"
+          top="68.5%"
+        />
+        <PositionedCheckmark
+          dataKey="case.atLeast30DaysSinceArrest"
+          left="24%"
+          top="79.8%"
+        />
+        <PositionedCheckmark
+          dataKey="case.noArrestSinceThisArrest"
+          left="24%"
+          top="82.4%"
+        />
+        <PositionedCheckmark
+          dataKey="case.noChargesWereFiled"
+          left="24%"
+          top="84.86%"
         />
       </RenderPage>
       <RenderPage url="/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-2.png">
@@ -92,6 +117,15 @@ export default function PetitonForChargesNeverFiled_Pdf({ data, renderData }) {
             overflowY: "hidden"
           }}
         />
+        <PositionedString debugKey="todaysDate" left="11.5%" top="55.5%">
+          {moment().format("L")}
+        </PositionedString>
+
+        <PositionedString debugKey="printedName" left="54.4%" top="58.5%">
+          {`${renderData("person.firstName")} ${renderData(
+            "person.middleName"
+          )} ${renderData("person.lastName")}`}
+        </PositionedString>
       </RenderPage>
     </>
   );
