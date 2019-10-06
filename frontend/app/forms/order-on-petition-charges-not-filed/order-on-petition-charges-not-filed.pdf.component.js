@@ -35,7 +35,6 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
         </PositionedString>
         <PositionedString
           dataKey="person.addressStreet"
-          debugKey="addressStreet"
           left={farLeft}
           top="17.46%"
         />
@@ -48,29 +47,17 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>
-        <PositionedString
-          dataKey="person.phone"
-          debugKey="phone"
-          left={farLeft}
-          top="24.26%"
-        />
-        <PositionedString
-          dataKey="person.email"
-          debugKey="email"
-          left={farLeft}
-          top="28.16%"
-        />
+        <PositionedString dataKey="person.phone" left={farLeft} top="24.26%" />
+        <PositionedString dataKey="person.email" left={farLeft} top="28.16%" />
 
         {/* Case information */}
         <PositionedCheckmark
-          debugKey="courtTypeDistrict"
           dataKey="case.courtType"
           left="37.35%"
           top={courtTypeTop}
           shouldShow={data.case.courtType === "District"}
         />
         <PositionedCheckmark
-          debugKey="courtTypeJustice"
           dataKey="case.courtType"
           left="47.7%"
           top={courtTypeTop}
@@ -108,13 +95,11 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
         </PositionedString>
         <PositionedString
           dataKey="case.caseNumber"
-          debugKey="caseNumber"
           left={caseInformationLeft}
           top="50.50%"
         />
         <PositionedString
           dataKey="case.judgeName"
-          debugKey="judgeFullName"
           left={caseInformationLeft}
           top="55.1%"
         />
@@ -133,12 +118,7 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
       </RenderPage>
 
       <RenderPage url={secondPageUrl}>
-        <PositionedString
-          dataKey="case.judgeName"
-          debugKey="resolutionJudgeFullName"
-          left="53.50%"
-          top="82.60%"
-        />
+        <PositionedString dataKey="case.judgeName" left="53.50%" top="82.60%" />
       </RenderPage>
 
       <RenderPage url={thirdPageUrl} />
