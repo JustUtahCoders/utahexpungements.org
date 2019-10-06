@@ -207,7 +207,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Petition for Charges Never Filed"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="petition to expungement charges never filed"
               shortDescription="This form requests a court order for an expungement. You must first obtain a Certificate of Eligibility before filing this form."
               appUrl={
