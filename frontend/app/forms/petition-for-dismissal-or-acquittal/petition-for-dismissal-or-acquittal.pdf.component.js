@@ -87,11 +87,15 @@ export default function PetitionForDismissalOrAcquittal_Pdf({
         </PositionedString>
         <PositionedString dataKey="case.caseNumber" left="54.1%" top="52.9%" />
         <PositionedString dataKey="case.judgeName" left="54.1%" top="57.5%" />
-        <PositionedString dataKey="case.caseNumber" left="17.4%" top="65.5%" />
         <PositionedString
           dataKey="case.arrestedDate"
           left="47.4%"
           top="63.25%"
+        />
+        <PositionedString
+          dataKey="case.lawEnforcementAgency"
+          left="17.4%"
+          top="65.5%"
         />
         <PositionedString
           dataKey="case.lawEnforcementAgencysFileNumber"

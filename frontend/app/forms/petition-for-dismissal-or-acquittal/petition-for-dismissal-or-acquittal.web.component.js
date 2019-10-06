@@ -63,6 +63,10 @@ export default function PetitionForDismissalOrAcquittal_Web({ data }) {
         <TextInput dataKey="case.judgeName" label={__("judge full name")} />
         <TextInput dataKey="case.arrestedDate" label={__("arrested date")} />
         <TextInput
+          dataKey="case.lawEnforcementAgency"
+          label={__("law enforcement agency")}
+        />
+        <TextInput
           dataKey="case.lawEnforcementAgencysFileNumber"
           label={__("the law enforcement agency's file number")}
         />
