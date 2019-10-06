@@ -13,10 +13,6 @@ const courtDistrictTop = "37.40%";
 const caseInformationLeft = "54.00%";
 const resolvedByLeft = "12.00%";
 const hearingTop = "68.80%";
-const courtOrdersLeaTop = "34.95%";
-const certificateTop = "23.75%";
-const serviceMethodLeft = "32.00%";
-const serviceAddressLeft = "62.00%";
 
 export default function OrderOnPetitionChargesNotFiled_Pdf({
   data,
@@ -37,9 +33,7 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
             "person.middleName"
           )} ${renderData("person.lastName")}`}
         </PositionedString>
-        <PositionedString debugKey="addressStreet" left={farLeft} top="17.46%">
-          {renderData("person.addressStreet")}
-        </PositionedString>
+        <PositionedString dataKey="person.addressStreet" debugKey="addressStreet" left={farLeft} top="17.46%" />
         <PositionedString
           debugKey="addressStreetCityZip"
           left={farLeft}
@@ -49,12 +43,8 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>
-        <PositionedString debugKey="phone" left={farLeft} top="24.26%">
-          {renderData("person.phone")}
-        </PositionedString>
-        <PositionedString debugKey="email" left={farLeft} top="28.16%">
-          {renderData("person.email")}
-        </PositionedString>
+        <PositionedString dataKey="person.phone" debugKey="phone" left={farLeft} top="24.26%" />
+        <PositionedString dataKey="person.email" debugKey="email" left={farLeft} top="28.16%" />
 
         {/* Case information */}
         <PositionedCheckmark
@@ -102,19 +92,17 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
           )} ${renderData("person.lastName")}`}
         </PositionedString>
         <PositionedString
+          dataKey="case.caseNumber"
           debugKey="caseNumber"
           left={caseInformationLeft}
           top="50.50%"
-        >
-          {renderData("case.caseNumber")}
-        </PositionedString>
+        />
         <PositionedString
+          dataKey="case.judgeName"
           debugKey="judgeFullName"
           left={caseInformationLeft}
           top="55.1%"
-        >
-          {renderData("case.judgeName")}
-        </PositionedString>
+        />
         <PositionedCheckmark
           debugKey="resolvedByPleadings"
           left={resolvedByLeft}
@@ -127,150 +115,18 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
           top={hearingTop}
           shouldShow={data.case.resolvedBy === "Hearing"}
         />
-        <PositionedString debugKey="hearingDate" left="31.00%" top={hearingTop}>
-          {renderData("case.hearingDate")}
-        </PositionedString>
       </RenderPage>
 
       <RenderPage url={secondPageUrl}>
-        <PositionedString debugKey="leaFileNumber" left="34.00%" top="22.40%">
-          {renderData("resolution.leaFileNumber")}
-        </PositionedString>
-        <PositionedString debugKey="leaName" left="18.40%" top="24.95%">
-          {renderData("resolution.leaName")}
-        </PositionedString>
         <PositionedString
-          debugKey="leaFileNumber"
-          left="28.65%"
-          top={courtOrdersLeaTop}
-        >
-          {renderData("resolution.leaFileNumber")}
-        </PositionedString>
-        <PositionedString
-          debugKey="leaName"
-          left="67.25%"
-          top={courtOrdersLeaTop}
-        >
-          {renderData("resolution.leaName")}
-        </PositionedString>
-        <PositionedString debugKey="resolutionDate" left={farLeft} top="79.90%">
-          {renderData("resolution.date")}
-        </PositionedString>
-        {/* Is this going to be the same judge? */}
-        <PositionedString
+          dataKey="case.judgeName"
           debugKey="resolutionJudgeFullName"
           left="53.50%"
           top="82.60%"
-        >
-          {renderData("case.judgeName")}
-        </PositionedString>
+        />
       </RenderPage>
 
-      <RenderPage url={thirdPageUrl}>
-        {/* Service Address */}
-        <PositionedString
-          debugKey="certificateProsecutorFullName"
-          left={farLeft}
-          top={certificateTop}
-        >
-          {renderData("certificate.prosecutorFullName")}
-        </PositionedString>
-        <PositionedCheckmark
-          debugKey="serviceByMail"
-          left={serviceMethodLeft}
-          top="23.50%"
-          shouldShow={
-            data.certificate && data.certificate.serviceMethod === "Mail"
-          }
-        />
-        <PositionedCheckmark
-          debugKey="serviceByHandDelivery"
-          left={serviceMethodLeft}
-          top="24.90%"
-          shouldShow={
-            data.certificate &&
-            data.certificate.serviceMethod === "Hand Delivery"
-          }
-        />
-        <PositionedCheckmark
-          debugKey="serviceByEFile"
-          left={serviceMethodLeft}
-          top="26.30%"
-          shouldShow={
-            data.certificate && data.certificate.serviceMethod === "E-filed"
-          }
-        />
-        <PositionedCheckmark
-          debugKey="serviceByEmail"
-          left={serviceMethodLeft}
-          top="27.70%"
-          shouldShow={
-            data.certificate && data.certificate.serviceMethod === "Email"
-          }
-        />
-        <PositionedCheckmark
-          debugKey="serviceByLeftAtBusiness"
-          left={serviceMethodLeft}
-          top="29.10%"
-          shouldShow={
-            data.certificate &&
-            data.certificate.serviceMethod === "Left at business"
-          }
-        />
-        <PositionedString
-          debugKey="certificateServiceAddressStreet"
-          left={serviceAddressLeft}
-          top={certificateTop}
-        >
-          {renderData("certificate.serviceAddressStreet")}
-        </PositionedString>
-        <PositionedString
-          debugKey="certificateServiceAddressCity"
-          left={serviceAddressLeft}
-          top="25.00%"
-        >
-          {renderData("certificate.serviceAddressCity")}
-        </PositionedString>
-        <PositionedString
-          debugKey="certificateServiceAddressState"
-          left={serviceAddressLeft}
-          top="26.25%"
-        >
-          {renderData("certificate.serviceAddressState")}
-        </PositionedString>
-        <PositionedString
-          debugKey="certificateServiceAddressZip"
-          left={serviceAddressLeft}
-          top="27.50%"
-        >
-          {renderData("certificate.serviceAddressZip")}
-        </PositionedString>
-        <PositionedString
-          debugKey="certificateServiceDate"
-          left="79.40%"
-          top={certificateTop}
-        >
-          {renderData("certificate.serviceDate")}
-        </PositionedString>
-
-        {/* User's signature */}
-        <PositionedString
-          debugKey="certificateDate"
-          left={farLeft}
-          top="33.90%"
-        >
-          {renderData("certificate.signDate")}
-        </PositionedString>
-        <PositionedString
-          debugKey="certificateFullName"
-          left="62.00%"
-          top="37.70%"
-        >
-          {`${renderData("person.firstName")} ${renderData(
-            "person.middleName"
-          )} ${renderData("person.lastName")}`}
-        </PositionedString>
-      </RenderPage>
+      <RenderPage url={thirdPageUrl} />
     </>
   );
 }

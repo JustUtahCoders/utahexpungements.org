@@ -59,19 +59,6 @@ export const courtTypeOptions = [
   { label: "Justice Court", value: "Justice" }
 ];
 
-export const resolvedByOptions = [
-  { label: "Pleadings", value: "Pleadings" },
-  { label: "Hearing", value: "Hearing" }
-];
-
-export const serviceMethods = [
-  { label: "Mail", value: "Mail" },
-  { label: "Hand Delivery", value: "Hand Delivery" },
-  { label: "E-filed", value: "E-filed" },
-  { label: "Email", value: "Email" },
-  { label: "Left at business", value: "Left at business" }
-];
-
 export const pryingQuestionOptions = [
   {
     label: "I have not been diagnosed as having a substance abuse addiction.",
@@ -82,6 +69,11 @@ export const pryingQuestionOptions = [
       "I have been diagnosed as having a substance abuse addiction and I am managing my addiction by:",
     value: "yes"
   }
+];
+
+export const resolvedByOptions = [
+  { label: "Pleadings", value: "Pleadings" },
+  { label: "Hearing", value: "Hearing" }
 ];
 
 export function getJudicialDistrict(courtAddress, courtType) {

@@ -291,18 +291,7 @@ const translations = {
     "What is the name of the agency they work for? (If applicable)",
 
   // charges not filed form
-  "will be resolved by": "Will Be Resolved By",
-  "hearing date": "Hearing Date",
-  "lea file number": "Law Enforcement Agency File Number",
-  "lea name": "Law Enforcement Agency Name",
-  "resolution date": "Resolution Date",
-  "prosecutor name": "Prosecutor's Full Name",
-  "service method": "Service Method",
-  "service address street": "Service Address Street Address",
-  "service address city": "Service Address City",
-  "service address state": "Service Address State",
-  "service address zip": "Service Address Zip",
-  "service date": "Service Date"
+  "will be resolved by": "Will Be Resolved By"
 };
 
 export default translations;
