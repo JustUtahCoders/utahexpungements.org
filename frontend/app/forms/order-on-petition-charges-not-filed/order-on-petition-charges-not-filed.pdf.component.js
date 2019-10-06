@@ -33,7 +33,12 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
             "person.middleName"
           )} ${renderData("person.lastName")}`}
         </PositionedString>
-        <PositionedString dataKey="person.addressStreet" debugKey="addressStreet" left={farLeft} top="17.46%" />
+        <PositionedString
+          dataKey="person.addressStreet"
+          debugKey="addressStreet"
+          left={farLeft}
+          top="17.46%"
+        />
         <PositionedString
           debugKey="addressStreetCityZip"
           left={farLeft}
@@ -43,8 +48,18 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>
-        <PositionedString dataKey="person.phone" debugKey="phone" left={farLeft} top="24.26%" />
-        <PositionedString dataKey="person.email" debugKey="email" left={farLeft} top="28.16%" />
+        <PositionedString
+          dataKey="person.phone"
+          debugKey="phone"
+          left={farLeft}
+          top="24.26%"
+        />
+        <PositionedString
+          dataKey="person.email"
+          debugKey="email"
+          left={farLeft}
+          top="28.16%"
+        />
 
         {/* Case information */}
         <PositionedCheckmark
