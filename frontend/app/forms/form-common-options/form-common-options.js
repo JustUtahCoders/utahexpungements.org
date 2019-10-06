@@ -71,6 +71,11 @@ export const pryingQuestionOptions = [
   }
 ];
 
+export const resolvedByOptions = [
+  { label: "Pleadings", value: "Pleadings" },
+  { label: "Hearing", value: "Hearing" }
+];
+
 export function getJudicialDistrict(courtAddress, courtType) {
   const courtList =
     courtType === "District" ? DistrictCourtList : JusticeCourtList;
