@@ -29,19 +29,16 @@ const waiveFeeRelationship = [
 ];
 
 const employerInputs = [
-  {
-    NameOfEmployer: "",
-    EmployersAddress: "",
-    EmployersPhone: "",
-    JobTitle: "",
-    HourlyRateOrAnnualSalary: "",
-    HoursPerWeek: ""
-  }
+  "NameOfEmployer",
+  "EmployersAddress",
+  "EmployersPhone",
+  "JobTitle",
+  "HourlyRateOrAnnualSalary",
+  "HoursPerWeek"
 ];
 
 export default function MotionToWaiveFees_Web({ data }) {
   const scope = useCss(css);
-  console.log(data);
   return (
     <FormThatPrints {...css}>
       <h1 className="web-from-input">This is a private record</h1>
@@ -214,16 +211,22 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="employmentType"
             />
             {data.case.otherEmployment && (
-              <TextInput dataKey="case.otherEmployeeExplain" label="Explain" />
+              <TextArea dataKey="case.otherEmployeeExplain" label="Explain" />
             )}
           </>
         )}
-        <TextInputGroup
-          groupLabel="Current Employer's"
-          buttonLabel="Employer"
-          inputs={employerInputs}
-          dataKey="person.currentEmployment"
-        />
+        {data.case.employed &&
+          (data.case.hourlyEmployee ||
+            data.case.salaryEmployee ||
+            data.case.selfEmployed ||
+            data.case.otherEmployment) && (
+            <TextInputGroup
+              groupLabel="Current Employers"
+              buttonLabel="Employer"
+              inputs={employerInputs}
+              dataKey="person.currentEmployment"
+            />
+          )}
         <CheckBox
           dataKey="case.unemployed"
           label="I am unemployed"
