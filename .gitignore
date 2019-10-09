@@ -66,6 +66,3 @@ dist
 
 # vs code directories 
 .vscode
-
-# webstorm directories
-.idea
