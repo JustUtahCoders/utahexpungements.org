@@ -10,7 +10,7 @@ export default function TextInputGroup(props) {
   );
   const [inputList, setInputList] = React.useState([inputs]);
   const scope = useCss(css);
-  console.log(inputList);
+
   return (
     <div className="web-form-input" onBlur={evt => handleBlur(evt)} {...scope}>
       <label>{props.groupLabel}</label>
