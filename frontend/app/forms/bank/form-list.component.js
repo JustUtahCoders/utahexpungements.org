@@ -209,7 +209,7 @@ export default class FormList extends React.Component {
               readyForUsers={false}
               keywords="reply to victim statement or prosecutor ap&p adult probation and parole response"
               shortDescription="Reply to statement made by prosecutor or, victim, or adult probation and parole"
-              appUrl={`${this.props.match.url}/reply-statement`}
+              appUrl={`${this.props.match.url}/reply-to-statement`}
               downloadUrl="https://www.utcourts.gov/howto/expunge/docs/03_Petitioner_Reply.pdf"
               previewUrls={[
                 "/static/forms/reply-to-statement/03_Petitioner_Reply-1.png",
