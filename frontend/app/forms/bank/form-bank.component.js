@@ -27,6 +27,8 @@ import OrderOnPetitionChargesNotFiled_Web from "../order-on-petition-charges-not
 import OrderOnPetitionChargesNotFiled_Pdf from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-filed.pdf.component";
 import PetitionForDismissalOrAcquittal_Pdf from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.pdf.component.js";
 import PetitionForDismissalOrAcquittal_Web from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.web.component.js";
+import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.component";
+import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -153,6 +155,16 @@ export default class FormBank extends React.Component {
               name="Order on Petition to Expunge Records (Charges never filed)"
               WebForm={OrderOnPetitionChargesNotFiled_Web}
               PdfForm={OrderOnPetitionChargesNotFiled_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/reply-to-statement`}
+          render={props => (
+            <GovernmentForm
+              name="Reply to Victim's Statement or Prosecutor's Statement or AP&P Response"
+              WebForm={ReplyToStatement_Web}
+              PdfForm={ReplyToStatement_Pdf}
             />
           )}
         />
