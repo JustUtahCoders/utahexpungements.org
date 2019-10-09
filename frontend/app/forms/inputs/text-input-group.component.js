@@ -4,10 +4,13 @@ import { DataContainerContext } from "../data-container.component";
 
 export default function TextInputGroup(props) {
   const dataContext = React.useContext(DataContainerContext);
-  var inputs = Object.assign({}, ...props.inputs);
+  var inputs = props.inputs.reduce(
+    (acc, value) => ({ ...acc, [value]: "" }),
+    {}
+  );
   const [inputList, setInputList] = React.useState([inputs]);
   const scope = useCss(css);
-
+  console.log(inputList);
   return (
     <div className="web-form-input" onBlur={evt => handleBlur(evt)} {...scope}>
       <label>{props.groupLabel}</label>
@@ -16,7 +19,7 @@ export default function TextInputGroup(props) {
           <React.Fragment key={`${input}-${idx}`}>
             {Object.entries(input).map(([key, val]) => (
               <div key={`${key}-${idx}`} className="web-form-input text-input">
-                <label for={`${idx}-${key}`}>{formatLabel(key)}</label>
+                <label htmlFor={`${idx}-${key}`}>{formatLabel(key)}</label>
                 <input
                   id={`${idx}-${key}`}
                   type="text"

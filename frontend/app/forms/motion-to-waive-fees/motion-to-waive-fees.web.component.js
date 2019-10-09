@@ -29,14 +29,12 @@ const waiveFeeRelationship = [
 ];
 
 const employerInputs = [
-  {
-    NameOfEmployer: "",
-    EmployersAddress: "",
-    EmployersPhone: "",
-    JobTitle: "",
-    HourlyRateOrAnnualSalary: "",
-    HoursPerWeek: ""
-  }
+  "NameOfEmployer",
+  "EmployersAddress",
+  "EmployersPhone",
+  "JobTitle",
+  "HourlyRateOrAnnualSalary",
+  "HoursPerWeek"
 ];
 
 export default function MotionToWaiveFees_Web({ data }) {
