@@ -4,16 +4,27 @@ import { DataContainerContext } from "../data-container.component";
 
 export default function TextInputGroup(props) {
   const dataContext = React.useContext(DataContainerContext);
-  var inputs = props.inputs.reduce(
-    (acc, value) => ({ ...acc, [value]: "" }),
-    {}
-  );
-  const [inputList, setInputList] = React.useState([inputs]);
+
+  const [inputList, setInputList] = React.useState([
+    props.inputs.reduce((acc, value) => ({ ...acc, [value]: "" }), {})
+  ]);
+  const [showFormBanner, setShowFormBanner] = React.useState(false);
+
   const scope = useCss(css);
+
+  React.useEffect(() => {
+    if (inputList.length >= props.maxInputs) {
+      setShowFormBanner(true);
+    } else {
+      setShowFormBanner(false);
+    }
+  }, [inputList.length, showFormBanner]);
 
   return (
     <div className="web-form-input" onBlur={evt => handleBlur(evt)} {...scope}>
-      <label>{props.groupLabel}</label>
+      <label>
+        <h2>{props.groupLabel}</h2>
+      </label>
       <div>
         {inputList.map((input, idx) => (
           <React.Fragment key={`${input}-${idx}`}>
@@ -28,6 +39,7 @@ export default function TextInputGroup(props) {
                 />
               </div>
             ))}
+
             {inputList.length > 1 && (
               <button
                 className="web-form-input"
@@ -39,9 +51,12 @@ export default function TextInputGroup(props) {
           </React.Fragment>
         ))}
       </div>
-      <button className="web-form-input" onClick={evt => handleAddGroup(evt)}>
-        Add {props.buttonLabel}
-      </button>
+      {showFormBanner && <div className="formBanner">Max Reached</div>}
+      {!showFormBanner && (
+        <button className="web-form-input" onClick={evt => handleAddGroup(evt)}>
+          Add {props.buttonLabel}
+        </button>
+      )}
     </div>
   );
 
@@ -57,8 +72,16 @@ export default function TextInputGroup(props) {
   }
   function handleAddGroup(evt) {
     evt.preventDefault();
-    const values = [...inputList, inputs];
-    setInputList(values);
+    if (!showFormBanner) {
+      const values = [
+        ...inputList,
+        props.inputs.reduce((acc, value) => ({ ...acc, [value]: "" }), {})
+      ];
+      setInputList(values);
+    } else {
+      const values = [...inputList];
+      setInputList(values);
+    }
   }
   function handleRemoveGroup(evt, i) {
     evt.preventDefault();
@@ -76,5 +99,15 @@ const css = `
   & .text-input {
     display:flex;
     flex-direction:column;
+  }
+  & .formBanner {
+    margin: 10px auto;
+    width: 85%;
+    height: 40px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    text-align: center;
+    line-height: 40px;
   }
 `;

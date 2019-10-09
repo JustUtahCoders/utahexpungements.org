@@ -37,6 +37,50 @@ const employerInputs = [
   "HoursPerWeek"
 ];
 
+const businessInterests = [
+  "BusinessName",
+  "Address",
+  "Phone",
+  "NatureOfBusiness",
+  "CurrentValueOfBusiness",
+  "PercentOwnedByPetitioner",
+  "PercentOwnedByPlaintiff"
+];
+
+const realEstateInterest = [
+  "Address",
+  "DateAcquired",
+  "NamesOnTitle",
+  "OriginalCost",
+  "CurrentValue",
+  "FirstMortgageOrLienHolder",
+  "FirstMortgageOrLienHolderAddress",
+  "FirstMortgageOrLienHolderPhone",
+  "AmountOwed",
+  "MonthlyPayments",
+  "SecondMortgageOrLienHolder",
+  "SecondMortgageOrLienHolderAddress",
+  "SecondMortgageOrLienHolderPhone",
+  "AmountOwed",
+  "MonthlyPayments"
+];
+
+const personalPropertyList = [
+  "PropertyDescription",
+  "DebtOwedTo",
+  "NamesOnTitle",
+  "AmountOwed",
+  "MinimumMonthlyPayment"
+];
+
+const debtOwed = [
+  "TypeOfDebt",
+  "DebtOwedTo",
+  "NamesOnDebt",
+  "AmountOwed",
+  "MinimumMonthlyPayment"
+];
+
 export default function MotionToWaiveFees_Web({ data }) {
   const scope = useCss(css);
   return (
@@ -225,6 +269,7 @@ export default function MotionToWaiveFees_Web({ data }) {
               buttonLabel="Employer"
               inputs={employerInputs}
               dataKey="person.currentEmployment"
+              maxInputs={3}
             />
           )}
         <CheckBox
@@ -524,6 +569,15 @@ export default function MotionToWaiveFees_Web({ data }) {
           dataKey="person.businessInterest"
           name="businessInterests"
         />
+        {data.person.businessInterest && (
+          <TextInputGroup
+            groupLabel="Business interests"
+            inputs={businessInterests}
+            buttonLabel="business"
+            maxInputs={2}
+            dataKey="person.currentBusinessInterests"
+          />
+        )}
       </Section>
 
       <Section name="9. Financial Assets">
@@ -540,6 +594,15 @@ export default function MotionToWaiveFees_Web({ data }) {
           dataKey="person.realEstate"
           name="realEstate"
         />
+        {data.person.realEstate && (
+          <TextInputGroup
+            groupLabel="Real estate"
+            inputs={realEstateInterest}
+            buttonLabel="Real estate"
+            maxInputs={2}
+            dataKey="person.realEstateInterests"
+          />
+        )}
       </Section>
 
       <Section name="11. Personal Property">
@@ -548,6 +611,15 @@ export default function MotionToWaiveFees_Web({ data }) {
           dataKey="person.personalProperty"
           name="personalProperty"
         />
+        {data.person.personalProperty && (
+          <TextInputGroup
+            groupLabel="Personal Property"
+            inputs={personalPropertyList}
+            buttonLabel="property"
+            maxInputs={5}
+            dataKey="person.currentPersonalProperty"
+          />
+        )}
       </Section>
 
       <Section name="12. Debts Owed">
@@ -556,6 +628,15 @@ export default function MotionToWaiveFees_Web({ data }) {
           dataKey="person.debtsOwed"
           name="debtsOwed"
         />
+        {data.person.debtsOwed && (
+          <TextInputGroup
+            groupLabel="Debt owed"
+            inputs={debtOwed}
+            buttonLabel="debt"
+            maxInputs={6}
+            dataKey="person.currentDebtsOwed"
+          />
+        )}
       </Section>
 
       <Section name="13. Other">
