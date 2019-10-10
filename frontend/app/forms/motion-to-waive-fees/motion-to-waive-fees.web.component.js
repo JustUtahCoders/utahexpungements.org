@@ -13,6 +13,7 @@ import {
   JusticeCourtList,
   courtTypeOptions
 } from "../form-common-options/form-common-options.js";
+import TextInputGroup from "../inputs/text-input-group.component.js";
 
 const waiveFeeRelationship = [
   { value: "plaintiffPetitioner", label: "plaintiff / Petitioner" },
@@ -25,6 +26,15 @@ const waiveFeeRelationship = [
     value: "defendantRespondentAttorney",
     label: "Defendant / Respondent's Attorney"
   }
+];
+
+const employerInputs = [
+  "NameOfEmployer",
+  "EmployersAddress",
+  "EmployersPhone",
+  "JobTitle",
+  "HourlyRateOrAnnualSalary",
+  "HoursPerWeek"
 ];
 
 export default function MotionToWaiveFees_Web({ data }) {
@@ -201,10 +211,22 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="employmentType"
             />
             {data.case.otherEmployment && (
-              <TextInput dataKey="case.otherEmployeeExplain" label="Explain" />
+              <TextArea dataKey="case.otherEmployeeExplain" label="Explain" />
             )}
           </>
         )}
+        {data.case.employed &&
+          (data.case.hourlyEmployee ||
+            data.case.salaryEmployee ||
+            data.case.selfEmployed ||
+            data.case.otherEmployment) && (
+            <TextInputGroup
+              groupLabel="Current Employers"
+              buttonLabel="Employer"
+              inputs={employerInputs}
+              dataKey="person.currentEmployment"
+            />
+          )}
         <CheckBox
           dataKey="case.unemployed"
           label="I am unemployed"

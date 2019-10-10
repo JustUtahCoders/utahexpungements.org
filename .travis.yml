@@ -11,5 +11,8 @@ deploy:
   on:
     branch: master
 before_install:
-  - openssl aes-256-cbc -K $encrypted_bb8f495d020f_key -iv $encrypted_bb8f495d020f_iv
-    -in app-engine-secret.json.enc -out app-engine-secret.json -d
+  - |
+    if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      openssl aes-256-cbc -K $encrypted_bb8f495d020f_key -iv $encrypted_bb8f495d020f_iv \
+        -in app-engine-secret.json.enc -out app-engine-secret.json -d
+    fi

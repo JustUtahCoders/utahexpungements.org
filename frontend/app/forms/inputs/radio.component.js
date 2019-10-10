@@ -12,7 +12,7 @@ export default function Radio(props) {
     <div className="web-form-input" {...scope}>
       <div className="radio">{props.label}</div>
       {props.options.map(option => (
-        <label key={option.value}>
+        <label key={option.value} className="radio-option">
           {option.label}
           <input
             type="radio"
@@ -32,5 +32,9 @@ export default function Radio(props) {
 const css = `
     & .radio {
         margin-bottom:8rem;
+    }
+
+    & .radio-option {
+      margin-right:20rem;
     }
 `;

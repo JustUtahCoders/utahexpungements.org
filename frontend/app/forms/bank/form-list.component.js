@@ -123,6 +123,20 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
+              name="Petition for Dismissal or Acquittal"
+              readyForUsers={true}
+              keywords="petition to expunge records dismissal or acquittal"
+              shortDescription="This form is a court order that you ask the judge to sign to expunge a Dismissal or Acquittal. You must first obtain a Certificate of Eligibility before filing this form."
+              appUrl={
+                this.props.match.url + "/petition-for-dismissal-or-acquittal"
+              }
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-1.png",
+                "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-2.png"
+              ]}
+            />
+            <FillableForm
               name="Acceptance of Service"
               readyForUsers
               keywords="prosecutor acceptance serve"
@@ -175,6 +189,19 @@ export default class FormList extends React.Component {
                 "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-1.png",
                 "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-2.png",
                 "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-3.png"
+              ]}
+            />
+            <FillableForm
+              name="Order on Petition to Expunge Records (Charges never filed)"
+              readyForUsers={false}
+              keywords="order on petition to expunge records charges never filed"
+              shortDescription="Court order given to the judge when charges are dropped"
+              appUrl={`${this.props.match.url}/order-on-petition-charges-not-filed`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-charges_never_filed.pdf"
+              previewUrls={[
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-1.png",
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-2.png",
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-3.png"
               ]}
             />
           </FilteredForms>
