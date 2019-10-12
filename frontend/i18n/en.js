@@ -294,7 +294,8 @@ const translations = {
   "will be resolved by": "Will Be Resolved By",
 
   // reply to statement form
-  "statement made by opposition": "Statement made by the prosecutor, victim or Adult Probation and Parole that I disagree with",
+  "statement made by opposition":
+    "Statement made by the prosecutor, victim or Adult Probation and Parole that I disagree with",
   "i disagree because": "I disagree because"
 };
 

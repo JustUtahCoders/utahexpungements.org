@@ -127,9 +127,9 @@ export default function ReplyToStatement_Pdf({ data, renderData }) {
           left={disagreementLeft}
           top="76.0%"
           style={{
-            width: '71%',
-            overflowWrap: 'anywhere',
-            lineHeight: '30px'
+            width: "71%",
+            overflowWrap: "anywhere",
+            lineHeight: "30px"
           }}
         />
       </RenderPage>
@@ -140,9 +140,9 @@ export default function ReplyToStatement_Pdf({ data, renderData }) {
           left={disagreementLeft}
           top="28.0%"
           style={{
-            width: '71%',
-            overflowWrap: 'anywhere',
-            lineHeight: '31px'
+            width: "71%",
+            overflowWrap: "anywhere",
+            lineHeight: "31px"
           }}
         />
       </RenderPage>
