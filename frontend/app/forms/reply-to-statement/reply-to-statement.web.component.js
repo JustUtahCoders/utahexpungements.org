@@ -11,6 +11,7 @@ import TextInput from "../inputs/text-input.component";
 import Select from "../inputs/select.component";
 import Radio from "../inputs/radio.component";
 import GroupSelect from "../inputs/group-select.component";
+import TextArea from "../inputs/text-area.component";
 
 export default function ReplyToStatement_Web({ data }) {
   return (
@@ -60,6 +61,17 @@ export default function ReplyToStatement_Web({ data }) {
         )}
         <TextInput dataKey="case.caseNumber" label={__("case number")} />
         <TextInput dataKey="case.judgeName" label={__("judge full name")} />
+      </Section>
+
+      <Section name="3. Statement response">
+        <TextArea
+          dataKey="case.opposingStatement"
+          label={__("statement made by opposition")}
+        />
+        <TextArea
+          dataKey="case.disagreementReason"
+          label={__("i disagree because")}
+        />
       </Section>
     </FormThatPrints>
   );

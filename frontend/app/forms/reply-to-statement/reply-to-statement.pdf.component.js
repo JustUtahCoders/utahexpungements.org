@@ -13,6 +13,7 @@ const attorneyTop = "33.00%";
 const courtTypeTop = "37.00%";
 const courtDistrictTop = "40.30%";
 const caseInformationLeft = "54.00%";
+const disagreementLeft = "17.9%";
 
 export default function ReplyToStatement_Pdf({ data, renderData }) {
   const firstPageUrl =
@@ -120,9 +121,31 @@ export default function ReplyToStatement_Pdf({ data, renderData }) {
           left={caseInformationLeft}
           top="59.5%"
         />
+
+        <PositionedString
+          dataKey="case.opposingStatement"
+          left={disagreementLeft}
+          top="76.0%"
+          style={{
+            width: '71%',
+            overflowWrap: 'anywhere',
+            lineHeight: '30px'
+          }}
+        />
       </RenderPage>
 
-      <RenderPage url={secondPageUrl} />
+      <RenderPage url={secondPageUrl}>
+        <PositionedString
+          dataKey="case.disagreementReason"
+          left={disagreementLeft}
+          top="28.0%"
+          style={{
+            width: '71%',
+            overflowWrap: 'anywhere',
+            lineHeight: '31px'
+          }}
+        />
+      </RenderPage>
 
       <RenderPage url={thirdPageUrl} />
     </>

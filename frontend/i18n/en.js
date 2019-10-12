@@ -291,7 +291,11 @@ const translations = {
     "What is the name of the agency they work for? (If applicable)",
 
   // charges not filed form
-  "will be resolved by": "Will Be Resolved By"
+  "will be resolved by": "Will Be Resolved By",
+
+  // reply to statement form
+  "statement made by opposition": "Statement made by the prosecutor, victim or Adult Probation and Parole that I disagree with",
+  "i disagree because": "I disagree because"
 };
 
 export default translations;
