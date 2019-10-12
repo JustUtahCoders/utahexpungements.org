@@ -206,7 +206,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Reply to Victim's Statement or Prosecutor's Statement or AP&P Response"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="reply to victim statement or prosecutor ap&p adult probation and parole response"
               shortDescription="Reply to statement made by prosecutor or, victim, or adult probation and parole"
               appUrl={`${this.props.match.url}/reply-to-statement`}
