@@ -69,7 +69,7 @@ export default function ReplyToStatement_Web({ data }) {
           label={__("statement made by opposition")}
         />
         <TextArea
-          dataKey="case.disagreementReason"
+          dataKey="case.opposingStatementDisagreementReason"
           label={__("i disagree because")}
         />
       </Section>

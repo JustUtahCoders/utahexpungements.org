@@ -41,7 +41,7 @@ export default function ReplyToStatement_Pdf({ data, renderData }) {
           left={farLeft}
           top="20.86%"
         >
-          {`${renderData("person.addressCity")} ${renderData(
+          {`${renderData("person.addressCity")}, ${renderData(
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>
@@ -136,7 +136,7 @@ export default function ReplyToStatement_Pdf({ data, renderData }) {
 
       <RenderPage url={secondPageUrl}>
         <PositionedString
-          dataKey="case.disagreementReason"
+          dataKey="case.opposingStatementDisagreementReason"
           left={disagreementLeft}
           top="28.0%"
           style={{
