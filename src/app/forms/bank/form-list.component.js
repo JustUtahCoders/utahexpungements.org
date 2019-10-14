@@ -122,6 +122,17 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
+              name="Consent and Waiver of Hearing"
+              readyForUsers={false}
+              keywords=""
+              shortDescription="" /*TODO: GET A DESCRIPTION OF THIS FORM FROM TUCKER*/
+              appUrl={this.props.match.url + "/consent-and-waiver-of-hearing"}
+              downloadUrl="" /* TODO: GET THIS */
+              previewUrls={[
+                "/static/forms/consent-and-waiver-of-hearing/consent-and-waiver-of-hearing-1.png"
+              ]}
+            />
+            <FillableForm
               name="Draft court order for expungement conviction"
               readyForUsers={false}
               keywords="prosecutor acceptance serve"

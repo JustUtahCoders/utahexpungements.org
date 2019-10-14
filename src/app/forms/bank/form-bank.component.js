@@ -14,6 +14,8 @@ import PetitionForDrugConviction_Web from "../petition-for-drug-conviction/petit
 import PetitionForDrugConviction_Pdf from "../petition-for-drug-conviction/petition-for-drug-conviction.pdf.component.js";
 import AcceptanceOfService_Web from "../acceptance-of-service/acceptance-of-service.web.component.js";
 import AcceptanceOfService_Pdf from "../acceptance-of-service/acceptance-of-service.pdf.component.js";
+import ConsentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component.js";
+import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
 import DraftCourtOrderConviction_Web from "../draft-court-order-conviction/draft-court-order-conviction.web.component";
 import DraftCourtOrderConviction_Pdf from "../draft-court-order-conviction/draft-court-order-conviction.pdf.component";
 
@@ -89,6 +91,16 @@ export default class FormBank extends React.Component {
               name="Acceptance of Service"
               WebForm={AcceptanceOfService_Web}
               PdfForm={AcceptanceOfService_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={this.props.match.url + "/consent-and-waiver-of-hearing"}
+          render={props => (
+            <GovernmentForm
+              name="Consent And Waiver Of Hearing"
+              WebForm={ConsentAndWaiverOfHearing_Web}
+              PdfForm={ConsentAndWaiverOfHearing_Pdf}
             />
           )}
         />
