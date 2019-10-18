@@ -81,10 +81,41 @@ const debtOwed = [
   "MinimumMonthlyPayment"
 ];
 
+const bankOrCredit = [
+  "AccountNumber",
+  "DateOpened",
+  "NameAndAddress",
+  "NamesOnAccount",
+  "CurrentBalance"
+];
+
+const stocksAndSecurities = [
+  "AccountNumber",
+  "DateOpened",
+  "NameAndAddress",
+  "NamesOnAccount",
+  "CurrentBalance"
+];
+
+const moneyOwedToMe = [
+  "DateOfLoan",
+  "NameAndAddress",
+  "NamesOnAccount",
+  "CurrentBalance"
+];
+
+const otherAssets = [
+  "AccountNumber",
+  "DateOpened",
+  "NameAndAddress",
+  "NamesOnAccount",
+  "CurrentBalance"
+];
+
 export default function MotionToWaiveFees_Web({ data }) {
   const scope = useCss(css);
   return (
-    <FormThatPrints {...css}>
+    <FormThatPrints {...scope}>
       <h1 className="web-from-input">This is a private record</h1>
       <Section name="1. Personal information">
         <TextInput dataKey="person.firstName" label="First name" />
@@ -586,6 +617,135 @@ export default function MotionToWaiveFees_Web({ data }) {
           dataKey="person.financialAssets"
           name="financialAssets"
         />
+        {data.person.financialAssets && (
+          <React.Fragment>
+            <CheckBox
+              label="Bank or credit union"
+              dataKey="person.financialBankOrCreditUnion"
+              name="bankOrCredit"
+            />
+            {data.person.financialBankOrCreditUnion && (
+              <TextInputGroup
+                groupLabel="Bank or credit union"
+                inputs={bankOrCredit}
+                buttonLabel="Bank or credit union"
+                maxInputs={2}
+                dataKey="person.bankOrCredit"
+              />
+            )}
+            <CheckBox
+              label="Stocks, bonds, securities, money market account, "
+              dataKey="person.financialStocksSecuritiesMoney"
+              name="stocksSecurities"
+            />
+            {data.person.financialStocksSecuritiesMoney && (
+              <TextInputGroup
+                groupLabel="Stocks and securities"
+                inputs={otherAssets}
+                maxInputs={1}
+                dataKey="person.stocksSecurities"
+              />
+            )}
+            <CheckBox
+              label="Retirement account"
+              dataKey="person.financialRetirementAccount"
+              name="retirementAccount"
+            />
+            {data.person.financialRetirementAccount && (
+              <TextInputGroup
+                groupLabel="Retirement account"
+                inputs={otherAssets}
+                maxInputs={1}
+                dataKey="person.retirementAccount"
+              />
+            )}
+            <CheckBox
+              label="Profit sharing plan"
+              dataKey="person.financialProfitSharing"
+              name="profitSharingPlan"
+            />
+            {data.person.financialProfitSharing && (
+              <TextInputGroup
+                groupLabel="Profit Sharing"
+                inputs={otherAssets}
+                maxInputs={1}
+                dataKey="person.profitSharing"
+              />
+            )}
+            <CheckBox
+              label="Annuity"
+              dataKey="person.financialAnnuity"
+              name="financialAnnuity"
+            />
+            {data.person.financialAnnuity && (
+              <TextInputGroup
+                groupLabel="Annuity"
+                inputs={otherAssets}
+                maxInputs={1}
+                dataKey="person.annuity"
+              />
+            )}
+            <CheckBox
+              label="Life insurance"
+              dataKey="person.financialLifeInsurance"
+              name="lifeInsurance"
+            />
+            {data.person.financialLifeInsurance && (
+              <TextInputGroup
+                groupLabel="Life insurance"
+                inputs={otherAssets}
+                maxInputs={1}
+                dataKey="person.lifeInsurance"
+              />
+            )}
+            <CheckBox
+              label="Money owed to me"
+              dataKey="person.financialMoneyOwed"
+              name="moneyOwed"
+            />
+            {data.person.financialMoneyOwed && (
+              <TextInputGroup
+                groupLabel="Money owed to me"
+                inputs={moneyOwedToMe}
+                maxInputs={1}
+                dataKey="person.moneyOwed"
+              />
+            )}
+            <CheckBox
+              label="Cash"
+              dataKey="person.financialCash"
+              name="financialCash"
+            />
+            {data.person.financialCash && (
+              <TextInputGroup
+                groupLabel="Cash"
+                inputs={bankOrCredit}
+                maxInputs={1}
+                dataKey="person.cash"
+              />
+            )}
+            <CheckBox
+              label="Other"
+              dataKey="person.financialOther"
+              name="financialOther"
+            />
+            {data.person.financialOther && (
+              <div>
+                <TextArea
+                  label="Describe"
+                  dataKey="person.financialOtherExplain"
+                />
+
+                <TextInputGroup
+                  groupLabel="Other"
+                  inputs={bankOrCredit}
+                  maxInputs={1}
+                  dataKey="person.financialOtherData"
+                />
+              </div>
+            )}
+          </React.Fragment>
+        )}
       </Section>
 
       <Section name="10. Real Estate">

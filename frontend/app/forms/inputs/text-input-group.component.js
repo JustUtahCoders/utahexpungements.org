@@ -51,8 +51,10 @@ export default function TextInputGroup(props) {
           </React.Fragment>
         ))}
       </div>
-      {showFormBanner && <div className="formBanner">Max Reached</div>}
-      {!showFormBanner && (
+      {showFormBanner && props.maxInputs > 1 && (
+        <div className="formBanner">Max Reached</div>
+      )}
+      {!showFormBanner && props.maxInputs > 1 && (
         <button className="web-form-input" onClick={evt => handleAddGroup(evt)}>
           Add {props.buttonLabel}
         </button>
