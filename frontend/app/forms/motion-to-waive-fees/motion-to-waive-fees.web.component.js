@@ -1,5 +1,4 @@
 import React from "react";
-import { Scoped, useCss } from "kremling";
 import TextInput from "../inputs/text-input.component.js";
 import FormThatPrints from "../inputs/form-that-prints.component.js";
 import Section from "../inputs/section.component.js";
@@ -113,9 +112,8 @@ const otherAssets = [
 ];
 
 export default function MotionToWaiveFees_Web({ data }) {
-  const scope = useCss(css);
   return (
-    <FormThatPrints {...scope}>
+    <FormThatPrints>
       <h1 className="web-from-input">This is a private record</h1>
       <Section name="1. Personal information">
         <TextInput dataKey="person.firstName" label="First name" />
@@ -639,12 +637,32 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="stocksSecurities"
             />
             {data.person.financialStocksSecuritiesMoney && (
-              <TextInputGroup
-                groupLabel="Stocks and securities"
-                inputs={otherAssets}
-                maxInputs={1}
-                dataKey="person.stocksSecurities"
-              />
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dataKey="person.stocksAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dataKey="person.stocksDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.stocksName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.stocksAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.stocksNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.stocksBalance"
+                />
+              </div>
             )}
             <CheckBox
               label="Retirement account"
@@ -652,12 +670,32 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="retirementAccount"
             />
             {data.person.financialRetirementAccount && (
-              <TextInputGroup
-                groupLabel="Retirement account"
-                inputs={otherAssets}
-                maxInputs={1}
-                dataKey="person.retirementAccount"
-              />
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dataKey="person.retirementAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dataKey="person.retirementDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.retirementName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.retirementAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.retirementNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.retirementBalance"
+                />
+              </div>
             )}
             <CheckBox
               label="Profit sharing plan"
@@ -665,12 +703,32 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="profitSharingPlan"
             />
             {data.person.financialProfitSharing && (
-              <TextInputGroup
-                groupLabel="Profit Sharing"
-                inputs={otherAssets}
-                maxInputs={1}
-                dataKey="person.profitSharing"
-              />
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dateKet="person.profitShareAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dateKet="person.profitShareDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dateKet="person.profitShareName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dateKet="person.profitShareAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dateKet="person.profitShareNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dateKet="person.profitShareBalance"
+                />
+              </div>
             )}
             <CheckBox
               label="Annuity"
@@ -678,12 +736,32 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="financialAnnuity"
             />
             {data.person.financialAnnuity && (
-              <TextInputGroup
-                groupLabel="Annuity"
-                inputs={otherAssets}
-                maxInputs={1}
-                dataKey="person.annuity"
-              />
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dataKey="person.annuityAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dataKey="person.annuityDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.annuityName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.annuityAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.annuityNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.annuityBalance"
+                />
+              </div>
             )}
             <CheckBox
               label="Life insurance"
@@ -691,12 +769,32 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="lifeInsurance"
             />
             {data.person.financialLifeInsurance && (
-              <TextInputGroup
-                groupLabel="Life insurance"
-                inputs={otherAssets}
-                maxInputs={1}
-                dataKey="person.lifeInsurance"
-              />
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dataKey="person.lifeInsuranceAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dataKey="person.lifeInsuranceDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.lifeInsuranceName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.lifeInsuranceAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.lifeInsuranceNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.lifeInsuranceBalance"
+                />
+              </div>
             )}
             <CheckBox
               label="Money owed to me"
@@ -704,12 +802,28 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="moneyOwed"
             />
             {data.person.financialMoneyOwed && (
-              <TextInputGroup
-                groupLabel="Money owed to me"
-                inputs={moneyOwedToMe}
-                maxInputs={1}
-                dataKey="person.moneyOwed"
-              />
+              <div className="web-form-input">
+                <TextInput
+                  label="Date of loan"
+                  dataKey="person.moneyOwedDate"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.moneyOwedName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.moneyOwedAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.moneyOwedNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.moneyOwedBalance"
+                />
+              </div>
             )}
             <CheckBox
               label="Cash"
@@ -717,12 +831,12 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="financialCash"
             />
             {data.person.financialCash && (
-              <TextInputGroup
-                groupLabel="Cash"
-                inputs={bankOrCredit}
-                maxInputs={1}
-                dataKey="person.cash"
-              />
+              <div className="web-form-input">
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.cashBalance"
+                />
+              </div>
             )}
             <CheckBox
               label="Other"
@@ -730,18 +844,12 @@ export default function MotionToWaiveFees_Web({ data }) {
               name="financialOther"
             />
             {data.person.financialOther && (
-              <div>
+              <div className="web-form-input">
                 <TextArea
                   label="Describe"
                   dataKey="person.financialOtherExplain"
                 />
-
-                <TextInputGroup
-                  groupLabel="Other"
-                  inputs={bankOrCredit}
-                  maxInputs={1}
-                  dataKey="person.financialOtherData"
-                />
+                <TextInput label="Current Balance" />
               </div>
             )}
           </React.Fragment>
@@ -812,6 +920,3 @@ export default function MotionToWaiveFees_Web({ data }) {
     </FormThatPrints>
   );
 }
-
-const css = `
-`;
