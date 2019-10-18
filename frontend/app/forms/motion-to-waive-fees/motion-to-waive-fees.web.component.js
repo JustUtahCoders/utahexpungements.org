@@ -88,29 +88,6 @@ const bankOrCredit = [
   "CurrentBalance"
 ];
 
-const stocksAndSecurities = [
-  "AccountNumber",
-  "DateOpened",
-  "NameAndAddress",
-  "NamesOnAccount",
-  "CurrentBalance"
-];
-
-const moneyOwedToMe = [
-  "DateOfLoan",
-  "NameAndAddress",
-  "NamesOnAccount",
-  "CurrentBalance"
-];
-
-const otherAssets = [
-  "AccountNumber",
-  "DateOpened",
-  "NameAndAddress",
-  "NamesOnAccount",
-  "CurrentBalance"
-];
-
 export default function MotionToWaiveFees_Web({ data }) {
   return (
     <FormThatPrints>
@@ -648,7 +625,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Name of institution"
-                  dataKey="person.stocksName"
+                  dataKey="person.stocksInstitutionName"
                 />
                 <TextInput
                   label="Address of institution"
@@ -656,7 +633,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Names on account"
-                  dataKey="person.stocksNames"
+                  dataKey="person.stocksAccountNames"
                 />
                 <TextInput
                   label="Current Balance"
@@ -681,7 +658,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Name of institution"
-                  dataKey="person.retirementName"
+                  dataKey="person.retirementInstitutionName"
                 />
                 <TextInput
                   label="Address of institution"
@@ -689,7 +666,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Names on account"
-                  dataKey="person.retirementNames"
+                  dataKey="person.retirementAccountNames"
                 />
                 <TextInput
                   label="Current Balance"
@@ -714,7 +691,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Name of institution"
-                  dateKet="person.profitShareName"
+                  dateKet="person.profitInstitutionShareName"
                 />
                 <TextInput
                   label="Address of institution"
@@ -722,7 +699,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Names on account"
-                  dateKet="person.profitShareNames"
+                  dateKet="person.profitShareAccountNames"
                 />
                 <TextInput
                   label="Current Balance"
@@ -747,7 +724,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Name of institution"
-                  dataKey="person.annuityName"
+                  dataKey="person.annuityInstitutionName"
                 />
                 <TextInput
                   label="Address of institution"
@@ -755,7 +732,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Names on account"
-                  dataKey="person.annuityNames"
+                  dataKey="person.annuityAccountNames"
                 />
                 <TextInput
                   label="Current Balance"
@@ -780,7 +757,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Name of institution"
-                  dataKey="person.lifeInsuranceName"
+                  dataKey="person.lifeInsuranceInstitutionName"
                 />
                 <TextInput
                   label="Address of institution"
@@ -788,7 +765,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Names on account"
-                  dataKey="person.lifeInsuranceNames"
+                  dataKey="person.lifeInsuranceAccountNames"
                 />
                 <TextInput
                   label="Current Balance"
@@ -809,7 +786,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Name of institution"
-                  dataKey="person.moneyOwedName"
+                  dataKey="person.moneyOwedInstitutionName"
                 />
                 <TextInput
                   label="Address of institution"
@@ -817,7 +794,7 @@ export default function MotionToWaiveFees_Web({ data }) {
                 />
                 <TextInput
                   label="Names on account"
-                  dataKey="person.moneyOwedNames"
+                  dataKey="person.moneyOwedAccountNames"
                 />
                 <TextInput
                   label="Current Balance"
