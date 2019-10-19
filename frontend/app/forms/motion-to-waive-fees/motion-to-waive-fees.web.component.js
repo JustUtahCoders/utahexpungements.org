@@ -1,5 +1,4 @@
 import React from "react";
-import { Scoped, useCss } from "kremling";
 import TextInput from "../inputs/text-input.component.js";
 import FormThatPrints from "../inputs/form-that-prints.component.js";
 import Section from "../inputs/section.component.js";
@@ -81,10 +80,17 @@ const debtOwed = [
   "MinimumMonthlyPayment"
 ];
 
+const bankOrCredit = [
+  "AccountNumber",
+  "DateOpened",
+  "NameAndAddress",
+  "NamesOnAccount",
+  "CurrentBalance"
+];
+
 export default function MotionToWaiveFees_Web({ data }) {
-  const scope = useCss(css);
   return (
-    <FormThatPrints {...css}>
+    <FormThatPrints>
       <h1 className="web-from-input">This is a private record</h1>
       <Section name="1. Personal information">
         <TextInput dataKey="person.firstName" label="First name" />
@@ -586,6 +592,245 @@ export default function MotionToWaiveFees_Web({ data }) {
           dataKey="person.financialAssets"
           name="financialAssets"
         />
+        {data.person.financialAssets && (
+          <React.Fragment>
+            <CheckBox
+              label="Bank or credit union"
+              dataKey="person.financialBankOrCreditUnion"
+              name="bankOrCredit"
+            />
+            {data.person.financialBankOrCreditUnion && (
+              <TextInputGroup
+                groupLabel="Bank or credit union"
+                inputs={bankOrCredit}
+                buttonLabel="Bank or credit union"
+                maxInputs={2}
+                dataKey="person.bankOrCredit"
+              />
+            )}
+            <CheckBox
+              label="Stocks, bonds, securities, money market account, "
+              dataKey="person.financialStocksSecuritiesMoney"
+              name="stocksSecurities"
+            />
+            {data.person.financialStocksSecuritiesMoney && (
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dataKey="person.stocksAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dataKey="person.stocksDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.stocksInstitutionName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.stocksAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.stocksAccountNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.stocksBalance"
+                />
+              </div>
+            )}
+            <CheckBox
+              label="Retirement account"
+              dataKey="person.financialRetirementAccount"
+              name="retirementAccount"
+            />
+            {data.person.financialRetirementAccount && (
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dataKey="person.retirementAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dataKey="person.retirementDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.retirementInstitutionName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.retirementAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.retirementAccountNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.retirementBalance"
+                />
+              </div>
+            )}
+            <CheckBox
+              label="Profit sharing plan"
+              dataKey="person.financialProfitSharing"
+              name="profitSharingPlan"
+            />
+            {data.person.financialProfitSharing && (
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dateKet="person.profitShareAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dateKet="person.profitShareDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dateKet="person.profitInstitutionShareName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dateKet="person.profitShareAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dateKet="person.profitShareAccountNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dateKet="person.profitShareBalance"
+                />
+              </div>
+            )}
+            <CheckBox
+              label="Annuity"
+              dataKey="person.financialAnnuity"
+              name="financialAnnuity"
+            />
+            {data.person.financialAnnuity && (
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dataKey="person.annuityAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dataKey="person.annuityDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.annuityInstitutionName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.annuityAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.annuityAccountNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.annuityBalance"
+                />
+              </div>
+            )}
+            <CheckBox
+              label="Life insurance"
+              dataKey="person.financialLifeInsurance"
+              name="lifeInsurance"
+            />
+            {data.person.financialLifeInsurance && (
+              <div className="web-form-input">
+                <TextInput
+                  label="Account number"
+                  dataKey="person.lifeInsuranceAccount"
+                />
+                <TextInput
+                  label="Date opened"
+                  dataKey="person.lifeInsuranceDateOpened"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.lifeInsuranceInstitutionName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.lifeInsuranceAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.lifeInsuranceAccountNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.lifeInsuranceBalance"
+                />
+              </div>
+            )}
+            <CheckBox
+              label="Money owed to me"
+              dataKey="person.financialMoneyOwed"
+              name="moneyOwed"
+            />
+            {data.person.financialMoneyOwed && (
+              <div className="web-form-input">
+                <TextInput
+                  label="Date of loan"
+                  dataKey="person.moneyOwedDate"
+                />
+                <TextInput
+                  label="Name of institution"
+                  dataKey="person.moneyOwedInstitutionName"
+                />
+                <TextInput
+                  label="Address of institution"
+                  dataKey="person.moneyOwedAddress"
+                />
+                <TextInput
+                  label="Names on account"
+                  dataKey="person.moneyOwedAccountNames"
+                />
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.moneyOwedBalance"
+                />
+              </div>
+            )}
+            <CheckBox
+              label="Cash"
+              dataKey="person.financialCash"
+              name="financialCash"
+            />
+            {data.person.financialCash && (
+              <div className="web-form-input">
+                <TextInput
+                  label="Current Balance"
+                  dataKey="person.cashBalance"
+                />
+              </div>
+            )}
+            <CheckBox
+              label="Other"
+              dataKey="person.financialOther"
+              name="financialOther"
+            />
+            {data.person.financialOther && (
+              <div className="web-form-input">
+                <TextArea
+                  label="Describe"
+                  dataKey="person.financialOtherExplain"
+                />
+                <TextInput label="Current Balance" />
+              </div>
+            )}
+          </React.Fragment>
+        )}
       </Section>
 
       <Section name="10. Real Estate">
@@ -652,6 +897,3 @@ export default function MotionToWaiveFees_Web({ data }) {
     </FormThatPrints>
   );
 }
-
-const css = `
-`;
