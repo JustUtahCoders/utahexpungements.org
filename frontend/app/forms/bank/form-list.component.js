@@ -217,6 +217,19 @@ export default class FormList extends React.Component {
                 "/static/forms/reply-to-statement/03_Petitioner_Reply-3.png"
               ]}
             />
+            <FillableForm
+              name="Petition to Expunge Records (Special Certificate from BCI)"
+              readyForUsers={false}
+              keywords="petition to expunge records special certificate from bci"
+              shortDescription="Petition to expunge records using a special certificate from BCI"
+              appUrl={`${this.props.match.url}/special-bci`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-special_certificate.pdf"
+              previewUrls={[
+                "/static/forms/special-bci/01_Petition_to_Expunge_Records_Criminal-special_certificate-1.png",
+                "/static/forms/special-bci/01_Petition_to_Expunge_Records_Criminal-special_certificate-2.png",
+                "/static/forms/special-bci/01_Petition_to_Expunge_Records_Criminal-special_certificate-3.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>

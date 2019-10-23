@@ -296,7 +296,10 @@ const translations = {
   // reply to statement form
   "statement made by opposition":
     "Statement made by the prosecutor, victim or Adult Probation and Parole that I disagree with",
-  "i disagree because": "I disagree because"
+  "i disagree because": "I disagree because",
+
+  // special certificate from bci
+  "have conviction": "Was the petitioner convicted for the case?"
 };
 
 export default translations;

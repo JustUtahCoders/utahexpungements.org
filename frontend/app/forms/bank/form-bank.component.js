@@ -29,6 +29,8 @@ import PetitionForDismissalOrAcquittal_Pdf from "../petition-for-dismissal-or-ac
 import PetitionForDismissalOrAcquittal_Web from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.web.component.js";
 import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.component";
 import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
+import SpecialBci_Web from "../special-bci/special-bci.web.component";
+import SpecialBci_Pdf from "../special-bci/special-bci.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -165,6 +167,16 @@ export default class FormBank extends React.Component {
               name="Reply to Victim's Statement or Prosecutor's Statement or AP&P Response"
               WebForm={ReplyToStatement_Web}
               PdfForm={ReplyToStatement_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/special-bci`}
+          render={props => (
+            <GovernmentForm
+              name="Petition to Expunge Records (Special Certificate from BCI)"
+              WebForm={SpecialBci_Web}
+              PdfForm={SpecialBci_Pdf}
             />
           )}
         />

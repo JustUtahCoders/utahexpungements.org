@@ -59,6 +59,11 @@ export const courtTypeOptions = [
   { label: "Justice Court", value: "Justice" }
 ];
 
+export const convictedOptions = [
+  { label: "Yes, petitioner was convicted", value: "Yes" },
+  { label: "No, petitioner was not convicted", value: "No" }
+];
+
 export const pryingQuestionOptions = [
   {
     label: "I have not been diagnosed as having a substance abuse addiction.",
