@@ -10,9 +10,9 @@ export const success = `#3e9a3e`;
 export const danger = `#bb3434`;
 export const darkDanger = `#8f2828`;
 export const rawNavbarHeight = 50;
-export const navbarHeight = `50rem`;
+export const navbarHeight = `50px`;
 const rawBreadcrumbHeight = rawNavbarHeight;
-export const breadcrumbHeight = rawBreadcrumbHeight + `rem`;
+export const breadcrumbHeight = rawBreadcrumbHeight + `px`;
 export const mediaMobile = `@media screen and (max-width: 720px) and (min-width: 1px)`;
 export const mediaDesktop = `@media screen and (min-width: 720px)`;
 export const boxShadow1 = `0 10px 30px -24px #4b4e53`;
@@ -26,7 +26,7 @@ export const fontFamily = `'Roboto Condensed', sans-serif`;
 
 export default `
   :root {
-    font-size: 1px; /* for 1rem to be 1px */
+    font-size: 16px;
     font-family: ${fontFamily};
     background-color: ${lightGray};
     --color-primary: ${primary};
@@ -40,7 +40,7 @@ export default `
   }
 
   body {
-    font-size: 16px;
+    font-size: 1rem;
     margin: 0;
   }
 
@@ -57,7 +57,7 @@ export default `
   }
 
   & .breadcrumb-margin-top {
-    margin-top: ${rawNavbarHeight + rawBreadcrumbHeight}rem;
+    margin-top: ${rawNavbarHeight + rawBreadcrumbHeight}px;
   }
 
   & .primary: {
@@ -91,8 +91,8 @@ export default `
   }
 
   & button, & a.button {
-    font-size: 18rem;
-    border-radius: 6rem;
+    font-size: 1.125rem;
+    border-radius: 6px;
     padding: 8px 12px;
     border: none;
     font-family: ${fontFamily};
@@ -100,7 +100,7 @@ export default `
   }
 
   & button.small {
-    font-size: 14rem;
+    font-size: 0.875rem;
   }
 
   & button.primary, & a.primary {
@@ -134,7 +134,7 @@ export default `
   }
 
   & .web-form-input {
-    margin: 24rem 0 0 32rem;
+    margin: 24px 0 0 32px;
   }
 
   & button:disabled, & a.button:disabled, & button:disabled:hover, & a.button:disabled:hover {
@@ -158,7 +158,7 @@ export default `
   }
 
   & .vertical-margin-8 {
-    margin: 8rem 0;
+    margin: 8px 0;
   }
 
   ${mediaMobile} {
@@ -167,7 +167,7 @@ export default `
     }
 
     & button:not(.unstyled) + button:not(.unstyled), & button:not(.unstyled) + .button:not(.unstyled), & .button:not(.unstyled) + .button:not(.unstyled), & .button:not(.unstyled) + button:not(.unstyled) {
-      margin-top: 16rem;
+      margin-top: 16px;
     }
   }
 
@@ -177,7 +177,7 @@ export default `
     }
 
     & button:not(.unstyled) + button:not(.unstyled), & button:not(.unstyled) + .button:not(.unstyled), & .button:not(.unstyled) + .button:not(.unstyled), & .button:not(.unstyled) + button:not(.unstyled) {
-      margin-left: 16rem;
+      margin-left: 16px;
     }
 
     & .card {
@@ -189,7 +189,7 @@ export default `
     font-family: ${fontFamily};
     background-color: ${lightGray};
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     border: none;
     background-color: rgb(226, 226, 226);
     padding: 8px 12px;
@@ -202,7 +202,7 @@ export default `
   }
 
   & ul.with-bullets li:not(last-child) {
-    margin-bottom: 8rem;
+    margin-bottom: 8px;
   }
 
   & .card {

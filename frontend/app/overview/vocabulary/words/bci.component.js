@@ -47,6 +47,6 @@ export default function BCIDefn(props) {
 const css = `
   & .contact-information {
     font-style: italic;
-    margin-bottom: 4rem;
+    margin-bottom: 4px;
   }
 `;

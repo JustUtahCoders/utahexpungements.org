@@ -41,6 +41,6 @@ export default function GroupSelect({ dataKey, label, groupOptions }) {
 
 const css = `
         & .select-label {
-            margin-bottom: 8rem
+            margin-bottom: 8px;
         }
 `;

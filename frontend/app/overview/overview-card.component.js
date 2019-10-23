@@ -34,6 +34,6 @@ const css = `
   }
 
   & .actions {
-    margin-top: 16rem;
+    margin-top: 16px;
   }
 `;

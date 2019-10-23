@@ -33,6 +33,6 @@ const css = `
 
   & .clinic-line >:first-child {
     font-weight: bold;
-    margin-right: 4rem;
+    margin-right: 4px;
   }
 `;

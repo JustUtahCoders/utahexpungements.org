@@ -127,10 +127,10 @@ export const css = `
 
   & .main-content {
     width: 75vw;
-    max-width: 936rem;
-    margin: ${rawNavbarHeight + 32}rem auto;
-    padding: 32rem;
-    border: 1rem solid ${darkGray};
+    max-width: 936px;
+    margin: ${rawNavbarHeight + 32}px auto;
+    padding: 32px;
+    border: 1px solid ${darkGray};
   }
 `;
 

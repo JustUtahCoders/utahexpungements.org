@@ -18,6 +18,6 @@ export default class Breadcrumb extends React.Component {
 
 const css = `
   & .caret {
-    margin: 0 8rem;
+    margin: 0 8px;
   }
 `;

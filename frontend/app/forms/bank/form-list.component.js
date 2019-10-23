@@ -248,16 +248,16 @@ export default class FormList extends React.Component {
 
 const css = `
   & .forms-list {
-    margin-top: 24rem;
+    margin-top: 24px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-right: -32rem;
-    margin-bottom: -32rem;
+    margin-right: -32px;
+    margin-bottom: -32px;
   }
 
   & .under-construction {
-    margin: 8rem 0;
+    margin: 8px 0;
   }
 `;

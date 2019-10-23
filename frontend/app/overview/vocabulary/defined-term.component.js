@@ -114,17 +114,17 @@ const css = `
     z-index: 100;
     position: absolute;
     width: 50%;
-    max-width: 450rem;
-    border: 1rem solid #afafaf;
-    padding: 0 8rem;
+    max-width: 450px;
+    border: 1px solid #afafaf;
+    padding: 0 8px;
     box-shadow: 0 16px 50px -24px #212224;
     background-color: #f3f3f3;
-    border-radius: 6rem;
+    border-radius: 6px;
   }
 
   & .got-it {
     display: flex;
     justify-content: center;
-    margin: 8rem 0;
+    margin: 8px 0;
   }
 `;

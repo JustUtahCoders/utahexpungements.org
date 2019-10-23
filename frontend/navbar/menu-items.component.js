@@ -88,22 +88,22 @@ const css = `
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: 18rem;
+    font-size: 1.125rem;
   }
 
   & .menu-items {
-    min-width: 275rem;
-    max-width: 275rem;
+    min-width: 275px;
+    max-width: 275px;
   }
 
   & .auth-section {
-    padding: 16rem;
-    font-size: 13rem;
+    padding: 16px;
+    font-size: 0.8125rem;
   }
 
   & .menu-item {
     display: flex;
-    padding: 16rem;
+    padding: 16px;
     height: 100%;
     width: 100%;
     text-decoration: none;
@@ -114,7 +114,7 @@ const css = `
   }
 
   & .sub-item {
-    padding-left: 32rem;
+    padding-left: 32px;
   }
 
   & .side-menu {
@@ -130,6 +130,6 @@ const css = `
   }
 
   & .side-menu.off-screen {
-    left: -275rem;
+    left: -275px;
   }
 `;
