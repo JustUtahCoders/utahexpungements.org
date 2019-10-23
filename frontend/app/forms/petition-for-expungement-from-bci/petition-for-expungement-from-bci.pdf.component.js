@@ -114,67 +114,44 @@ export default function PetitionForExpungementFromBci_Pdf({
         />
       </RenderPage>
       <RenderPage url="/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-2.png">
-        {data.case.chargesFiled ? (
-          <>
-            <PositionedCheckmark
-              debugKey="concludesCaseNumberCheck"
-              left={page2Checkmarks}
-              top="19.2%"
-              shouldShow={true}
-            />
-            <PositionedString
-              dataKey="case.caseNumber"
-              left="53.05%"
-              top="21%"
-            />
-            <PositionedCheckmark
-              debugKey="ordersCaseNumberCheck"
-              left={page2Checkmarks}
-              top="35.1%"
-              shouldShow={true}
-            />
-            <PositionedString
-              dataKey="case.caseNumber"
-              left="43.65%"
-              top="37.7%"
-            />
-          </>
-        ) : (
-          <>
-            <PositionedCheckmark
-              debugKey="concludesLeaCheck"
-              left={page2Checkmarks}
-              top="25.9%"
-              shouldShow={true}
-            />
-            <PositionedString
-              dataKey="case.leaFileNumber"
-              left="17.75%"
-              top="27.7%"
-            />
-            <PositionedString
-              dataKey="case.leaName"
-              left="56.75%"
-              top="27.7%"
-            />
-            <PositionedCheckmark
-              debugKey="ordersLeaCheck"
-              left={page2Checkmarks}
-              top="41.9%"
-              shouldShow={true}
-            />
-            <PositionedString
-              dataKey="case.leaFileNumber"
-              left="17.75%"
-              top="44.3%"
-            />
-            <PositionedString
-              dataKey="case.leaName"
-              left="56.75%"
-              top="44.3%"
-            />
-          </>
-        )}
+        <PositionedCheckmark
+          debugKey="concludesCaseNumberCheck"
+          left={page2Checkmarks}
+          top="19.2%"
+          shouldShow={true}
+        />
+        <PositionedString dataKey="case.caseNumber" left="53.05%" top="21%" />
+        <PositionedCheckmark
+          debugKey="concludesLeaCheck"
+          left={page2Checkmarks}
+          top="25.9%"
+          shouldShow={true}
+        />
+        <PositionedString
+          dataKey="case.leaFileNumber"
+          left="17.75%"
+          top="27.7%"
+        />
+        <PositionedString dataKey="case.leaName" left="56.75%" top="27.7%" />
+        <PositionedCheckmark
+          debugKey="ordersCaseNumberCheck"
+          left={page2Checkmarks}
+          top="35.1%"
+          shouldShow={true}
+        />
+        <PositionedString dataKey="case.caseNumber" left="43.65%" top="37.7%" />
+        <PositionedCheckmark
+          debugKey="ordersLeaCheck"
+          left={page2Checkmarks}
+          top="41.9%"
+          shouldShow={true}
+        />
+        <PositionedString
+          dataKey="case.leaFileNumber"
+          left="17.75%"
+          top="44.3%"
+        />
+        <PositionedString dataKey="case.leaName" left="56.75%" top="44.3%" />
       </RenderPage>
       <RenderPage url="/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-3.png" />
     </>
