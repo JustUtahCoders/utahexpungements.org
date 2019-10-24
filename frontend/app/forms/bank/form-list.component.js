@@ -98,7 +98,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("Coversheet")}
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="coversheet"
               shortDescription={__("Civil Filing Coversheet")}
               appUrl={this.props.match.url + "/coversheet"}
@@ -110,7 +110,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("petition for drug conviction")}
-              readyForUsers
+              readyForUsers={false}
               keywords="drug conviction petition"
               shortDescription={__(
                 "petition for drug conviction short description"
@@ -138,7 +138,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Acceptance of Service"
-              readyForUsers
+              readyForUsers={true}
               keywords="prosecutor acceptance serve"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
               appUrl={this.props.match.url + "/acceptance-of-service"}
@@ -149,7 +149,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Draft court order for expungement conviction"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="prosecutor acceptance serve"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
               appUrl={this.props.match.url + "/draft-court-order-conviction"}
@@ -162,7 +162,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Draft court order for expungement (drug possession conviction)"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="court order expunge drug possession conviction"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement (drug possession)"
               appUrl={
@@ -178,7 +178,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Draft court order on motion to waive fees"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="draft court order motion waive fees"
               shortDescription="A form you file with the courts along with your expungement petition so the judge can rule on your motion to waive fees"
               appUrl={
@@ -193,7 +193,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Order on Petition to Expunge Records (Charges never filed)"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="order on petition to expunge records charges never filed"
               shortDescription="Court order given to the judge when charges are dropped"
               appUrl={`${this.props.match.url}/order-on-petition-charges-not-filed`}
@@ -205,7 +205,7 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name="Reply to Victim's Statement or Prosecutor's Statement or AP&P Response"
+              name="Attorney, victim, or prosecutor response statement"
               readyForUsers={true}
               keywords="reply to victim statement or prosecutor ap&p adult probation and parole response"
               shortDescription="Reply to statement made by prosecutor or, victim, or adult probation and parole"
