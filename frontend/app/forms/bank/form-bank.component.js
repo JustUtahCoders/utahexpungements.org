@@ -29,6 +29,8 @@ import PetitionForDismissalOrAcquittal_Pdf from "../petition-for-dismissal-or-ac
 import PetitionForDismissalOrAcquittal_Web from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.web.component.js";
 import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.component";
 import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
+import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
+import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -175,7 +177,15 @@ export default class FormBank extends React.Component {
               name="Proof of Completed Service"
               WebForm={ProofOfCompletedService_Web}
               PdfForm={ProofOfCompletedService_Pdf}
-            />
+        />
+        <Route
+          path={`${this.props.match.url}/petition-for-expungement-from-bci`}
+          render={props => (
+            <GovernmentForm
+              name="Petition for Expungement (Special Certificate from BCI)"
+              WebForm={PetitionForExpungementFromBci_Web}
+              PdfForm={PetitionForExpungementFromBci_Pdf}
+         />
           )}
         />
       </>
