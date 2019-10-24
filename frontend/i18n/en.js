@@ -296,7 +296,12 @@ const translations = {
   // reply to statement form
   "statement made by opposition":
     "Statement made by the prosecutor, victim or Adult Probation and Parole that I disagree with",
-  "i disagree because": "I disagree because"
+  "i disagree because": "I disagree because",
+
+  // application for pardon
+  "application for board of pardon expungement": "NEEDS DESCRIPTION", // not sure on this
+  "app for board of pardon expungement":
+    "Application for Board of Pardon Expungement"
 };
 
 export default translations;
