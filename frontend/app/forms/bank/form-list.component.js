@@ -209,7 +209,7 @@ export default class FormList extends React.Component {
               name="Petition for Charges Never Filed"
               readyForUsers={true}
               keywords="petition to expungement charges never filed"
-              shortDescription="This form requests a court order for an expungement. You must first obtain a Certificate of Eligibility before filing this form."
+              shortDescription="This form requests a court order for an expungement when charges where never filed. You must first obtain a Certificate of Eligibility before filing this form."
               appUrl={
                 this.props.match.url + "/petition-for-charges-never-filed"
               }
