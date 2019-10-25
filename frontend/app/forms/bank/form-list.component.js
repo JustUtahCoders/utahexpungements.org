@@ -148,6 +148,18 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
+              name="Consent and Waiver of Hearing"
+              readyForUsers={false}
+              keywords="Prosecutor waiver hearing"
+              shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
+              appUrl={this.props.match.url + "/consent-and-waiver-of-hearing"}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/09_Consent-waiver_of_hearing.pdf"
+              previewUrls={[
+                "/static/forms/consent-and-waiver-of-hearing/consent-and-waiver-of-hearing-1.png",
+                "/static/forms/consent-and-waiver-of-hearing/consent-and-waiver-of-hearing-2.png"
+              ]}
+            />
+            <FillableForm
               name="Draft court order for expungement conviction"
               readyForUsers={true}
               keywords="prosecutor acceptance serve"
