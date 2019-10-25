@@ -1,7 +1,6 @@
 import React from "react";
 import RenderPage from "../render-page.component.js";
-import { Scoped, a, m } from "kremling";
-import { getClassname } from "../pdf-rendering/data-key.helpers.js";
+import { Scoped, a, m, useCss } from "kremling";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import moment from "moment";
@@ -10,10 +9,11 @@ export default function ApplicationForBoardOfPardonExpungement_Pdf({
   renderData,
   data
 }) {
+  const scope = useCss(css);
   return (
     <React.Fragment>
       <RenderPage url="/static/forms/application-for-board-of-pardon-e/BOP-Exp-App-08-09-2019-Mail-In-1.png">
-        <Scoped css={css}>
+        <div {...scope}>
           <PositionedString
             debugKey="personName"
             left="11.5%"
@@ -134,7 +134,7 @@ export default function ApplicationForBoardOfPardonExpungement_Pdf({
               <CurrentDate left="78.12%" top="84.12%" />
             </React.Fragment>
           )}
-        </Scoped>
+        </div>
       </RenderPage>
     </React.Fragment>
   );

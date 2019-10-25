@@ -1,5 +1,4 @@
 import React from "react";
-import { Scoped } from "kremling";
 import TextInput from "../inputs/text-input.component.js";
 import FormThatPrints from "../inputs/form-that-prints.component.js";
 import Select from "../inputs/select.component.js";
@@ -22,7 +21,7 @@ const creditCardOptions = [
 
 export default function ApplicationForBoardOfPardonExpungement_Web({ data }) {
   return (
-    <Scoped css={css}>
+    <React.Fragment>
       <FormThatPrints>
         <Section name="1. Personal information">
           <TextInput dataKey="person.firstName" label={__("first name")} />
@@ -58,7 +57,7 @@ export default function ApplicationForBoardOfPardonExpungement_Web({ data }) {
             options={paymentOptions}
           />
           {data.paymentMethod === "creditCard" && (
-            <>
+            <React.Fragment>
               <Select
                 label="Card issuer"
                 dataKey="creditCardIssuer"
@@ -73,13 +72,10 @@ export default function ApplicationForBoardOfPardonExpungement_Web({ data }) {
               <TextInput dataKey="cardExpirationYear" label="Expiration year" />
               <TextInput dataKey="nameOnCard" label="Name on card" />
               <TextInput dataKey="cardZip" label="Card zip code" />
-            </>
+            </React.Fragment>
           )}
         </Section>
       </FormThatPrints>
-    </Scoped>
+    </React.Fragment>
   );
 }
-
-const css = `
-`;
