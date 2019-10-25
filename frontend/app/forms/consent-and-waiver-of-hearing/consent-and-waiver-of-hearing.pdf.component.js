@@ -7,7 +7,7 @@ import {
   getCounty
 } from "../form-common-options/form-common-options";
 
-export default function consentAndWaiverOfHearing_Pdf({ data, renderData }) {
+export default function ConsentAndWaiverOfHearing_Pdf({ data, renderData }) {
   return (
     <>
       <RenderPage url="/static/forms/consent-and-waiver-of-hearing/consent-and-waiver-of-hearing-1.png">
