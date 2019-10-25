@@ -273,6 +273,22 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
+              name="Proof of Completed Service"
+              readyForUsers={false}
+              keywords="proof of completed service"
+              // Short description used below found here: "https://www.utcourts.gov/howto/service/service_of_process.html"
+              shortDescription="This document must be attached to all papers filed with the court so the court will look at your case"
+              appUrl={`${this.props.match.url}/proof-of-completed-service`}
+              downloadUrl="https://www.utcourts.gov/howto/service/docs/1020GE_Proof_of_Service.pdf"
+              previewUrls={[
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-1.png",
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-2.png",
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-3.png",
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-4.png",
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-5.png"
+              ]}
+            />
+            <FillableForm
               name="Petition for Expungement (Special Certificate from BCI)"
               readyForUsers={true}
               keywords="petition for expungement special certificate from bci"
