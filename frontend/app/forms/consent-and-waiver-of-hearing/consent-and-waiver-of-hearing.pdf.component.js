@@ -1,5 +1,4 @@
 import React from "react";
-import { Scoped } from "kremling";
 import RenderPage from "../render-page.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
@@ -7,7 +6,6 @@ import {
   getJudicialDistrict,
   getCounty
 } from "../form-common-options/form-common-options";
-import Section from "../inputs/section.component.js";
 
 export default function consentAndWaiverOfHearing_Pdf({ data, renderData }) {
   return (

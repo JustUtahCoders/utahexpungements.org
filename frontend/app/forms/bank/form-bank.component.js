@@ -32,8 +32,8 @@ import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.c
 import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
 import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
 
-import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component";
-import consentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component";
+import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component.js";
+import consentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
 
 export default class FormBank extends React.Component {
   render() {
