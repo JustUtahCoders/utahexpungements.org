@@ -194,6 +194,11 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           left="37.7%"
           top="34.1%"
         />
+        <PositionedString
+          dataKey="person.currentEmployment[0].NameOfEmployer"
+          left="19.2%"
+          top="46.2%"
+        />
         <PositionedCheckmark
           dataKey="case.unemployed"
           left="18.1%"

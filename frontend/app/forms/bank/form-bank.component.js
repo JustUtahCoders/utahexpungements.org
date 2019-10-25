@@ -23,10 +23,18 @@ import DraftCourtOrderDrugPossessionConviction_Web from "../draft-court-order-dr
 import DraftCourtOrderDrugPossessionConviction_Pdf from "../draft-court-order-drug-possession-conviction/draft-court-order-drug-possession-conviction.pdf.component";
 import DraftCourtOrderMotionWaiveFees_Web from "../draft-court-order-motion-waive-fees/draft-court-order-motion-waive-fees.web.component";
 import DraftCourtOrderMotionWaiveFees_Pdf from "../draft-court-order-motion-waive-fees/draft-court-order-motion-waive-fees.pdf.component";
+import OrderOnPetitionChargesNotFiled_Web from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-filed.web.component";
+import OrderOnPetitionChargesNotFiled_Pdf from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-filed.pdf.component";
 import PetitionForDismissalOrAcquittal_Pdf from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.pdf.component.js";
 import PetitionForDismissalOrAcquittal_Web from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.web.component.js";
-import PetitonForChargesNeverFiled_Web from "../petition-for-charges-never-filed/petition-for-charges-never-filed.web.component";
-import PetitonForChargesNeverFiled_Pdf from "../petition-for-charges-never-filed/petition-for-charges-never-filed.pdf.component";
+import PetitionForChargesNeverFiled_Web from "../petition-for-charges-never-filed/petition-for-charges-never-filed.web.component";
+import PetitionForChargesNeverFiled_Pdf from "../petition-for-charges-never-filed/petition-for-charges-never-filed.pdf.component";
+
+import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.component";
+import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
+
+import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
+import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -151,8 +159,38 @@ export default class FormBank extends React.Component {
           render={props => (
             <GovernmentForm
               name="Petition for Charges Never Filed"
-              WebForm={PetitonForChargesNeverFiled_Web}
-              PdfForm={PetitonForChargesNeverFiled_Pdf}
+              WebForm={PetitionForChargesNeverFiled_Web}
+              PdfForm={PetitionForChargesNeverFiled_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/order-on-petition-charges-not-filed`}
+          render={props => (
+            <GovernmentForm
+              name="Order on Petition to Expunge Records (Charges never filed)"
+              WebForm={OrderOnPetitionChargesNotFiled_Web}
+              PdfForm={OrderOnPetitionChargesNotFiled_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/reply-to-statement`}
+          render={props => (
+            <GovernmentForm
+              name="Reply to statement or response"
+              WebForm={ReplyToStatement_Web}
+              PdfForm={ReplyToStatement_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/petition-for-expungement-from-bci`}
+          render={props => (
+            <GovernmentForm
+              name="Petition for Expungement (Special Certificate from BCI)"
+              WebForm={PetitionForExpungementFromBci_Web}
+              PdfForm={PetitionForExpungementFromBci_Pdf}
             />
           )}
         />

@@ -61,7 +61,7 @@ export default class FormList extends React.Component {
             <FillableForm
               name={__("app for coe with release")}
               readyForUsers={true}
-              keyworks="application certificate eligibility release third party"
+              keywords="application certificate eligibility release third party"
               shortDescription={__("app for coe with release short descr")}
               appUrl={
                 this.props.match.url + "/application-for-coe-with-release"
@@ -98,7 +98,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("Coversheet")}
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="coversheet"
               shortDescription={__("Civil Filing Coversheet")}
               appUrl={this.props.match.url + "/coversheet"}
@@ -110,7 +110,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("petition for drug conviction")}
-              readyForUsers
+              readyForUsers={false}
               keywords="drug conviction petition"
               shortDescription={__(
                 "petition for drug conviction short description"
@@ -138,7 +138,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Acceptance of Service"
-              readyForUsers
+              readyForUsers={true}
               keywords="prosecutor acceptance serve"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
               appUrl={this.props.match.url + "/acceptance-of-service"}
@@ -149,7 +149,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Draft court order for expungement conviction"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="prosecutor acceptance serve"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
               appUrl={this.props.match.url + "/draft-court-order-conviction"}
@@ -162,7 +162,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Draft court order for expungement (drug possession conviction)"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="court order expunge drug possession conviction"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement (drug possession)"
               appUrl={
@@ -178,7 +178,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Draft court order on motion to waive fees"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="draft court order motion waive fees"
               shortDescription="A form you file with the courts along with your expungement petition so the judge can rule on your motion to waive fees"
               appUrl={
@@ -217,6 +217,45 @@ export default class FormList extends React.Component {
               previewUrls={[
                 "/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-1.png",
                 "/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-2.png"
+              ]}
+            />
+            <FillableForm
+              name="Order on Petition to Expunge Records (Charges never filed)"
+              readyForUsers={true}
+              keywords="order on petition to expunge records charges never filed"
+              shortDescription="Court order given to the judge when charges are dropped"
+              appUrl={`${this.props.match.url}/order-on-petition-charges-not-filed`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-charges_never_filed.pdf"
+              previewUrls={[
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-1.png",
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-2.png",
+                "/static/forms/order-on-petition-charges-never-filed/08_Order-charges_never_filed-3.png"
+              ]}
+            />
+            <FillableForm
+              name="Attorney, victim, or prosecutor response statement"
+              readyForUsers={true}
+              keywords="reply to victim statement or prosecutor ap&p adult probation and parole response"
+              shortDescription="Reply to statement made by prosecutor or, victim, or adult probation and parole"
+              appUrl={`${this.props.match.url}/reply-to-statement`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/03_Petitioner_Reply.pdf"
+              previewUrls={[
+                "/static/forms/reply-to-statement/03_Petitioner_Reply-1.png",
+                "/static/forms/reply-to-statement/03_Petitioner_Reply-2.png",
+                "/static/forms/reply-to-statement/03_Petitioner_Reply-3.png"
+              ]}
+            />
+            <FillableForm
+              name="Petition for Expungement (Special Certificate from BCI)"
+              readyForUsers={true}
+              keywords="petition for expungement special certificate from bci"
+              shortDescription="The form for petitioning for an expungement when you have a special certificate from the BCI."
+              appUrl={`${this.props.match.url}/petition-for-expungement-from-bci`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-special_certificate.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-1.png",
+                "/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-2.png",
+                "/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-3.png"
               ]}
             />
           </FilteredForms>
