@@ -98,15 +98,11 @@ export default function PetitionForDismissalOrAcquittal_Pdf({
           top="65.5%"
         />
         <PositionedString
-          dataKey="case.lawEnforcementAgencysFileNumber"
+          dataKey="case.lawEnforcementAgencyFileNumber"
           left="49.75%"
           top="68.25%"
         />
-        <PositionedString
-          dataKey="case.resultOfArrest"
-          left="20.55%"
-          top="74%"
-        />
+        <PositionedString dataKey="case.caseNumber" left="20.55%" top="74%" />
         <PositionedCheckmark
           dataKey="case.wasNotConvicted"
           left="22.5%"

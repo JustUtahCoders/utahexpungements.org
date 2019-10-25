@@ -14,7 +14,7 @@ import {
   DistrictCourtList
 } from "../form-common-options/form-common-options";
 
-export default function PetitonForChargesNeverFiled_Web({ data }) {
+export default function PetitionForChargesNeverFiled_Web({ data }) {
   return (
     <FormThatPrints>
       <Section name="1. Personal Information">
@@ -78,7 +78,7 @@ export default function PetitonForChargesNeverFiled_Web({ data }) {
           label={__("law enforcement agency")}
         />
         <TextInput
-          dataKey="case.lawEnforcementAgencysFileNumber"
+          dataKey="case.lawEnforcementAgencyFileNumber"
           label={__("the law enforcement agency's file number")}
         />
       </Section>

@@ -8,7 +8,7 @@ import {
   getCounty
 } from "../form-common-options/form-common-options";
 
-export default function PetitonForChargesNeverFiled_Pdf({ data, renderData }) {
+export default function PetitionForChargesNeverFiled_Pdf({ data, renderData }) {
   return (
     <>
       <RenderPage url="/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-1.png">
@@ -85,7 +85,7 @@ export default function PetitonForChargesNeverFiled_Pdf({ data, renderData }) {
           top="65.9%"
         />
         <PositionedString
-          dataKey="case.lawEnforcementAgencysFileNumber"
+          dataKey="case.lawEnforcementAgencyFileNumber"
           left="49.4%"
           top="68.5%"
         />
