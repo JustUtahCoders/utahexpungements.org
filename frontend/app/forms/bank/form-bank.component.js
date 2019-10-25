@@ -32,6 +32,9 @@ import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.c
 import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
 import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
 
+import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component.js";
+import consentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
+
 export default class FormBank extends React.Component {
   render() {
     return (
@@ -177,6 +180,16 @@ export default class FormBank extends React.Component {
               name="Petition for Expungement (Special Certificate from BCI)"
               WebForm={PetitionForExpungementFromBci_Web}
               PdfForm={PetitionForExpungementFromBci_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/consent-and-waiver-of-hearing`}
+          render={props => (
+            <GovernmentForm
+              name="Consent and waive of hearing"
+              WebForm={ConsentAndWaiverOfHearing_Web}
+              PdfForm={consentAndWaiverOfHearing_Pdf}
             />
           )}
         />
