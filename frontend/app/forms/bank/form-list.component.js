@@ -61,7 +61,7 @@ export default class FormList extends React.Component {
             <FillableForm
               name={__("app for coe with release")}
               readyForUsers={true}
-              keyworks="application certificate eligibility release third party"
+              keywords="application certificate eligibility release third party"
               shortDescription={__("app for coe with release short descr")}
               appUrl={
                 this.props.match.url + "/application-for-coe-with-release"
@@ -216,6 +216,34 @@ export default class FormList extends React.Component {
                 "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-1.png",
                 "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-2.png",
                 "/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-3.png"
+              ]}
+            />
+            <FillableForm
+              name="Petition to Expunge Records (Dismissal or Acquittal)"
+              readyForUsers={false}
+              keywords="petition to expunge records dismissal or acquittal"
+              shortDescription="This form requests a court order for expunging a case where charges were dismissed. You must first obtain a Certificate of Eligibility before filing this form."
+              appUrl={
+                this.props.match.url + "/petition-for-dismissal-or-acquittal"
+              }
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-1.png",
+                "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-2.png"
+              ]}
+            />
+            <FillableForm
+              name="Petition for Charges Never Filed"
+              readyForUsers={true}
+              keywords="petition to expungement charges never filed"
+              shortDescription="This form requests a court order for an expungement when charges where never filed. You must first obtain a Certificate of Eligibility before filing this form."
+              appUrl={
+                this.props.match.url + "/petition-for-charges-never-filed"
+              }
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-1.png",
+                "/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-2.png"
               ]}
             />
             <FillableForm
