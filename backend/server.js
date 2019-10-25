@@ -11,8 +11,6 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("tiny"));
 }
 
-console.log("dist exists", fs.existsSync(path.join(__dirname, "../dist")));
-
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use("/static", express.static(path.join(__dirname, "../static")));
