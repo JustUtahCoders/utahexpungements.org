@@ -73,6 +73,21 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
+              name={__("app for board of pardon expungement")}
+              readyForUsers
+              keywords="application board pardon expungement"
+              shortDescription={__(
+                "application for board of pardon expungement"
+              )}
+              appUrl={
+                this.props.match.url + "/application-for-board-of-pardon-e"
+              }
+              downloadUrl="https://bci.utah.gov/wp-content/uploads/sites/15/2019/08/BOP-Exp-App-08-09-2019-Mail-In.pdf"
+              previewUrls={[
+                "/static/forms/application-for-board-of-pardon-e/BOP-Exp-App-08-09-2019-Mail-In-1.png"
+              ]}
+            />
+            <FillableForm
               name={__("petition conviction name")}
               readyForUsers={true}
               keywords="petition conviction"
