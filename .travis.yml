@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - node
+  - 12
 before_script: yarn check-format
 script: yarn build
 deploy:

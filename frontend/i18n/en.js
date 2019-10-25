@@ -234,13 +234,15 @@ const translations = {
   "petition for drug conviction": "Petition for Drug Conviction",
   "petition for drug conviction short description":
     "This form requests a court order for expungement of a drug conviction. You must first obtain a Certificate of Eligibility before filing this form.",
-  //petition for acquittal or dismissal
+  //petition to expunge records (e.g. charges never filed, dismissal or acquittal)
   "arrested date": "Arrested Date",
+  "law enforcement agency": "Law Enforcement Agency",
   "i was not convicted of the offense": "I was not convicted of the offense",
   "at least 30 days have passed since I was arrested":
     "At least 30 days have passed since I was arrested",
   "i have not been arrested since this arrest":
     "I have not been arrested since this arrest",
+  "no charges were filed": "No charges were filed",
   "one of the follow has occured": "One of the follow has occured:",
   "choose one": "Choose one",
   "the law enforcement agency's file number":
@@ -296,7 +298,12 @@ const translations = {
   // reply to statement form
   "statement made by opposition":
     "Statement made by the prosecutor, victim or Adult Probation and Parole that I disagree with",
-  "i disagree because": "I disagree because"
+  "i disagree because": "I disagree because",
+
+  // application for pardon
+  "application for board of pardon expungement": "NEEDS DESCRIPTION", // not sure on this
+  "app for board of pardon expungement":
+    "Application for Board of Pardon Expungement"
 };
 
 export default translations;
