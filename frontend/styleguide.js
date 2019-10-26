@@ -26,6 +26,7 @@ export const fontFamily = `'Roboto Condensed', sans-serif`;
 
 export default `
   :root {
+    font-size: 62.5%; /* for 1rem to be 16px */
     font-family: ${fontFamily};
     background-color: ${lightGray};
     --color-primary: ${primary};
@@ -39,7 +40,7 @@ export default `
   }
 
   body {
-    font-size: 1rem;
+    font-size: 1.6rem;
     margin: 0;
   }
 
