@@ -41,7 +41,7 @@ export default class Home extends React.Component {
                           className="secondary"
                           style={{
                             border: "1px solid white",
-                            marginLeft: "16rem"
+                            marginLeft: "1.6rem"
                           }}
                         >
                           {__("fill out forms")}
@@ -164,7 +164,7 @@ const css = `
     background-color: ${lightGray};
     background-size: cover;
     text-align: center;
-    height: 350rem;
+    height: 35rem;
   }
 
   & .hero > h1 {
@@ -177,7 +177,7 @@ const css = `
   }
 
   & .hero-main {
-    padding: 30rem 0;
+    padding: 3rem 0;
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
@@ -187,27 +187,27 @@ const css = `
   }
 
   & .hero-main h1 {
-    margin: 0 0 20rem 0;
+    margin-bottom: 2rem;
   }
 
   & .enter-your-email {
-    font-size: 20rem;
+    font-size: 2rem;
   }
 
   & .actions {
-    margin-top: 20rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   & .juicy-input {
-    font-size: 24rem;
+    font-size: 2.4rem;
   }
 
   ${mediaDesktop} {
     & .actions > *:first-child {
-      margin-right: 24rem;
+      margin-right: 2.4rem;
     }
 
     & .hero-main {
@@ -225,7 +225,7 @@ const css = `
     }
 
     & .actions > *:first-child {
-      margin-bottom: 24rem;
+      margin-bottom: 2.4rem;
     }
 
     & .hero-main {
@@ -236,7 +236,7 @@ const css = `
   & .more-details {
     background-color: white;
     width: 100vw;
-    padding: 32rem 48rem;
+    padding: 3.2rem 4.8rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

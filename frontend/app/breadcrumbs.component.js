@@ -69,6 +69,6 @@ const css = `
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 16rem;
+    padding: 0 1.6rem;
   }
 `;

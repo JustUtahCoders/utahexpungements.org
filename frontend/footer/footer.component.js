@@ -46,7 +46,7 @@ const css = `
   & .footer {
     background-color: ${secondary};
     width: 100vw;
-    padding: 48rem 0rem;
+    padding: 4.8rem 0;
   }
 
   & .link-groups {
@@ -55,7 +55,7 @@ const css = `
   }
 
   & .links {
-    padding: 0 16rem;
+    padding: 0 1.6rem;
   }
 
   & .links a {
@@ -67,7 +67,7 @@ const css = `
   }
 
   & .links li {
-    padding: 4rem 0;
+    padding: 0.4rem 0;
   }
 
   & .attribution {
