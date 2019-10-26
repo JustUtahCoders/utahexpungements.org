@@ -35,19 +35,19 @@ export default class GovernmentForm extends React.Component {
 
 const css = `
   & .header {
-    font-size: 2rem;
-    margin: -32px 0 0 -32px;
-    padding: 12px 0 12px 12px;
-    border-bottom: 1px solid ${lightGray};
-    width: calc(100% + 64px);
+    font-size: 3.2rem;
+    margin: -3.2rem 0 0 -3.2rem;
+    padding: 1.2rem 0 1.2rem 1.2rem;
+    border-bottom: 0.1rem solid ${lightGray};
+    width: calc(100% + 6.4rem);
   }
 
   & .expungement-form {
     color: ${darkGray};
-    font-size: 1.5rem;
+    font-size: 2.4rem;
   }
 
   & .form-name {
-    font-size: 2rem;
+    font-size: 3.2rem;
   }
 `;

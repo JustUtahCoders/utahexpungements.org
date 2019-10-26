@@ -76,7 +76,7 @@ const css = `
   & .link-to-word {
     display: none;
     text-decoration: none;
-    margin-left: 8px;
+    margin-left: 0.8rem;
     color: var(--color-secondary);
   }
 

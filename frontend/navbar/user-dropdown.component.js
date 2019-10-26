@@ -103,7 +103,7 @@ const css = `
   }
 
   & .user-info .subtitle {
-    font-size: 0.625rem;
+    font-size: 10px;
     font-weight: normal;
   }
 
@@ -135,7 +135,7 @@ const css = `
   }
 
   & .user-dropdown-item-label {
-    margin-left: 16px;
+    margin-left: 1.6rem;
   }
 
   & .user-dropdown-contents {

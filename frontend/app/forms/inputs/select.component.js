@@ -33,6 +33,6 @@ export default function Select(props) {
 
 const css = `
   & .select-label {
-    margin-bottom: 8px;
+    margin-bottom: 0.8rem;
   }
 `;

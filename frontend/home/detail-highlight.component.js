@@ -20,10 +20,10 @@ export default class DetailHighlight extends React.Component {
 
 const css = `
   & .icon {
-    width: 100px;
-    height: 100px;
-    min-width: 100px;
-    min-height: 100px;
+    width: 10rem;
+    height: 10rem;
+    min-width: 10rem;
+    min-height: 10rem;
   }
 
   & .detail-highlight {
@@ -32,10 +32,10 @@ const css = `
     align-items: center;
     text-align: center;
     flex-direction: column;
-    padding: 16px 40px;
+    padding: 1.6rem 4rem;
   }
 
   & .text {
-    max-width: 200px;
+    max-width: 20rem;
   }
 `;

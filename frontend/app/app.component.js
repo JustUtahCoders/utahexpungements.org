@@ -122,13 +122,13 @@ export const css = `
     }
 
     & .padded-container {
-      padding: 0 50px;
+      padding: 0 5rem;
     }
 
     & .main-content {
-      margin: 20px 0;
-      border: 1px solid ${darkGray};
-      padding: 32px 24px;
+      margin: 2rem 0;
+      border: 0.1rem solid ${darkGray};
+      padding: 3.2rem 2.4rem;
     }
   }
 
@@ -140,13 +140,13 @@ export const css = `
     & .main-content {
       margin-top: 0;
       border: none;
-      padding: 16px 24px;
+      padding: 1.6rem 2.4rem;
     }
   }
 
   & .content-container {
     width: 100%;
-    max-width: 936px;
+    max-width: 93.6rem;
   }
 
   & .main-content {

@@ -8,7 +8,11 @@ export default class FormThatPrints extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         {this.props.children}
-        <button className="primary" type="submit" style={{ marginTop: "16px" }}>
+        <button
+          className="primary"
+          type="submit"
+          style={{ marginTop: "1.6rem" }}
+        >
           {this.props.submitText}
         </button>
       </form>

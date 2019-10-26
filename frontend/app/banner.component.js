@@ -57,7 +57,7 @@ const css = `
 
   ${mediaDesktop} {
     & .banner-container {
-      margin-top: 20px;
+      margin-top: 2rem;
     }
   }
 

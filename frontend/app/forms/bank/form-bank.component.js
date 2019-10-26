@@ -32,14 +32,14 @@ import PetitionForChargesNeverFiled_Pdf from "../petition-for-charges-never-file
 
 import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.component";
 import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
-
 import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
 import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
+
 import ApplicationForBoardOfPardonExpungement_Web from "../application-for-board-of-pardon-e/application-for-board-of-pardon-e.web.component.js";
 import ApplicationForBoardOfPardonExpungement_Pdf from "../application-for-board-of-pardon-e/application-for-board-of-pardon-e.pdf.component.js";
 
 import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component.js";
-import consentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
+import ConsentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
 
 export default class FormBank extends React.Component {
   render() {
