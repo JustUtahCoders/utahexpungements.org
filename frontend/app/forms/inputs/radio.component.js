@@ -31,10 +31,10 @@ export default function Radio(props) {
 
 const css = `
     & .radio {
-        margin-bottom:8rem;
+        margin-bottom:0.8rem;
     }
 
     & .radio-option {
-      margin-right:20rem;
+      margin-right:2rem;
     }
 `;

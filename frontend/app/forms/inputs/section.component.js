@@ -18,10 +18,10 @@ export default class Section extends React.Component {
 const css = `
   & .section-header {
     color: ${darkGray};
-    width: calc(100% + 32rem);
-    border-bottom: 1rem solid ${lightGray};
-    font-size: 18rem;
-    line-height: 28rem;
-    margin: 24rem 0 16rem 0;
+    width: calc(100% + 3.2rem);
+    border-bottom: 0.1rem solid ${lightGray};
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    margin: 2.4rem 0 1.6rem 0;
   }
 `;

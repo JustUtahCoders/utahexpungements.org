@@ -135,7 +135,7 @@ const css = `
   }
 
   & .user-dropdown-item-label {
-    margin-left: 16rem;
+    margin-left: 1.6rem;
   }
 
   & .user-dropdown-contents {
