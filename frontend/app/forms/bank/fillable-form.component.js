@@ -46,14 +46,14 @@ const css = `
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 182rem;
-    min-height: 285rem;
-    max-height: 285rem;
+    width: 18.2rem;
+    min-height: 28.5rem;
+    max-height: 28.5rem;
     background-color: ${lightGray};
-    padding: 6rem;
-    border-radius: 3rem;
-    margin-right: 32rem;
-    margin-bottom: 32rem;
+    padding: 0.6rem;
+    border-radius: 0.3rem;
+    margin-right: 3.2rem;
+    margin-bottom: 3.2rem;
   }
 
   & .fillable-form:hover {
@@ -62,15 +62,15 @@ const css = `
 
   & .preview-thumbnail {
     /* 8.5 x 11 aspect ratio */
-    width: 170rem;
-    min-width: 170rem;
-    height: 200rem;
-    min-height: 200rem;
+    width: 17rem;
+    min-width: 17rem;
+    height: 20rem;
+    min-height: 20rem;
   }
 
   & .name {
     text-align: center;
-    padding: 8rem;
+    padding: 0.8rem;
     margin: 0;
   }
 
@@ -87,8 +87,8 @@ const css = `
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    height: 273rem;
-    padding-bottom: 12rem;
+    height: 27.3rem;
+    padding-bottom: 1.2rem;
     text-align: center;
   }
 
@@ -99,6 +99,6 @@ const css = `
   }
 
   & .raw-form {
-    margin: 8rem 0;
+    margin: 0.8rem 0;
   }
 `;

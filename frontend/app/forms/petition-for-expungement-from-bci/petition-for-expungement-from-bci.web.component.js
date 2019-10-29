@@ -3,7 +3,7 @@ import FormThatPrints from "../inputs/form-that-prints.component";
 import TextInput from "../inputs/text-input.component";
 import Section from "../inputs/section.component.js";
 import Radio from "../inputs/radio.component.js";
-import Checkbox from "../inputs/checkbox.component.js";
+import CheckBox from "../inputs/checkbox.component.js";
 import GroupSelect from "../inputs/group-select.component.js";
 import {
   resolvedByOptions,
@@ -46,8 +46,6 @@ export default function PetitionForExpungementFromBci_Web({ data }) {
             groupOptions={JusticeCourtList}
           />
         )}
-        <TextInput dataKey="case.caseNumber" label={__("case number")} />
-        <TextInput dataKey="case.judgeName" label={__("judge full name")} />
 
         <Radio
           dataKey="case.resolvedBy"
@@ -57,8 +55,22 @@ export default function PetitionForExpungementFromBci_Web({ data }) {
         {data.case.resolvedBy === "Hearing" && (
           <TextInput dataKey="case.hearingDate" label="Hearing Date" />
         )}
-        <TextInput dataKey="case.leaFileNumber" label="LEA File Number" />
-        <TextInput dataKey="case.leaName" label="LEA Name" />
+        <CheckBox
+          dataKey="case.chargesFiled"
+          label="Did charges get filed?"
+          name="chargesFiled"
+        />
+        {data.case.chargesFiled ? (
+          <>
+            <TextInput dataKey="case.caseNumber" label={__("case number")} />
+            <TextInput dataKey="case.judgeName" label={__("judge full name")} />
+          </>
+        ) : (
+          <>
+            <TextInput dataKey="case.leaFileNumber" label="LEA File Number" />
+            <TextInput dataKey="case.leaName" label="LEA Name" />
+          </>
+        )}
       </Section>
     </FormThatPrints>
   );
