@@ -15,9 +15,6 @@ exports.parsePdfText = function parsePdfText(text) {
     }
   }
 
-  console.log(`lines`, lines);
-  console.log(`sections`, sections);
-
   return {
     caseNumber: parseCaseNumber(lines, sections),
     charges: parseCharges(lines, sections)
