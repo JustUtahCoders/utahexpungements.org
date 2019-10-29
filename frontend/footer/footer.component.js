@@ -24,9 +24,7 @@ export default class Footer extends React.Component {
               <Link to="/about">
                 <li>{__("about")}</li>
               </Link>
-              <a href="https://utahexpungements.boards.net" target="_blank">
-                <li>{__("community forum")}</li>
-              </a>
+
               <Link to="/contribute">
                 <li>{__("report problem")}</li>
               </Link>
