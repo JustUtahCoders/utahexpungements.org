@@ -1,13 +1,17 @@
 import React from "react";
 import { Scoped } from "kremling";
+import { petitionerRepresentativeOptions } from "../form-common-options/form-common-options";
 import TextInput from "../inputs/text-input.component.js";
 import Select from "../inputs/select.component.js";
+import Radio from "../inputs/radio.component.js";
 import TextArea from "../inputs/text-area.component.js";
 import FormThatPrints from "../inputs/form-that-prints.component.js";
 import Section from "../inputs/section.component.js";
 
 export default class Coversheet_Web extends React.Component {
   render() {
+    const { data } = this.props;
+
     return (
       <Scoped css={css}>
         <FormThatPrints>
@@ -22,14 +26,24 @@ export default class Coversheet_Web extends React.Component {
 
             <TextInput dataKey="person.homePhone" label="Home Phone Number" />
             <TextInput dataKey="person.email" label="Email" />
-            <TextInput
-              dataKey="person.petitionerAttorneyName"
-              label="Attorney Name"
+
+            <Radio
+              dataKey="coversheet.isAttorney"
+              label="Are you the petitioner?"
+              options={petitionerRepresentativeOptions}
             />
-            <TextInput
-              dataKey="person.petitionerBarNumber"
-              label="Attorney Bar Number"
-            />
+            {data.coversheet && data.coversheet.isAttorney === "attorney" && (
+              <>
+                <TextInput
+                  dataKey="person.petitionerAttorneyName"
+                  label="Attorney Name"
+                />
+                <TextInput
+                  dataKey="person.petitionerBarNumber"
+                  label="Attorney Bar Number"
+                />
+              </>
+            )}
           </Section>
         </FormThatPrints>
       </Scoped>
