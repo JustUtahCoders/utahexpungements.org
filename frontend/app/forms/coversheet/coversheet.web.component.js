@@ -1,5 +1,6 @@
 import React from "react";
 import { Scoped } from "kremling";
+import { petitionerRepresentativeOptions } from "../form-common-options/form-common-options";
 import TextInput from "../inputs/text-input.component.js";
 import Select from "../inputs/select.component.js";
 import Radio from "../inputs/radio.component.js";
@@ -28,13 +29,10 @@ export default class Coversheet_Web extends React.Component {
 
             <Radio
               dataKey="coversheet.isAttorney"
-              label="Is an attorney filling out the form"
-              options={[
-                { label: "Yes", value: "yes" },
-                { label: "No", value: "no" }
-              ]}
+              label="Are you the petitioner?"
+              options={petitionerRepresentativeOptions}
             />
-            {data.coversheet && data.coversheet.isAttorney === "yes" && (
+            {data.coversheet && data.coversheet.isAttorney === "attorney" && (
               <>
                 <TextInput
                   dataKey="person.petitionerAttorneyName"
