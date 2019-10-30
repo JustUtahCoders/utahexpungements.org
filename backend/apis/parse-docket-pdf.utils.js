@@ -61,12 +61,16 @@ function parseCharges(lines, sections) {
     } else if (line.startsWith("Disposition:")) {
       const numeric = /\d/;
       lastNumericIndex = 0;
-      for (let i = 0; i < line.length; i++) {
-        if (numeric.test(line[i])) {
+      const trimmed = line.replace("Disposition: ", "");
+      for (let i = 0; i < trimmed.length; i++) {
+        if (numeric.test(trimmed[i])) {
           lastNumericIndex = i;
         }
       }
-      lastCharge.disposition = line.slice(lastNumericIndex + 1).trim();
+      lastCharge.disposition = trimmed.slice(lastNumericIndex + 1).trim();
+      lastCharge.dispositionDate = trimmed
+        .slice(0, lastNumericIndex + 1)
+        .trim();
     }
   });
 
