@@ -40,6 +40,8 @@ import ApplicationForBoardOfPardonExpungement_Pdf from "../application-for-board
 
 import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component.js";
 import ConsentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
+import OrderOnMotionForReductionOfConviction_Web from "../order-on-motion-for-reduction-of-conviction/order-on-motion-for-reduction-of-conviction.web.component";
+import OrderOnMotionForReductionOfConviction_Pdf from "../order-on-motion-for-reduction-of-conviction/order-on-motion-for-reduction-of-conviction.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -225,7 +227,7 @@ export default class FormBank extends React.Component {
             <GovernmentForm
               name="Consent and waive of hearing"
               WebForm={ConsentAndWaiverOfHearing_Web}
-              PdfForm={consentAndWaiverOfHearing_Pdf}
+              PdfForm={ConsentAndWaiverOfHearing_Pdf}
             />
           )}
         />
@@ -236,6 +238,16 @@ export default class FormBank extends React.Component {
               name="Proof of Completed Service"
               WebForm={ProofOfCompletedService_Web}
               PdfForm={ProofOfCompletedService_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/order-on-motion-for-reduction-of-conviction`}
+          render={props => (
+            <GovernmentForm
+              name="Order on Motion for Reduction of Conviction"
+              WebForm={OrderOnMotionForReductionOfConviction_Web}
+              PdfForm={OrderOnMotionForReductionOfConviction_Pdf}
             />
           )}
         />
