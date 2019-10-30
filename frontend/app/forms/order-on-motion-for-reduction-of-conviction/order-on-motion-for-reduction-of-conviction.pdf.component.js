@@ -8,8 +8,10 @@ import {
 } from "../form-common-options/form-common-options";
 
 export default function OrderOnMotionForReductionOfConvinction_Pdf({
-  renderData,
-  data
+  data: {
+    case: { courtType, county, courtAddress }
+  },
+  renderData
 }) {
   return (
     <>
@@ -34,7 +36,7 @@ export default function OrderOnMotionForReductionOfConvinction_Pdf({
           left={personalInfo}
           top="21.09%"
         >
-          {data.person.addressCity && `${renderData("person.addressCity")}, `}
+          {`${renderData("person.addressCity")}, `}
           {renderData("person.addressState")}
           {`\u0020`}
           {renderData("person.addressZip")}
@@ -66,14 +68,21 @@ export default function OrderOnMotionForReductionOfConvinction_Pdf({
           dataKey="case.courtType"
           left="36.2%"
           top={courtTypeTop}
-          shouldShow={data.case.courtType === "District"}
+          shouldShow={courtType === "District"}
         />
         <PositionedCheckmark
           dataKey="case.courtType"
           left="47%"
           top={courtTypeTop}
-          shouldShow={data.case.courtType === "Justice"}
+          shouldShow={courtType === "Justice"}
         />
+        <PositionedString left="25.9%" top="35.3%" debugKey="judicialDistrict">
+          {courtAddress && getJudicialDistrict(courtAddress, courtType)}
+        </PositionedString>
+
+        <PositionedString left="50.7%" top="35.3%" debugKey="county">
+          {courtAddress && getCounty(courtAddress, courtType)}
+        </PositionedString>
       </RenderPage>
     </>
   );
