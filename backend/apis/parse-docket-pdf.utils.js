@@ -1,13 +1,20 @@
-const sectionHeaderRegex = /^([A-Z][A-Z ]+)/;
+const sectionHeaderRegex = /^([A-Z][A-Z ]+)/g;
 
 exports.parsePdfText = function parsePdfText(text) {
   const lines = text.split("\n");
   const sections = [];
+  let gotCase = 0;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const match = sectionHeaderRegex.exec(line);
-    if (match) {
+    if (match && match[1].trim() !== "CASE NUMBER") {
+      sections.push({
+        lineNumber: i,
+        name: match[1].trim()
+      });
+    } else if (match && match[1].trim() === "CASE NUMBER" && gotCase < 1) {
+      gotCase++;
       sections.push({
         lineNumber: i,
         name: match[1].trim()
@@ -17,7 +24,8 @@ exports.parsePdfText = function parsePdfText(text) {
 
   return {
     caseNumber: parseCaseNumber(lines, sections),
-    charges: parseCharges(lines, sections)
+    charges: parseCharges(lines, sections),
+    accountSummary: parseAccountSummary(lines, sections)
   };
 };
 
@@ -45,7 +53,7 @@ function parseCharges(lines, sections) {
 
   let lastLineWasCharge = false;
 
-  walkSection(lines, sections, "CHARGES", line => {
+  function addDispositionToCharges(line) {
     const lastCharge = charges.length > 0 ? charges[charges.length - 1] : null;
 
     if (lastLineWasCharge) {
@@ -72,15 +80,25 @@ function parseCharges(lines, sections) {
         .slice(0, lastNumericIndex + 1)
         .trim();
     }
-  });
+  }
+
+  walkSection(lines, sections, "CHARGES", addDispositionToCharges);
 
   return charges;
 }
 
+function parseAccountSummary(lines, sections) {
+  const accounts = [];
+
+  walkSection(lines, sections, "ACCOUNT SUMMARY", line => {
+    accounts.push(line);
+  });
+
+  return accounts;
+}
+
 function walkSection(lines, sections, name, walk) {
-  const sectionIndex = sections.findIndex(
-    section => section.name === "CHARGES"
-  );
+  const sectionIndex = sections.findIndex(section => section.name === name);
 
   if (sectionIndex < 0) {
     // no section with that name
