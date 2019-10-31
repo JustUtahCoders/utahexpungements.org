@@ -12,7 +12,8 @@
     "build": "yarn webpack",
     "analyze": "webpack --config webpack.config.analyze.js",
     "check-format": "prettier 'frontend/**/*' 'backend/**/*' --check",
-    "deploy": "yarn build && gh-pages -d dist"
+    "deploy": "yarn build && gh-pages -d dist",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -33,6 +34,7 @@
     "gh-pages": "^2.1.1",
     "husky": "^3.0.9",
     "i18n-webpack-plugin": "^1.0.0",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
