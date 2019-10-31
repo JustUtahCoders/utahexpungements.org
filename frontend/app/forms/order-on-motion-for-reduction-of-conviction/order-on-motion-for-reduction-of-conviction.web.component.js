@@ -89,13 +89,11 @@ export default ({
         options={resolvedMatter}
       />
       {resolvedBy === "hearing" && (
-        <>
-          <TextInput
-            dataKey="hearingDate"
-            label="Hearing held on"
-            placeholder="10/30/19"
-          />
-        </>
+        <TextInput
+          dataKey="hearingDate"
+          label="Hearing held on"
+          placeholder="10/30/19"
+        />
       )}
       <Radio dataKey="case.plaintiff" options={plaintiffOptions} />
       {plaintiff === "representedPlaintiff" && (
