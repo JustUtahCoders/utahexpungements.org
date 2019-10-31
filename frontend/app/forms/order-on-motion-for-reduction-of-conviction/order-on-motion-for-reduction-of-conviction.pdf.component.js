@@ -9,7 +9,7 @@ import {
 
 export default function OrderOnMotionForReductionOfConvinction_Pdf({
   data: {
-    case: { courtType, county, courtAddress, plaintiff }
+    case: { courtType, county, courtAddress, plaintiff, defender }
   },
   renderData
 }) {
@@ -112,6 +112,33 @@ export default function OrderOnMotionForReductionOfConvinction_Pdf({
           top="81.9%"
         />
       </RenderPage>
+      <RenderPage url="/static/forms/order-on-motion-for-reduction-of-conviction/05_Order_on_Motion_for_Reduction_of_Conviction-2.png">
+        <PositionedCheckmark
+          dataKey="case.defender"
+          left={defenderLeft}
+          top="13.5%"
+          shouldShow={defender === "presentDefender"}
+        />
+        <PositionedCheckmark
+          dataKey="case.defender"
+          left={defenderLeft}
+          top="16%"
+          shouldShow={defender === "notPresentDefender"}
+        />
+        <PositionedCheckmark
+          dataKey="case.defender"
+          left={defenderLeft}
+          top="18.5%"
+          shouldShow={defender === "representedDefender"}
+        />
+        <PositionedCheckmark
+          dataKey="case.defender"
+          left={defenderLeft}
+          top="20.9%"
+          shouldShow={defender === "notRepresentedDefender"}
+        />
+        <PositionedString dataKey="case.defenderRep" left="37.5%" top="18.5%" />
+      </RenderPage>
     </>
   );
 }
@@ -119,5 +146,6 @@ export default function OrderOnMotionForReductionOfConvinction_Pdf({
 const personalInfo = `11.5%`;
 const courtTypeTop = `32.8%`;
 const plaintiffLeft = `17.5%`;
+const defenderLeft = `17.5%`;
 const countyDistrictTop = `37.35%`;
 const page2Checkmarks = `18.15%`;
