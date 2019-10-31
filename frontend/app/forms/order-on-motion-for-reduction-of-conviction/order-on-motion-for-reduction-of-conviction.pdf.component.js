@@ -154,6 +154,8 @@ export default function OrderOnMotionForReductionOfConvinction_Pdf({
         />
         <PositionedString dataKey="case.defenderRep" left="38%" top="18.5%" />
       </RenderPage>
+      <RenderPage url="/static/forms/order-on-motion-for-reduction-of-conviction/05_Order_on_Motion_for_Reduction_of_Conviction-3.png" />
+      <RenderPage url="/static/forms/order-on-motion-for-reduction-of-conviction/05_Order_on_Motion_for_Reduction_of_Conviction-4.png" />
     </>
   );
 }
