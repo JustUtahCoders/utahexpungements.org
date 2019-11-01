@@ -18,7 +18,6 @@ const parsedText = parsePdfText(file);
 //       disposition: 'Dismissed (w/o prej)',
 //       dispositionDate: 'Month 00, 0000' } ] }
 
-console.log(parsedText);
 
 console.log();
 
