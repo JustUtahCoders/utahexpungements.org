@@ -1,4 +1,4 @@
-const file = `
+exports.file = `
 
                          SALT LAKE CITY JUSTICE COURT
                        SALT LAKE COUNTY, STATE OF UTAH
@@ -43,5 +43,3 @@ PROCEEDINGS
 
 Printed: 00/00/0000 00:00:00          Page 1 (last)
 Page 1 of 1`;
-
-module.exports = { file: file };
