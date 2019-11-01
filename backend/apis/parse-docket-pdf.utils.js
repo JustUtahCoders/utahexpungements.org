@@ -1,24 +1,25 @@
-const sectionHeaderRegex = /^([A-Z][A-Z ]+)/g;
+const sectionHeaderRegex = /^([A-Z][A-Z ]+)/;
 
 exports.parsePdfText = function parsePdfText(text) {
   const lines = text.split("\n");
   const sections = [];
-  let gotCase = 0;
+  let foundCaseNumberSection = false;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const match = sectionHeaderRegex.exec(line);
-    if (match && match[1].trim() !== "CASE NUMBER") {
-      sections.push({
-        lineNumber: i,
-        name: match[1].trim()
-      });
-    } else if (match && match[1].trim() === "CASE NUMBER" && gotCase < 1) {
-      gotCase++;
-      sections.push({
-        lineNumber: i,
-        name: match[1].trim()
-      });
+    if (match) {
+      addSection(match[1].trim(), i);
+    }
+  }
+
+  function addSection(name, lineNumber) {
+    const shouldAdd = name !== "CASE NUMBER" || !foundCaseNumberSection;
+    if (name === "CASE NUMBER") {
+      foundCaseNumberSection = true;
+    }
+    if (shouldAdd) {
+      sections.push({ name, lineNumber });
     }
   }
 
