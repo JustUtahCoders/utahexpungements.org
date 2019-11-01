@@ -11,8 +11,7 @@
     "develop-backend": "nodemon backend/server.js --watch backend -e js,ejs",
     "build": "yarn webpack",
     "analyze": "webpack --config webpack.config.analyze.js",
-    "check-format": "prettier 'frontend/**/*' 'backend/**/*' --check",
-    "deploy": "yarn build && gh-pages -d dist"
+    "check-format": "prettier 'frontend/**/*' 'backend/**/*' --check"
   },
   "husky": {
     "hooks": {
@@ -30,7 +29,6 @@
     "clean-webpack-plugin": "^3.0.0",
     "concurrently": "^5.0.0",
     "copyfiles": "^2.1.1",
-    "gh-pages": "^2.1.1",
     "husky": "^3.0.9",
     "i18n-webpack-plugin": "^1.0.0",
     "nodemon": "^1.19.4",
