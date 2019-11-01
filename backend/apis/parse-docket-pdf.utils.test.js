@@ -19,7 +19,6 @@ const parsedText = parsePdfText(file);
 //       dispositionDate: 'Month 00, 0000' } ] }
 
 
-console.log();
 
 test("Returns an object", () => {
   expect(parsedText).toBeTruthy();
