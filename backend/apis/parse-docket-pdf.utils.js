@@ -60,7 +60,7 @@ function parseCharges(lines, sections) {
       });
     } else if (line.startsWith("Disposition:")) {
       const numeric = /\d/;
-      lastNumericIndex = 0;
+      let lastNumericIndex = 0;
       const trimmed = line.replace("Disposition: ", "");
       for (let i = 0; i < trimmed.length; i++) {
         if (numeric.test(trimmed[i])) {
