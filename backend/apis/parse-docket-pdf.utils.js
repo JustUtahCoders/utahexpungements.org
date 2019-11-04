@@ -89,13 +89,88 @@ function parseCharges(lines, sections) {
 }
 
 function parseAccountSummary(lines, sections) {
-  const accounts = [];
+  let currentProp;
+  let currentSubProp;
+  let currentObj = {};
 
-  walkSection(lines, sections, "ACCOUNT SUMMARY", line => {
-    accounts.push(line);
-  });
+  function addAccounts(line) {
+    const inlineHeading = /([A-Z][A-Z ]+)/g;
+    const separator = /.:/g;
+    const skipLines = ["", "ACCOUNT SUMMARY"];
+    const rubbish = [
+      /CASE NUMBER/g,
+      /[__]+/g,
+      /Printed/g,
+      /Page.+of/g,
+      /TRUST DETAIL/g
+    ];
+    const filtered = rubbish.filter(regex => {
+      const result = regex.exec(line);
+      return regex.lastIndex > 0;
+    });
 
-  return accounts;
+    const removeSpace = text => {
+      const test = text.replace(".", "").replace("/", "_");
+      const total = test.includes(" ") && test.match(/\s/g).length;
+
+      return +total > 1
+        ? removeSpace(test.replace(" ", "_"))
+        : test.replace(" ", "_");
+    };
+
+    if (!skipLines.includes(line)) {
+      if (filtered.length === 0) {
+        if (line.match(separator)) {
+          const propPart = line.slice(0, line.indexOf(":"));
+          const valuePart = line.slice(line.indexOf(":") + 2);
+          if (propPart.match(inlineHeading)) {
+            if (propPart.match(/[a-z]/)) {
+              const lastCap = /.[A-Z][a-z]/;
+              const heading = removeSpace(
+                propPart.slice(0, propPart.search(lastCap))
+              );
+              const newProp = removeSpace(
+                propPart.slice(propPart.search(lastCap) + 1)
+              );
+              currentProp = removeSpace(heading);
+              currentSubProp = null;
+              currentObj[currentProp] = {
+                [removeSpace(newProp)]: valuePart
+              };
+            } else {
+              currentObj[currentProp] = {
+                ...currentObj[currentProp],
+                [removeSpace(valuePart)]: {}
+              };
+              currentSubProp = removeSpace(valuePart);
+            }
+          } else if (line.includes("Trust Description")) {
+            currentObj[currentProp] = {
+              ...currentObj[currentProp],
+              [removeSpace(valuePart)]: {}
+            };
+            currentSubProp = removeSpace(valuePart);
+          } else {
+            if (currentSubProp) {
+              currentObj[currentProp][currentSubProp] = {
+                ...currentObj[currentProp][currentSubProp],
+                [removeSpace(propPart)]: valuePart
+              };
+            } else {
+              currentObj[currentProp] = {
+                ...currentObj[currentProp],
+                [removeSpace(propPart)]: valuePart
+              };
+            }
+          }
+        }
+      }
+    }
+  }
+
+  walkSection(lines, sections, "ACCOUNT SUMMARY", addAccounts);
+
+  return currentObj;
 }
 
 function walkSection(lines, sections, name, walk) {
