@@ -110,7 +110,10 @@ function parseAccountSummary(lines, sections) {
     });
 
     const removeSpace = text => {
-      const test = text.replace(".", "").replace("/", "_");
+      const test = text
+        .trim()
+        .replace(".", "")
+        .replace("/", "_");
       const total = test.includes(" ") && test.match(/\s/g).length;
 
       return +total > 1
@@ -124,6 +127,8 @@ function parseAccountSummary(lines, sections) {
           const propPart = line.slice(0, line.indexOf(":"));
           const valuePart = line.slice(line.indexOf(":") + 2);
           if (propPart.match(inlineHeading)) {
+            // CASE ONE: TOTAL REVENUE Amount Due: 687.07
+            // TOTAL REVENUE needs to be added as a key to an object with Amount_Due as a key of that object AND 687.07 the value of the Amount_Due property.
             if (propPart.match(/[a-z]/)) {
               const lastCap = /.[A-Z][a-z]/;
               const heading = removeSpace(
@@ -138,6 +143,8 @@ function parseAccountSummary(lines, sections) {
                 [removeSpace(newProp)]: valuePart
               };
             } else {
+              // CASE TWO: REVENUE DETAIL - TYPE: FINE
+              // Parse out FINE as a property on the previously create object and its value is a new object whose properties begin on the next line
               currentObj[currentProp] = {
                 ...currentObj[currentProp],
                 [removeSpace(valuePart)]: {}
@@ -145,12 +152,16 @@ function parseAccountSummary(lines, sections) {
               currentSubProp = removeSpace(valuePart);
             }
           } else if (line.includes("Trust Description")) {
+            // CASE THREE: Trust Description: Attorney Fee
+            // This case behave just like the CASE: REVENUE DETAIL - TYPE: FINE except it will not match the inlineHeader regex so it needs its own logic.
             currentObj[currentProp] = {
               ...currentObj[currentProp],
               [removeSpace(valuePart)]: {}
             };
             currentSubProp = removeSpace(valuePart);
           } else {
+            // CASE FOUR: Paid In: 49.55
+            // This is a straight forward key value pair. However, if the key/value pair immediately follows something of CASE ONE, it must be added immediately to the current object rather than added to the sub object.
             if (currentSubProp) {
               currentObj[currentProp][currentSubProp] = {
                 ...currentObj[currentProp][currentSubProp],
