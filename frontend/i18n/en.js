@@ -5,18 +5,11 @@ const translations = {
   "home page title": "Expunge a criminal conviction in Utah",
   "home page primary action": "Start an expungement",
   "fill out forms": "Fill out forms",
-  "community forum": "Community forum",
   "free to use": "Free to use!",
   "ftu descr": [
     "This website is ",
     "built by Utahns to help other Utahns",
     `. We'll never charge you anything.`
-  ],
-  "ask questions": "Ask and answer questions",
-  "ask questions descr": [
-    `Join our `,
-    `discussion forum`,
-    ` to ask and answer questions about the expungement process in Utah.`
   ],
   "find out qualify": "Find out if you qualify",
   "foq descr": [
