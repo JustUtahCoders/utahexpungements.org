@@ -41,6 +41,9 @@ import ApplicationForBoardOfPardonExpungement_Pdf from "../application-for-board
 import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component.js";
 import consentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
 
+import ProofOfCompletedService_Web from "../proof-of-completed-service/proof-of-completed-service.web.component.js";
+import ProofOfCompletedService_Pdf from "../proof-of-completed-service/proof-of-completed-service.pdf.component.js";
+
 export default class FormBank extends React.Component {
   render() {
     return (
@@ -226,16 +229,6 @@ export default class FormBank extends React.Component {
               name="Consent and waive of hearing"
               WebForm={ConsentAndWaiverOfHearing_Web}
               PdfForm={consentAndWaiverOfHearing_Pdf}
-            />
-          )}
-        />
-        <Route
-          path={`${this.props.match.url}/proof-of-completed-service`}
-          render={props => (
-            <GovernmentForm
-              name="Proof of Completed Service"
-              WebForm={ProofOfCompletedService_Web}
-              PdfForm={ProofOfCompletedService_Pdf}
             />
           )}
         />
