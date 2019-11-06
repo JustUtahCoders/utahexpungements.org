@@ -299,7 +299,10 @@ const translations = {
   "i disagree because": "I disagree because",
 
   // special certificate from bci
-  "have conviction": "Was the petitioner convicted for the case?"
+  "have conviction": "Was the petitioner convicted for the case?",
+  "law enforcement agency": "Law Enforcement Agency",
+  "lea file number": "Law Enforcement Agency File Number",
+  "was case filed": "Was the case filed?"
 };
 
 export default translations;

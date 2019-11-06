@@ -64,6 +64,11 @@ export const convictedOptions = [
   { label: "No, petitioner was not convicted", value: "No" }
 ];
 
+export const caseFiledOptions = [
+  { label: "Case was filed", value: "Yes" },
+  { label: "Case was not filed", value: "No" }
+];
+
 export const pryingQuestionOptions = [
   {
     label: "I have not been diagnosed as having a substance abuse addiction.",

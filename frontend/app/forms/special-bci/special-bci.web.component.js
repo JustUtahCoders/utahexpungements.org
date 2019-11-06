@@ -4,6 +4,7 @@ import TextInput from "../inputs/text-input.component";
 import FormThatPrints from "../inputs/form-that-prints.component";
 import Select from "../inputs/select.component";
 import {
+  caseFiledOptions,
   convictedOptions,
   courtTypeOptions,
   DistrictCourtList,
@@ -70,11 +71,28 @@ export default function SpecialBci_Web({ data }) {
           options={convictedOptions}
         />
         {data.case.hasConviction === "Yes" && (
-          // TODO: Fields specific to having conviction
-          <div />
+          <>
+            <TextInput
+              dataKey="case.arrestedDate"
+              label={__("arrested date")}
+            />
+            <TextInput
+              dataKey="case.leaName"
+              label={__("law enforcement agency")}
+            />
+            <TextInput
+              dataKey="case.leaFileNumber"
+              label={__("lea file number")}
+            />
+            <Radio
+              dataKey="case.wasFiled"
+              label={__("was case filed")}
+              options={caseFiledOptions}
+            />
+          </>
         )}
         {data.case.hasConviction === "No" && (
-          // TODO: Fields specific to not having conviction
+          // TODO: Fields specific to having conviction
           <div />
         )}
       </Section>

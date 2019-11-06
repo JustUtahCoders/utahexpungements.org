@@ -121,9 +121,40 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           left={caseInformationLeft}
           top="56.5%"
         />
+
+        {/* Records of crimes without conviction */}
+        <PositionedCheckmark
+          dataKey="case.hasConviction"
+          left="18%"
+          top="68.6%"
+          shouldShow={data.case.hasConviction === "No"}
+        />
+        <PositionedString
+          dataKey="case.arrestedDate"
+          left="39.5%"
+          top="70.8%"
+        />
+        <PositionedString dataKey="case.leaName" left="19.0%" top="73.6%" />
+        <PositionedString dataKey="case.leaFileNumber" left="50%" top="76%" />
+        <PositionedCheckmark
+          dataKey="case.wasFiled"
+          left="23.8%"
+          top="83%"
+          shouldShow={data.case.wasFiled === "Yes"}
+        />
+        {/* Check with Tucker that this is the same case number */}
+        <PositionedString dataKey="case.caseNumber" left="23.8%" top="85.4%" />
       </RenderPage>
 
-      <RenderPage url={secondPageUrl} />
+      <RenderPage url={secondPageUrl}>
+        {/* Records of crimes without conviction continued */}
+        <PositionedCheckmark
+          dataKey="case.wasFiled"
+          left="23.8%"
+          top="13.5%"
+          shouldShow={data.case.wasFiled === "No"}
+        />
+      </RenderPage>
 
       <RenderPage url={thirdPageUrl} />
     </>
