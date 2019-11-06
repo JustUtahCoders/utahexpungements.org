@@ -17,24 +17,15 @@ export default function ProofOfCompletedService_Web({ data }) {
   return (
     <FormThatPrints>
       <Section name="Personal Information">
-        {/* <TextInput dataKey="person.firstName" label={__("First Name")} />
-        <TextInput dataKey="person.middleName" label={_("Middle Name")} />
-        <TextInput dataKey="person.lastName" label={_("Last Name")} />
-        <TextInput dataKey="person.addressStreet" label={_("Street Address")} />
-        <TextInput dataKey="person.addressCity" label={_("City")} />
-        <TextInput dataKey="person.addressState" label={_("State")} />
-        <TextInput dataKey="person.addressZip" label={_("Zip Code")} />
-        <TextInput dataKey="person.phone" label={_("Phone")} />
-        <TextInput dataKey="person.email" label={_("Email")} /> */}
-        <TextInput dataKey="person.firstName" label="First Name" />
-        <TextInput dataKey="person.middleName" label="Middle Name" />
-        <TextInput dataKey="person.lastName" label="Last Name" />
-        <TextInput dataKey="person.addressStreet" label="Street Address" />
-        <TextInput dataKey="person.addressCity" label="City" />
-        <TextInput dataKey="person.addressState" label="State" />
-        <TextInput dataKey="person.addressZip" label="Zip Code" />
-        <TextInput dataKey="person.phone" label="Phone" />
-        <TextInput dataKey="person.email" label="Email" />
+        <TextInput dataKey="person.firstName" label={__("first name")} />
+        <TextInput dataKey="person.middleName" label={__("middle name")} />
+        <TextInput dataKey="person.lastName" label={__("last name")} />
+        <TextInput dataKey="person.addressStreet" label={__("street")} />
+        <TextInput dataKey="person.addressCity" label={__("city")} />
+        <TextInput dataKey="person.addressState" label={__("state")} />
+        <TextInput dataKey="person.addressZip" label={__("zip")} />
+        <TextInput dataKey="person.phone" label={__("phone")} />
+        <TextInput dataKey="person.email" label={__("email address")} />
         <small className="web-form-input">
           Check your email. You will receive information and documents at this
           email address.
@@ -76,50 +67,40 @@ export default function ProofOfCompletedService_Web({ data }) {
         </small>
         <small className="web-form-input">(Choose all that apply:)</small>
         <Checkbox
-          dataKey="proofOfCompletedService_case.summons"
+          dataKey="case.summons"
           label="Summons (File or attach copy)"
         />
         <Checkbox
-          dataKey="proofOfCompletedService_case.complaintOrPetition"
+          dataKey="case.complaintOrPetition"
           label="Complaint or Petition"
         />
 
         <Checkbox
-          dataKey="proofOfCompletedService_case.amendedComplaintOrPetition"
+          dataKey="case.amendedComplaintOrPetition"
           label="Amended Complaint or Petition"
         />
 
         <Checkbox
-          dataKey="proofOfCompletedService_case.noticeOfDivorceEducationRequirements"
+          dataKey="case.noticeOfDivorceEducationRequirements"
           label="Notice of Divorce Education Requirements"
         />
 
         <Checkbox
-          dataKey="proofOfCompletedService_case.noticeOfURCP26.1"
+          dataKey="case.noticeOfURCP26.1"
           label="Notice of URCP 26.1 Disclosure and Discovery Requirements in Domestic Relations Actions"
         />
 
         <Checkbox
-          dataKey="proofOfCompletedService_case.noticeOfURCP26.3"
+          dataKey="case.noticeOfURCP26.3"
           label="Notice of URCP 26.3 Disclosure Requirements in Unlawful Detainer Actions"
         />
 
-        <Checkbox
-          dataKey="proofOfCompletedService_case.parentingPlan"
-          label="Parenting Plan"
-        />
+        <Checkbox dataKey="case.parentingPlan" label="Parenting Plan" />
 
-        <Checkbox
-          dataKey="proofOfCompletedService_case.other"
-          label="Other (describe)"
-        />
-        {/* {case.proofOfCompletedService_case && ( 
-          <TextArea label="Describe" dataKey="proofOfCompletedService_case.otherDocumentsServed" />
-        )} */}
-        <TextArea
-          dataKey="proofOfCompletedService_case.otherDocumentsServed"
-          label="Describe"
-        />
+        <Checkbox dataKey="case.other" label="Other (describe below)" />
+        {data.case.other && (
+          <TextArea dataKey="case.otherDocumentsServed" label="Describe" />
+        )}
       </Section>
       <Section name="Complete section 2, or 3 AND 4"></Section>
       <Section name="2. Service by Mail">
