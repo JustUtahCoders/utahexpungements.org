@@ -5,6 +5,7 @@ export default function DocketPdf(props) {
   const formRef = React.useRef();
   const [parse, setParse] = React.useState(parse);
   const [err, setErr] = React.useState(null);
+  const [processType, setProcessType] = React.useState("processed");
 
   React.useEffect(() => {
     if (isProcessing) {
@@ -16,8 +17,8 @@ export default function DocketPdf(props) {
         signal: abortController.signal,
         body: new FormData(formRef.current)
       })
-        .then(r =>
-          r.json().then(data => {
+        .then(r => {
+          const fun = data => {
             if (r.ok) {
               setIsProcessing(false);
               setParse(data);
@@ -26,8 +27,13 @@ export default function DocketPdf(props) {
                 `Server responded with error ${JSON.stringify(data.error)}`
               );
             }
-          })
-        )
+          };
+          if (processType === "processed") {
+            r.json().then(fun);
+          } else {
+            r.text().then(fun);
+          }
+        })
         .catch(err => {
           setIsProcessing(false);
           setErr(err);
@@ -50,6 +56,24 @@ export default function DocketPdf(props) {
             required
             onChange={newFile}
           />
+        </div>
+        <div style={{ margin: "16px 0" }}>
+          <input
+            type="radio"
+            name="processType"
+            onChange={event => setProcessType(event.target.value)}
+            value="processed"
+            checked={processType === "processed"}
+          />{" "}
+          Processed
+          <input
+            type="radio"
+            name="processType"
+            onChange={event => setProcessType(event.target.value)}
+            value="rawText"
+            checked={processType === "rawText"}
+          />{" "}
+          Raw Text
         </div>
         <button type="submit" className="primary">
           Process pdf
