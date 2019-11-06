@@ -61,7 +61,7 @@ export default class FormList extends React.Component {
             <FillableForm
               name={__("app for coe with release")}
               readyForUsers={true}
-              keyworks="application certificate eligibility release third party"
+              keywords="application certificate eligibility release third party"
               shortDescription={__("app for coe with release short descr")}
               appUrl={
                 this.props.match.url + "/application-for-coe-with-release"
@@ -70,6 +70,21 @@ export default class FormList extends React.Component {
               previewUrls={[
                 "/static/forms/application-for-coe-with-release/BCI_Third_Party_Release_Form_and_Application-1.png",
                 "/static/forms/application-for-coe-with-release/BCI_Third_Party_Release_Form_and_Application-2.png"
+              ]}
+            />
+            <FillableForm
+              name={__("app for board of pardon expungement")}
+              readyForUsers
+              keywords="application board pardon expungement"
+              shortDescription={__(
+                "application for board of pardon expungement"
+              )}
+              appUrl={
+                this.props.match.url + "/application-for-board-of-pardon-e"
+              }
+              downloadUrl="https://bci.utah.gov/wp-content/uploads/sites/15/2019/08/BOP-Exp-App-08-09-2019-Mail-In.pdf"
+              previewUrls={[
+                "/static/forms/application-for-board-of-pardon-e/BOP-Exp-App-08-09-2019-Mail-In-1.png"
               ]}
             />
             <FillableForm
@@ -98,7 +113,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("Coversheet")}
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="coversheet"
               shortDescription={__("Civil Filing Coversheet")}
               appUrl={this.props.match.url + "/coversheet"}
@@ -110,7 +125,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name={__("petition for drug conviction")}
-              readyForUsers
+              readyForUsers={false}
               keywords="drug conviction petition"
               shortDescription={__(
                 "petition for drug conviction short description"
@@ -138,7 +153,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Acceptance of Service"
-              readyForUsers
+              readyForUsers={true}
               keywords="prosecutor acceptance serve"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
               appUrl={this.props.match.url + "/acceptance-of-service"}
@@ -148,8 +163,20 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name="Draft court order for expungement conviction"
+              name="Consent and Waiver of Hearing"
               readyForUsers={false}
+              keywords="Prosecutor waiver hearing"
+              shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
+              appUrl={this.props.match.url + "/consent-and-waiver-of-hearing"}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/09_Consent-waiver_of_hearing.pdf"
+              previewUrls={[
+                "/static/forms/consent-and-waiver-of-hearing/consent-and-waiver-of-hearing-1.png",
+                "/static/forms/consent-and-waiver-of-hearing/consent-and-waiver-of-hearing-2.png"
+              ]}
+            />
+            <FillableForm
+              name="Draft court order for expungement conviction"
+              readyForUsers={true}
               keywords="prosecutor acceptance serve"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
               appUrl={this.props.match.url + "/draft-court-order-conviction"}
@@ -162,7 +189,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Draft court order for expungement (drug possession conviction)"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="court order expunge drug possession conviction"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement (drug possession)"
               appUrl={
@@ -178,7 +205,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Draft court order on motion to waive fees"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="draft court order motion waive fees"
               shortDescription="A form you file with the courts along with your expungement petition so the judge can rule on your motion to waive fees"
               appUrl={
@@ -192,8 +219,36 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name="Order on Petition to Expunge Records (Charges never filed)"
+              name="Petition to Expunge Records (Dismissal or Acquittal)"
               readyForUsers={false}
+              keywords="petition to expunge records dismissal or acquittal"
+              shortDescription="This form requests a court order for expunging a case where charges were dismissed. You must first obtain a Certificate of Eligibility before filing this form."
+              appUrl={
+                this.props.match.url + "/petition-for-dismissal-or-acquittal"
+              }
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-1.png",
+                "/static/forms/petition-for-dismissal-or-acquittal/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal-2.png"
+              ]}
+            />
+            <FillableForm
+              name="Petition for Charges Never Filed"
+              readyForUsers={true}
+              keywords="petition to expungement charges never filed"
+              shortDescription="This form requests a court order for an expungement when charges where never filed. You must first obtain a Certificate of Eligibility before filing this form."
+              appUrl={
+                this.props.match.url + "/petition-for-charges-never-filed"
+              }
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/01_Petition_to_Expunge_Records_Criminal-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-1.png",
+                "/static/forms/petition-for-charges-never-filed/01_Petition_to_Expunge_Records_Criminal-charges_never_filed-2.png"
+              ]}
+            />
+            <FillableForm
+              name="Order on Petition to Expunge Records (Charges never filed)"
+              readyForUsers={true}
               keywords="order on petition to expunge records charges never filed"
               shortDescription="Court order given to the judge when charges are dropped"
               appUrl={`${this.props.match.url}/order-on-petition-charges-not-filed`}
@@ -205,7 +260,7 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name="Reply to Victim's Statement or Prosecutor's Statement or AP&P Response"
+              name="Attorney, victim, or prosecutor response statement"
               readyForUsers={true}
               keywords="reply to victim statement or prosecutor ap&p adult probation and parole response"
               shortDescription="Reply to statement made by prosecutor or, victim, or adult probation and parole"
@@ -215,6 +270,64 @@ export default class FormList extends React.Component {
                 "/static/forms/reply-to-statement/03_Petitioner_Reply-1.png",
                 "/static/forms/reply-to-statement/03_Petitioner_Reply-2.png",
                 "/static/forms/reply-to-statement/03_Petitioner_Reply-3.png"
+              ]}
+            />
+            <FillableForm
+              name="Proof of Completed Service"
+              readyForUsers={false}
+              keywords="proof of completed service"
+              // Short description used below found here: "https://www.utcourts.gov/howto/service/service_of_process.html"
+              shortDescription="This document must be attached to all papers filed with the court so the court will look at your case"
+              appUrl={`${this.props.match.url}/proof-of-completed-service`}
+              downloadUrl="https://www.utcourts.gov/howto/service/docs/1020GE_Proof_of_Service.pdf"
+              previewUrls={[
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-1.png",
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-2.png",
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-3.png",
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-4.png",
+                "/static/forms/proof-of-completed-service/proof_of_completed_service-5.png"
+              ]}
+            />
+            <FillableForm
+              name="Petition for Expungement (Special Certificate from BCI)"
+              readyForUsers={true}
+              keywords="petition for expungement special certificate from bci"
+              shortDescription="The form for petitioning for an expungement when you have a special certificate from the BCI."
+              appUrl={`${this.props.match.url}/petition-for-expungement-from-bci`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-special_certificate.pdf"
+              previewUrls={[
+                "/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-1.png",
+                "/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-2.png",
+                "/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-3.png"
+              ]}
+            />
+            <FillableForm
+              name="Order on Motion for Reduction of Conviction"
+              readyForUsers={false}
+              keywords="motion reduction conviction"
+              // Short description used below found here: "https://www.utcourts.gov/howto/service/service_of_process.html"
+              shortDescription="A form to ask the court a reducion of the degree of a criminal conviction meeting certain requirements"
+              appUrl={`${this.props.match.url}/order-on-motion-for-reduction-of-conviction`}
+              downloadUrl="https://www.utcourts.gov/howto/criminallaw/docs/05_Order_on_Motion_for_Reduction_of_Conviction.pdf"
+              previewUrls={[
+                "/static/forms/order-on-motion-for-reduction-of-conviction/05_Order_on_Motion_for_Reduction_of_Conviction-1.png",
+                "/static/forms/order-on-motion-for-reduction-of-conviction/05_Order_on_Motion_for_Reduction_of_Conviction-2.png",
+                "/static/forms/order-on-motion-for-reduction-of-conviction/05_Order_on_Motion_for_Reduction_of_Conviction-3.png",
+                "/static/forms/order-on-motion-for-reduction-of-conviction/05_Order_on_Motion_for_Reduction_of_Conviction-4.png"
+              ]}
+            />
+            <FillableForm
+              name="Motion to Reduce Conviction"
+              readyForUsers={false}
+              keywords="motion reduction conviction"
+              // Short description used below found here: "https://www.utcourts.gov/howto/service/service_of_process.html"
+              shortDescription="A form to ask the court a reducion of the degree of a criminal conviction meeting certain requirements"
+              appUrl={`${this.props.match.url}/motion-to-reduce-conviction`}
+              downloadUrl="https://www.utcourts.gov/howto/criminallaw/docs/01_Motion_to_Reduce_Conviction.pdf"
+              previewUrls={[
+                "/static/forms/motion-to-reduce-conviction/01_Motion_to_Reduce_Conviction-1.png",
+                "static/forms/motion-to-reduce-conviction/01_Motion_to_Reduce_Conviction-2.png",
+                "static/forms/motion-to-reduce-conviction/01_Motion_to_Reduce_Conviction-3.png"
               ]}
             />
             <FillableForm
@@ -248,16 +361,16 @@ export default class FormList extends React.Component {
 
 const css = `
   & .forms-list {
-    margin-top: 24rem;
+    margin-top: 2.4rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-right: -32rem;
-    margin-bottom: -32rem;
+    margin-right: -3.2rem;
+    margin-bottom: -3.2rem;
   }
 
   & .under-construction {
-    margin: 8rem 0;
+    margin: 0.8rem 0;
   }
 `;

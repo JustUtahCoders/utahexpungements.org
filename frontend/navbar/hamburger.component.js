@@ -71,11 +71,11 @@ const css = `
   }
 
   & .hamburger > * {
-    width: 24rem;
-    border-radius: 3rem;
-    height: 3rem;
+    width: 2.4rem;
+    border-radius: 0.3rem;
+    height: 0.3rem;
     background-color: #fff;
-    margin: 0 16rem 4rem 16rem;
+    margin: 0 1.6rem 0.4rem 1.6rem;
     display: block;
   }
 `;
@@ -112,11 +112,11 @@ const sideMenuCss = `
   }
 
   & .close-hamburger > * {
-    width: 24rem;
-    border-radius: 3rem;
-    height: 3rem;
+    width: 2.4rem;
+    border-radius: 0.3rem;
+    height: 0.3rem;
     background-color: #fff;
-    margin: 0 16rem 4rem 16rem;
+    margin: 0 1.6rem 0.4rem 1.6rem;
     display: block;
   }
 `;

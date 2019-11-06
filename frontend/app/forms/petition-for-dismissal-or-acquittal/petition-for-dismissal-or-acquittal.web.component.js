@@ -63,14 +63,12 @@ export default function PetitionForDismissalOrAcquittal_Web({ data }) {
         <TextInput dataKey="case.judgeName" label={__("judge full name")} />
         <TextInput dataKey="case.arrestedDate" label={__("arrested date")} />
         <TextInput
-          dataKey="case.lawEnforcementAgencysFileNumber"
-          label={__("the law enforcement agency's file number")}
+          dataKey="case.lawEnforcementAgency"
+          label={__("law enforcement agency")}
         />
         <TextInput
-          dataKey="case.resultOfArrest"
-          label={__(
-            "the following court case was filed as a result of the arrest"
-          )}
+          dataKey="case.lawEnforcementAgencyFileNumber"
+          label={__("the law enforcement agency's file number")}
         />
       </Section>
       <Section name="3. Choose all that applies">
@@ -88,7 +86,7 @@ export default function PetitionForDismissalOrAcquittal_Web({ data }) {
         />
         <Select
           dataKey="case.dismissalStatus"
-          label={__("one of the follow has occured")}
+          label="one of the follow has occurred"
           options={caseStatusOptions}
         />
         {data.case.dismissalStatus == caseStatusOptions[1].value && (
@@ -119,8 +117,7 @@ var caseStatusOptions = [
   {
     label: "I was acquitted at trial.",
     value: "acquitted-at-trial"
-  },
-  { label: "n/a", value: "" }
+  }
 ];
 
 var dismissalWithoutPrejudiceStatusOptions = [

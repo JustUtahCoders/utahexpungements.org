@@ -98,7 +98,7 @@ export default ({
       />
     </RenderPage>
 
-    <RenderPage url="/static/forms/draft-court-drug-possession-order-conviction/draft_court_order_drug_possession_conviction-3.png" />
+    <RenderPage url="/static/forms/draft-court-order-drug-possession-conviction/draft_court_order_drug_possession_conviction-3.png" />
   </>
 );
 

@@ -27,6 +27,6 @@ export default function Checkbox(props) {
 
 const css = `
   & .checkbox {
-    margin-left: 32rem;
+    margin-left: 3.2rem;
   }
 `;

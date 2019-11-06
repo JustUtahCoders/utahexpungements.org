@@ -27,10 +27,29 @@ import OrderOnPetitionChargesNotFiled_Web from "../order-on-petition-charges-not
 import OrderOnPetitionChargesNotFiled_Pdf from "../order-on-petition-charges-not-filed/order-on-petition-charges-not-filed.pdf.component";
 import PetitionForDismissalOrAcquittal_Pdf from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.pdf.component.js";
 import PetitionForDismissalOrAcquittal_Web from "../petition-for-dismissal-or-acquittal/petition-for-dismissal-or-acquittal.web.component.js";
+import PetitionForChargesNeverFiled_Web from "../petition-for-charges-never-filed/petition-for-charges-never-filed.web.component";
+import PetitionForChargesNeverFiled_Pdf from "../petition-for-charges-never-filed/petition-for-charges-never-filed.pdf.component";
+
 import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.component";
 import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
+import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
+import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
+
 import SpecialBci_Web from "../special-bci/special-bci.web.component";
 import SpecialBci_Pdf from "../special-bci/special-bci.pdf.component";
+
+import ApplicationForBoardOfPardonExpungement_Web from "../application-for-board-of-pardon-e/application-for-board-of-pardon-e.web.component.js";
+import ApplicationForBoardOfPardonExpungement_Pdf from "../application-for-board-of-pardon-e/application-for-board-of-pardon-e.pdf.component.js";
+
+import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component.js";
+import ConsentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
+import OrderOnMotionForReductionOfConviction_Web from "../order-on-motion-for-reduction-of-conviction/order-on-motion-for-reduction-of-conviction.web.component";
+import OrderOnMotionForReductionOfConviction_Pdf from "../order-on-motion-for-reduction-of-conviction/order-on-motion-for-reduction-of-conviction.pdf.component";
+import MotionToReduceConviction_Web from "../motion-to-reduce-conviction/motion-to-reduce-conviction.web.component";
+import MotionToReduceConviction_Pdf from "../motion-to-reduce-conviction/motion-to-reduce-conviction.pdf.component";
+
+import ProofOfCompletedService_Web from "../proof-of-completed-service/proof-of-completed-service.web.component.js";
+import ProofOfCompletedService_Pdf from "../proof-of-completed-service/proof-of-completed-service.pdf.component.js";
 
 export default class FormBank extends React.Component {
   render() {
@@ -84,6 +103,16 @@ export default class FormBank extends React.Component {
               name={__("app for coe with release")}
               WebForm={AppForCOEWithRelease_Web}
               PdfForm={AppForCOEWithRelease_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={this.props.match.url + "/application-for-board-of-pardon-e"}
+          render={props => (
+            <GovernmentForm
+              name="Application for Board of Pardon Expungement"
+              WebForm={ApplicationForBoardOfPardonExpungement_Web}
+              PdfForm={ApplicationForBoardOfPardonExpungement_Pdf}
             />
           )}
         />
@@ -151,6 +180,16 @@ export default class FormBank extends React.Component {
           )}
         />
         <Route
+          path={this.props.match.url + "/petition-for-charges-never-filed"}
+          render={props => (
+            <GovernmentForm
+              name="Petition for Charges Never Filed"
+              WebForm={PetitionForChargesNeverFiled_Web}
+              PdfForm={PetitionForChargesNeverFiled_Pdf}
+            />
+          )}
+        />
+        <Route
           path={`${this.props.match.url}/order-on-petition-charges-not-filed`}
           render={props => (
             <GovernmentForm
@@ -164,9 +203,108 @@ export default class FormBank extends React.Component {
           path={`${this.props.match.url}/reply-to-statement`}
           render={props => (
             <GovernmentForm
-              name="Reply to Victim's Statement or Prosecutor's Statement or AP&P Response"
               WebForm={ReplyToStatement_Web}
               PdfForm={ReplyToStatement_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/proof-of-completed-service`}
+          render={props => (
+            <GovernmentForm
+              name="Proof of Completed Service"
+              WebForm={ProofOfCompletedService_Web}
+              PdfForm={ProofOfCompletedService_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/petition-for-expungement-from-bci`}
+          render={props => (
+            <GovernmentForm
+              name="Petition for Expungement (Special Certificate from BCI)"
+              WebForm={PetitionForExpungementFromBci_Web}
+              PdfForm={PetitionForExpungementFromBci_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/consent-and-waiver-of-hearing`}
+          render={props => (
+            <GovernmentForm
+              name="Consent and waive of hearing"
+              WebForm={ConsentAndWaiverOfHearing_Web}
+              PdfForm={ConsentAndWaiverOfHearing_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/order-on-motion-for-reduction-of-conviction`}
+          render={props => (
+            <GovernmentForm
+              name="Order on Motion for Reduction of Conviction"
+              WebForm={OrderOnMotionForReductionOfConviction_Web}
+              PdfForm={OrderOnMotionForReductionOfConviction_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/motion-to-reduce-conviction`}
+          render={props => (
+            <GovernmentForm
+              name="Motion to Reduce Conviction"
+              WebForm={MotionToReduceConviction_Web}
+              PdfForm={MotionToReduceConviction_Pdf}
+            />
+          )}
+        />
+        path={`${this.props.match.url}/proof-of-completed-service`}
+        render=
+        {props => (
+          <GovernmentForm
+            name="Proof of Completed Service"
+            WebForm={ProofOfCompletedService_Web}
+            PdfForm={ProofOfCompletedService_Pdf}
+          />
+        )}
+        />
+        <Route
+          path={`${this.props.match.url}/petition-for-expungement-from-bci`}
+          render={props => (
+            <GovernmentForm
+              name="Petition for Expungement (Special Certificate from BCI)"
+              WebForm={PetitionForExpungementFromBci_Web}
+              PdfForm={PetitionForExpungementFromBci_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/consent-and-waiver-of-hearing`}
+          render={props => (
+            <GovernmentForm
+              name="Consent and waive of hearing"
+              WebForm={ConsentAndWaiverOfHearing_Web}
+              PdfForm={ConsentAndWaiverOfHearing_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/order-on-motion-for-reduction-of-conviction`}
+          render={props => (
+            <GovernmentForm
+              name="Order on Motion for Reduction of Conviction"
+              WebForm={OrderOnMotionForReductionOfConviction_Web}
+              PdfForm={OrderOnMotionForReductionOfConviction_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/motion-to-reduce-conviction`}
+          render={props => (
+            <GovernmentForm
+              name="Motion to Reduce Conviction"
+              WebForm={MotionToReduceConviction_Web}
+              PdfForm={MotionToReduceConviction_Pdf}
             />
           )}
         />
