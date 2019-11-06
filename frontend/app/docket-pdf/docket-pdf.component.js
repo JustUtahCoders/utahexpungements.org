@@ -19,8 +19,8 @@ export default function DocketPdf(props) {
       })
         .then(r => {
           const gotProcessed = data => {
+            setIsProcessing(false);
             if (r.ok) {
-              setIsProcessing(false);
               setParse({ data, processJson });
             } else {
               throw Error(
