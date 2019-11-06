@@ -31,7 +31,7 @@ export default function DocketPdf(props) {
           if (processJson) {
             return r.json().then(gotProcessed);
           } else {
-            r.text().then(gotProcessed);
+            return r.text().then(gotProcessed);
           }
         })
         .catch(err => {
