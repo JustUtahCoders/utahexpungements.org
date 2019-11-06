@@ -316,6 +316,20 @@ export default class FormList extends React.Component {
                 "/static/forms/order-on-motion-for-reduction-of-conviction/05_Order_on_Motion_for_Reduction_of_Conviction-4.png"
               ]}
             />
+            <FillableForm
+              name="Motion to Reduce Conviction"
+              readyForUsers={false}
+              keywords="motion reduction conviction"
+              // Short description used below found here: "https://www.utcourts.gov/howto/service/service_of_process.html"
+              shortDescription="A form to ask the court a reducion of the degree of a criminal conviction meeting certain requirements"
+              appUrl={`${this.props.match.url}/motion-to-reduce-conviction`}
+              downloadUrl="https://www.utcourts.gov/howto/criminallaw/docs/01_Motion_to_Reduce_Conviction.pdf"
+              previewUrls={[
+                "/static/forms/motion-to-reduce-conviction/01_Motion_to_Reduce_Conviction-1.png",
+                "static/forms/motion-to-reduce-conviction/01_Motion_to_Reduce_Conviction-2.png",
+                "static/forms/motion-to-reduce-conviction/01_Motion_to_Reduce_Conviction-3.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>
