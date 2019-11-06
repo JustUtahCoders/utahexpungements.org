@@ -3,35 +3,35 @@ import React from "react";
 export default function DocketPdf(props) {
   const [isProcessing, setIsProcessing] = React.useState(false);
   const formRef = React.useRef();
-  const [parse, setParse] = React.useState(parse);
+  const [parse, setParse] = React.useState(null);
   const [err, setErr] = React.useState(null);
-  const [processType, setProcessType] = React.useState("processed");
+  const [processJson, setProcessJson] = React.useState(true);
 
   React.useEffect(() => {
     if (isProcessing) {
       setParse(null);
       const abortController = new AbortController();
 
-      fetch("/api/docket-pdfs", {
+      fetch("/api/docket-pdfs?processJson=" + processJson, {
         method: "POST",
         signal: abortController.signal,
         body: new FormData(formRef.current)
       })
         .then(r => {
-          const fun = data => {
+          const gotProcessed = data => {
             if (r.ok) {
               setIsProcessing(false);
-              setParse(data);
+              setParse({ data, processJson });
             } else {
               throw Error(
                 `Server responded with error ${JSON.stringify(data.error)}`
               );
             }
           };
-          if (processType === "processed") {
-            r.json().then(fun);
+          if (processJson) {
+            r.json().then(gotProcessed);
           } else {
-            r.text().then(fun);
+            r.text().then(gotProcessed);
           }
         })
         .catch(err => {
@@ -60,18 +60,18 @@ export default function DocketPdf(props) {
         <div style={{ margin: "16px 0" }}>
           <input
             type="radio"
-            name="processType"
-            onChange={event => setProcessType(event.target.value)}
-            value="processed"
-            checked={processType === "processed"}
+            name="processJson"
+            onChange={event => setProcessJson(true)}
+            value={true}
+            checked={processJson}
           />{" "}
           Processed
           <input
             type="radio"
-            name="processType"
-            onChange={event => setProcessType(event.target.value)}
-            value="rawText"
-            checked={processType === "rawText"}
+            name="processJson"
+            onChange={event => setProcessJson(false)}
+            value={false}
+            checked={!processJson}
           />{" "}
           Raw Text
         </div>
@@ -82,7 +82,13 @@ export default function DocketPdf(props) {
       <div style={{ margin: "16px 0" }}>
         {isProcessing && <div>Processing</div>}
         {err && <div>{err.message}</div>}
-        {parse && <pre>{JSON.stringify(parse, null, 2)}</pre>}
+        {parse && (
+          <pre>
+            {parse.processJson
+              ? JSON.stringify(parse.data, null, 2)
+              : parse.data}
+          </pre>
+        )}
       </div>
     </>
   );

@@ -12,7 +12,6 @@ app.post("/api/docket-pdfs", (req, res) => {
     res.status(400).send({ error: err.message });
     return;
   }
-  console.log("boop", req.headers);
 
   let fileWasUploaded = false;
   let requestErr;
@@ -25,15 +24,16 @@ app.post("/api/docket-pdfs", (req, res) => {
     }
     fileWasUploaded = true;
 
-    console.log("fieldName", fieldName);
-
     file.on("data", data => {
       pdf(data)
         .then(
           thePdf => {
-            //const parse = parsePdfText(thePdf.text);
-            const parse = thePdf.text;
-            res.send(parse);
+            const processJson = req.query.processJson === "true" ? true : false;
+            if (processJson) {
+              res.send(parsePdfText(thePdf.text));
+            } else {
+              res.send(thePdf.text);
+            }
           },
           err => {
             res.status(400).send({ error: err });
