@@ -5,6 +5,7 @@ import FormThatPrints from "../inputs/form-that-prints.component";
 import Select from "../inputs/select.component";
 import {
   caseFiledOptions,
+  chargeResolutionOptions,
   convictedOptions,
   courtTypeOptions,
   DistrictCourtList,
@@ -13,6 +14,7 @@ import {
 } from "../form-common-options/form-common-options";
 import Radio from "../inputs/radio.component";
 import GroupSelect from "../inputs/group-select.component";
+import Checkbox from "../inputs/checkbox.component";
 
 export default function SpecialBci_Web({ data }) {
   return (
@@ -88,6 +90,19 @@ export default function SpecialBci_Web({ data }) {
               dataKey="case.wasFiled"
               label={__("was case filed")}
               options={caseFiledOptions}
+            />
+            <Checkbox
+              dataKey="case.thirtyDaysPassed"
+              label={__("thirty days passed since arrest")}
+            />
+            <Checkbox
+              dataKey="case.noArrestsSinceLast"
+              label={__("no arrests since last")}
+            />
+            <Radio
+              dataKey="case.chargeResolution"
+              label={__("resolution of the conviction")}
+              options={chargeResolutionOptions}
             />
           </>
         )}

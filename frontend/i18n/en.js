@@ -302,7 +302,11 @@ const translations = {
   "have conviction": "Was the petitioner convicted for the case?",
   "law enforcement agency": "Law Enforcement Agency",
   "lea file number": "Law Enforcement Agency File Number",
-  "was case filed": "Was the case filed?"
+  "was case filed": "Was the case filed?",
+  "thirty days passed since arrest":
+    "At least 30 days have passed since I was arrested",
+  "no arrests since last": "I have not been arrested since this arrest",
+  "resolution of the conviction": "What was the resolution of the conviction?"
 };
 
 export default translations;
