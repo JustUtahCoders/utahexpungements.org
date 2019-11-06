@@ -29,7 +29,7 @@ export default function DocketPdf(props) {
             }
           };
           if (processJson) {
-            r.json().then(gotProcessed);
+            return r.json().then(gotProcessed);
           } else {
             r.text().then(gotProcessed);
           }
