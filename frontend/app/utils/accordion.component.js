@@ -30,14 +30,16 @@ export default class Accordion extends React.Component {
 
             return (
               <div key={index}>
-                <a
+                <div
                   href="#"
                   className={`heading ${headingClassName}`}
                   onClick={partial(this.toggleItem, index)}
+                  role="button"
+                  tabIndex={index}
                 >
-                  <img className="caretIcon" src={caretIcon} />
+                  <img className="caretIcon" src={caretIcon} alt="caret" />
                   {item.heading}
-                </a>
+                </div>
                 {open && item.body}
               </div>
             );

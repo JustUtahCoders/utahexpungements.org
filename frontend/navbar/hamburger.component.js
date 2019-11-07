@@ -3,14 +3,11 @@ import { Scoped } from "kremling";
 import {
   mediaDesktop,
   navbarHeight,
-  primary,
   darkPrimary,
-  secondary,
-  boxShadow3
+  styleguideCss
 } from "frontend/styleguide.js";
 import MenuItems from "./menu-items.component.js";
 import { Portal } from "react-portal";
-import styleguideCss from "frontend/styleguide.js";
 
 export default class Hamburger extends React.Component {
   state = {
@@ -19,7 +16,12 @@ export default class Hamburger extends React.Component {
   render() {
     return (
       <Scoped css={css}>
-        <div className="hamburger" onClick={this.openMenu}>
+        <div
+          className="hamburger"
+          onClick={this.openMenu}
+          role="button"
+          tabIndex={0}
+        >
           <div />
           <div />
           <div />
