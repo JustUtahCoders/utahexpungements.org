@@ -1,5 +1,6 @@
 const { file } = require("./docket-pdf-test-files/normal-docket-pdf");
-const { accountSection } = require("./docket-pdf-test-files/normal-docket-pdf");
+const { accountSummary } = require("./docket-pdf-test-files/account-summary");
+const { stateCollection } = require("./docket-pdf-test-files/state-collection");
 const { parsePdfText } = require("./parse-docket-pdf.utils");
 
 describe("normal docket pdf file", () => {
@@ -32,16 +33,46 @@ describe("normal docket pdf file", () => {
 });
 
 describe("correctly and completely parses ACCOUNT SUMMARY section", () => {
-  const parsedSection = parsePdfText(accountSection);
-  const parsedText = parsePdfText(file);
-
-  test("always adds accountSummary property to return object", () => {
-    expect(parsedSection.accountSummary).toBeTruthy();
-    expect(parsedText.accountSummary).toBeTruthy();
+  let parsedSection, parsedText, parsedCollection;
+  beforeEach(() => {
+    parsedSection = parsePdfText(accountSummary);
+    parsedText = parsePdfText(file);
+    parsedCollection = parsePdfText(stateCollection);
   });
 
-  test("if there is an ACCOUNT SUMMARY, it always has a TOTAL_REVENUE property", () => {
-    expect(parsedSection.accountSummary.TOTAL_REVENUE).toBeTruthy();
-    expect(parsedText.accountSummary.TOTAL_REVENUE).not.toBeTruthy();
+  test("always adds accountSummary property to return an array", () => {
+    expect(parsedSection.accountSummary.length).toBeGreaterThan(0);
+    expect(parsedCollection.accountSummary.length).toBeGreaterThan(0);
+    expect(parsedText.accountSummary.length).toBe(0);
+  });
+
+  test("The accountSummary array includes fines and their associated amountDue and amountPaid", () => {
+    const findFines1 = parsedSection.accountSummary.filter(item => {
+      return item.name === "REVENUE DETAIL - TYPE: FINE";
+    });
+    const findFines2 = parsedCollection.accountSummary.filter(item => {
+      return item.name === "REVENUE DETAIL - TYPE: FINE";
+    });
+    expect(findFines1[0].amountDue).toBe("680.00");
+    expect(findFines1[0].amountPaid).toBe("680.00");
+    expect(findFines2[0].originalAmountDue).toBe("600.00");
+    expect(findFines2[0].amendedAmountDue).toBe("0.00");
+    expect(findFines2[0].amountDue).toBe("0.00");
+    expect(findFines2[0].amountPaid).toBe("0.00");
+  });
+
+  test("The accountSummary array includes restitution info", () => {
+    const findRestitution = parsedSection.accountSummary.filter(item => {
+      return item.costType;
+    });
+    expect(findRestitution[0].amountDue).toBe("99.00");
+    expect(findRestitution[0].amountPaid).toBe("99.00");
+  });
+
+  test("If charge was sent to State Debt Collection, then costType = state debt collection", () => {
+    const findCollection = parsedCollection.accountSummary.filter(item => {
+      return item.costType;
+    });
+    expect(findCollection[0].costType).toBe("state debt collection");
   });
 });

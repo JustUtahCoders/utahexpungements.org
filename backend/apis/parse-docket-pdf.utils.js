@@ -89,99 +89,73 @@ function parseCharges(lines, sections) {
 }
 
 function parseAccountSummary(lines, sections) {
-  let currentProp;
-  let currentSubProp;
-  let currentObj = {};
+  let subsections = [];
+  let balances = [];
 
-  function addAccounts(line) {
-    const inlineHeading = /([A-Z][A-Z ]+)/g;
-    const separator = /.:/g;
-    const skipLines = ["", "ACCOUNT SUMMARY"];
-    const rubbish = [
-      /CASE NUMBER/g,
-      /[__]+/g,
-      /Printed/g,
-      /Page.+of/g,
-      /TRUST DETAIL/g
-    ];
-    const filtered = rubbish.filter(regex => {
-      const result = regex.exec(line);
-      return regex.lastIndex > 0;
-    });
+  function addAccounts(line, index) {
+    const words = line.split(/\s/);
+    const isSubsection =
+      words.length > 0 && words[0].toUpperCase() === words[0];
+    if (isSubsection) {
+      subsections.push({ name: line, lineNumber: index });
+    }
 
-    const removeSpace = text => {
-      const test = text
-        .trim()
-        .replace(".", "")
-        .replace("/", "_");
-      const total = test.includes(" ") && test.match(/\s/g).length;
+    balances = subsections
+      .map((subsection, arrayIndex) => {
+        const endIndex =
+          arrayIndex + 1 !== subsections.length
+            ? subsections[arrayIndex + 1].lineNumber
+            : subsections[subsections.length - 1].lineNumber;
 
-      return +total > 1
-        ? removeSpace(test.replace(" ", "_"))
-        : test.replace(" ", "_");
-    };
+        let amountDue,
+          amountPaid,
+          costType,
+          originalAmountDue,
+          amendedAmountDue;
 
-    if (!skipLines.includes(line)) {
-      if (filtered.length === 0) {
-        if (line.match(separator)) {
-          const propPart = line.slice(0, line.indexOf(":"));
-          const valuePart = line.slice(line.indexOf(":") + 2);
-          if (propPart.match(inlineHeading)) {
-            // CASE ONE: TOTAL REVENUE Amount Due: 687.07
-            // TOTAL REVENUE needs to be added as a key to an object with Amount_Due as a key of that object AND 687.07 the value of the Amount_Due property.
-            if (propPart.match(/[a-z]/)) {
-              const lastCap = /.[A-Z][a-z]/;
-              const heading = removeSpace(
-                propPart.slice(0, propPart.search(lastCap))
-              );
-              const newProp = removeSpace(
-                propPart.slice(propPart.search(lastCap) + 1)
-              );
-              currentProp = removeSpace(heading);
-              currentSubProp = null;
-              currentObj[currentProp] = {
-                [removeSpace(newProp)]: valuePart
-              };
-            } else {
-              // CASE TWO: REVENUE DETAIL - TYPE: FINE
-              // Parse out FINE as a property on the previously create object and its value is a new object whose properties begin on the next line
-              currentObj[currentProp] = {
-                ...currentObj[currentProp],
-                [removeSpace(valuePart)]: {}
-              };
-              currentSubProp = removeSpace(valuePart);
+        for (let i = subsection.lineNumber; i < endIndex; i++) {
+          const line = lines[i];
+          const words = line.split(/\s/);
+
+          if (line.includes("Amount Due")) {
+            if (line.includes("Original")) {
+              originalAmountDue = words[words.length - 1];
+            } else if (line.includes("Amended")) {
+              amendedAmountDue = words[words.length - 1];
             }
-          } else if (line.includes("Trust Description")) {
-            // CASE THREE: Trust Description: Attorney Fee
-            // This case behave just like the CASE: REVENUE DETAIL - TYPE: FINE except it will not match the inlineHeader regex so it needs its own logic.
-            currentObj[currentProp] = {
-              ...currentObj[currentProp],
-              [removeSpace(valuePart)]: {}
-            };
-            currentSubProp = removeSpace(valuePart);
-          } else {
-            // CASE FOUR: Paid In: 49.55
-            // This is a straight forward key value pair. However, if the key/value pair immediately follows something of CASE ONE, it must be added immediately to the current object rather than added to the sub object.
-            if (currentSubProp) {
-              currentObj[currentProp][currentSubProp] = {
-                ...currentObj[currentProp][currentSubProp],
-                [removeSpace(propPart)]: valuePart
-              };
-            } else {
-              currentObj[currentProp] = {
-                ...currentObj[currentProp],
-                [removeSpace(propPart)]: valuePart
-              };
-            }
+            amountDue = words[words.length - 1];
+          } else if (line.includes("Amount Paid") || line.includes("Paid In")) {
+            amountPaid = words[words.length - 1];
           }
+
+          costType = getCostType(line) || costType;
         }
-      }
+        const returnObj = {
+          name: subsection.name,
+          amountDue,
+          originalAmountDue,
+          amendedAmountDue,
+          amountPaid,
+          costType
+        };
+        return amountDue && returnObj;
+      })
+      .filter(result => {
+        return result;
+      });
+  }
+  function getCostType(line) {
+    if (line.includes("Restitution")) {
+      return "restitution";
+    }
+    if (line.includes("State Debt Collection")) {
+      return "state debt collection";
     }
   }
 
   walkSection(lines, sections, "ACCOUNT SUMMARY", addAccounts);
 
-  return currentObj;
+  return balances;
 }
 
 function walkSection(lines, sections, name, walk) {
@@ -199,6 +173,6 @@ function walkSection(lines, sections, name, walk) {
       : lines.length;
 
   for (let i = startLine; i < endLine; i++) {
-    walk(lines[i].trim());
+    walk(lines[i].trim(), i);
   }
 }
