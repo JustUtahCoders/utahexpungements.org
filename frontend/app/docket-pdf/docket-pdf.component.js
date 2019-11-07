@@ -41,7 +41,7 @@ export default function DocketPdf(props) {
 
       return () => abortController.abort();
     }
-  }, [isProcessing, formRef.current]);
+  }, [isProcessing, processJson]);
 
   return (
     <>

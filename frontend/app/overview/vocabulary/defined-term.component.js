@@ -20,7 +20,7 @@ export default function DefinedTerm(props) {
     return () => {
       document.removeEventListener("click", maybeCloseTooltip);
     };
-  }, [tooltipOpen]);
+  }, [maybeCloseTooltip, tooltipOpen]);
 
   const children = props.children || __(`def word - ${props.term}`);
   const Definition = definitionComponents[props.term];
