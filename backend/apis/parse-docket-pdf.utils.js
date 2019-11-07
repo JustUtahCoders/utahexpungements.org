@@ -51,6 +51,8 @@ function parseCharges(lines, sections) {
     if (lastLineWasCharge) {
       lastLineWasCharge = false;
       lastCharge.description += ` ${line}`;
+      //keep and split description into offenseName & severity.
+      //split @ last word that ends in all caps.
     } else if (line.startsWith("Charge")) {
       lastLineWasCharge = true;
       const [chargeNumber, statute, description] = line.split(" - ");
@@ -73,8 +75,17 @@ function parseCharges(lines, sections) {
         .trim();
     }
   });
+  let chargesWithSeverity = charges.map(elm => {
+    let index = elm.description.search(/.[A-Z][a-z]|.\d[a-z]/);
+    let offenseName = elm.description.slice(0, index);
+    let severity = elm.description.slice(index + 1);
+    console.log({ offenseName, severity });
+    elm = { ...elm, offenseName, severity };
+    delete elm.description;
+    return elm;
+  });
 
-  return charges;
+  return chargesWithSeverity;
 }
 
 function walkSection(lines, sections, name, walk) {
