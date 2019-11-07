@@ -86,7 +86,8 @@ function parseCharges(lines, sections) {
   walkSection(lines, sections, "CHARGES", addDispositionToCharges);
 
   const chargesWithSeverity = charges.map(charge => {
-    const { description, rest } = charge;
+    //need to check for special cases where speeding is the charge.
+    const { description, ...rest } = charge;
     const words = description.split(/\s/);
     const splitIndex = words.findIndex(word => word.toUpperCase() !== word);
     const offenseName = words.slice(0, splitIndex).join(" ");
