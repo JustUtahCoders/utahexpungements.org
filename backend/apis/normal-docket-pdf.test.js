@@ -17,13 +17,15 @@ describe("normal docket pdf file", () => {
     let actual1 = parsedText.charges[1];
 
     expect(actual0.statute).toBe("53-3-202(1)(A)");
-    expect(actual0.description).toBe("NO VALID LICENSE Misdemeanor");
+    expect(actual0.offenseName).toBe("NO VALID LICENSE");
+    expect(actual0.severity).toBe("Misdemeanor");
     expect(actual0.disposition).toBe("Dismissed (w/o prej)");
     expect(actual0.dispositionDate).toBe("Month 00, 0000");
 
     expect(actual1.statute).toBe("41-6A-601");
-    expect(actual1.description).toBe(
-      "SPEEDING 70 in a 65 Class C Misdemeanor Offense Date: Month 00, 0000"
+    expect(actual1.offenseName).toBe("SPEEDING 70 in a 65");
+    expect(actual1.severity).toBe(
+      "Class C Misdemeanor Offense Date: Month 00, 0000"
     );
     expect(actual1.disposition).toBe("Dismissed (w/o prej)");
     expect(actual1.dispositionDate).toBe("Month 00, 0000");

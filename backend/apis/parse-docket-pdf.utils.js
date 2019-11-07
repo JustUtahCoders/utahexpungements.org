@@ -88,7 +88,6 @@ function parseCharges(lines, sections) {
     let index = elm.description.search(/.[A-Z][a-z]|.\d[a-z]/);
     let offenseName = elm.description.slice(0, index);
     let severity = elm.description.slice(index + 1);
-    console.log({ offenseName, severity });
     elm = { ...elm, offenseName, severity };
     delete elm.description;
     return elm;
