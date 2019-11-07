@@ -84,13 +84,15 @@ function parseCharges(lines, sections) {
   }
 
   walkSection(lines, sections, "CHARGES", addDispositionToCharges);
-  let chargesWithSeverity = charges.map(elm => {
-    let index = elm.description.search(/.[A-Z][a-z]|.\d[a-z]/);
-    let offenseName = elm.description.slice(0, index);
-    let severity = elm.description.slice(index + 1);
-    elm = { ...elm, offenseName, severity };
-    delete elm.description;
-    return elm;
+
+  const chargesWithSeverity = charges.map(charge => {
+    const { description, rest } = charge;
+    const words = description.split(/\s/);
+    const splitIndex = words.findIndex(word => word.toUpperCase() !== word);
+    const offenseName = words.slice(0, splitIndex).join(" ");
+    const severity = words.slice(splitIndex).join(" ");
+    const charges = { ...rest, offenseName, severity };
+    return charges;
   });
 
   return chargesWithSeverity;
