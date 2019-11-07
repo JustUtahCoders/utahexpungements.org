@@ -3,21 +3,30 @@ const sectionHeaderRegex = /^([A-Z][A-Z ]+)/;
 exports.parsePdfText = function parsePdfText(text) {
   const lines = text.split("\n");
   const sections = [];
+  let foundCaseNumberSection = false;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const match = sectionHeaderRegex.exec(line);
     if (match) {
-      sections.push({
-        lineNumber: i,
-        name: match[1].trim()
-      });
+      addSection(match[1].trim(), i);
+    }
+  }
+
+  function addSection(name, lineNumber) {
+    const shouldAdd = name !== "CASE NUMBER" || !foundCaseNumberSection;
+    if (name === "CASE NUMBER") {
+      foundCaseNumberSection = true;
+    }
+    if (shouldAdd) {
+      sections.push({ name, lineNumber });
     }
   }
 
   return {
     caseNumber: parseCaseNumber(lines, sections),
-    charges: parseCharges(lines, sections)
+    charges: parseCharges(lines, sections),
+    accountSummary: parseAccountSummary(lines, sections)
   };
 };
 
@@ -45,14 +54,12 @@ function parseCharges(lines, sections) {
 
   let lastLineWasCharge = false;
 
-  walkSection(lines, sections, "CHARGES", line => {
+  function addDispositionToCharges(line) {
     const lastCharge = charges.length > 0 ? charges[charges.length - 1] : null;
 
     if (lastLineWasCharge) {
       lastLineWasCharge = false;
       lastCharge.description += ` ${line}`;
-      //keep and split description into offenseName & severity.
-      //split @ last word that ends in all caps.
     } else if (line.startsWith("Charge")) {
       lastLineWasCharge = true;
       const [chargeNumber, statute, description] = line.split(" - ");
@@ -62,7 +69,7 @@ function parseCharges(lines, sections) {
       });
     } else if (line.startsWith("Disposition:")) {
       const numeric = /\d/;
-      lastNumericIndex = 0;
+      let lastNumericIndex = 0;
       const trimmed = line.replace("Disposition: ", "");
       for (let i = 0; i < trimmed.length; i++) {
         if (numeric.test(trimmed[i])) {
@@ -74,7 +81,9 @@ function parseCharges(lines, sections) {
         .slice(0, lastNumericIndex + 1)
         .trim();
     }
-  });
+  }
+
+  walkSection(lines, sections, "CHARGES", addDispositionToCharges);
   let chargesWithSeverity = charges.map(elm => {
     let index = elm.description.search(/.[A-Z][a-z]|.\d[a-z]/);
     let offenseName = elm.description.slice(0, index);
@@ -88,10 +97,18 @@ function parseCharges(lines, sections) {
   return chargesWithSeverity;
 }
 
+function parseAccountSummary(lines, sections) {
+  const accounts = [];
+
+  walkSection(lines, sections, "ACCOUNT SUMMARY", line => {
+    accounts.push(line);
+  });
+
+  return accounts;
+}
+
 function walkSection(lines, sections, name, walk) {
-  const sectionIndex = sections.findIndex(
-    section => section.name === "CHARGES"
-  );
+  const sectionIndex = sections.findIndex(section => section.name === name);
 
   if (sectionIndex < 0) {
     // no section with that name
