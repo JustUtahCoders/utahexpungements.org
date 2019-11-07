@@ -10,7 +10,26 @@ export default function DefinedTerm(props) {
   const containerRef = useRef(null);
   const alwaysLink =
     useContext(DefinedTermContext).alwaysLink || props.alwaysLink;
+
+  const openTooltip = () => {
+    setTooltipOpen(true);
+  };
+  const closeTooltip = () => {
+    setTooltipOpen(false);
+  };
+
   useEffect(() => {
+    const maybeCloseTooltip = evt => {
+      if (
+        containerRef.current === evt.target ||
+        containerRef.current.contains(evt.target)
+      ) {
+        // clicked on or inside of the popup
+        return;
+      } else {
+        openTooltip();
+      }
+    };
     if (tooltipOpen) {
       document.addEventListener("click", maybeCloseTooltip);
     } else {
@@ -20,7 +39,7 @@ export default function DefinedTerm(props) {
     return () => {
       document.removeEventListener("click", maybeCloseTooltip);
     };
-  }, [maybeCloseTooltip, tooltipOpen]);
+  }, [tooltipOpen]);
 
   const children = props.children || __(`def word - ${props.term}`);
   const Definition = definitionComponents[props.term];
@@ -82,26 +101,6 @@ export default function DefinedTerm(props) {
         </div>
       </div>
     );
-  }
-
-  function openTooltip() {
-    setTooltipOpen(true);
-  }
-
-  function maybeCloseTooltip(evt) {
-    if (
-      containerRef.current === evt.target ||
-      containerRef.current.contains(evt.target)
-    ) {
-      // clicked on or inside of the popup
-      return;
-    } else {
-      closeTooltip();
-    }
-  }
-
-  function closeTooltip() {
-    setTooltipOpen(false);
   }
 }
 
