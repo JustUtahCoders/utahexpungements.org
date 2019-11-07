@@ -91,11 +91,18 @@ function parseCharges(lines, sections) {
 function parseAccountSummary(lines, sections) {
   let subsections = [];
   let balances = [];
+  const sectionLastIndex = sections.filter(section => {
+    return section.name === "PROCEEDINGS" && section.lineNumber;
+  })[0].lineNumber;
 
   function addAccounts(line, index) {
     const words = line.split(/\s/);
     const isSubsection =
-      words.length > 0 && words[0].toUpperCase() === words[0];
+      words.length > 0 &&
+      words[0].toUpperCase() === words[0] &&
+      !words.includes("CASE") && // prevents CASE NUMBER lines from defining a subsection
+      words[1]; // prevents line new page diving line from defining a subsection;
+
     if (isSubsection) {
       subsections.push({ name: line, lineNumber: index });
     }
@@ -105,11 +112,12 @@ function parseAccountSummary(lines, sections) {
         const endIndex =
           arrayIndex + 1 !== subsections.length
             ? subsections[arrayIndex + 1].lineNumber
-            : subsections[subsections.length - 1].lineNumber;
+            : sectionLastIndex;
 
         let amountDue,
           amountPaid,
           costType,
+          collection,
           originalAmountDue,
           amendedAmountDue;
 
@@ -127,8 +135,9 @@ function parseAccountSummary(lines, sections) {
           } else if (line.includes("Amount Paid") || line.includes("Paid In")) {
             amountPaid = words[words.length - 1];
           }
-
+          // console.log(line);
           costType = getCostType(line) || costType;
+          collection = line.includes("State Debt Collection");
         }
         const returnObj = {
           name: subsection.name,
@@ -136,7 +145,8 @@ function parseAccountSummary(lines, sections) {
           originalAmountDue,
           amendedAmountDue,
           amountPaid,
-          costType
+          costType,
+          collection
         };
         return amountDue && returnObj;
       })
@@ -147,9 +157,6 @@ function parseAccountSummary(lines, sections) {
   function getCostType(line) {
     if (line.includes("Restitution")) {
       return "restitution";
-    }
-    if (line.includes("State Debt Collection")) {
-      return "state debt collection";
     }
   }
 

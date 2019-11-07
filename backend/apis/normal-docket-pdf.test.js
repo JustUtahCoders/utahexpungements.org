@@ -71,8 +71,12 @@ describe("correctly and completely parses ACCOUNT SUMMARY section", () => {
 
   test("If charge was sent to State Debt Collection, then costType = state debt collection", () => {
     const findCollection = parsedCollection.accountSummary.filter(item => {
-      return item.costType;
+      return item.collection;
     });
-    expect(findCollection[0].costType).toBe("state debt collection");
+    const findSection = parsedSection.accountSummary.filter(item => {
+      return item.collection;
+    });
+    expect(findCollection.length).toBeGreaterThan(0);
+    expect(findSection.length).toBe(0);
   });
 });
