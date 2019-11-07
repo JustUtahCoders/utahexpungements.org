@@ -1,10 +1,9 @@
 import React from "react";
 import { Scoped } from "kremling";
-import {
+import styleguideCss, {
   mediaDesktop,
   navbarHeight,
-  darkPrimary,
-  styleguideCss
+  darkPrimary
 } from "frontend/styleguide.js";
 import MenuItems from "./menu-items.component.js";
 import { Portal } from "react-portal";
