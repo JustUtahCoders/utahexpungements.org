@@ -75,7 +75,7 @@ describe("large-account-summary pdf", () => {
     expect(findRestitution[0].amountDue).toBe("99.00");
     expect(findRestitution[0].amountPaid).toBe("99.00");
   });
-  it("should NOT have collection: true unless the account was sent to State Debt Collection", () => {
+  it("should NOT have collection: true on any charge", () => {
     const collectionList = parsedFile.accountSummary.filter(item => {
       return item.collection;
     });
