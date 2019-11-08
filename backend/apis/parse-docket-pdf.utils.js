@@ -89,7 +89,7 @@ function parseCharges(lines, sections) {
 }
 
 function parseAccountSummary(lines, sections) {
-  let subsections = [];
+  const subsections = [];
   let balances = [];
   const sectionLastIndex = sections.filter(section => {
     return section.name === "PROCEEDINGS" && section.lineNumber;
@@ -100,8 +100,8 @@ function parseAccountSummary(lines, sections) {
     const isSubsection =
       words.length > 0 &&
       words[0].toUpperCase() === words[0] &&
-      !words.includes("CASE") && // prevents CASE NUMBER lines from defining a subsection
-      words[1]; // prevents line new page diving line from defining a subsection;
+      !words.includes("CASE") &&
+      words[1];
 
     if (isSubsection) {
       subsections.push({ name: line, lineNumber: index });
@@ -119,7 +119,8 @@ function parseAccountSummary(lines, sections) {
           costType,
           collection,
           originalAmountDue,
-          amendedAmountDue;
+          amendedAmountDue,
+          trustName;
 
         for (let i = subsection.lineNumber; i < endIndex; i++) {
           const line = lines[i];
@@ -135,12 +136,15 @@ function parseAccountSummary(lines, sections) {
           } else if (line.includes("Amount Paid") || line.includes("Paid In")) {
             amountPaid = words[words.length - 1];
           }
-          // console.log(line);
           costType = getCostType(line) || costType;
-          collection = line.includes("State Debt Collection");
+          collection = collection || line.includes("State Debt Collection");
+          if (line.includes("Trust Description")) {
+            trustName = line.slice(line.indexOf(": ") + 2);
+          }
         }
         const returnObj = {
-          name: subsection.name,
+          name:
+            subsection.name === "TRUST DETAIL" ? trustName : subsection.name,
           amountDue,
           originalAmountDue,
           amendedAmountDue,
@@ -155,8 +159,25 @@ function parseAccountSummary(lines, sections) {
       });
   }
   function getCostType(line) {
-    if (line.includes("Restitution")) {
-      return "restitution";
+    if (line.includes("Trust Description:")) {
+      const target = line.slice(line.indexOf(":") + 2);
+      if (target.includes("Restitution")) {
+        return "restitution";
+      }
+      if (target.includes("Fee")) {
+        return "fee";
+      }
+      if (target.includes("Interest")) {
+        return "interest";
+      }
+    }
+
+    if (line.includes("FINE")) {
+      return "fine";
+    }
+
+    if (line.includes("UNPAID INTEREST")) {
+      return "unpaid interest";
     }
   }
 

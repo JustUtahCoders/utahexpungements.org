@@ -207,7 +207,7 @@ PROCEEDINGS
 06-05-14 Note: Def calls to ask if there is a case against her as she 
                has received solicitation letters from defense attorneys.        
 06-16-14 Filed return: SUMMONS                                                  
-                   Party Served: MIKE EVANS - FATHER
+                   Party Served: DEFENDANT FATHER - FATHER
                    Service Type: Personal
                    Service Date: June 12, 2014
 07-16-14 ARRAIGNMENT rescheduled to August 28, 2014 at 08:05 AM in MAIN 
@@ -634,7 +634,7 @@ ________________________________________________________________________________
         Clerk:    virginik                                                 
         Prosecutor: SMITH, SAMANTHA B                                      
         Defendant Present                                                  
-        Defendant's Attorney(s): PUSEY, ROBERT D                           
+        Defendant's Attorney(s): ATTORNEY, DEFENDANT                           
                                                                            
         Sheriff Office#: 378291                                            
         Audio                                                              
@@ -724,8 +724,8 @@ ________________________________________________________________________________
         Batch # 8448
         Bail $1000 received on 06/23/2016
         Please apply $680 to fine and refund $320 to 
-        ERIN EVANS
-        837 NORTHCLIFFE DR
+        DEFENDANT REPRESENTATIVE
+        123 MAIN ST
         SLC UT 84103
         
         Thank you.                                                         
@@ -796,8 +796,8 @@ ________________________________________________________________________________
         BATCH 8502
         Bail $1000 rcvd on 6/23/16
         Please apply $680 to fine and refund $218.35 to:
-        Erin Evans
-        837 Northcliffe Dr
+        DEFENDANT REPRESENTATIVE
+        123 MAIN ST
         SLC, UT 84103
         
         ***$101.65 remaining was transferred from bail to restitution and 
@@ -816,7 +816,7 @@ ________________________________________________________________________________
         $101.65 received for restitution and interest. 
         Please forward to:
         VICTIM LOSS PREVENTION
-        5800 S REDWOOD RD.
+        2222 SOMEWHERE ST.
         CITY UT 84123
         
         Thank you.                                                         

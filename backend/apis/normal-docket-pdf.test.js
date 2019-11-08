@@ -1,6 +1,10 @@
 const { file } = require("./docket-pdf-test-files/normal-docket-pdf");
-const { accountSummary } = require("./docket-pdf-test-files/account-summary");
-const { stateCollection } = require("./docket-pdf-test-files/state-collection");
+const {
+  accountSummary
+} = require("./docket-pdf-test-files/large-account-summary");
+const {
+  stateCollection
+} = require("./docket-pdf-test-files/state-collection-case");
 const { parsePdfText } = require("./parse-docket-pdf.utils");
 
 describe("normal docket pdf file", () => {
@@ -30,53 +34,75 @@ describe("normal docket pdf file", () => {
     expect(actual1.disposition).toBe("Dismissed (w/o prej)");
     expect(actual1.dispositionDate).toBe("Month 00, 0000");
   });
-});
 
-describe("correctly and completely parses ACCOUNT SUMMARY section", () => {
-  let parsedSection, parsedText, parsedCollection;
-  beforeEach(() => {
-    parsedSection = parsePdfText(accountSummary);
-    parsedText = parsePdfText(file);
-    parsedCollection = parsePdfText(stateCollection);
-  });
-
-  test("always adds accountSummary property to return an array", () => {
-    expect(parsedSection.accountSummary.length).toBeGreaterThan(0);
-    expect(parsedCollection.accountSummary.length).toBeGreaterThan(0);
+  test("always adds accountSummary property as an array", () => {
     expect(parsedText.accountSummary.length).toBe(0);
   });
+});
 
-  test("The accountSummary array includes fines and their associated amountDue and amountPaid", () => {
-    const findFines1 = parsedSection.accountSummary.filter(item => {
-      return item.name === "REVENUE DETAIL - TYPE: FINE";
-    });
-    const findFines2 = parsedCollection.accountSummary.filter(item => {
-      return item.name === "REVENUE DETAIL - TYPE: FINE";
-    });
-    expect(findFines1[0].amountDue).toBe("680.00");
-    expect(findFines1[0].amountPaid).toBe("680.00");
-    expect(findFines2[0].originalAmountDue).toBe("600.00");
-    expect(findFines2[0].amendedAmountDue).toBe("0.00");
-    expect(findFines2[0].amountDue).toBe("0.00");
-    expect(findFines2[0].amountPaid).toBe("0.00");
+describe("large-account-summary pdf", () => {
+  let parsedFile;
+
+  beforeEach(() => {
+    parsedFile = parsePdfText(accountSummary);
   });
 
-  test("The accountSummary array includes restitution info", () => {
-    const findRestitution = parsedSection.accountSummary.filter(item => {
-      return item.costType;
+  test("catches all the FINES and includes the associated amountDue and amountPaid", () => {
+    const findFines = parsedFile.accountSummary.filter(item => {
+      return item.costType === "fine";
+    });
+    expect(findFines[0].amountDue).toBe("680.00");
+    expect(findFines[0].amountPaid).toBe("680.00");
+  });
+  test("catches all the FEES and includes the associated amountDue and amountPaid", () => {
+    const findFees = parsedFile.accountSummary.filter(item => {
+      return item.costType === "fee";
+    });
+    expect(findFees[0].amountDue).toBe("49.55");
+    expect(findFees[0].amountPaid).toBe("49.55");
+  });
+  test("catches all INTEREST accounts and includes the associated amountDue and amountPaid", () => {
+    const findInterest = parsedFile.accountSummary.filter(item => {
+      return item.costType === "interest";
+    });
+    expect(findInterest[0].amountDue).toBe("2.65");
+    expect(findInterest[0].amountPaid).toBe("2.65");
+  });
+  test("catches all the RESTITUTION cases and includes the associated amountDue and amountPaid", () => {
+    const findRestitution = parsedFile.accountSummary.filter(item => {
+      return item.costType === "restitution";
     });
     expect(findRestitution[0].amountDue).toBe("99.00");
     expect(findRestitution[0].amountPaid).toBe("99.00");
   });
+  it("should NOT have collection: true unless the account was sent to State Debt Collection", () => {
+    const collectionList = parsedFile.accountSummary.filter(item => {
+      return item.collection;
+    });
+    expect(collectionList.length).toBe(0);
+  });
+});
 
-  test("If charge was sent to State Debt Collection, then costType = state debt collection", () => {
-    const findCollection = parsedCollection.accountSummary.filter(item => {
+describe("state-collection-case pdf", () => {
+  let parsedFile, collectionList;
+  beforeEach(() => {
+    parsedFile = parsePdfText(stateCollection);
+    collectionList = parsedFile.accountSummary.filter(item => {
       return item.collection;
     });
-    const findSection = parsedSection.accountSummary.filter(item => {
-      return item.collection;
+  });
+  it("should have collection: true for a charge that went to State Debt Collection", () => {
+    expect(collectionList.length).toBeGreaterThan(0);
+  });
+  it("should have originalAmountDue and amendedAmountDue properties for collection cases", () => {
+    expect(collectionList[0].originalAmountDue).toBe("600.00");
+    expect(collectionList[0].amendedAmountDue).toBe("0.00");
+  });
+  test("catches all the TYPE: UNPAID INTEREST cases and includes the associated amountDue and amountPaid", () => {
+    const findFees = parsedFile.accountSummary.filter(item => {
+      return item.costType === "unpaid interest";
     });
-    expect(findCollection.length).toBeGreaterThan(0);
-    expect(findSection.length).toBe(0);
+    expect(findFees[0].amountDue).toBe("0.00");
+    expect(findFees[0].amountPaid).toBe("0.00");
   });
 });
