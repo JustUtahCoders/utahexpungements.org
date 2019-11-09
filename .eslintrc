@@ -1,13 +1,5 @@
 {
-  "env": {
-    "es6": true,
-    "browser": true
-  },
-  "extends": ["react-important-stuff"],
-  "parser": "babel-eslint",
-  "globals": {
-    "__": false,
-    "process": false,
-    "__dirname": false
-  }
+  "extends": [
+    "plugin:prettier/recommended"
+  ]
 }
