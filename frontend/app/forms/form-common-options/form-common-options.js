@@ -59,17 +59,6 @@ export const courtTypeOptions = [
   { label: "Justice Court", value: "Justice" }
 ];
 
-export const previouslyAppliedOptions = [
-  {
-    label: "No",
-    value: "no"
-  },
-  {
-    label: "Yes",
-    value: "yes"
-  }
-];
-
 export const pryingQuestionOptions = [
   {
     label: "I have not been diagnosed as having a substance abuse addiction.",
