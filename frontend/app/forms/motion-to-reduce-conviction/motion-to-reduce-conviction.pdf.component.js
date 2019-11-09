@@ -2,6 +2,10 @@ import React from "react";
 import RenderPage from "../render-page.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
+import {
+  getJudicialDistrict,
+  getCounty
+} from "../form-common-options/form-common-options";
 
 export default function MotionToReduceConviction_Pdf({ renderData, data }) {
   return (
@@ -36,15 +40,61 @@ export default function MotionToReduceConviction_Pdf({ renderData, data }) {
         <PositionedString dataKey="person.email" left="11.65%" top="28.1%" />
         <PositionedCheckmark
           dataKey="person.petitionerRepresentative"
-          left="20.82%"
-          top="62.2%"
+          left="20%"
+          top="31.5%"
           shouldShow={data.person.petitionerRepresentative === "petitioner"}
         />
         <PositionedCheckmark
           dataKey="person.petitionerRepresentative"
-          left="20.82%"
-          top="33.1%"
+          left="20%"
+          top="33%"
           shouldShow={data.person.petitionerRepresentative === "attorney"}
+        />
+        <PositionedString
+          dataKey="person.petitionerBarNumber"
+          left="62%"
+          top="33%"
+        />
+        <PositionedCheckmark
+          dataKey="case.courtType"
+          left="36%"
+          top="36.9%"
+          shouldShow={data.case.courtType === "District"}
+        />
+        <PositionedCheckmark
+          dataKey="case.courtType"
+          left="46.9%"
+          top="36.9%"
+          shouldShow={data.case.courtType === "Justice"}
+        />
+        <PositionedString dataKey="case.courtAddress" left="27.8%" top="43%" />
+        <PositionedString left="25.9%" top="40.2%" debugKey="judicialDistrict">
+          {data.case.courtAddress &&
+            getJudicialDistrict(data.case.courtAddress, data.case.courtType)}
+        </PositionedString>
+        <PositionedString left="50.7%" top="40.2%" debugKey="county">
+          {data.case.courtAddress &&
+            getCounty(data.case.courtAddress, data.case.courtType)}
+        </PositionedString>
+        <PositionedString dataKey="case.caseNumber" left="54.1%" top="57.9%" />
+        <PositionedString dataKey="case.judgeName" left="54.1%" top="62.5%" />
+        <PositionedString dataKey="case.plaintiff" left="11%" top="50.7%" />
+        <PositionedString dataKey="case.defendant" left="11%" top="58.1%" />
+        <PositionedString
+          dataKey="case.convictionDegree"
+          left="38%"
+          top="71.5%"
+        />
+        <PositionedString
+          dataKey="case.reducedConvictionDegree"
+          left="22%"
+          top="74%"
+        />
+        <PositionedCheckmark
+          //dataKey="person.petitionerRepresentative"
+          left="18%"
+          top="71.5%"
+          shouldShow={true}
         />
       </RenderPage>
     </>
