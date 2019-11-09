@@ -80,23 +80,48 @@ export default function MotionToReduceConviction_Pdf({ renderData, data }) {
         <PositionedString dataKey="case.judgeName" left="54.1%" top="62.5%" />
         <PositionedString dataKey="case.plaintiff" left="11%" top="50.7%" />
         <PositionedString dataKey="case.defendant" left="11%" top="58.1%" />
-        <PositionedString
-          dataKey="case.convictionDegree"
-          left="38%"
-          top="71.5%"
-        />
-        <PositionedString
-          dataKey="case.reducedConvictionDegree"
-          left="22%"
-          top="74%"
-        />
-        <PositionedCheckmark
-          //dataKey="person.petitionerRepresentative"
-          left="18%"
-          top="71.5%"
-          shouldShow={true}
-        />
+        {requestedConvictionDegreeInformation(
+          data.case.convictionDegree,
+          data.case.reducedConvictionDegree
+        )}
       </RenderPage>
     </>
   );
+}
+
+function requestedConvictionDegreeInformation(degA, degB) {
+  let degree = degreeStringToInt(degA);
+  let requestedDegree = degreeStringToInt(degB);
+  let isReduceByOneDeg = requestedDegree - degree > 1 ? false : true;
+
+  return (
+    <>
+      <PositionedString
+        dataKey="case.convictionDegree"
+        left="38%"
+        top={isReduceByOneDeg ? "71.5%" : "77%"}
+      />
+      <PositionedString
+        dataKey="case.reducedConvictionDegree"
+        left="22%"
+        top={isReduceByOneDeg ? "74%" : "79.7%"}
+      />
+      <PositionedCheckmark
+        debugKey="case.reducedConvictionDegreeDiff"
+        left="18%"
+        top={isReduceByOneDeg ? "71.5%" : "77.3%"}
+        shouldShow={true}
+      />
+    </>
+  );
+}
+
+function degreeStringToInt(degVal) {
+  if (degVal === "First Degree") {
+    return 1;
+  } else if (degVal === "Second Degree") {
+    return 2;
+  } else {
+    return 3;
+  }
 }
