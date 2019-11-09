@@ -11,14 +11,13 @@
     "develop-backend": "nodemon backend/server.js --watch backend -e js,ejs",
     "build": "yarn webpack",
     "analyze": "webpack --config webpack.config.analyze.js",
-    "check-format": "prettier 'frontend/**/*' 'backend/**/*' --check",
-    "lint": "eslint 'frontend/**/*'",
+    "lint": "eslint frontend backend",
     "deploy": "yarn build && gh-pages -d dist",
     "test": "jest"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "pretty-quick --staged && yarn lint"
     }
   },
   "devDependencies": {
@@ -39,7 +38,6 @@
     "husky": "^3.0.9",
     "i18n-webpack-plugin": "^1.0.0",
     "jest": "^24.9.0",
-    "lint-staged": ">=8",
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
@@ -55,6 +53,7 @@
     "classnames": "^2.2.6",
     "ejs": "^2.7.1",
     "email-validator": "^2.0.4",
+    "eslint-config-node-important-stuff": "^1.0.0",
     "express": "^4.17.1",
     "firebase": "^7.2.2",
     "fuse.js": "^3.4.5",
@@ -75,15 +74,5 @@
     "Edge >= 14",
     "last 5 Chrome versions",
     "last 5 Firefox versions"
-  ],
-  "lint-staged": {
-    "*.{js,css,json,md}": [
-      "pretty-quick --staged",
-      "git add"
-    ],
-    "*.js": [
-      "eslint 'frontend/**/*' --fix",
-      "git add"
-    ]
-  }
+  ]
 }
