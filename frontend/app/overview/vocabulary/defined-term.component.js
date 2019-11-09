@@ -11,15 +11,15 @@ export default function DefinedTerm(props) {
   const alwaysLink =
     useContext(DefinedTermContext).alwaysLink || props.alwaysLink;
 
-  const openTooltip = () => {
+  function openTooltip() {
     setTooltipOpen(true);
-  };
-  const closeTooltip = () => {
+  }
+  function closeTooltip() {
     setTooltipOpen(false);
-  };
+  }
 
   useEffect(() => {
-    const maybeCloseTooltip = evt => {
+    function maybeCloseTooltip(evt) {
       if (
         containerRef.current === evt.target ||
         containerRef.current.contains(evt.target)
@@ -29,7 +29,7 @@ export default function DefinedTerm(props) {
       } else {
         openTooltip();
       }
-    };
+    }
     if (tooltipOpen) {
       document.addEventListener("click", maybeCloseTooltip);
     } else {
