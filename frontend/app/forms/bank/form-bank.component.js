@@ -41,6 +41,13 @@ import ApplicationForBoardOfPardonExpungement_Pdf from "../application-for-board
 
 import ConsentAndWaiverOfHearing_Web from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.web.component.js";
 import ConsentAndWaiverOfHearing_Pdf from "../consent-and-waiver-of-hearing/consent-and-waiver-of-hearing.pdf.component.js";
+import OrderOnMotionForReductionOfConviction_Web from "../order-on-motion-for-reduction-of-conviction/order-on-motion-for-reduction-of-conviction.web.component";
+import OrderOnMotionForReductionOfConviction_Pdf from "../order-on-motion-for-reduction-of-conviction/order-on-motion-for-reduction-of-conviction.pdf.component";
+import MotionToReduceConviction_Web from "../motion-to-reduce-conviction/motion-to-reduce-conviction.web.component";
+import MotionToReduceConviction_Pdf from "../motion-to-reduce-conviction/motion-to-reduce-conviction.pdf.component";
+
+import ProofOfCompletedService_Web from "../proof-of-completed-service/proof-of-completed-service.web.component.js";
+import ProofOfCompletedService_Pdf from "../proof-of-completed-service/proof-of-completed-service.pdf.component.js";
 
 export default class FormBank extends React.Component {
   render() {
@@ -236,17 +243,27 @@ export default class FormBank extends React.Component {
             <GovernmentForm
               name="Consent and waive of hearing"
               WebForm={ConsentAndWaiverOfHearing_Web}
-              PdfForm={consentAndWaiverOfHearing_Pdf}
+              PdfForm={ConsentAndWaiverOfHearing_Pdf}
             />
           )}
         />
         <Route
-          path={`${this.props.match.url}/proof-of-completed-service`}
+          path={`${this.props.match.url}/order-on-motion-for-reduction-of-conviction`}
           render={props => (
             <GovernmentForm
-              name="Proof of Completed Service"
-              WebForm={ProofOfCompletedService_Web}
-              PdfForm={ProofOfCompletedService_Pdf}
+              name="Order on Motion for Reduction of Conviction"
+              WebForm={OrderOnMotionForReductionOfConviction_Web}
+              PdfForm={OrderOnMotionForReductionOfConviction_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/motion-to-reduce-conviction`}
+          render={props => (
+            <GovernmentForm
+              name="Motion to Reduce Conviction"
+              WebForm={MotionToReduceConviction_Web}
+              PdfForm={MotionToReduceConviction_Pdf}
             />
           )}
         />

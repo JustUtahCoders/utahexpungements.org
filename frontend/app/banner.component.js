@@ -1,8 +1,7 @@
 import React from "react";
 import { Scoped, a, m } from "kremling";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { info, mediaDesktop } from "frontend/styleguide.js";
-import { Link } from "react-router-dom";
 
 export default class Banner extends React.Component {
   render() {

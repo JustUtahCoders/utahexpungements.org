@@ -1,8 +1,10 @@
 language: node_js
 node_js:
   - 12
-before_script: yarn check-format
-script: yarn build
+script:
+  - yarn lint
+  - yarn test
+  - yarn build
 deploy:
   provider: gae
   keyfile: app-engine-secret.json
