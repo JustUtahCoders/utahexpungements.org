@@ -35,6 +35,7 @@ export default class CasesList extends React.Component {
                     </button>
                   )}
                   <button className="danger small">Delete</button>
+                  {/* delete currently does nothing? */}
                 </div>
               </div>
             ))

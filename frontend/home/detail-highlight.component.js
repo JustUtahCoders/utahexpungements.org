@@ -1,13 +1,12 @@
 import React from "react";
 import { Scoped } from "kremling";
-import { mediaMobile } from "frontend/styleguide.js";
 
 export default class DetailHighlight extends React.Component {
   render() {
     return (
       <Scoped css={css}>
         <div className="detail-highlight">
-          <img className="icon" src={this.props.icon} />
+          <img className="icon" src={this.props.icon} alt="icon" />
           <div className="text">
             <h3>{this.props.title}</h3>
             <div>{this.props.description}</div>
