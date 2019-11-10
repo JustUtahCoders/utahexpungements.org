@@ -39,13 +39,13 @@ export default function MotionToReduceConviction_Pdf({ renderData, data }) {
         />
         <PositionedString dataKey="person.email" left="11.65%" top="28.1%" />
         <PositionedCheckmark
-          dataKey="person.petitionerRepresentative"
+          debugKey="petitionerIsRep"
           left="20%"
           top="31.5%"
           shouldShow={data.person.petitionerRepresentative === "petitioner"}
         />
         <PositionedCheckmark
-          dataKey="person.petitionerRepresentative"
+          debugKey="attorneyIsRep"
           left="20%"
           top="33%"
           shouldShow={data.person.petitionerRepresentative === "attorney"}
@@ -56,13 +56,13 @@ export default function MotionToReduceConviction_Pdf({ renderData, data }) {
           top="33%"
         />
         <PositionedCheckmark
-          dataKey="case.courtType"
+          debugKey="courtTypeDistric"
           left="36%"
           top="36.9%"
           shouldShow={data.case.courtType === "District"}
         />
         <PositionedCheckmark
-          dataKey="case.courtType"
+          debugKey="courtTypeJustice"
           left="46.9%"
           top="36.9%"
           shouldShow={data.case.courtType === "Justice"}
@@ -107,7 +107,7 @@ function requestedConvictionDegreeInformation(degA, degB) {
         top={isReduceByOneDeg ? "74%" : "79.7%"}
       />
       <PositionedCheckmark
-        debugKey="case.reducedConvictionDegreeDiff"
+        debugKey="reducedConvictionDegreeDiff"
         left="18%"
         top={isReduceByOneDeg ? "71.5%" : "77.3%"}
         shouldShow={true}

@@ -16,7 +16,7 @@ export default function MotionToReduceConviction_Web({ data }) {
   return (
     <FormThatPrints>
       <Section name="1. Personal Information">
-        <TextInput dataKey="person.firstName" label="First Name" />
+        <TextInput dataKey="person.firstName" label={__("first name")} />
         <TextInput dataKey="person.middleName" label={__("middle name")} />
         <TextInput dataKey="person.lastName" label="Last Name" />
         <TextInput dataKey="person.addressStreet" label={__("street")} />
