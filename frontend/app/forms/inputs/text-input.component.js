@@ -12,7 +12,7 @@ export default function TextInput(props) {
 
   React.useEffect(() => {
     setValue(get(dataContext.data, props.dataKey));
-  }, [dataContext]);
+  }, [dataContext, props.dataKey]);
 
   return (
     <div className="web-form-input text-input" {...scope}>

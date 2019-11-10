@@ -12,12 +12,13 @@
     "build": "yarn webpack",
     "analyze": "webpack --config webpack.config.analyze.js",
     "check-format": "prettier 'frontend/**/*' 'backend/**/*' --check",
+    "lint": "eslint 'frontend/**/*'",
     "deploy": "yarn build && gh-pages -d dist",
     "test": "jest"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged"
     }
   },
   "devDependencies": {
@@ -27,13 +28,18 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "concurrently": "^5.0.0",
     "copyfiles": "^2.1.1",
+    "eslint": "^6.6.0",
+    "eslint-config-react-important-stuff": "^1.2.2",
+    "eslint-loader": "^3.0.2",
     "husky": "^3.0.9",
     "i18n-webpack-plugin": "^1.0.0",
     "jest": "^24.9.0",
+    "lint-staged": ">=8",
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
@@ -69,5 +75,15 @@
     "Edge >= 14",
     "last 5 Chrome versions",
     "last 5 Firefox versions"
-  ]
+  ],
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "pretty-quick --staged",
+      "git add"
+    ],
+    "*.js": [
+      "eslint 'frontend/**/*' --fix",
+      "git add"
+    ]
+  }
 }

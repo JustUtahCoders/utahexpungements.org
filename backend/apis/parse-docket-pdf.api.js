@@ -28,8 +28,12 @@ app.post("/api/docket-pdfs", (req, res) => {
       pdf(data)
         .then(
           thePdf => {
-            const parse = parsePdfText(thePdf.text);
-            res.send(parse);
+            const processJson = req.query.processJson === "true" ? true : false;
+            if (processJson) {
+              res.send(parsePdfText(thePdf.text));
+            } else {
+              res.send(thePdf.text);
+            }
           },
           err => {
             res.status(400).send({ error: err });
