@@ -77,7 +77,7 @@ export default function MotionToReduceConviction_Web({ data }) {
 }
 
 const convictionDegreeOptions = [
-  { label: "First degree", value: "First Degree" },
-  { label: "Second Degree", value: "Second Degree" },
-  { label: "Third Degree", value: "Third Degree" }
+  { label: "First degree", value: "1" },
+  { label: "Second Degree", value: "2" },
+  { label: "Third Degree", value: "3" }
 ];

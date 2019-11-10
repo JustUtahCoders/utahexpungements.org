@@ -256,16 +256,6 @@ export default class FormBank extends React.Component {
             />
           )}
         />
-        <Route
-          path={`${this.props.match.url}/motion-to-reduce-conviction`}
-          render={props => (
-            <GovernmentForm
-              name="Motion to Reduce Conviction"
-              WebForm={MotionToReduceConviction_Web}
-              PdfForm={MotionToReduceConviction_Pdf}
-            />
-          )}
-        />
       </>
     );
   }
