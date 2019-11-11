@@ -2,7 +2,7 @@ const sectionHeaderRegex = /^([A-Z][A-Z ]+)/;
 
 exports.parsePdfText = function parsePdfText(text) {
   const lines = text.split("\n");
-  const sections = [];
+  let sections = [];
   let foundCaseNumberSection = false;
 
   for (let i = 0; i < lines.length; i++) {
@@ -152,12 +152,13 @@ function parseAccountSummary(lines, sections) {
           costType,
           collection
         };
-        return amountDue && returnObj;
+        return returnObj;
       })
       .filter(result => {
         return result;
       });
   }
+
   function getCostType(line) {
     if (line.includes("Trust Description:")) {
       const target = line.slice(line.indexOf(":") + 2);
