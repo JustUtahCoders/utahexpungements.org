@@ -34,7 +34,8 @@ import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.c
 import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
 import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
 import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
-
+import ApplicationForPardon_Web from "../application-for-pardon/application-for-pardon.web.component.js";
+import ApplicationForPardon_Pdf from "../application-for-pardon/application-for-pardon.pdf.component.js";
 import ApplicationForBoardOfPardonExpungement_Web from "../application-for-board-of-pardon-e/application-for-board-of-pardon-e.web.component.js";
 import ApplicationForBoardOfPardonExpungement_Pdf from "../application-for-board-of-pardon-e/application-for-board-of-pardon-e.pdf.component.js";
 
@@ -110,6 +111,16 @@ export default class FormBank extends React.Component {
               name="Application for Board of Pardon Expungement"
               WebForm={ApplicationForBoardOfPardonExpungement_Web}
               PdfForm={ApplicationForBoardOfPardonExpungement_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={this.props.match.url + "/application-for-pardon"}
+          render={() => (
+            <GovernmentForm
+              name="Application For Pardon"
+              WebForm={ApplicationForPardon_Web}
+              PdfForm={ApplicationForPardon_Pdf}
             />
           )}
         />
