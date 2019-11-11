@@ -36,7 +36,7 @@ describe("normal docket pdf file", () => {
   });
 
   test("always adds accountSummary property as an array", () => {
-    expect(parsedText.accountSummary.length).toBe(0);
+    expect(parsedText.accountSummary.length).toBe(1);
   });
 });
 

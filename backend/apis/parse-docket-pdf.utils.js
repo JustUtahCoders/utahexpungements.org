@@ -90,7 +90,7 @@ function parseCharges(lines, sections) {
 
 function parseAccountSummary(lines, sections) {
   const subsections = [];
-  let balances = [];
+  let balances;
   const sectionLastIndex = sections.filter(section => {
     return section.name === "PROCEEDINGS" && section.lineNumber;
   })[0].lineNumber;
@@ -101,62 +101,57 @@ function parseAccountSummary(lines, sections) {
       words.length > 0 &&
       words[0].toUpperCase() === words[0] &&
       !words.includes("CASE") &&
-      words[1];
+      /[a-zA-Z]/.test(line);
 
     if (isSubsection) {
       subsections.push({ name: line, lineNumber: index });
     }
 
-    balances = subsections
-      .map((subsection, arrayIndex) => {
-        const endIndex =
-          arrayIndex + 1 !== subsections.length
-            ? subsections[arrayIndex + 1].lineNumber
-            : sectionLastIndex;
+    balances = subsections.map((subsection, arrayIndex) => {
+      const endIndex =
+        arrayIndex + 1 !== subsections.length
+          ? subsections[arrayIndex + 1].lineNumber
+          : sectionLastIndex;
 
-        let amountDue,
-          amountPaid,
-          costType,
-          collection,
-          originalAmountDue,
-          amendedAmountDue,
-          trustName;
+      let amountDue,
+        amountPaid,
+        costType,
+        collection,
+        originalAmountDue,
+        amendedAmountDue,
+        trustName;
 
-        for (let i = subsection.lineNumber; i < endIndex; i++) {
-          const line = lines[i];
-          const words = line.split(/\s/);
+      for (let i = subsection.lineNumber; i < endIndex; i++) {
+        const line = lines[i];
+        const words = line.split(/\s/);
 
-          if (line.includes("Amount Due")) {
-            if (line.includes("Original")) {
-              originalAmountDue = words[words.length - 1];
-            } else if (line.includes("Amended")) {
-              amendedAmountDue = words[words.length - 1];
-            }
-            amountDue = words[words.length - 1];
-          } else if (line.includes("Amount Paid") || line.includes("Paid In")) {
-            amountPaid = words[words.length - 1];
+        if (line.includes("Amount Due")) {
+          if (line.includes("Original")) {
+            originalAmountDue = words[words.length - 1];
+          } else if (line.includes("Amended")) {
+            amendedAmountDue = words[words.length - 1];
           }
-          costType = getCostType(line) || costType;
-          collection = collection || line.includes("State Debt Collection");
-          if (line.includes("Trust Description")) {
-            trustName = line.slice(line.indexOf(": ") + 2);
-          }
+          amountDue = words[words.length - 1];
+        } else if (line.includes("Amount Paid") || line.includes("Paid In")) {
+          amountPaid = words[words.length - 1];
         }
-        const returnObj = {
-          name:
-            subsection.name === "TRUST DETAIL" ? trustName : subsection.name,
-          amountDue,
-          originalAmountDue,
-          amendedAmountDue,
-          amountPaid,
-          costType,
-          collection
-        };
-        return returnObj;
-      })
-      .filter(result => {
-        return result;
-      });
+        costType = getCostType(line) || costType;
+        collection = collection || line.includes("State Debt Collection");
+        if (line.includes("Trust Description")) {
+          trustName = line.slice(line.indexOf(": ") + 2);
+        }
+      }
+      const returnObj = {
+        name: subsection.name === "TRUST DETAIL" ? trustName : subsection.name,
+        amountDue,
+        originalAmountDue,
+        amendedAmountDue,
+        amountPaid,
+        costType,
+        collection
+      };
+      return returnObj;
+    });
   }
 
   function getCostType(line) {
