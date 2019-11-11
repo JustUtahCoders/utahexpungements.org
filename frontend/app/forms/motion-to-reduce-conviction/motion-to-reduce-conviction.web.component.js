@@ -103,8 +103,7 @@ const defaultConvictionDegreeOptions = [
   { label: "Third Degree", value: "Third Degree" },
   { label: "Class A", value: "Class A" },
   { label: "Class B", value: "Class B" },
-  { label: "Class C", value: "Class C" },
-  { label: "Infraction", value: "Infraction" }
+  { label: "Class C", value: "Class C" }
 ];
 
 function reducedConvictionDegreeOptionsFromCurrentConviction(conviction) {
@@ -136,5 +135,7 @@ function reducedConvictionDegreeOptionsFromCurrentConviction(conviction) {
       ];
     case "Class C":
       return [{ label: "Infraction", value: "Infraction" }];
+    default:
+      return defaultConvictionDegreeOptions;
   }
 }
