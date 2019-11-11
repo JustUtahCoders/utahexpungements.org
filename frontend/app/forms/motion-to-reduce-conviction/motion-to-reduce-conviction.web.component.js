@@ -13,6 +13,27 @@ import {
 } from "../form-common-options/form-common-options";
 
 export default function MotionToReduceConviction_Web({ data }) {
+  const [currentConvictionDegree, setCurrentConvictionDegree] = React.useState(
+    ""
+  );
+  const [
+    reducedConvictionDegreeOptions,
+    setReducedConvictionDegreeOptions
+  ] = React.useState(defaultConvictionDegreeOptions);
+
+  React.useEffect(() => {
+    setCurrentConvictionDegree(data.case.convictionDegree);
+  }, [data.case.convictionDegree]);
+  React.useEffect(() => {
+    if (currentConvictionDegree) {
+      setReducedConvictionDegreeOptions(
+        reducedConvictionDegreeOptionsFromCurrentConviction(
+          currentConvictionDegree
+        )
+      );
+    }
+  }, [currentConvictionDegree]);
+
   return (
     <FormThatPrints>
       <Section name="1. Personal Information">
@@ -65,18 +86,18 @@ export default function MotionToReduceConviction_Web({ data }) {
       <Select
         dataKey="case.convictionDegree"
         label={__("degree of your criminal conviction")}
-        options={convictionDegreeOptions}
+        options={defaultConvictionDegreeOptions}
       />
       <Select
         dataKey="case.reducedConvictionDegree"
         label={__("requesting court to reduce my convition to")}
-        options={convictionDegreeOptions}
+        options={reducedConvictionDegreeOptions}
       />
     </FormThatPrints>
   );
 }
 
-const convictionDegreeOptions = [
+const defaultConvictionDegreeOptions = [
   { label: "First Degree", value: "First Degree" },
   { label: "Second Degree", value: "Second Degree" },
   { label: "Third Degree", value: "Third Degree" },
@@ -85,3 +106,35 @@ const convictionDegreeOptions = [
   { label: "Class C", value: "Class C" },
   { label: "Infraction", value: "Infraction" }
 ];
+
+function reducedConvictionDegreeOptionsFromCurrentConviction(conviction) {
+  switch (conviction) {
+    case "First Degree":
+      return [
+        { label: "Second Degree", value: "Second Degree" },
+        { label: "Third Degree", value: "Third Degree" }
+      ];
+    case "Second Degree":
+      return [
+        { label: "Third Degree", value: "Third Degree" },
+        { label: "Class A", value: "Class A" }
+      ];
+    case "Third Degree":
+      return [
+        { label: "Class A", value: "Class A" },
+        { label: "Class B", value: "Class B" }
+      ];
+    case "Class A":
+      return [
+        { label: "Class B", value: "Class B" },
+        { label: "Class C", value: "Class C" }
+      ];
+    case "Class B":
+      return [
+        { label: "Class C", value: "Class C" },
+        { label: "Infraction", value: "Infraction" }
+      ];
+    case "Class C":
+      return [{ label: "Infraction", value: "Infraction" }];
+  }
+}
