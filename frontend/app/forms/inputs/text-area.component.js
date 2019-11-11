@@ -21,7 +21,7 @@ export default function TextArea(props) {
 
   React.useEffect(() => {
     setValue(get(dataContext.data, props.dataKey, ""));
-  }, [dataContext]);
+  }, [dataContext, props.dataKey]);
 
   return (
     <div {...scope}>
