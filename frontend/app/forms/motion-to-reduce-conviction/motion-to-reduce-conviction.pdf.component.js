@@ -90,7 +90,9 @@ export default function MotionToReduceConviction_Pdf({ renderData, data }) {
 }
 
 function requestedConvictionDegreeInformation(degA, degB) {
-  let isReduceByOneDeg = degB - degA > 1 ? false : true;
+  const degree = degreeStringToInt(degA);
+  const requestedDegree = degreeStringToInt(degB);
+  const isReduceByOneDeg = requestedDegree - degree > 1 ? false : true;
 
   return (
     <>
@@ -112,4 +114,23 @@ function requestedConvictionDegreeInformation(degA, degB) {
       />
     </>
   );
+}
+
+function degreeStringToInt(degVal) {
+  switch (degVal) {
+    case "First Degree":
+      return 1;
+    case "Second Degree":
+      return 2;
+    case "Third Degree":
+      return 3;
+    case "Class A":
+      return 4;
+    case "Class B":
+      return 5;
+    case "Class C":
+      return 6;
+    case "Infraction":
+      return 7;
+  }
 }
