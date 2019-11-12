@@ -13,27 +13,6 @@ import {
 } from "../form-common-options/form-common-options";
 
 export default function MotionToReduceConviction_Web({ data }) {
-  const [currentConvictionDegree, setCurrentConvictionDegree] = React.useState(
-    ""
-  );
-  const [
-    reducedConvictionDegreeOptions,
-    setReducedConvictionDegreeOptions
-  ] = React.useState(defaultConvictionDegreeOptions);
-
-  React.useEffect(() => {
-    setCurrentConvictionDegree(data.case.convictionDegree);
-  }, [data.case.convictionDegree]);
-  React.useEffect(() => {
-    if (currentConvictionDegree) {
-      setReducedConvictionDegreeOptions(
-        reducedConvictionDegreeOptionsFromCurrentConviction(
-          currentConvictionDegree
-        )
-      );
-    }
-  }, [currentConvictionDegree]);
-
   return (
     <FormThatPrints>
       <Section name="1. Personal Information">
@@ -91,7 +70,9 @@ export default function MotionToReduceConviction_Web({ data }) {
       <Select
         dataKey="case.reducedConvictionDegree"
         label={__("requesting court to reduce my convition to")}
-        options={reducedConvictionDegreeOptions}
+        options={reducedConvictionDegreeOptionsFromCurrentConviction(
+          data.case.convictionDegree
+        )}
       />
     </FormThatPrints>
   );

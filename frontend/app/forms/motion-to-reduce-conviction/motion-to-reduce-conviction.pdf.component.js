@@ -81,7 +81,6 @@ export default function MotionToReduceConviction_Pdf({ renderData, data }) {
         <PositionedString dataKey="case.plaintiff" left="11%" top="50.7%" />
         <PositionedString dataKey="case.defendant" left="11%" top="58.1%" />
         {requestedConvictionDegreeInformation(
-          data.case.convictionDegree,
           data.case.reducedConvictionDegree
         )}
       </RenderPage>
@@ -89,10 +88,8 @@ export default function MotionToReduceConviction_Pdf({ renderData, data }) {
   );
 }
 
-function requestedConvictionDegreeInformation(degA, degB) {
-  const degree = degreeStringToInt(degA);
-  const requestedDegree = degreeStringToInt(degB);
-  const isReduceByOneDeg = requestedDegree - degree > 1 ? false : true;
+function requestedConvictionDegreeInformation(deg) {
+  const isReduceByOneDeg = degreeStringToInt(deg) === 1;
 
   return (
     <>
