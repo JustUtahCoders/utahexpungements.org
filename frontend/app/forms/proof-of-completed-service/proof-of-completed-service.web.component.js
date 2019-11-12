@@ -113,40 +113,40 @@ export default function ProofOfCompletedService_Web({ data }) {
           listed in section 3 by mail or commerical courier service to:
         </p>
         <TextInput
-          dataKey="proofofcompletedservice_person.fullname"
+          dataKey="person.proofOfCompletedServiceMailFullname"
           label="Name of Addressee"
         />
         <TextInput
-          dataKey="proofofcompletedservice_person.addressStreet"
+          dataKey="person.proofOfCompletedServiceMailAddressStreet"
           label="Street Address"
         />
         <TextInput
-          dataKey="proofofcompletedservice_person.addressCity"
+          dataKey="person.proofOfCompletedServiceMailAddressCity"
           label="City"
         />
         <TextInput
-          dataKey="proofofcompletedservice_person.addressState"
+          dataKey="person.proofOfCompletedServiceMailAddressState"
           label="State"
         />
         <TextInput
-          dataKey="proofofcompletedservice_person.addressZip"
+          dataKey="person.proofOfCompletedServiceMailAddressZip"
           label="Zip Code"
         />
         <p className="web-form-input">
           I have attached a signed receipt proving delivery. It was signed by:
         </p>
         <Checkbox
-          dataKey="proofOfCompletedService_case.addressee"
+          dataKey="case.proofOfCompletedServiceAddressee"
           label="the addressee personally"
         />
         <Checkbox
-          dataKey="proofOfCompletedService_case.someoneElse"
+          dataKey="case.proofOfCompletedServiceAuthorizedPerson"
           label="someone authorized by appointment or by law to receive service of process on behalf of the addressee"
         />
       </Section>
       <Section name="3. Service by Third Person">
         <Checkbox
-          dataKey="proofOfCompletedService_case.other"
+          dataKey="case.proofOfCompletedServiceThirdPerson"
           label="I am over the age of 18, and"
         />
         <p className="web-form-input">
@@ -161,7 +161,107 @@ export default function ProofOfCompletedService_Web({ data }) {
           <small>(Utah Code 78B-7-101 et seq.)</small>.
         </p>
       </Section>
-      <Section name="4. Service by Third Person (continued)"></Section>
+      <Section name="4. Service by Third Person (continued)">
+        <Checkbox
+          dataKey="case.proofOfCompletedServiceDeliveredForm"
+          label="On"
+        />
+        <TextInput
+          dataKey="person.proofOfCompletedServiceDelieveredDate"
+          label="date MM-DD-YYYY"
+        />
+        <p>I went to</p>
+        <TextInput
+          dataKey="person.proofOfCompletedServiceDelieveredAddressZip"
+          label="(address)"
+        />
+        <p>and I delivered the documents listed in paragraph 1 to</p>
+        <TextInput
+          dataKey="person.proofOfCompletedServiceDelieveredName"
+          label="(name)"
+        />
+        <p>
+          who is <small>(Check one.)</small>
+        </p>
+        <Checkbox
+          dataKey="person.defendant"
+          label="the named defendant/respondent"
+        />
+        <Checkbox
+          dataKey="person.plaintiff"
+          label="the named plaintiff/petitioner"
+        />
+        <Checkbox
+          dataKey="person.proofOfCompletedServicePersonSuitableAge"
+          label="a person of suitable age and discretion residing at that address, which is the named party's residence"
+        />
+        {data.person.proofOfCompletedServicePersonSuitableAge && (
+          <TextArea
+            dataKey="person.proofOfCompletedServicePersonSuitableAgeDescribe"
+            label="Describe why the person lives at the named party's residence and why they are of suitable age and discretion"
+          />
+        )}
+
+        <Checkbox
+          dataKey="person.agent"
+          label="an agent authorized by appointment or by law to receive servie of process on behalf of the named party"
+        />
+        <br></br>
+        <small>
+          If serving a corportion, partnership, or an unincorporated association
+        </small>
+        <Checkbox
+          dataKey="person.officer"
+          label="an officer, a managing agent, general agent"
+        />
+        <br></br>
+        <strong>OR</strong>
+        <Checkbox
+          dataKey="person.authorizedAgent"
+          label="an agent authorized by appointment or by law to receive service of
+          process and by also mailing a copy of the complaint and summons to the
+          named party, if the agent is one authorized by statute to receive process
+          and the statute so requires."
+        />
+        <br></br>
+        <small>If serving a city or town</small>
+        <Checkbox dataKey="person.recorder" label="the city/town recorder" />
+        <br></br>
+        <small>If serving a county</small>
+        <Checkbox dataKey="person.clerk" label="the county clerk" />
+        <br></br>
+        <small>If serving the state</small>
+        <Checkbox
+          dataKey="person.attorneyGeneral"
+          label="the attorney general, and to"
+        />
+        <TextInput
+          dataKey="person.proofOfCompletedServicePersonStatue"
+          label="(name of any other person or agency required by statute to be served)"
+        />
+        <TextInput
+          dataKey="person.proofOfCompletedServicePersonStatueAddress"
+          label="(address)"
+        />
+        <br></br>
+        <small>If serving a department or agency of the state</small>
+        <Checkbox
+          dataKey="person.proofOfCompletedServiceBoardMember"
+          label="a member of named party's governing board, executive employee or secretary"
+        />
+        <br></br>
+        <small>If the document was served in some other way</small>
+        <Checkbox
+          dataKey="case.proofOfCompletedServiceOther"
+          label="Other (describe how the document was served)"
+        />
+        {data.case.proofOfCompletedServiceOther && (
+          <TextArea
+            dataKey="case.proofOfCompletedServiceOtherDesribe"
+            label="Describe"
+          />
+        )}
+      </Section>
     </FormThatPrints>
   );
 }
