@@ -7,7 +7,7 @@ export default class RenderPage extends React.Component {
     return ReactDOM.createPortal(
       <Scoped css={css}>
         <div className="form-page">
-          <img src={this.props.url} />
+          <img src={this.props.url} alt="print-form" />
           {this.props.children}
         </div>
       </Scoped>,

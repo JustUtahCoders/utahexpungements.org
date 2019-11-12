@@ -31,6 +31,7 @@ export default class FillableForm extends React.Component {
             <img
               className="preview-thumbnail"
               src={this.props.previewUrls[0]}
+              alt="preview-thumbnail"
             />
             <div className="name">{this.props.name}</div>
           </div>
