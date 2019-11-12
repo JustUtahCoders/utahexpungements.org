@@ -60,15 +60,3 @@ app.post("/api/docket-pdfs", (req, res) => {
 
   return req.pipe(busboy);
 });
-
-function retryBusboy(data, remainingAttempts) {
-  //console.log('retrying', remainingAttempts)
-  const promise = pdf(data);
-  return promise.catch(err => {
-    if (remainingAttempts > 0) {
-      return retryExtractPdfText(data, remainingAttempts - 1);
-    } else {
-      throw err;
-    }
-  });
-}
