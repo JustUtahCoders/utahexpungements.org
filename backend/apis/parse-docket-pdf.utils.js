@@ -185,25 +185,31 @@ function parseAccountSummary(lines, sections) {
 
 function parseProceedings(lines, sections) {
   const keywords = [
-    "case closed",
-    "dismissed",
-    "warrant issued",
-    "warrant recalled",
-    "sentence, judgement, commitment"
+    "Case Closed",
+    "Dismissed",
+    "Warrant issued",
+    "Warrant recalled",
+    "Sentence",
+    "sentenced",
+    "plea",
+    "SENTENCE, JUDGEMENT, COMMITMENT"
   ];
   const proceedings = [];
+  let date, dateIndex;
 
   function addRelevantDates(line, index) {
     const datedLine = /[\d*][\d][-]/;
+
     if (line.search(datedLine) === 0) {
-      const date = line.slice(0, 8).trim();
-      const content = line.slice(9);
-      const result = keywords.filter(keyword => {
-        return content.toLowerCase().includes(keyword);
-      });
-      if (result.length > 0) {
-        proceedings.push({ date, content });
-      }
+      date = line.slice(0, 8).trim();
+      dateIndex = index;
+    }
+    const content = index === dateIndex ? line.slice(9) : line.slice(0);
+    const result = keywords.filter(keyword => {
+      return content.includes(keyword);
+    });
+    if (result.length > 0) {
+      proceedings.push({ date, content });
     }
   }
 
