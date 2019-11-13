@@ -26,7 +26,8 @@ exports.parsePdfText = function parsePdfText(text) {
   return {
     caseNumber: parseCaseNumber(lines, sections),
     charges: parseCharges(lines, sections),
-    accountSummary: parseAccountSummary(lines, sections)
+    accountSummary: parseAccountSummary(lines, sections),
+    proceedings: parseProceedings(lines, sections)
   };
 };
 
@@ -180,6 +181,35 @@ function parseAccountSummary(lines, sections) {
   walkSection(lines, sections, "ACCOUNT SUMMARY", addAccounts);
 
   return balances;
+}
+
+function parseProceedings(lines, sections) {
+  const keywords = [
+    "case closed",
+    "dismissed",
+    "warrant issued",
+    "warrant recalled",
+    "sentence, judgement, commitment"
+  ];
+  const proceedings = [];
+
+  function addRelevantDates(line, index) {
+    const datedLine = /[\d*][\d][-]/;
+    if (line.search(datedLine) === 0) {
+      const date = line.slice(0, 8).trim();
+      const content = line.slice(9);
+      const result = keywords.filter(keyword => {
+        return content.toLowerCase().includes(keyword);
+      });
+      if (result.length > 0) {
+        proceedings.push({ date, content });
+      }
+    }
+  }
+
+  walkSection(lines, sections, "PROCEEDINGS", addRelevantDates);
+
+  return proceedings;
 }
 
 function walkSection(lines, sections, name, walk) {
