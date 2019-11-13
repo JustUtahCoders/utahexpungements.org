@@ -311,7 +311,13 @@ const translations = {
   "last name spouse": "Spouse's Last Name",
   "application for board of pardon expungement": "NEEDS DESCRIPTION", // not sure on this
   "app for board of pardon expungement":
-    "Application for Board of Pardon Expungement"
+    "Application for Board of Pardon Expungement",
+
+  // motion to reduce conviction
+  plaintiff: "Plaintiff",
+  "degree of your criminal conviction": "Degree of Your Criminal Record",
+  "requesting court to reduce my convition to":
+    "Requesting Court to Reduce my Conviction to"
 };
 
 export default translations;
