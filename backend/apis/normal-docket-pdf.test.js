@@ -23,7 +23,7 @@ describe("normal docket pdf file", () => {
     expect(actual0.dispositionDate).toBe("Month 00, 0000");
 
     expect(actual1.statute).toBe("41-6A-601");
-    expect(actual1.offenseName).toBe("SPEEDING 70 in a 65");
+    expect(actual1.offenseName).toBe("SPEEDING 70 IN A 65");
     expect(actual1.severity).toBe(
       "Class C Misdemeanor Offense Date: Month 00, 0000"
     );
