@@ -85,7 +85,26 @@ function parseCharges(lines, sections) {
 
   walkSection(lines, sections, "CHARGES", addDispositionToCharges);
 
-  return charges;
+  const chargesWithSeverity = charges.map(charge => {
+    //need to check for special cases where speeding is the charge.
+    const { description, ...rest } = charge;
+    const wordsArr = description.split(/\s/);
+    const words = wordsArr.map(word => {
+      if (word === "in") {
+        word = "IN";
+      } else if (word === "a") {
+        word = "A";
+      }
+      return word;
+    });
+    const splitIndex = words.findIndex(word => word.toUpperCase() !== word);
+    const offenseName = words.slice(0, splitIndex).join(" ");
+    const severity = words.slice(splitIndex).join(" ");
+    const charges = { ...rest, offenseName, severity };
+    return charges;
+  });
+
+  return chargesWithSeverity;
 }
 
 function parseAccountSummary(lines, sections) {
