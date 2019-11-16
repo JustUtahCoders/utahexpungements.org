@@ -27,7 +27,7 @@ export default function Vocabulary(props) {
 
       return () => clearTimeout(timeoutId);
     }
-  }, [window.location.hash]);
+  }, []);
 
   return (
     <OverviewCard

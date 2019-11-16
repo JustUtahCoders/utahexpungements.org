@@ -18,7 +18,7 @@ export default function TextInputGroup(props) {
     } else {
       setShowFormBanner(false);
     }
-  }, [inputList.length, showFormBanner]);
+  }, [inputList.length, props.maxInputs, showFormBanner]);
 
   return (
     <div className="web-form-input" onBlur={evt => handleBlur(evt)} {...scope}>

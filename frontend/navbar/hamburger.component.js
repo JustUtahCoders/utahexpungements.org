@@ -1,16 +1,8 @@
 import React from "react";
-import { Scoped } from "kremling";
-import {
-  mediaDesktop,
-  navbarHeight,
-  primary,
-  darkPrimary,
-  secondary,
-  boxShadow3
-} from "frontend/styleguide.js";
+import { Scoped, always } from "kremling";
+import styleguideCss, { mediaDesktop } from "frontend/styleguide.js";
 import MenuItems from "./menu-items.component.js";
 import { Portal } from "react-portal";
-import styleguideCss from "frontend/styleguide.js";
 
 export default class Hamburger extends React.Component {
   state = {
@@ -19,19 +11,20 @@ export default class Hamburger extends React.Component {
   render() {
     return (
       <Scoped css={css}>
-        <div className="hamburger" onClick={this.openMenu}>
+        <button
+          className={always("unstyled hamburger").maybe(
+            "active",
+            this.state.menuOpen
+          )}
+          onClick={this.openMenu}
+        >
           <div />
           <div />
           <div />
-        </div>
+        </button>
         {this.state.menuOpen && (
           <Portal>
             <Scoped css={sideMenuCss}>
-              <div className="close-hamburger">
-                <div />
-                <div />
-                <div />
-              </div>
               <div className="modal-overlay" />
             </Scoped>
           </Portal>
@@ -62,21 +55,41 @@ export default class Hamburger extends React.Component {
 
 const css = `
   & .hamburger {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
     cursor: pointer;
-    z-index: 10000;
+    z-index: 111;
   }
 
-  & .hamburger > * {
+  & .hamburger > div {
     width: 2.4rem;
     border-radius: 0.3rem;
     height: 0.3rem;
     background-color: #fff;
     margin: 0 1.6rem 0.4rem 1.6rem;
-    display: block;
+    transition: all 0.3s linear;
+    will-change: opacity, transform;
+  }
+
+  & :focus {
+    outline: none;
+  }
+
+  & .active > :first-child {
+    transform: rotate(45deg) translateY(1rem);
+  }
+
+  & .active > :nth-child(2) {
+    opacity: 0;
+    transform: translateX(0.25rem);
+  }
+
+  & .active > :nth-child(3) {
+    transform: rotate(-45deg) translateY(-1rem);
   }
 `;
 
@@ -96,27 +109,5 @@ const sideMenuCss = `
     & .modal-overlay {
       display: none;
     }
-  }
-
-  & .close-hamburger {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: ${navbarHeight};
-    background-color: ${darkPrimary};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10000;
-  }
-
-  & .close-hamburger > * {
-    width: 2.4rem;
-    border-radius: 0.3rem;
-    height: 0.3rem;
-    background-color: #fff;
-    margin: 0 1.6rem 0.4rem 1.6rem;
-    display: block;
   }
 `;

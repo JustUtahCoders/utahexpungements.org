@@ -118,28 +118,23 @@ function getJudicialDistrictFromCounty(value) {
     case "Rich":
     case "Cache":
       return "First";
-      break;
     case "Davis":
     case "Morgan":
     case "Weber":
       return "Second";
-      break;
     case "Salt Lake":
     case "Summit":
     case "Tooele":
       return "Third";
-      break;
     case "Juab":
     case "Millard":
     case "Utah":
     case "Wasatch":
       return "Fourth";
-      break;
     case "Beaver":
     case "Iron":
     case "Washington":
       return "Fifth";
-      break;
     case "Garfield":
     case "Kane":
     case "Piute":
@@ -147,17 +142,14 @@ function getJudicialDistrictFromCounty(value) {
     case "Sevier":
     case "Wayne":
       return "Sixth";
-      break;
     case "Carbon":
     case "Emery":
     case "Grand":
     case "San Juan":
       return "Seventh";
-      break;
     case "Daggett":
     case "Duchesne":
     case "Uintah":
       return "Eighth";
-      break;
   }
 }

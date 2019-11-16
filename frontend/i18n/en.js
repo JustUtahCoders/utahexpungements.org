@@ -294,9 +294,30 @@ const translations = {
   "i disagree because": "I disagree because",
 
   // application for pardon
+  "offender #": "Offender Number",
+  "fbi #": "FBI Number",
+  "previously applied":
+    "Have you ever previously applied for, or been granted, a pardon?",
+  "previously please explain": `Please explain your reasons for applying for a pardon. Include a
+    summary of how your life and situation or circumstances have
+    changed since your last arrest. Also include the reasons you feel
+    you are a good candidate for pardon consideration, as well as the
+    circumstances which you feel support such a pardon. Please use and
+    attach additional sheets if necessary.`,
+  "pardon married":
+    "If married, please provide the following information for your spouse",
+  "first name spouse": "Spouse's First Name",
+  "middle name spouse": "Spouse's Middle Name",
+  "last name spouse": "Spouse's Last Name",
   "application for board of pardon expungement": "NEEDS DESCRIPTION", // not sure on this
   "app for board of pardon expungement":
-    "Application for Board of Pardon Expungement"
+    "Application for Board of Pardon Expungement",
+
+  // motion to reduce conviction
+  plaintiff: "Plaintiff",
+  "degree of your criminal conviction": "Degree of Your Criminal Record",
+  "requesting court to reduce my convition to":
+    "Requesting Court to Reduce my Conviction to",
 
   // special certificate from bci
   "have conviction": "Was the petitioner convicted for the case?",
