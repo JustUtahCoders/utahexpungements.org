@@ -321,7 +321,6 @@ const translations = {
 
   // special certificate from bci
   "have conviction": "Was the petitioner convicted for the case?",
-  "law enforcement agency": "Law Enforcement Agency",
   "lea file number": "Law Enforcement Agency File Number",
   "was case filed": "Was the case filed?",
   "thirty days passed since arrest":

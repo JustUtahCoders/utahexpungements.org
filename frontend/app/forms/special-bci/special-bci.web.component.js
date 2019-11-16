@@ -73,6 +73,10 @@ export default function SpecialBci_Web({ data }) {
           options={convictedOptions}
         />
         {data.case.hasConviction === "Yes" && (
+          // TODO: fields specific to having convicition (list b on pdf)
+          <></>
+        )}
+        {data.case.hasConviction === "No" && (
           <>
             <TextInput
               dataKey="case.arrestedDate"
@@ -105,10 +109,6 @@ export default function SpecialBci_Web({ data }) {
               options={chargeResolutionOptions}
             />
           </>
-        )}
-        {data.case.hasConviction === "No" && (
-          // TODO: Fields specific to having conviction
-          <div />
         )}
       </Section>
     </FormThatPrints>

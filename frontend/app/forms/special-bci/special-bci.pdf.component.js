@@ -143,7 +143,14 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           shouldShow={data.case.wasFiled === "Yes"}
         />
         {/* Check with Tucker that this is the same case number */}
-        <PositionedString dataKey="case.caseNumber" left="23.8%" top="85.4%" />
+        {data.case.wasFiled && (
+          <PositionedString
+            dataKey="case.caseNumber"
+            left="23.8%"
+            top="85.4%"
+            shouldShow={data.case.wasFiled === "Yes"}
+          />
+        )}
       </RenderPage>
 
       <RenderPage url={secondPageUrl}>
@@ -154,6 +161,51 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           top="13.5%"
           shouldShow={data.case.wasFiled === "No"}
         />
+        <PositionedCheckmark
+          dataKey="case.hasConviction"
+          left="23.8%"
+          top="20.7%"
+          shouldShow={data.case.hasConviction === "No"}
+        />
+        <PositionedCheckmark
+          dataKey="case.thirtyDaysPassed"
+          left="23.8%"
+          top="23.2%"
+          shouldShow={data.case.thirtyDaysPassed}
+        />
+        <PositionedCheckmark
+          dataKey="case.noArrestsSinceLast"
+          left="23.8%"
+          top="25.7%"
+          shouldShow={data.case.noArrestsSinceLast}
+        />
+        <PositionedCheckmark
+          debugKey="oneOfTheFollowingOccurred"
+          left="23.8%"
+          top="28.2%"
+          // if any of the options of the radio button are checked, this checkmark should show
+          shouldShow={data.case.chargeResolution}
+        />
+        <PositionedCheckmark
+          dataKey="case.chargeResolution"
+          left="29.7%"
+          top="30.7%"
+          shouldShow={data.case.chargeResolution === "noChargeFiled"}
+        />
+        <PositionedCheckmark
+          dataKey="case.chargeResolution"
+          left="29.7%"
+          top="33.2%"
+          shouldShow={data.case.chargeResolution === "withPrejudice"}
+        />
+        <PositionedCheckmark
+          dataKey="case.chargeResolution"
+          left="29.7%"
+          top="37.5%"
+          shouldShow={data.case.chargeResolution === "atTrial"}
+        />
+
+        {/* Records of crime with conviction */}
       </RenderPage>
 
       <RenderPage url={thirdPageUrl} />
