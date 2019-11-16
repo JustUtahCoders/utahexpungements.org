@@ -1,5 +1,6 @@
 import React from "react";
 import Section from "../inputs/section.component";
+import TextArea from "../inputs/text-area.component";
 import TextInput from "../inputs/text-input.component";
 import FormThatPrints from "../inputs/form-that-prints.component";
 import Select from "../inputs/select.component";
@@ -74,7 +75,38 @@ export default function SpecialBci_Web({ data }) {
         />
         {data.case.hasConviction === "Yes" && (
           // TODO: fields specific to having convicition (list b on pdf)
-          <></>
+          <>
+            Choose all that apply:
+            <Checkbox
+              dataKey="case.wasNotSevereCrime"
+              label={
+                <span style={{ whiteSpace: "pre-wrap" }}>
+                  {__("severe crime list")}
+                </span>
+              }
+            />
+            <Checkbox
+              dataKey="case.noCriminalCasePending"
+              label={__("no criminal case pending")}
+            />
+            <Checkbox
+              dataKey="case.notConvictedOfCriminalEpisodes"
+              label={
+                <span style={{ whiteSpace: "pre-wrap" }}>
+                  {__("not convincted of criminal episodes")}
+                </span>
+              }
+            />
+            <Checkbox dataKey="case.hasPaidFines" label={__("has paid fees")} />
+            <Checkbox
+              dataKey="case.timePeriodsHaveElapsed"
+              label={
+                <span style={{ whiteSpace: "pre-wrap" }}>
+                  {__("time periods have elapsed")}
+                </span>
+              }
+            />
+          </>
         )}
         {data.case.hasConviction === "No" && (
           <>
@@ -110,6 +142,20 @@ export default function SpecialBci_Web({ data }) {
             />
           </>
         )}
+      </Section>
+
+      <Section name="4. Certificate of Eligibility">
+        <TextArea
+          dataKey="case.bciEligibilityCause"
+          label={__("bci eligibility cause")}
+        />
+      </Section>
+
+      <Section name="5. Public Interest">
+        <TextArea
+          dataKey="case.publicInterestCause"
+          label={__("public interest cause")}
+        />
       </Section>
     </FormThatPrints>
   );

@@ -206,9 +206,72 @@ export default function SpecialBci_Pdf({ data, renderData }) {
         />
 
         {/* Records of crime with conviction */}
+        <PositionedCheckmark
+          dataKey="case.hasConviction"
+          left="18.0%"
+          top="41.5%"
+          shouldShow={data.case.hasConviction === "Yes"}
+        />
+        {data.case.hasConviction === "Yes" && (
+          <PositionedString dataKey="case.caseNumber" left="70%" top="44.7%" />
+        )}
+        <PositionedCheckmark
+          dataKey="case.wasNotSevereCrime"
+          left="23.8%"
+          top="49.7%"
+          shouldShow={data.case.wasNotSevereCrime}
+        />
+        <PositionedCheckmark
+          dataKey="case.noCriminalCasePending"
+          left="23.8%"
+          top="62.3%"
+          shouldShow={data.case.noCriminalCasePending}
+        />
+        <PositionedCheckmark
+          dataKey="case.notConvictedOfCriminalEpisodes"
+          left="23.8%"
+          top="67.2%"
+          shouldShow={data.case.notConvictedOfCriminalEpisodes}
+        />
+        <PositionedCheckmark
+          dataKey="case.hasPaidFines"
+          left="23.8%"
+          top="79.8%"
+          shouldShow={data.case.hasPaidFines}
+        />
+        <PositionedCheckmark
+          dataKey="case.timePeriodsHaveElapsed"
+          left="23.8%"
+          top="83.1%"
+          shouldShow={data.case.timePeriodsHaveElapsed}
+        />
       </RenderPage>
 
-      <RenderPage url={thirdPageUrl} />
+      <RenderPage url={thirdPageUrl}>
+        {/* BCI Certificate */}
+        <PositionedString
+          dataKey="case.bciEligibilityCause"
+          left="18.28%"
+          top="32.4%"
+          style={{
+            width: "71%",
+            overflowWrap: "anywhere",
+            lineHeight: "29px"
+          }}
+        />
+
+        {/* Public Interest Cause */}
+        <PositionedString
+          dataKey="case.publicInterestCause"
+          left="18.28%"
+          top="48%"
+          style={{
+            width: "71%",
+            overflowWrap: "anywhere",
+            lineHeight: "29px"
+          }}
+        />
+      </RenderPage>
     </>
   );
 }

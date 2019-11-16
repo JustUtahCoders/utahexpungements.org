@@ -326,7 +326,33 @@ const translations = {
   "thirty days passed since arrest":
     "At least 30 days have passed since I was arrested",
   "no arrests since last": "I have not been arrested since this arrest",
-  "resolution of the conviction": "What was the resolution of the conviction?"
+  "resolution of the conviction": "What was the resolution of the conviction?",
+  "severe crime list":
+    "None of the crimes are:\n\r" +
+    "     • a capital or first degree felony\n\r" +
+    "     • a violent felony as defined in § 76-3-203.5\n\r" +
+    "     • automobile homicide\n\r" +
+    "     • felony driving under the influence\n\r" +
+    "     • a registerable sex offense as defined in § 77-27-21.5",
+  "no criminal case pending":
+    "There is no criminal case pending against me or being investiaged in any jurisdiction",
+  "not convincted of criminal episodes":
+    "In my lifetime, I have no been convicted in separate criminal episodes of:\n\r" +
+    "     • two or more felonies\n\r" +
+    "     • three or more crimes of which two are class A misdemeanors\n\r" +
+    "     • four or more crimes of which three are class B misdemeanors\n\r" +
+    "     • five or more crimes of any degree other than infractions",
+  "has paid fees": "I have paid all fines, fees, restitution and interest",
+  "time periods have elapsed":
+    "The following time periods have elapsed from the date I was convicted or released from incarceration, probation or parole, whichever occurred last:\n\r" +
+    "     • 10 years in the case of a misdemeanor conviction of § 41-6a-501(2) or a felony conviction of § 58-37-8(2)(g)\n\r" +
+    "     • 7 years in the case of a felony\n\r" +
+    "     • 5 years in the case of a class A misdemeanor\n\r" +
+    "     • 4 years in the case of a class B misdemeanor\n\r" +
+    "     • 3 years in the case of any other misdemeanor or infraction\n\r",
+  "bci eligibility cause": "BCI Certificate of Eligibility",
+  "public interest cause":
+    "Explain why expunging the crimes is not contrary to the public interest"
 };
 
 export default translations;
