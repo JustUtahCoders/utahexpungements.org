@@ -212,6 +212,7 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           top="41.5%"
           shouldShow={data.case.hasConviction === "Yes"}
         />
+        {/* Check with Tucker that this is the same case number */}
         {data.case.hasConviction === "Yes" && (
           <PositionedString dataKey="case.caseNumber" left="70%" top="44.7%" />
         )}
