@@ -350,7 +350,8 @@ const translations = {
     "     • 5 years in the case of a class A misdemeanor\n\r" +
     "     • 4 years in the case of a class B misdemeanor\n\r" +
     "     • 3 years in the case of any other misdemeanor or infraction\n\r",
-  "bci eligibility cause": "BCI Certificate of Eligibility",
+  "bci eligibility cause":
+    "BCI Certificate of Eligibility (Why do you believe you're eligible for expungement?)",
   "public interest cause":
     "Explain why expunging the crimes is not contrary to the public interest"
 };

@@ -129,25 +129,40 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           top="68.6%"
           shouldShow={data.case.hasConviction === "No"}
         />
-        <PositionedString
-          dataKey="case.arrestedDate"
-          left="39.5%"
-          top="70.8%"
-        />
-        <PositionedString dataKey="case.leaName" left="19.0%" top="73.6%" />
-        <PositionedString dataKey="case.leaFileNumber" left="50%" top="76%" />
+        {data.case.hasConviction === "No" && (
+          <>
+            <PositionedString
+              dataKey="case.arrestedDate"
+              left="39.5%"
+              top="70.8%"
+            />
+            <PositionedString
+              dataKey="case.leaName"
+              left="19.0%"
+              top="73.6%"
+              shouldShow={data.case.hasConviction === "No"}
+            />
+            <PositionedString
+              dataKey="case.leaFileNumber"
+              left="50%"
+              top="76%"
+              shouldShow={data.case.hasConviction === "No"}
+            />
+          </>
+        )}
         <PositionedCheckmark
-          debugKey="wasNotFiled"
+          debugKey="wasFiled"
           left="23.8%"
           top="83%"
-          shouldShow={data.case.wasFiled === "Yes"}
+          shouldShow={
+            data.case.wasFiled === "Yes" && data.case.hasConviction === "No"
+          }
         />
-        {/* Check with Tucker that this is the same case number */}
-        {data.case.wasFiled && (
+        {data.case.wasFiled === "Yes" && data.case.hasConviction === "No" && (
           <PositionedString
+            dataKey="case.caseNumber"
             left="23.8%"
             top="85.4%"
-            shouldShow={data.case.wasFiled === "Yes"}
           />
         )}
       </RenderPage>
@@ -158,7 +173,9 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           debugKey="wasNotFiled"
           left="23.8%"
           top="13.5%"
-          shouldShow={data.case.wasFiled === "No"}
+          shouldShow={
+            data.case.wasFiled === "No" && data.case.hasConviction === "No"
+          }
         />
         <PositionedCheckmark
           debugKey="hasNoConviction"
@@ -170,36 +187,50 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           dataKey="case.thirtyDaysPassed"
           left="23.8%"
           top="23.2%"
+          shouldShow={data.case.hasConviction === "No"}
         />
         <PositionedCheckmark
           dataKey="case.noArrestsSinceLast"
           left="23.8%"
           top="25.7%"
+          shouldShow={data.case.hasConviction === "No"}
         />
         <PositionedCheckmark
           debugKey="oneOfTheFollowingOccurred"
           left="23.8%"
           top="28.2%"
           // if any of the options of the radio button are checked, this checkmark should show
-          shouldShow={Boolean(data.case.chargeResolution)}
+          shouldShow={
+            Boolean(data.case.chargeResolution) &&
+            data.case.hasConviction === "No"
+          }
         />
         <PositionedCheckmark
           debugKey="noChargeFiled"
           left="29.7%"
           top="30.7%"
-          shouldShow={data.case.chargeResolution === "noChargeFiled"}
+          shouldShow={
+            data.case.chargeResolution === "noChargeFiled" &&
+            data.case.hasConviction === "No"
+          }
         />
         <PositionedCheckmark
           debugKey="withPrejudice"
           left="29.7%"
           top="33.2%"
-          shouldShow={data.case.chargeResolution === "withPrejudice"}
+          shouldShow={
+            data.case.chargeResolution === "withPrejudice" &&
+            data.case.hasConviction === "No"
+          }
         />
         <PositionedCheckmark
           debugKey="atTrial"
           left="29.7%"
           top="37.5%"
-          shouldShow={data.case.chargeResolution === "atTrial"}
+          shouldShow={
+            data.case.chargeResolution === "atTrial" &&
+            data.case.hasConviction === "No"
+          }
         />
 
         {/* Records of crime with conviction */}
@@ -211,33 +242,39 @@ export default function SpecialBci_Pdf({ data, renderData }) {
         />
         {/* Check with Tucker that this is the same case number */}
         {data.case.hasConviction === "Yes" && (
-          <PositionedString dataKey="case.caseNumber" left="70%" top="44.7%" />
+          <>
+            <PositionedString
+              dataKey="case.caseNumber"
+              left="70%"
+              top="44.7%"
+            />
+            <PositionedCheckmark
+              dataKey="case.wasNotSevereCrime"
+              left="23.8%"
+              top="49.7%"
+            />
+            <PositionedCheckmark
+              dataKey="case.noCriminalCasePending"
+              left="23.8%"
+              top="62.3%"
+            />
+            <PositionedCheckmark
+              dataKey="case.notConvictedOfCriminalEpisodes"
+              left="23.8%"
+              top="67.2%"
+            />
+            <PositionedCheckmark
+              dataKey="case.hasPaidFines"
+              left="23.8%"
+              top="79.8%"
+            />
+            <PositionedCheckmark
+              dataKey="case.timePeriodsHaveElapsed"
+              left="23.8%"
+              top="83.1%"
+            />
+          </>
         )}
-        <PositionedCheckmark
-          dataKey="case.wasNotSevereCrime"
-          left="23.8%"
-          top="49.7%"
-        />
-        <PositionedCheckmark
-          dataKey="case.noCriminalCasePending"
-          left="23.8%"
-          top="62.3%"
-        />
-        <PositionedCheckmark
-          dataKey="case.notConvictedOfCriminalEpisodes"
-          left="23.8%"
-          top="67.2%"
-        />
-        <PositionedCheckmark
-          dataKey="case.hasPaidFines"
-          left="23.8%"
-          top="79.8%"
-        />
-        <PositionedCheckmark
-          dataKey="case.timePeriodsHaveElapsed"
-          left="23.8%"
-          top="83.1%"
-        />
       </RenderPage>
 
       <RenderPage url={thirdPageUrl}>
