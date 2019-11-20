@@ -50,13 +50,13 @@ export default function SpecialBci_Pdf({ data, renderData }) {
 
         {/* Petitioner information */}
         <PositionedCheckmark
-          dataKey="person.petitionerRepresentative"
+          debugKey="petitionerRepresentation"
           left={petitionerCheckboxLeft}
           top="31.50%"
           shouldShow={data.person.petitionerRepresentative === "petitioner"}
         />
         <PositionedCheckmark
-          dataKey="person.petitionerRepresentative"
+          debugKey="attorneyRepresentation"
           left={petitionerCheckboxLeft}
           top={attorneyTop}
           shouldShow={data.person.petitionerRepresentative === "attorney"}
@@ -69,13 +69,13 @@ export default function SpecialBci_Pdf({ data, renderData }) {
 
         {/* Case information */}
         <PositionedCheckmark
-          dataKey="case.courtType"
+          debugKey="districtCourtType"
           left="37.65%"
           top={courtTypeTop}
           shouldShow={data.case.courtType === "District"}
         />
         <PositionedCheckmark
-          dataKey="case.courtType"
+          debugKey="justiceCourtType"
           left="47.8%"
           top={courtTypeTop}
           shouldShow={data.case.courtType === "Justice"}
@@ -124,7 +124,7 @@ export default function SpecialBci_Pdf({ data, renderData }) {
 
         {/* Records of crimes without conviction */}
         <PositionedCheckmark
-          dataKey="case.hasConviction"
+          debugKey="hasNoConviction"
           left="18%"
           top="68.6%"
           shouldShow={data.case.hasConviction === "No"}
@@ -137,7 +137,7 @@ export default function SpecialBci_Pdf({ data, renderData }) {
         <PositionedString dataKey="case.leaName" left="19.0%" top="73.6%" />
         <PositionedString dataKey="case.leaFileNumber" left="50%" top="76%" />
         <PositionedCheckmark
-          dataKey="case.wasFiled"
+          debugKey="wasNotFiled"
           left="23.8%"
           top="83%"
           shouldShow={data.case.wasFiled === "Yes"}
@@ -145,7 +145,6 @@ export default function SpecialBci_Pdf({ data, renderData }) {
         {/* Check with Tucker that this is the same case number */}
         {data.case.wasFiled && (
           <PositionedString
-            dataKey="case.caseNumber"
             left="23.8%"
             top="85.4%"
             shouldShow={data.case.wasFiled === "Yes"}
@@ -156,13 +155,13 @@ export default function SpecialBci_Pdf({ data, renderData }) {
       <RenderPage url={secondPageUrl}>
         {/* Records of crimes without conviction continued */}
         <PositionedCheckmark
-          dataKey="case.wasFiled"
+          debugKey="wasNotFiled"
           left="23.8%"
           top="13.5%"
           shouldShow={data.case.wasFiled === "No"}
         />
         <PositionedCheckmark
-          dataKey="case.hasConviction"
+          debugKey="hasNoConviction"
           left="23.8%"
           top="20.7%"
           shouldShow={data.case.hasConviction === "No"}
@@ -171,35 +170,33 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           dataKey="case.thirtyDaysPassed"
           left="23.8%"
           top="23.2%"
-          shouldShow={data.case.thirtyDaysPassed}
         />
         <PositionedCheckmark
           dataKey="case.noArrestsSinceLast"
           left="23.8%"
           top="25.7%"
-          shouldShow={data.case.noArrestsSinceLast}
         />
         <PositionedCheckmark
           debugKey="oneOfTheFollowingOccurred"
           left="23.8%"
           top="28.2%"
           // if any of the options of the radio button are checked, this checkmark should show
-          shouldShow={data.case.chargeResolution}
+          shouldShow={Boolean(data.case.chargeResolution)}
         />
         <PositionedCheckmark
-          dataKey="case.chargeResolution"
+          debugKey="noChargeFiled"
           left="29.7%"
           top="30.7%"
           shouldShow={data.case.chargeResolution === "noChargeFiled"}
         />
         <PositionedCheckmark
-          dataKey="case.chargeResolution"
+          debugKey="withPrejudice"
           left="29.7%"
           top="33.2%"
           shouldShow={data.case.chargeResolution === "withPrejudice"}
         />
         <PositionedCheckmark
-          dataKey="case.chargeResolution"
+          debugKey="atTrial"
           left="29.7%"
           top="37.5%"
           shouldShow={data.case.chargeResolution === "atTrial"}
@@ -207,7 +204,7 @@ export default function SpecialBci_Pdf({ data, renderData }) {
 
         {/* Records of crime with conviction */}
         <PositionedCheckmark
-          dataKey="case.hasConviction"
+          debugKey="hasConviction"
           left="18.0%"
           top="41.5%"
           shouldShow={data.case.hasConviction === "Yes"}
@@ -220,31 +217,26 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           dataKey="case.wasNotSevereCrime"
           left="23.8%"
           top="49.7%"
-          shouldShow={data.case.wasNotSevereCrime}
         />
         <PositionedCheckmark
           dataKey="case.noCriminalCasePending"
           left="23.8%"
           top="62.3%"
-          shouldShow={data.case.noCriminalCasePending}
         />
         <PositionedCheckmark
           dataKey="case.notConvictedOfCriminalEpisodes"
           left="23.8%"
           top="67.2%"
-          shouldShow={data.case.notConvictedOfCriminalEpisodes}
         />
         <PositionedCheckmark
           dataKey="case.hasPaidFines"
           left="23.8%"
           top="79.8%"
-          shouldShow={data.case.hasPaidFines}
         />
         <PositionedCheckmark
           dataKey="case.timePeriodsHaveElapsed"
           left="23.8%"
           top="83.1%"
-          shouldShow={data.case.timePeriodsHaveElapsed}
         />
       </RenderPage>
 

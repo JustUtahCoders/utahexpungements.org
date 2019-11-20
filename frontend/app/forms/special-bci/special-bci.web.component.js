@@ -74,7 +74,6 @@ export default function SpecialBci_Web({ data }) {
           options={convictedOptions}
         />
         {data.case.hasConviction === "Yes" && (
-          // TODO: fields specific to having convicition (list b on pdf)
           <>
             Choose all that apply:
             <Checkbox
