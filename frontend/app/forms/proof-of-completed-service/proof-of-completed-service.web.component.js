@@ -7,6 +7,7 @@ import Radio from "../inputs/radio.component.js";
 import Checkbox from "../inputs/checkbox.component.js";
 import TextArea from "../inputs/text-area.component.js";
 import TextInputGroup from "../inputs/text-input-group.component.js";
+import { Scoped } from "kremling";
 import {
   courtTypeOptions,
   JusticeCourtList,
@@ -113,40 +114,40 @@ export default function ProofOfCompletedService_Web({ data }) {
           listed in section 3 by mail or commerical courier service to:
         </p>
         <TextInput
-          dataKey="proofofcompletedservice_person.fullname"
+          dataKey="case.proofOfCompletedServiceMailFullname"
           label="Name of Addressee"
         />
         <TextInput
-          dataKey="proofofcompletedservice_person.addressStreet"
+          dataKey="case.proofOfCompletedServiceMailAddressStreet"
           label="Street Address"
         />
         <TextInput
-          dataKey="proofofcompletedservice_person.addressCity"
+          dataKey="case.proofOfCompletedServiceMailAddressCity"
           label="City"
         />
         <TextInput
-          dataKey="proofofcompletedservice_person.addressState"
+          dataKey="case.proofOfCompletedServiceMailAddressState"
           label="State"
         />
         <TextInput
-          dataKey="proofofcompletedservice_person.addressZip"
+          dataKey="case.proofOfCompletedServiceMailAddressZip"
           label="Zip Code"
         />
         <p className="web-form-input">
           I have attached a signed receipt proving delivery. It was signed by:
         </p>
         <Checkbox
-          dataKey="proofOfCompletedService_case.addressee"
+          dataKey="case.proofOfCompletedServiceAddressee"
           label="the addressee personally"
         />
         <Checkbox
-          dataKey="proofOfCompletedService_case.someoneElse"
+          dataKey="case.proofOfCompletedServiceAuthorizedPerson"
           label="someone authorized by appointment or by law to receive service of process on behalf of the addressee"
         />
       </Section>
       <Section name="3. Service by Third Person">
         <Checkbox
-          dataKey="proofOfCompletedService_case.other"
+          dataKey="case.proofOfCompletedServiceThirdPerson"
           label="I am over the age of 18, and"
         />
         <p className="web-form-input">
@@ -161,7 +162,132 @@ export default function ProofOfCompletedService_Web({ data }) {
           <small>(Utah Code 78B-7-101 et seq.)</small>.
         </p>
       </Section>
-      <Section name="4. Service by Third Person (continued)"></Section>
+      <Section name="4. Service by Third Person (continued)">
+        <Checkbox
+          dataKey="case.proofOfCompletedServiceDeliveredForm"
+          label="On"
+        />
+        <TextInput
+          dataKey="case.proofOfCompletedServiceDelieveredDate"
+          label="date MM-DD-YYYY"
+        />
+        <p>I went to</p>
+        <TextInput
+          dataKey="case.proofOfCompletedServiceDelieveredAddressZip"
+          label="(address)"
+        />
+        <p>and I delivered the documents listed in paragraph 1 to</p>
+        <TextInput
+          dataKey="case.proofOfCompletedServiceDelieveredName"
+          label="(name)"
+        />
+        <p>
+          who is <small>(Check one.)</small>
+        </p>
+        <Checkbox
+          dataKey="case.defendant"
+          label="the named defendant/respondent"
+        />
+        <Checkbox
+          dataKey="case.plaintiff"
+          label="the named plaintiff/petitioner"
+        />
+        <Checkbox
+          dataKey="case.proofOfCompletedServicePersonSuitableAge"
+          label="a person of suitable age and discretion residing at that address, which is the named party's residence"
+        />
+        {data.person.proofOfCompletedServicePersonSuitableAge && (
+          <TextArea
+            dataKey="case.proofOfCompletedServicePersonSuitableAgeDescribe"
+            label="Describe why the person lives at the named party's residence and why they are of suitable age and discretion"
+          />
+        )}
+        <Checkbox
+          dataKey="case.agent"
+          label="an agent authorized by appointment or by law to receive servie of process on behalf of the named party"
+        />
+        <Scoped css={css}>
+          <div className="details">
+            <small>
+              If serving a corporation, partnership, or an unincorporated
+              association
+            </small>
+          </div>
+        </Scoped>
+        <Checkbox
+          dataKey="case.officer"
+          label="an officer, a managing agent, general agent"
+        />
+        <strong>OR</strong>
+        <Checkbox
+          dataKey="case.authorizedAgent"
+          label="an agent authorized by appointment or by law to receive service of
+          process and by also mailing a copy of the complaint and summons to the
+          named party, if the agent is one authorized by statute to receive process
+          and the statute so requires."
+        />
+        <Scoped css={css}>
+          <div className="details">
+            <small>If serving a city or town</small>
+          </div>
+        </Scoped>
+        <Checkbox dataKey="case.recorder" label="the city/town recorder" />
+        <Scoped css={css}>
+          <div className="details">
+            <small>If serving a county</small>
+          </div>
+        </Scoped>
+        <Checkbox dataKey="case.clerk" label="the county clerk" />
+        <Scoped css={css}>
+          <div className="details">
+            <small>If serving the state</small>
+          </div>
+        </Scoped>
+        <Checkbox
+          dataKey="case.attorneyGeneral"
+          label="the attorney general, and to"
+        />
+        <TextInput
+          dataKey="case.proofOfCompletedServicePersonStatute"
+          label="(name of any other person or agency required by statute to be served)"
+        />
+        <TextInput
+          dataKey="case.proofOfCompletedServicePersonStatuteAddress"
+          label="(address)"
+        />
+        <Scoped css={css}>
+          <div className="details">
+            <small>If serving a department or agency of the state</small>
+          </div>
+        </Scoped>
+        <Checkbox
+          dataKey="case.proofOfCompletedServiceBoardMember"
+          label="a member of named party's governing board, executive employee or secretary"
+        />
+        <Scoped css={css}>
+          <div className="details">
+            <small>If the document was served in some other way</small>
+          </div>
+        </Scoped>
+        <Checkbox
+          dataKey="case.proofOfCompletedServiceOther"
+          label="Other (describe how the document was served)"
+        />
+        {data.case.proofOfCompletedServiceOther && (
+          <TextArea
+            dataKey="case.proofOfCompletedServiceOtherDesribe"
+            label="Describe"
+          />
+        )}
+      </Section>
     </FormThatPrints>
   );
 }
+
+const css = `
+  & .details {
+    text-align: left;
+    padding: 0;
+    margin: 1.5rem; 0; 0; 0; 
+  }
+  `;
