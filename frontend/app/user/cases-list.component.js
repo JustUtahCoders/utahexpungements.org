@@ -1,6 +1,7 @@
 import React from "react";
 import { partial } from "lodash";
 import { Scoped } from "kremling";
+import { database } from "../../firebase";
 import { veryLightGray } from "frontend/styleguide.js";
 import { Link } from "react-router-dom";
 
@@ -34,8 +35,12 @@ export default class CasesList extends React.Component {
                       Work on case
                     </button>
                   )}
-                  <button className="danger small">Delete</button>
-                  {/* delete currently does nothing? */}
+                  <button
+                    className="danger small"
+                    onClick={database.deleteCase}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             ))
