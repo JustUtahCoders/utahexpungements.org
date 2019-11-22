@@ -332,7 +332,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Petition to Expunge Records (Special Certificate from BCI)"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="petition to expunge records special certificate from bci"
               shortDescription="Petition to expunge records using a special certificate from BCI"
               appUrl={`${this.props.match.url}/special-bci`}

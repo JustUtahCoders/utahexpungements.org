@@ -70,9 +70,14 @@ export default function SpecialBci_Web({ data }) {
       <Section name="3. Records of Crime">
         <Radio
           dataKey="case.hasConviction"
-          label={__("have conviction")}
+          label={
+            <span style={{ whiteSpace: "pre-wrap" }}>
+              {__("was petitioner convicted for case")}
+            </span>
+          }
           options={convictedOptions}
         />
+        <br />
         {data.case.hasConviction === "Yes" && (
           <>
             Choose all that apply:
@@ -143,7 +148,7 @@ export default function SpecialBci_Web({ data }) {
         )}
       </Section>
 
-      <Section name="4. Certificate of Eligibility">
+      <Section name="4. Certificate of Eligibility from BCI">
         <TextArea
           dataKey="case.bciEligibilityCause"
           label={__("bci eligibility cause")}

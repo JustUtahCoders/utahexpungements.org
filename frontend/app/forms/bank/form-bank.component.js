@@ -213,6 +213,7 @@ export default class FormBank extends React.Component {
           path={`${this.props.match.url}/reply-to-statement`}
           render={props => (
             <GovernmentForm
+              name="Reply to statement or response"
               WebForm={ReplyToStatement_Web}
               PdfForm={ReplyToStatement_Pdf}
             />

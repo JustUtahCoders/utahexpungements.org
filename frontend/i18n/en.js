@@ -320,7 +320,10 @@ const translations = {
     "Requesting Court to Reduce my Conviction to",
 
   // special certificate from bci
-  "have conviction": "Was the petitioner convicted for the case?",
+  "was petitioner convicted for case":
+    "Was the petitioner convicted for the case?\n\r" +
+    "Selecting an option will show additional REQUIRED fields depending on answer.\n\r" +
+    "The Certificate of Eligibility from the BCI (Section 4) is also REQUIRED.",
   "lea file number": "Law Enforcement Agency File Number",
   "was case filed": "Was the case filed?",
   "thirty days passed since arrest":
