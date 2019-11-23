@@ -1,6 +1,6 @@
 import React from "react";
 import { database } from "../../firebase";
-import { groupBy, partial } from "lodash";
+import { groupBy, partial, remove } from "lodash";
 import context from "../../context";
 import Accordion from "../utils/accordion.component.js";
 import CasesList from "./cases-list.component.js";
@@ -32,6 +32,20 @@ export default class PeopleList extends React.Component {
     });
   };
 
+  deleteCase = (person, kase, e) => {
+    e.preventDefault();
+    const array = [...this.state.cases];
+    remove(array, item => {
+      return item === kase;
+    });
+    this.setState({ cases: array });
+    context.setContext({
+      activePerson: "",
+      activeCase: ""
+    });
+    database.deleteCase(kase.id);
+  };
+
   render() {
     const { cases, people } = this.state;
     const { activeCase } = this.props;
@@ -54,6 +68,7 @@ export default class PeopleList extends React.Component {
             <CasesList
               cases={personCases}
               chooseCase={partial(this.chooseCase, person)}
+              deleteCase={partial(this.deleteCase, person)}
               activeCase={activeCase}
             />
           </div>
