@@ -1,7 +1,6 @@
 import React from "react";
 import { partial } from "lodash";
 import { Scoped } from "kremling";
-import { database } from "../../firebase";
 import { veryLightGray } from "frontend/styleguide.js";
 import { Link } from "react-router-dom";
 
