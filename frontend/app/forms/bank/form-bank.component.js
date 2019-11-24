@@ -270,56 +270,6 @@ export default class FormBank extends React.Component {
           )}
         />
         <Route
-          path={`${this.props.match.url}/proof-of-completed-service`}
-          render={props => (
-            <GovernmentForm
-              name="Proof of Completed Service"
-              WebForm={ProofOfCompletedService_Web}
-              PdfForm={ProofOfCompletedService_Pdf}
-            />
-          )}
-        />
-        <Route
-          path={`${this.props.match.url}/petition-for-expungement-from-bci`}
-          render={props => (
-            <GovernmentForm
-              name="Petition for Expungement (Special Certificate from BCI)"
-              WebForm={PetitionForExpungementFromBci_Web}
-              PdfForm={PetitionForExpungementFromBci_Pdf}
-            />
-          )}
-        />
-        <Route
-          path={`${this.props.match.url}/consent-and-waiver-of-hearing`}
-          render={props => (
-            <GovernmentForm
-              name="Consent and waive of hearing"
-              WebForm={ConsentAndWaiverOfHearing_Web}
-              PdfForm={ConsentAndWaiverOfHearing_Pdf}
-            />
-          )}
-        />
-        <Route
-          path={`${this.props.match.url}/order-on-motion-for-reduction-of-conviction`}
-          render={props => (
-            <GovernmentForm
-              name="Order on Motion for Reduction of Conviction"
-              WebForm={OrderOnMotionForReductionOfConviction_Web}
-              PdfForm={OrderOnMotionForReductionOfConviction_Pdf}
-            />
-          )}
-        />
-        <Route
-          path={`${this.props.match.url}/motion-to-reduce-conviction`}
-          render={props => (
-            <GovernmentForm
-              name="Motion to Reduce Conviction"
-              WebForm={MotionToReduceConviction_Web}
-              PdfForm={MotionToReduceConviction_Pdf}
-            />
-          )}
-        />
-        <Route
           path={`${this.props.match.url}/special-bci`}
           render={props => (
             <GovernmentForm
