@@ -34,16 +34,21 @@ export default class PeopleList extends React.Component {
 
   deleteCase = (person, kase, e) => {
     e.preventDefault();
-    const array = [...this.state.cases];
-    remove(array, item => {
-      return item === kase;
-    });
-    this.setState({ cases: array });
-    context.setContext({
-      activePerson: "",
-      activeCase: ""
-    });
-    database.deleteCase(kase.id);
+    let prevActiveCase = context.getContext().activeCase.id;
+    this.setState(
+      prevState => ({
+        cases: prevState.cases.filter(prevCase => prevCase !== kase)
+      }),
+      () => {
+        database.deleteCase(kase.id);
+        if (prevActiveCase === kase.id) {
+          context.setContext({
+            activePerson: "",
+            activeCase: ""
+          });
+        }
+      }
+    );
   };
 
   render() {
