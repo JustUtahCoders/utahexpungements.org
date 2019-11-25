@@ -1,6 +1,6 @@
 import React from "react";
 import { database } from "../../firebase";
-import { groupBy, partial, remove } from "lodash";
+import { groupBy, partial } from "lodash";
 import context from "../../context";
 import Accordion from "../utils/accordion.component.js";
 import CasesList from "./cases-list.component.js";
