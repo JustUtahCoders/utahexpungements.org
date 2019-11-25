@@ -48,6 +48,8 @@ import MotionToReduceConviction_Pdf from "../motion-to-reduce-conviction/motion-
 
 import ProofOfCompletedService_Web from "../proof-of-completed-service/proof-of-completed-service.web.component.js";
 import ProofOfCompletedService_Pdf from "../proof-of-completed-service/proof-of-completed-service.pdf.component.js";
+import SpecialBci_Web from "../special-bci/special-bci.web.component";
+import SpecialBci_Pdf from "../special-bci/special-bci.pdf.component";
 
 export default class FormBank extends React.Component {
   render() {
@@ -264,6 +266,16 @@ export default class FormBank extends React.Component {
               name="Motion to Reduce Conviction"
               WebForm={MotionToReduceConviction_Web}
               PdfForm={MotionToReduceConviction_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/special-bci`}
+          render={props => (
+            <GovernmentForm
+              name="Petition to Expunge Records (Special Certificate from BCI)"
+              WebForm={SpecialBci_Web}
+              PdfForm={SpecialBci_Pdf}
             />
           )}
         />
