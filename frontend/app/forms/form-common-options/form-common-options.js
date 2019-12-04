@@ -59,6 +59,22 @@ export const courtTypeOptions = [
   { label: "Justice Court", value: "Justice" }
 ];
 
+export const convictedOptions = [
+  { label: "Yes, petitioner was convicted", value: "Yes" },
+  { label: "No, petitioner was not convicted", value: "No" }
+];
+
+export const caseFiledOptions = [
+  { label: "Case was filed", value: "Yes" },
+  { label: "Case was not filed", value: "No" }
+];
+
+export const chargeResolutionOptions = [
+  { label: "No charges were filed", value: "noChargeFiled" },
+  { label: "Filed, but dismissed with prejudice", value: "withPrejudice" },
+  { label: "Filed, but acquitted at trial", value: "atTrial" }
+];
+
 export const pryingQuestionOptions = [
   {
     label: "I have not been diagnosed as having a substance abuse addiction.",

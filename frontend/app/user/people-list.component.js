@@ -32,6 +32,25 @@ export default class PeopleList extends React.Component {
     });
   };
 
+  deleteCase = (person, kase, e) => {
+    e.preventDefault();
+    let prevActiveCase = context.getContext().activeCase.id;
+    this.setState(
+      prevState => ({
+        cases: prevState.cases.filter(prevCase => prevCase !== kase)
+      }),
+      () => {
+        database.deleteCase(kase.id);
+        if (prevActiveCase === kase.id) {
+          context.setContext({
+            activePerson: "",
+            activeCase: ""
+          });
+        }
+      }
+    );
+  };
+
   render() {
     const { cases, people } = this.state;
     const { activeCase } = this.props;
@@ -54,6 +73,7 @@ export default class PeopleList extends React.Component {
             <CasesList
               cases={personCases}
               chooseCase={partial(this.chooseCase, person)}
+              deleteCase={partial(this.deleteCase, person)}
               activeCase={activeCase}
             />
           </div>
