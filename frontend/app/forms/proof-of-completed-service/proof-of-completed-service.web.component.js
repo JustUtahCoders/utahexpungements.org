@@ -87,12 +87,12 @@ export default function ProofOfCompletedService_Web({ data }) {
         />
 
         <Checkbox
-          dataKey="case.noticeOfURCP26.1"
+          dataKey="case.noticeOfURCP261"
           label="Notice of URCP 26.1 Disclosure and Discovery Requirements in Domestic Relations Actions"
         />
 
         <Checkbox
-          dataKey="case.noticeOfURCP26.3"
+          dataKey="case.noticeOfURCP263"
           label="Notice of URCP 26.3 Disclosure Requirements in Unlawful Detainer Actions"
         />
 

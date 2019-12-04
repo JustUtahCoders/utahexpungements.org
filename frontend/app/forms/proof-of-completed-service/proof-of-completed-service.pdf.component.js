@@ -86,49 +86,49 @@ export default function ProofOfCompletedService_Pdf({ renderData, data }) {
           datakey="case.summons"
           left={documentsServedCheckmarks}
           top="68.4%"
-          shouldShow={true}
+          shouldShow={data.case.summons}
         />
         <PositionedCheckmark
           datakey="case.complaintOrPetition"
           left={documentsServedCheckmarks}
           top="70.4%"
-          shouldShow={true}
+          shouldShow={data.case.complaintOrPetition}
         />
         <PositionedCheckmark
           datakey="case.amendedComplaintOrPetition"
           left={documentsServedCheckmarks}
           top="72.4%"
-          shouldShow={true}
+          shouldShow={data.case.amendedComplaintOrPetition}
         />
         <PositionedCheckmark
-          datakey="case.case.noticeOfDivorceEducationRequirements"
+          datakey="case.noticeOfDivorceEducationRequirements"
           left={documentsServedCheckmarks}
           top="74.4%"
-          shouldShow={true}
+          shouldShow={data.case.noticeOfDivorceEducationRequirements}
         />
         <PositionedCheckmark
-          datakey="case.noticeOfURCP26.1"
+          datakey="case.noticeOfURCP261"
           left={documentsServedCheckmarks}
           top="76.4%"
-          shouldShow={true}
+          shouldShow={data.case.noticeOfURCP261}
         />
         <PositionedCheckmark
-          datakey="case.noticeOfURCP26.3"
+          datakey="case.noticeOfURCP263"
           left={documentsServedCheckmarks}
           top="80.4%"
-          shouldShow={true}
+          shouldShow={data.case.noticeOfURCP263}
         />
         <PositionedCheckmark
           datakey="case.parentingPlan"
           left={documentsServedCheckmarks}
           top="82.4%"
-          shouldShow={true}
+          shouldShow={data.case.parentingPlan}
         />
         <PositionedCheckmark
           datakey="case.other"
           left={documentsServedCheckmarks}
           top="84.4%"
-          shouldShow={true}
+          shouldShow={data.case.other}
         />
         <PositionedString
           dataKey="case.otherDocumentsServed"
