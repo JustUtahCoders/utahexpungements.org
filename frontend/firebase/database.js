@@ -72,6 +72,13 @@ export const createCase = (
     data: initialData
   });
 
+export const deleteCase = caseId => {
+  return database
+    .collection("cases")
+    .doc(caseId)
+    .delete();
+};
+
 export const persistFormData = (personId, caseId, data) => {
   const promises = [];
   const personData = omitBy(data.person, isUndefined);

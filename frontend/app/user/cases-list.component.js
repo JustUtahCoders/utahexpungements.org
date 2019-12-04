@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default class CasesList extends React.Component {
   render() {
-    const { cases, chooseCase, activeCase = {} } = this.props;
+    const { cases, chooseCase, deleteCase, activeCase = {} } = this.props;
     return (
       <Scoped css={css}>
         <div>
@@ -34,8 +34,12 @@ export default class CasesList extends React.Component {
                       Work on case
                     </button>
                   )}
-                  <button className="danger small">Delete</button>
-                  {/* delete currently does nothing? */}
+                  <button
+                    className="danger small"
+                    onClick={partial(deleteCase, kase)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             ))
