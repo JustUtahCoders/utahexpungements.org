@@ -130,6 +130,6 @@ const css = `
   }
 
   & .side-menu.off-screen {
-    left: -27.5rem;
+    left: -29.5rem;
   }
 `;
