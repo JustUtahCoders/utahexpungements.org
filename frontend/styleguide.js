@@ -42,6 +42,7 @@ export default `
   body {
     font-size: 1.6rem;
     margin: 0;
+    max-width: 100vw;
   }
 
   *, *:before, *:after {
