@@ -8,6 +8,7 @@ import { Scoped } from "kremling";
 import I18N from "./i18n.component.js";
 import withAuthentication from "./authentication.component.js";
 import About from "./about/about.component.js";
+import NotFound from "./not-found/not-found.component";
 
 class Root extends React.Component {
   render() {
@@ -37,6 +38,7 @@ class Root extends React.Component {
                       )
                     }
                   />
+                  <Route path="*" component={NotFound} />
                 </>
               </BrowserRouter>
             </div>
