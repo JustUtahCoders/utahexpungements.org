@@ -52,8 +52,9 @@ const css = `
     justify-content: center;
   }
 
-  & .links {
+  & ul.links {
     padding: 0 1.6rem;
+    margin: 0 0.6rem;
   }
 
   & .links a {
