@@ -1,20 +1,26 @@
 import React from "react";
 import { Scoped } from "kremling";
+import { Link } from "react-router-dom";
 
-export default class DetailHighlight extends React.Component {
-  render() {
-    return (
-      <Scoped css={css}>
-        <div className="detail-highlight">
-          <img className="icon" src={this.props.icon} alt="icon" />
-          <div className="text">
-            <h3>{this.props.title}</h3>
-            <div>{this.props.description}</div>
-          </div>
+export default function DetailHighlight(props) {
+  return (
+    <Scoped css={css}>
+      <div className="detail-highlight">
+        <Link to={props.link}>
+          <img
+            className="icon"
+            src={props.icon}
+            alt="icon"
+            title={props.imgTitle}
+          />
+        </Link>
+        <div className="text">
+          <h3>{props.title}</h3>
+          <div>{props.description}</div>
         </div>
-      </Scoped>
-    );
-  }
+      </div>
+    </Scoped>
+  );
 }
 
 const css = `
@@ -23,6 +29,7 @@ const css = `
     height: 10rem;
     min-width: 10rem;
     min-height: 10rem;
+    cursor: pointer;
   }
 
   & .detail-highlight {
