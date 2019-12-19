@@ -26,17 +26,13 @@ export default class MenuItems extends React.Component {
                 {context.authUser &&
                   this.createLink("/app/dashboard", "menu item - dashboard")}
                 {this.createLink("/", "menu item - home")}
-                {this.createExternalLink(
-                  "https://utahexpungements.boards.net",
-                  "menu item - ask a question"
-                )}
-                {this.createLink("/app/forms", "menu item - forms")}
                 {this.createLink("/app/overview", "menu item - overview")}
                 {this.subItem("/app/overview/basics", "expungement basics")}
                 {this.subItem(
                   "/app/overview/vocabulary",
                   "menu item - vocabulary"
                 )}
+                {this.createLink("/app/forms", "menu item - forms")}
                 {this.createLink(
                   "/app/tool/are-you-eligible",
                   "menu item - tool"
@@ -51,6 +47,10 @@ export default class MenuItems extends React.Component {
                 )}
                 {this.subItem("/app/tool/file-petition", "menu item - step 3")}
                 {this.subItem("/app/tool/serve-petition", "menu item - step 4")}
+                {this.createExternalLink(
+                  "https://utahexpungements.boards.net",
+                  "menu item - ask a question"
+                )}
                 {this.createLink("/about", "menu item - about")}
               </ul>
             </nav>
@@ -88,7 +88,7 @@ const css = `
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   & .menu-items {
