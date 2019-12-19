@@ -84,6 +84,8 @@ export default class Home extends React.Component {
                   {__("ftu descr")[2]}
                 </>
               }
+              link="/about"
+              imgTitle="about us"
             />
             <DetailHighlight
               icon="/static/icons/svg/025-presentation.svg"
@@ -97,6 +99,8 @@ export default class Home extends React.Component {
                   {__("foq descr")[2]}
                 </>
               }
+              link="/app/tool/are-you-eligible"
+              imgTitle="screening tool"
             />
             <DetailHighlight
               icon="/static/icons/svg/003-laptop.svg"
@@ -110,6 +114,8 @@ export default class Home extends React.Component {
                   {__("fop descr")[2]}
                 </>
               }
+              link="/app/forms"
+              imgTitle="forms"
             />
           </div>
           <Footer />
@@ -223,6 +229,7 @@ const css = `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
   }
 
   & .underline {
