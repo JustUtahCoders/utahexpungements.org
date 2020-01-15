@@ -2,6 +2,7 @@ const { app } = require("../server");
 const Busboy = require("busboy");
 const pdf = require("pdf-parse");
 const { parsePdfText } = require("./parse-docket-pdf.utils");
+const { generateFlagJson } = require("./generate-flag-json.utils");
 
 app.post("/api/docket-pdfs", (req, res) => {
   let busboy;
@@ -31,6 +32,8 @@ app.post("/api/docket-pdfs", (req, res) => {
           thePdf => {
             const processJson = req.query.processJson === "true" ? true : false;
             if (processJson) {
+              //comment this back in if you want to test flag json
+              //res.send(generateFlagJson(parsePdfText(thePdf.text)));
               res.send(parsePdfText(thePdf.text));
             } else {
               res.send(thePdf.text);
