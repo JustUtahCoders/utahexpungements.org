@@ -109,10 +109,11 @@ export default function ProofOfCompletedService_Web({ data }) {
           Service by mail requires a signed receipt. You will need to attach the
           receipt after printing the form.
         </p>
-        <p className="web-form-input">
-          I served the following person by sending a copy of the documents
-          listed in section 3 by mail or commerical courier service to:
-        </p>
+        <Checkbox
+          dataKey="case.proofOfCompletedServiceByMailCopy"
+          label="I served the following person by sending a copy of the documents
+          listed in section 3 by mail or commerical courier service to:"
+        />
         <TextInput
           dataKey="case.proofOfCompletedServiceMailFullname"
           label="Name of Addressee"
@@ -196,7 +197,7 @@ export default function ProofOfCompletedService_Web({ data }) {
           dataKey="case.proofOfCompletedServicePersonSuitableAge"
           label="a person of suitable age and discretion residing at that address, which is the named party's residence"
         />
-        {data.person.proofOfCompletedServicePersonSuitableAge && (
+        {data.case.proofOfCompletedServicePersonSuitableAge && (
           <TextArea
             dataKey="case.proofOfCompletedServicePersonSuitableAgeDescribe"
             label="Describe why the person lives at the named party's residence and why they are of suitable age and discretion"
