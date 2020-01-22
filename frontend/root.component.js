@@ -38,7 +38,6 @@ class Root extends React.Component {
                       )
                     }
                   />
-                  <Route path="*" component={NotFound} />
                 </>
               </BrowserRouter>
             </div>
