@@ -33,7 +33,7 @@ app.post("/api/docket-pdfs", (req, res) => {
             const processJson = req.query.processJson === "true" ? true : false;
             if (processJson) {
               //comment this back in if you want to test flag json
-              //res.send(generateFlagJson(parsePdfText(thePdf.text)));
+              // res.send(generateFlagJson(parsePdfText(thePdf.text)));
               res.send(parsePdfText(thePdf.text));
             } else {
               res.send(thePdf.text);
