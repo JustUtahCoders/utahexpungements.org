@@ -3,8 +3,8 @@ exports.isAutomobileHomicide = function(parsedObj) {
   let automobileHomicide = false;
   parsedObj.charges.forEach(val => {
     if (
-      val.offenseName.includes("AUTOMOBILE HOMICIDE") &&
-      val.offenseName.includes("DUI")
+      val.offenseName.toLowerCase().includes("automobile homicide") &&
+      val.offenseName.toLowerCase().includes("dui")
     ) {
       automobileHomicide = true;
     }
