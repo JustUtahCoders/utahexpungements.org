@@ -12,6 +12,8 @@ exports.generateFlagJson = function generateFlagJson(parsedObj) {
   return {
     isClassBMisdemeanor: isClassBMisdemeanor(parsedObj),
     isDrugPosessionOffense: isDrugPosessionOffense(parsedObj),
-    isDebtCollection: isDebtCollection(parsedObj)
+    isDebtCollection: isDebtCollection(parsedObj),
+
+    isFirstDegreeFelony: isFirstDegreeFelony(parsedObj)
   };
 };
