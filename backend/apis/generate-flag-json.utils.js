@@ -3,7 +3,7 @@ const {
   isDrugPosessionOffense
 } = require("./flag-utils/is-drug-conviction-flag-util");
 const { isDebtCollection } = require("./flag-utils/is-debt-collection-util");
-const isAutomobileHomicide = require("./flag-utils/is-automobile-homicide");
+const { isAutomobileHomicide } = require("./flag-utils/is-automobile-homicide");
 
 exports.generateFlagJson = function generateFlagJson(parsedObj) {
   return {
