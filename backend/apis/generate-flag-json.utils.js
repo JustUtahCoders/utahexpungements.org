@@ -1,3 +1,4 @@
+const { isClassAMisdemeanor } = require("./flag-utils/is-class-a-misdemeanor");
 const { isClassBMisdemeanor } = require("./flag-utils/is-class-b-misdemeanor");
 const {
   isDrugPosessionOffense
@@ -7,6 +8,7 @@ const { isAutomobileHomicide } = require("./flag-utils/is-automobile-homicide");
 
 exports.generateFlagJson = function generateFlagJson(parsedObj) {
   return {
+    isClassAMisdemeanor: isClassAMisdemeanor(parsedObj),
     isClassBMisdemeanor: isClassBMisdemeanor(parsedObj),
     isDrugPosessionOffense: isDrugPosessionOffense(parsedObj),
     isDebtCollection: isDebtCollection(parsedObj),
