@@ -274,7 +274,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Proof of Completed Service"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="proof of completed service"
               // Short description used below found here: "https://www.utcourts.gov/howto/service/service_of_process.html"
               shortDescription="This document must be attached to all papers filed with the court so the court will look at your case"
