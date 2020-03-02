@@ -53,6 +53,7 @@ export default function DocketPdf(props) {
             name="docket-pdf"
             type="file"
             accept=".pdf"
+            multiple
             required
             onChange={newFile}
           />
