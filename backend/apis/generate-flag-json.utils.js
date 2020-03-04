@@ -5,6 +5,11 @@ const {
 } = require("./flag-utils/is-drug-conviction-flag-util");
 const { isDebtCollection } = require("./flag-utils/is-debt-collection-util");
 const { isAutomobileHomicide } = require("./flag-utils/is-automobile-homicide");
+const { isChildAbuse } = require("./flag-utils/is-child-abuse");
+
+const {
+  isFirstDegreeFelony
+} = require("./flag-utils/is-first-degree-felony-flag-util");
 const {
   isRegisterableSexOffense
 } = require("./flag-utils/is-registerable-sex-offense");
@@ -16,6 +21,8 @@ exports.generateFlagJson = function generateFlagJson(parsedObj) {
     isDrugPosessionOffense: isDrugPosessionOffense(parsedObj),
     isDebtCollection: isDebtCollection(parsedObj),
     isAutomobileHomicide: isAutomobileHomicide(parsedObj),
+    isChildAbuse: isChildAbuse(parsedObj),
+    isFirstDegreeFelony: isFirstDegreeFelony(parsedObj),
     isRegisterableSexOffense: isRegisterableSexOffense(parsedObj)
   };
 };
