@@ -19,7 +19,6 @@ exports.generateFlagJson = function generateFlagJson(parsedObj) {
     isDebtCollection: isDebtCollection(parsedObj),
     isAutomobileHomicide: isAutomobileHomicide(parsedObj),
     isChildAbuse: isChildAbuse(parsedObj),
-    isFirstDegreeFelony: isFirstDegreeFelony(parsedObj),
-    isAutomobileHomicide: isAutomobileHomicide(parsedObj)
+    isFirstDegreeFelony: isFirstDegreeFelony(parsedObj)
   };
 };
