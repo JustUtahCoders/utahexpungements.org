@@ -23,6 +23,7 @@ export default class FilteredForms extends React.Component {
       this.recreateFuseSearch();
     }
   }
+  // prettier-ignore
   recreateFuseSearch() {
     const reactChildren = React.Children.toArray(
       this.props.children
