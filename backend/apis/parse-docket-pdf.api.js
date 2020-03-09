@@ -6,7 +6,12 @@ const { generateFlagJson } = require("./generate-flag-json.utils");
 
 app.post("/api/docket-pdfs", (req, res) => {
   let busboy;
-  const busBoyConfig = { headers: req.headers };
+  const busBoyConfig = {
+    headers: req.headers,
+    limits: {
+      fileSize: 10
+    }
+  };
 
   try {
     busboy = new Busboy(busBoyConfig);
