@@ -23,10 +23,12 @@ export default class FilteredForms extends React.Component {
       this.recreateFuseSearch();
     }
   }
+  // prettier-ignore
   recreateFuseSearch() {
-    const reactChildren = React.Children.toArray(this.props.children).filter(
-      child =>
-        this.props.showIncompleteForms ? true : child.props.readyForUsers
+    const reactChildren = React.Children.toArray(
+      this.props.children
+    ).filter(child =>
+      this.props.showIncompleteForms ? true : child.props.readyForUsers
     );
 
     this.setState({
