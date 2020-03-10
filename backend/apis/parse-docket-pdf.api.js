@@ -6,8 +6,15 @@ const { generateFlagJson } = require("./generate-flag-json.utils");
 
 app.post("/api/docket-pdfs", (req, res) => {
   let busboy;
+  const busBoyConfig = {
+    headers: req.headers,
+    limits: {
+      fileSize: 10
+    }
+  };
+
   try {
-    busboy = new Busboy({ headers: req.headers });
+    busboy = new Busboy(busBoyConfig);
     busboy.highWaterMark = 2 * 1024 * 1024; // Set 2MiB buffer
   } catch (err) {
     console.error(err);
@@ -17,6 +24,8 @@ app.post("/api/docket-pdfs", (req, res) => {
 
   let fileWasUploaded = false;
   let requestErr;
+  let payload = [];
+  let count = 0;
 
   busboy.on("file", function(fieldName, file, filename, encoding, mimetype) {
     if (mimetype !== "application/pdf") {
@@ -25,6 +34,7 @@ app.post("/api/docket-pdfs", (req, res) => {
         .send({ error: "Uploaded file did not have mimetype application/pdf" });
     }
     fileWasUploaded = true;
+    if (filename) count++;
 
     file.on("data", data => {
       pdf(data)
@@ -33,10 +43,14 @@ app.post("/api/docket-pdfs", (req, res) => {
             const processJson = req.query.processJson === "true" ? true : false;
             if (processJson) {
               //comment this back in if you want to test flag json
-              // res.send(generateFlagJson(parsePdfText(thePdf.text)));
-              res.send(parsePdfText(thePdf.text));
+              //res.send(generateFlagJson(parsePdfText(thePdf.text)));
+              payload.push(parsePdfText(thePdf.text));
+              count--;
+              if (count === 0) res.send(payload);
             } else {
-              res.send(thePdf.text);
+              payload.push(res.send(thePdf.text));
+              count--;
+              if (count === 0) res.send(payload);
             }
           },
           err => {
