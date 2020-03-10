@@ -10,6 +10,9 @@ const { isChildAbuse } = require("./flag-utils/is-child-abuse");
 const {
   isFirstDegreeFelony
 } = require("./flag-utils/is-first-degree-felony-flag-util");
+const {
+  isRegisterableSexOffense
+} = require("./flag-utils/is-registerable-sex-offense");
 
 exports.generateFlagJson = function generateFlagJson(parsedObj) {
   return {
@@ -19,6 +22,7 @@ exports.generateFlagJson = function generateFlagJson(parsedObj) {
     isDebtCollection: isDebtCollection(parsedObj),
     isAutomobileHomicide: isAutomobileHomicide(parsedObj),
     isChildAbuse: isChildAbuse(parsedObj),
-    isFirstDegreeFelony: isFirstDegreeFelony(parsedObj)
+    isFirstDegreeFelony: isFirstDegreeFelony(parsedObj),
+    isRegisterableSexOffense: isRegisterableSexOffense(parsedObj)
   };
 };
