@@ -6,15 +6,15 @@ const { generateFlagJson } = require("./generate-flag-json.utils");
 
 app.post("/api/docket-pdfs", (req, res) => {
   let busboy;
-  const busBoyConfig = {
+  let config = {
     headers: req.headers,
-    limits: {
-      fileSize: 10
+    limit: {
+      fileSize: 10000000
     }
   };
 
   try {
-    busboy = new Busboy(busBoyConfig);
+    busboy = new Busboy(config);
     busboy.highWaterMark = 2 * 1024 * 1024; // Set 2MiB buffer
   } catch (err) {
     console.error(err);
@@ -44,13 +44,18 @@ app.post("/api/docket-pdfs", (req, res) => {
             if (processJson) {
               //comment this back in if you want to test flag json
               //res.send(generateFlagJson(parsePdfText(thePdf.text)));
-              payload.push(parsePdfText(thePdf.text));
+              const parsedPdfObject = {
+                filename,
+                ...parsePdfText(thePdf.text)
+              };
+
+              payload.push(parsedPdfObject);
               count--;
               if (count === 0) res.send(payload);
             } else {
-              payload.push(res.send(thePdf.text));
+              payload.push(thePdf.text);
               count--;
-              if (count === 0) res.send(payload);
+              if (count === 0) res.send(payload.join("\n"));
             }
           },
           err => {
