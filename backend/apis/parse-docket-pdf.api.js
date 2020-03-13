@@ -6,15 +6,9 @@ const { generateFlagJson } = require("./generate-flag-json.utils");
 
 app.post("/api/docket-pdfs", (req, res) => {
   let busboy;
-  const busBoyConfig = {
-    headers: req.headers,
-    limits: {
-      fileSize: 10
-    }
-  };
 
   try {
-    busboy = new Busboy(busBoyConfig);
+    busboy = new Busboy({ headers: req.headers });
     busboy.highWaterMark = 2 * 1024 * 1024; // Set 2MiB buffer
   } catch (err) {
     console.error(err);
@@ -48,9 +42,9 @@ app.post("/api/docket-pdfs", (req, res) => {
               count--;
               if (count === 0) res.send(payload);
             } else {
-              payload.push(res.send(thePdf.text));
+              payload.push(thePdf.text);
               count--;
-              if (count === 0) res.send(payload);
+              if (count === 0) res.send(payload.join("\n"));
             }
           },
           err => {
