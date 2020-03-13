@@ -6,9 +6,15 @@ const { generateFlagJson } = require("./generate-flag-json.utils");
 
 app.post("/api/docket-pdfs", (req, res) => {
   let busboy;
+  let config = {
+    headers: req.headers,
+    limit: {
+      fileSize: 10000000
+    }
+  };
 
   try {
-    busboy = new Busboy({ headers: req.headers });
+    busboy = new Busboy(config);
     busboy.highWaterMark = 2 * 1024 * 1024; // Set 2MiB buffer
   } catch (err) {
     console.error(err);
