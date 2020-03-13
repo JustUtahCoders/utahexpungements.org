@@ -38,7 +38,12 @@ app.post("/api/docket-pdfs", (req, res) => {
             if (processJson) {
               //comment this back in if you want to test flag json
               //res.send(generateFlagJson(parsePdfText(thePdf.text)));
-              payload.push(parsePdfText(thePdf.text));
+              const parsedPdfObject = {
+                filename,
+                ...parsePdfText(thePdf.text)
+              };
+
+              payload.push(parsedPdfObject);
               count--;
               if (count === 0) res.send(payload);
             } else {
