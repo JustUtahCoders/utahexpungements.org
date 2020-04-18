@@ -343,6 +343,19 @@ export default class FormList extends React.Component {
                 "/static/forms/special-bci/01_Petition_to_Expunge_Records_Criminal-special_certificate-3.png"
               ]}
             />
+            <FillableForm
+              name="Order on Petition to Expunge Records (Dismissal or Acquittal)"
+              readyForUsers={false}
+              keywords="order on petition to expunge records dismissal or acquittal"
+              shortDescription="Order on Petition to Expunge Records (Dismissal or Acquittal)"
+              appUrl={`${this.props.match.url}/order-on-petition-to-expunge-records`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/order-on-petition-to-expunge-records/08_Order-dismissal_or_acquittal-1.png",
+                "/static/forms/order-on-petition-to-expunge-records/08_Order-dismissal_or_acquittal-2.png",
+                "/static/forms/order-on-petition-to-expunge-records/08_Order-dismissal_or_acquittal-3.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>
