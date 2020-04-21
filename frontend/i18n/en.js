@@ -356,7 +356,12 @@ const translations = {
   "bci eligibility cause":
     "BCI Certificate of Eligibility (Why do you believe you're eligible for expungement?)",
   "public interest cause":
-    "Explain why expunging the crimes is not contrary to the public interest"
+    "Explain why expunging the crimes is not contrary to the public interest",
+
+  // order on petition to expunge records
+  "order on petition to expunge records":
+    "Order on Petition to expunge Records (Dismissal or Acquittal)",
+  "order on petition to expunge records short descr": "NEEDS DESCRIPTION"
 };
 
 export default translations;
