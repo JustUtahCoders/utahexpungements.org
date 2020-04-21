@@ -118,15 +118,11 @@ export default function OrderOnPetitionToExpungeRecords_Pdf({
           top="65.50%"
           shouldShow={data.case.resolvedBy === "Pleadings"}
         />
-        <PositionedCheckmark
-          debugKey="resolvedByHearing"
-          left={resolvedByLeft}
-          top={hearingTop}
-          shouldShow={data.case.resolvedBy === "Hearing"}
-        />
       </RenderPage>
 
       <RenderPage url={secondPageUrl}>
+        <PositionedString dataKey="case.caseNumber" left="43%" top="30.7%" />
+        <PositionedString dataKey="case.caseNumber" left="42.4%" top="40.5%" />
         <PositionedString dataKey="case.judgeName" left="53.50%" top="82.60%" />
       </RenderPage>
 
