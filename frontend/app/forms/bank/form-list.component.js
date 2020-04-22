@@ -343,6 +343,17 @@ export default class FormList extends React.Component {
                 "/static/forms/special-bci/01_Petition_to_Expunge_Records_Criminal-special_certificate-3.png"
               ]}
             />
+            <FillableForm
+              name={__("justice court cover sheet")}
+              readyForUsers={true}
+              keywords="justice court cover sheet"
+              shortDescription={__("justice court cover sheet short descr")}
+              appUrl={`${this.props.match.url}/justice-court-cover-sheet`}
+              downloadUrl="https://www.utcourts.gov/resources/forms/civil/Justice_Court_Cover_Sheet.pdf"
+              previewUrls={[
+                "/static/forms/justice-court-cover-sheet/justice_court_cover_sheet-1.png"
+              ]}
+            />
           </FilteredForms>
         </div>
       </Scoped>

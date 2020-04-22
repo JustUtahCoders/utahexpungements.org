@@ -51,6 +51,9 @@ import ProofOfCompletedService_Pdf from "../proof-of-completed-service/proof-of-
 import SpecialBci_Web from "../special-bci/special-bci.web.component";
 import SpecialBci_Pdf from "../special-bci/special-bci.pdf.component";
 
+import JusticeCourtCoverSheet_Web from "../justice-court-cover-sheet/justice-court-cover-sheet.web.component";
+import JusticeCourtCoverSheet_Pdf from "../justice-court-cover-sheet/justice-court-cover-sheet.pdf.component";
+
 export default class FormBank extends React.Component {
   render() {
     return (
@@ -276,6 +279,16 @@ export default class FormBank extends React.Component {
               name="Petition to Expunge Records (Special Certificate from BCI)"
               WebForm={SpecialBci_Web}
               PdfForm={SpecialBci_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/justice-court-cover-sheet`}
+          render={props => (
+            <GovernmentForm
+              name="Justice Court Cover Sheet"
+              WebForm={JusticeCourtCoverSheet_Web}
+              PdfForm={JusticeCourtCoverSheet_Pdf}
             />
           )}
         />
