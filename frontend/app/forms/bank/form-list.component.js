@@ -117,7 +117,7 @@ export default class FormList extends React.Component {
               keywords="coversheet"
               shortDescription={__("Civil Filing Coversheet")}
               appUrl={this.props.match.url + "/coversheet"}
-              downloadUrl="https://www.utcourts.gov/resources/forms/waiver/docs/Civil_Filing_Coversheet.pdf"
+              downloadUrl="https://www.utcourts.gov/resources/forms/civil/Civil_Filing_Cover_Sheet.pdf"
               previewUrls={[
                 "/static/forms/coversheet/coversheet-1.png",
                 "/static/forms/coversheet/coversheet-2.png"
