@@ -49,7 +49,7 @@ export default function ConsentAndWaiverOfHearing_Pdf({ data, renderData }) {
         <PositionedString dataKey="case.judgeName" left="54.1%" top="56.7%" />
       </RenderPage>
 
-      <RenderPage url="/static/forms/consent-and-waiver-of-hearing/consent-and-waiver-of-hearing-1.png" />
+      <RenderPage url="/static/forms/consent-and-waiver-of-hearing/consent-and-waiver-of-hearing-2.png" />
     </>
   );
 }

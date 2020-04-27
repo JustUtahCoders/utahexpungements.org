@@ -50,6 +50,8 @@ import ProofOfCompletedService_Web from "../proof-of-completed-service/proof-of-
 import ProofOfCompletedService_Pdf from "../proof-of-completed-service/proof-of-completed-service.pdf.component.js";
 import SpecialBci_Web from "../special-bci/special-bci.web.component";
 import SpecialBci_Pdf from "../special-bci/special-bci.pdf.component";
+import OrderOnPetitionToExpungeRecords_Web from "../order-on-petition-to-expunge-records/order-on-petition-to-expunge-records.web.component";
+import OrderOnPetitionToExpungeRecords_Pdf from "../order-on-petition-to-expunge-records/order-on-petition-to-expunge-records.pdf.component";
 
 import JusticeCourtCoverSheet_Web from "../justice-court-cover-sheet/justice-court-cover-sheet.web.component";
 import JusticeCourtCoverSheet_Pdf from "../justice-court-cover-sheet/justice-court-cover-sheet.pdf.component";
@@ -279,6 +281,16 @@ export default class FormBank extends React.Component {
               name="Petition to Expunge Records (Special Certificate from BCI)"
               WebForm={SpecialBci_Web}
               PdfForm={SpecialBci_Pdf}
+            />
+          )}
+        />
+        <Route
+          path={`${this.props.match.url}/order-on-petition-to-expunge-records`}
+          render={props => (
+            <GovernmentForm
+              name="Order on Petition to Expunge Records (Dismissal or Acquittal)"
+              WebForm={OrderOnPetitionToExpungeRecords_Web}
+              PdfForm={OrderOnPetitionToExpungeRecords_Pdf}
             />
           )}
         />
