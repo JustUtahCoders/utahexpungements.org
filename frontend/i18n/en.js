@@ -218,6 +218,11 @@ const translations = {
   Coversheet: "Coversheet",
   "Civil Filing Coversheet": "Civil Filing Coversheet",
 
+  // justice court cover sheet
+  "justice court cover sheet": "Justice Court Cover Sheet",
+  "justice court cover sheet short descr":
+    "The cover sheet for the paperwork you file if your case is in a Justice Court.",
+
   // motion to waive fees
   "motion to waive fees name": "Motion to Waive Fees",
   "motion to waive fees short descr":
