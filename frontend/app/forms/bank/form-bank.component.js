@@ -10,8 +10,8 @@ import MotionToWaiveFees_Web from "../motion-to-waive-fees/motion-to-waive-fees.
 import MotionToWaiveFees_Pdf from "../motion-to-waive-fees/motion-to-waive-fees.pdf.component.js";
 import AppForCOEWithRelease_Web from "../app-for-coe-with-release/app-for-coe-with-release.web.component.js";
 import AppForCOEWithRelease_Pdf from "../app-for-coe-with-release/app-for-coe-with-release.pdf.component.js";
-import Coversheet_Pdf from "../coversheet/coversheet.pdf.component.js";
-import Coversheet_Web from "../coversheet/coversheet.web.component.js";
+import DistrictCourtCoverSheet_Pdf from "../district-court-cover-sheet/district-court-cover-sheet.pdf.component.js";
+import DistrictCourtCoverSheet_Web from "../district-court-cover-sheet/district-court-cover-sheet.web.component.js";
 
 import PetitionForDrugConviction_Web from "../petition-for-drug-conviction/petition-for-drug-conviction.web.component.js";
 import PetitionForDrugConviction_Pdf from "../petition-for-drug-conviction/petition-for-drug-conviction.pdf.component.js";
@@ -142,12 +142,12 @@ export default class FormBank extends React.Component {
           )}
         />
         <Route
-          path={this.props.match.url + "/coversheet"}
+          path={this.props.match.url + "/district-court-cover-sheet"}
           render={props => (
             <GovernmentForm
-              name={__("Coversheet")}
-              WebForm={Coversheet_Web}
-              PdfForm={Coversheet_Pdf}
+              name={__("district court cover sheet")}
+              WebForm={DistrictCourtCoverSheet_Web}
+              PdfForm={DistrictCourtCoverSheet_Pdf}
             />
           )}
         />
