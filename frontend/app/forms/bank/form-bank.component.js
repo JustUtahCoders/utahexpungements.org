@@ -56,9 +56,6 @@ import OrderOnPetitionToExpungeRecords_Pdf from "../order-on-petition-to-expunge
 import JusticeCourtCoverSheet_Web from "../justice-court-cover-sheet/justice-court-cover-sheet.web.component";
 import JusticeCourtCoverSheet_Pdf from "../justice-court-cover-sheet/justice-court-cover-sheet.pdf.component";
 
-import JusticeCourtCoverSheet_Web from "../justice-court-cover-sheet/justice-court-cover-sheet.web.component";
-import JusticeCourtCoverSheet_Pdf from "../justice-court-cover-sheet/justice-court-cover-sheet.pdf.component";
-
 export default class FormBank extends React.Component {
   render() {
     return (
