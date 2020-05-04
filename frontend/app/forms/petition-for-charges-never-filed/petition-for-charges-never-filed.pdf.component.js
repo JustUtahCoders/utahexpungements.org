@@ -117,10 +117,6 @@ export default function PetitionForChargesNeverFiled_Pdf({ data, renderData }) {
             overflowY: "hidden"
           }}
         />
-        <PositionedString debugKey="todaysDate" left="11.5%" top="55.5%">
-          {moment().format("L")}
-        </PositionedString>
-
         <PositionedString debugKey="printedName" left="54.4%" top="58.5%">
           {`${renderData("person.firstName")} ${renderData(
             "person.middleName"

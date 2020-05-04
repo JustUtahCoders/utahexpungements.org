@@ -110,10 +110,6 @@ export default function PetitionForConviction_Pdf({ data, renderData }) {
       </RenderPage>
 
       <RenderPage url="/static/forms/petition-to-expunge-conviction/Petition_to_Expunge_Records_Criminal-conviction-2.png">
-        <PositionedString debugKey="todaysDate" left="11.5%" top="36.5%">
-          {moment().format("L")}
-        </PositionedString>
-
         <PositionedString debugKey="printedName" left="54.4%" top="39.6%">
           {`${renderData("person.firstName")} ${renderData(
             "person.middleName"
