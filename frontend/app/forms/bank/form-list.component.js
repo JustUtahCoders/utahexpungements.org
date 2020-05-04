@@ -344,6 +344,21 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
+              name={__("order on petition to expunge records")}
+              readyForUsers={false}
+              keywords="order on petition to expunge records dismissal or acquittal"
+              shortDescription={__(
+                "order on petition to expunge records short descr"
+              )}
+              appUrl={`${this.props.match.url}/order-on-petition-to-expunge-records`}
+              downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-dismissal_or_acquittal.pdf"
+              previewUrls={[
+                "/static/forms/order-on-petition-to-expunge-records/08_Order-dismissal_or_acquittal-1.png",
+                "/static/forms/order-on-petition-to-expunge-records/08_Order-dismissal_or_acquittal-2.png",
+                "/static/forms/order-on-petition-to-expunge-records/08_Order-dismissal_or_acquittal-3.png"
+              ]}
+            />
+            <FillableForm
               name={__("justice court cover sheet")}
               readyForUsers={true}
               keywords="justice court cover sheet"
