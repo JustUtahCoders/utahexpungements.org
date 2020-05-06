@@ -4,7 +4,7 @@
   "author": "Joel Denning <joel.denning@canopytax.com>",
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=10.0.0"
   },
   "scripts": {
     "webpack": "webpack --config webpack.config.js",
