@@ -214,8 +214,8 @@ const translations = {
   "show forms under construction":
     "Show forms that are under construction and not fully ready to use.",
 
-  // Coversheet
-  Coversheet: "Coversheet",
+  // district court cover sheet
+  "district court cover sheet": "District Court Cover Sheet",
   "Civil Filing Coversheet": "Civil Filing Coversheet",
 
   // justice court cover sheet

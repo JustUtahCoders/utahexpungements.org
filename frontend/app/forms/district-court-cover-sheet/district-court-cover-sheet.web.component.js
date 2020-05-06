@@ -8,7 +8,7 @@ import TextArea from "../inputs/text-area.component.js";
 import FormThatPrints from "../inputs/form-that-prints.component.js";
 import Section from "../inputs/section.component.js";
 
-export default class Coversheet_Web extends React.Component {
+export default class DistrictCourtCoverSheet_Web extends React.Component {
   render() {
     const { data } = this.props;
 

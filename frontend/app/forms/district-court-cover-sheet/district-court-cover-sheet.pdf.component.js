@@ -3,13 +3,13 @@ import RenderPage from "../render-page.component.js";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
 import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 
-export default class Coversheet_Pdf extends React.Component {
+export default class DistrictCourtCoverSheet_Pdf extends React.Component {
   render() {
     const { renderData, data } = this.props;
     return (
       <>
-        <RenderPage url="/static/forms/coversheet/coversheet-1.png">
-          <PositionedString left="5%" top="14.5%">
+        <RenderPage url="/static/forms/district-court-cover-sheet/district-court-cover-sheet-1.png">
+          <PositionedString debugKey="person.fullName" left="5%" top="14.5%">
             {renderData("person.firstName")} {renderData("person.middleName")}{" "}
             {renderData("person.lastName")}
           </PositionedString>
@@ -19,7 +19,11 @@ export default class Coversheet_Pdf extends React.Component {
             left="5%"
             top="17.5%"
           />
-          <PositionedString left="5%" top="20.4%">
+          <PositionedString
+            debugKey="addressStreetCityZip"
+            left="5%"
+            top="20.4%"
+          >
             {renderData("person.addressCity")}
             {data.person.addressCity ? ", " : ""}{" "}
             {renderData("person.addressState")}{" "}
@@ -37,10 +41,20 @@ export default class Coversheet_Pdf extends React.Component {
             left="5%"
             top="30.9%"
           />
-          <PositionedCheckmark left="68%" top="60.8%" shouldShow={true} />
+          <PositionedCheckmark
+            dataKey="coversheet.isAttorney"
+            left="68%"
+            top="60.8%"
+            shouldShow={true}
+          />
         </RenderPage>
-        <RenderPage url="/static/forms/coversheet/coversheet-2.png">
-          <PositionedCheckmark left="58.5%" top="63.9%" shouldShow={true} />
+        <RenderPage url="/static/forms/district-court-cover-sheet/district-court-cover-sheet-2.png">
+          <PositionedCheckmark
+            debugKey="fee"
+            left="58.5%"
+            top="63.9%"
+            shouldShow={true}
+          />
         </RenderPage>
       </>
     );

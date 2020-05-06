@@ -1,7 +1,6 @@
 import React from "react";
 import RenderPage from "../render-page.component";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
-import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 
 export default function JusticeCourtCoverSheet_Pdf({ renderData, data }) {
   return (
