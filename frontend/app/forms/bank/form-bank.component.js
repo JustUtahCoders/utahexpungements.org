@@ -248,7 +248,7 @@ export default class FormBank extends React.Component {
           path={`${this.props.match.url}/consent-and-waiver-of-hearing`}
           render={props => (
             <GovernmentForm
-              name="Consent and waive of hearing"
+              name="Consent and Waiver of Hearing"
               WebForm={ConsentAndWaiverOfHearing_Web}
               PdfForm={ConsentAndWaiverOfHearing_Pdf}
             />

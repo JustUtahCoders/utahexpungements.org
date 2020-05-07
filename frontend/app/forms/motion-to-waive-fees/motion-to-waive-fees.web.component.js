@@ -92,7 +92,7 @@ export default function MotionToWaiveFees_Web({ data }) {
   return (
     <FormThatPrints>
       <h1 className="web-from-input">This is a private record</h1>
-      <Section name="1. Personal information">
+      <Section name="1. Personal Information">
         <TextInput dataKey="person.firstName" label="First name" />
         <TextInput dataKey="person.middleName" label="Middle name" />
         <TextInput dataKey="person.lastName" label="Last name" />
