@@ -50,7 +50,7 @@ export default class AppForCOENoFees_Web extends React.Component {
             </>
           )}
         </Section>
-        <Section name="2. Personal information">
+        <Section name="2. Personal Information">
           <TextInput dataKey="person.firstName" label={__("first name")} />
           <TextInput dataKey="person.middleName" label={__("middle name")} />
           <TextInput dataKey="person.lastName" label={__("last name")} />

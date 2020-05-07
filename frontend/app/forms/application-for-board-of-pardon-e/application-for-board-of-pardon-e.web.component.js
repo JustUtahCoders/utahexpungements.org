@@ -23,7 +23,7 @@ export default function ApplicationForBoardOfPardonExpungement_Web({ data }) {
   return (
     <React.Fragment>
       <FormThatPrints>
-        <Section name="1. Personal information">
+        <Section name="1. Personal Information">
           <TextInput dataKey="person.firstName" label={__("first name")} />
           <TextInput dataKey="person.middleName" label={__("middle name")} />
           <TextInput dataKey="person.lastName" label={__("last name")} />

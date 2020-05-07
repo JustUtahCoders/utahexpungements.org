@@ -19,7 +19,7 @@ export default function PetitionForDrugConviction_Web({ data }) {
   return (
     <Scoped css={css}>
       <FormThatPrints>
-        <Section name="1. Personal information">
+        <Section name="1. Personal Information">
           <TextInput dataKey="person.firstName" label="First name" />
           <TextInput dataKey="person.middleName" label="Middle name" />
           <TextInput dataKey="person.lastName" label="Last name" />

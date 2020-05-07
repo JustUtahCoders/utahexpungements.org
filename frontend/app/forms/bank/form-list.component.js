@@ -175,7 +175,7 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name="Draft court order for expungement conviction"
+              name="Draft Court Order for Expungement Conviction"
               readyForUsers={true}
               keywords="prosecutor acceptance serve"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
@@ -188,7 +188,7 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name="Draft court order for expungement (drug possession conviction)"
+              name="Draft Court Order for Expungement (Drug Possession Conviction)"
               readyForUsers={true}
               keywords="court order expunge drug possession conviction"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement (drug possession)"
@@ -204,7 +204,7 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name="Draft court order on motion to waive fees"
+              name="Draft Court Order on Motion to Waive Fees"
               readyForUsers={true}
               keywords="draft court order motion waive fees"
               shortDescription="A form you file with the courts along with your expungement petition so the judge can rule on your motion to waive fees"
