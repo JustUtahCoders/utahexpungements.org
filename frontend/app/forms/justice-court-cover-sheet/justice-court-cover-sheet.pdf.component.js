@@ -28,6 +28,9 @@ export default function JusticeCourtCoverSheet_Pdf({ renderData, data }) {
         left="6%"
         top="29.8%"
       />
+      <PositionedString dataKey="case.defendant" left="52.3%" top="12.6%">
+        {renderData("case.defendant")}
+      </PositionedString>
     </RenderPage>
   );
 }
