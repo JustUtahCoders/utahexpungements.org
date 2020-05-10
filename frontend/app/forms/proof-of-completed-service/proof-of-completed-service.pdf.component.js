@@ -292,8 +292,8 @@ export default function ProofOfCompletedService_Pdf({ renderData, data }) {
           top="73.35%"
         />
       </RenderPage>
-      <RenderPage url="/static/forms/proof-of-completed-service/proof_of_compeleted_service-4.png" />
-      <RenderPage url="/static/forms/proof-of-completed-service/proof_of_compeleted_service-5.png" />
+      <RenderPage url="/static/forms/proof-of-completed-service/proof_of_completed_service-4.png" />
+      <RenderPage url="/static/forms/proof-of-completed-service/proof_of_completed_service-5.png" />
     </>
   );
 }
