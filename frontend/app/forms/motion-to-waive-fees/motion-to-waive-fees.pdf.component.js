@@ -28,7 +28,11 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
           )} ${renderData("person.addressZip")}`}
         </PositionedString>
 
-        <PositionedString dataKey="person.phone" left={farLeft} top="24.75%" />
+        <PositionedString
+          dataKey="person.homePhone"
+          left={farLeft}
+          top="24.75%"
+        />
         <PositionedString dataKey="person.email" left={farLeft} top="27.90%" />
         <PositionedCheckmark
           dataKey="person.relation"
