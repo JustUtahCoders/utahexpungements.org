@@ -22,7 +22,7 @@ export default function OrderOnPetitionToExpungeRecords_Web({ data }) {
         <TextInput dataKey="person.addressCity" label={__("city")} />
         <TextInput dataKey="person.addressState" label={__("state")} />
         <TextInput dataKey="person.addressZip" label={__("zip")} />
-        <TextInput dataKey="person.phone" label={__("phone")} />
+        <TextInput dataKey="person.homePhone" label={__("phone")} />
         <TextInput dataKey="person.email" label={__("email address")} />
       </Section>
       <Section name="2. Case information">

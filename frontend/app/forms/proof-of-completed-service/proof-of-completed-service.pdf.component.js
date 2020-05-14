@@ -34,7 +34,11 @@ export default function ProofOfCompletedService_Pdf({ renderData, data }) {
           {`\u0020`}
           {renderData("person.addressZip")}
         </PositionedString>
-        <PositionedString dataKey="person.phone" left="11.65%" top="24.5%" />
+        <PositionedString
+          dataKey="person.homePhone"
+          left="11.65%"
+          top="24.5%"
+        />
         <PositionedString dataKey="person.email" left="11.65%" top="28.1%" />
         <PositionedString debugKey="petitioner" left="11.85%" top="48.9%">
           <div>
