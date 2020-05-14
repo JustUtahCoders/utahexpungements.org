@@ -45,7 +45,11 @@ export default function ReplyToStatement_Pdf({ data, renderData }) {
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>
-        <PositionedString dataKey="person.phone" left={farLeft} top="24.26%" />
+        <PositionedString
+          dataKey="person.homePhone"
+          left={farLeft}
+          top="24.26%"
+        />
         <PositionedString dataKey="person.email" left={farLeft} top="28.16%" />
 
         {/* Petitioner information */}

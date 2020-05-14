@@ -34,7 +34,11 @@ export default function ProofOfCompletedService_Pdf({ renderData, data }) {
           {`\u0020`}
           {renderData("person.addressZip")}
         </PositionedString>
-        <PositionedString dataKey="person.phone" left="11.65%" top="24.5%" />
+        <PositionedString
+          dataKey="person.homePhone"
+          left="11.65%"
+          top="24.5%"
+        />
         <PositionedString dataKey="person.email" left="11.65%" top="28.1%" />
         <PositionedString debugKey="petitioner" left="11.85%" top="48.9%">
           <div>
@@ -292,8 +296,8 @@ export default function ProofOfCompletedService_Pdf({ renderData, data }) {
           top="73.35%"
         />
       </RenderPage>
-      <RenderPage url="/static/forms/proof-of-completed-service/proof_of_compeleted_service-4.png" />
-      <RenderPage url="/static/forms/proof-of-completed-service/proof_of_compeleted_service-5.png" />
+      <RenderPage url="/static/forms/proof-of-completed-service/proof_of_completed_service-4.png" />
+      <RenderPage url="/static/forms/proof-of-completed-service/proof_of_completed_service-5.png" />
     </>
   );
 }

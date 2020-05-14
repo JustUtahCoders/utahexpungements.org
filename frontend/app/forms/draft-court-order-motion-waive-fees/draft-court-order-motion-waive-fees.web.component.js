@@ -32,7 +32,7 @@ export default ({
 
       <TextInput dataKey="person.addressZip" label={__("zip")} />
 
-      <TextInput dataKey="person.dayPhone" label={__("phone")} />
+      <TextInput dataKey="person.homePhone" label={__("phone")} />
 
       <TextInput dataKey="person.email" label={__("email address")} />
     </Section>
