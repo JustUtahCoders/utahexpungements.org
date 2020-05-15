@@ -100,8 +100,8 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name={__("motion to waive fees name")}
-              readyForUsers={false}
+              name={__("motion to waive fees")}
+              readyForUsers={true}
               keywords="waive fees motion"
               shortDescription={__("motion to waive fees short descr")}
               appUrl={this.props.match.url + "/motion-to-waive-fees"}
