@@ -273,6 +273,7 @@ const translations = {
   "judge full name": "Judge Full Name",
   "case number": "Case Number",
   defendant: "Defendant",
+  respondent: "Respondent",
   "are you filling this out for yourself":
     "Are you filling this out for yourself?",
   "explain why expunging this crime is not contrary to the public's interest":
