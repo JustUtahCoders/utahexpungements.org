@@ -62,7 +62,9 @@ export default ({
       <PositionedString dataKey="case.courtAddress" left="27.8%" top="39.8%" />
 
       <PositionedString debugKey="petitionerName" left="12.5%" top="50.2%">
-        {renderData("person.fullName")}
+        {`${renderData("person.firstName")} ${renderData(
+          "person.middleName"
+        )} ${renderData("person.lastName")}`}
       </PositionedString>
 
       <PositionedString
