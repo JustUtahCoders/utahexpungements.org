@@ -7,8 +7,7 @@ import GroupSelect from "../inputs/group-select.component.js";
 import {
   courtTypeOptions,
   DistrictCourtList,
-  JusticeCourtList,
-  resolvedByOptions
+  JusticeCourtList
 } from "../form-common-options/form-common-options";
 
 export default function OrderOnPetitionToExpungeRecords_Web({ data }) {

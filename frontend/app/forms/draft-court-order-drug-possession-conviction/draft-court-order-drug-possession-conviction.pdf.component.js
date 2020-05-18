@@ -78,13 +78,6 @@ export default ({
         left={caseJudgeLeft}
         top="55.1%"
       />
-
-      <PositionedCheckmark
-        debugKey="resolutionType"
-        left="12.1%"
-        top="65.7%"
-        shouldShow={true}
-      />
     </RenderPage>
 
     <RenderPage url="/static/forms/draft-court-order-drug-possession-conviction/draft_court_order_drug_possession_conviction-2.png">

@@ -11,7 +11,6 @@ const farLeft = "11.28%";
 const courtTypeTop = "34.00%";
 const courtDistrictTop = "37.40%";
 const caseInformationLeft = "54.00%";
-const resolvedByLeft = "12.00%";
 const hearingTop = "68.80%";
 
 export default function OrderOnPetitionChargesNotFiled_Pdf({
@@ -106,18 +105,6 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
           dataKey="case.judgeName"
           left={caseInformationLeft}
           top="55.1%"
-        />
-        <PositionedCheckmark
-          debugKey="resolvedByPleadings"
-          left={resolvedByLeft}
-          top="65.50%"
-          shouldShow={data.case.resolvedBy === "Pleadings"}
-        />
-        <PositionedCheckmark
-          debugKey="resolvedByHearing"
-          left={resolvedByLeft}
-          top={hearingTop}
-          shouldShow={data.case.resolvedBy === "Hearing"}
         />
       </RenderPage>
 

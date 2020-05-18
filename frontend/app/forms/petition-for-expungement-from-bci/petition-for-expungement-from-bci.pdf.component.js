@@ -94,24 +94,6 @@ export default function PetitionForExpungementFromBci_Pdf({
           left="27.8%"
           top="39.8%"
         />
-
-        <PositionedCheckmark
-          debugKey="resolvedByPleadings"
-          left="12.3%"
-          top="65.8%"
-          shouldShow={data.case.resolvedBy === "Pleadings"}
-        />
-        <PositionedCheckmark
-          debugKey="resolvedByHearing"
-          left="12.3%"
-          top="69.1%"
-          shouldShow={data.case.resolvedBy === "Hearing"}
-        />
-        <PositionedString
-          dataKey="case.hearingDate"
-          left="32.05%"
-          top="68.8%"
-        />
       </RenderPage>
       <RenderPage url="/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-2.png">
         {data.case.chargesFiled ? (
