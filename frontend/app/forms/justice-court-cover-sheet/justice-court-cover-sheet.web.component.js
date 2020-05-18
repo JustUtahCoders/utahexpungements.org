@@ -38,6 +38,9 @@ export default function JusticeCourtCoverSheet_Web({ data }) {
           </>
         )}
       </Section>
+      <Section name="2. Case Information">
+        <TextInput dataKey="case.defendant" label={__("defendant")} />
+      </Section>
     </FormThatPrints>
   );
 }

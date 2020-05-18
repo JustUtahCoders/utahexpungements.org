@@ -47,6 +47,9 @@ export default class DistrictCourtCoverSheet_Pdf extends React.Component {
             top="60.8%"
             shouldShow={true}
           />
+          <PositionedString dataKey="case.defendant" left="52.3%" top="14.5%">
+            {renderData("case.defendant")}
+          </PositionedString>
           <PositionedCheckmark
             debugKey="exemptFromURCP26"
             top="84.1%"
