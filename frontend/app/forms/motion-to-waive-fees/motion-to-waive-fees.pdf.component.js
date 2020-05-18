@@ -614,9 +614,6 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
         />
       </RenderPage>
       <RenderPage url="/static/forms/motion-to-waive-fees/Motion_to_Waive_Fees_and_Statement_Supporting-10.png">
-        <PositionedString debugKey="todaysDate" left="11.5%" top="30.6%">
-          {moment().format("L")}
-        </PositionedString>
         <PositionedString debugKey="printedName" left="54.4%" top="33.6%">
           {`${renderData("person.firstName")} ${renderData(
             "person.middleName"
