@@ -5,22 +5,11 @@ import TextInput from "../inputs/text-input.component";
 import Section from "../inputs/section.component.js";
 import Radio from "../inputs/radio.component.js";
 import GroupSelect from "../inputs/group-select.component.js";
-import Select from "../inputs/select.component.js";
 import {
-  resolvedByOptions,
   courtTypeOptions,
   JusticeCourtList,
   DistrictCourtList
 } from "../form-common-options/form-common-options";
-
-const resolvedMatter = [
-  { label: `The stipulation of the parties`, value: "stipulation" },
-  {
-    label: `The pleadings and other papers of the parties.`,
-    value: "pleadings"
-  },
-  { label: `A hearing served by all parties`, value: "hearing" }
-];
 
 const plaintiffOptions = [
   { label: `Plaintiff present`, value: "presentPlaintiff" },
@@ -44,7 +33,7 @@ const defenderOptions = [
 
 export default ({
   data: {
-    case: { courtType, county, resolvedBy, plaintiff, defender }
+    case: { courtType, plaintiff, defender }
   }
 }) => (
   <FormThatPrints>
@@ -83,18 +72,6 @@ export default ({
       <TextInput dataKey="case.judgeName" label={__("judge full name")} />
     </Section>
     <Section name="3. Matter">
-      <Select
-        label="The matter before the court is being resolved by"
-        dataKey="case.resolvedBy"
-        options={resolvedMatter}
-      />
-      {resolvedBy === "hearing" && (
-        <TextInput
-          dataKey="hearingDate"
-          label="Hearing held on"
-          placeholder="10/30/19"
-        />
-      )}
       <Radio dataKey="case.plaintiff" options={plaintiffOptions} />
       {plaintiff === "representedPlaintiff" && (
         <TextInput
