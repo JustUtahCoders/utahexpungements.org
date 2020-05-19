@@ -67,7 +67,6 @@ export default function ApplicationForBoardOfPardonExpungement_Pdf({
           >
             {renderData("person.firstName")} {renderData("person.lastName")}
           </PositionedString>
-          <CurrentDate left="68.12%" top="42.8%" />
           <PositionedCheckmark
             debugKey="check"
             left="5.90%"
