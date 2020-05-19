@@ -48,11 +48,6 @@ export default function OrderOnPetitionChargesNotFiled_Web({ data }) {
         )}
         <TextInput dataKey="case.caseNumber" label={__("case number")} />
         <TextInput dataKey="case.judgeName" label={__("judge full name")} />
-        <Radio
-          dataKey="case.resolvedBy"
-          label={__("will be resolved by")}
-          options={resolvedByOptions}
-        />
       </Section>
     </FormThatPrints>
   );
