@@ -20,6 +20,16 @@ export default class FormThatPrints extends React.Component {
   }
   handleSubmit = evt => {
     evt.preventDefault();
+    const title = document.querySelector("title").textContent;
+    if (isAPetition(title)) {
+      alert("Remember to print 2 copies.");
+    }
     window.print();
   };
+}
+
+function isAPetition(title) {
+  const firstWord = title.toLowerCase().split(" ")[0];
+
+  return firstWord == "petition";
 }
