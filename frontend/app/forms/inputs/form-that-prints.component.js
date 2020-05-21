@@ -22,7 +22,9 @@ export default class FormThatPrints extends React.Component {
     evt.preventDefault();
     const title = document.querySelector("title").textContent;
     if (isAPetition(title)) {
-      alert("Remember to print 2 copies.");
+      alert(
+        "Reminder:\n Print 2 copies, 1 for the court, and 1 for the prosecutor."
+      );
     }
     window.print();
   };
