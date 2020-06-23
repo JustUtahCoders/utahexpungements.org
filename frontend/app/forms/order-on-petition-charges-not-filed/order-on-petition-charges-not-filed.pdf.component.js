@@ -47,7 +47,7 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
           )} ${renderData("person.addressZip")}`}
         </PositionedString>
         <PositionedString
-          dataKey="person.homePhone"
+          dataKey="person.dayPhone"
           left={farLeft}
           top="24.26%"
         />
