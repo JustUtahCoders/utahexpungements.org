@@ -33,7 +33,11 @@ export default ({
         )} ${renderData("person.addressZip")}`}
       </PositionedString>
 
-      <PositionedString dataKey="person.dayPhone" left={farLeft} top="23.45%" />
+      <PositionedString
+        dataKey="person.homePhone"
+        left={farLeft}
+        top="23.45%"
+      />
 
       <PositionedString dataKey="person.email" left={farLeft} top="26.45%" />
 
@@ -61,8 +65,10 @@ export default ({
 
       <PositionedString dataKey="case.courtAddress" left="27.8%" top="38.9%" />
 
-      <PositionedString debugKey="petitionerName" left="12.5%" top="46.3%">
-        {renderData("person.fullName")}
+      <PositionedString debugKey="petitionerName" left="12.5%" top="46.5%">
+        {`${renderData("person.firstName")} ${renderData(
+          "person.middleName"
+        )} ${renderData("person.lastName")}`}
       </PositionedString>
 
       <PositionedString dataKey="case.defendant" left="12.5%" top="54.3%">

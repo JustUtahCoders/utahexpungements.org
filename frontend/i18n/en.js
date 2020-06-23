@@ -224,7 +224,7 @@ const translations = {
     "The cover sheet for the paperwork you file if your case is in a Justice Court.",
 
   // motion to waive fees
-  "motion to waive fees name": "Motion to Waive Fees",
+  "motion to waive fees": "Motion to Waive Fees",
   "motion to waive fees short descr":
     "This form can be filed with other forms to request that the court remove the fees for filing a form.",
 
@@ -273,6 +273,7 @@ const translations = {
   "judge full name": "Judge Full Name",
   "case number": "Case Number",
   defendant: "Defendant",
+  respondent: "Respondent",
   "are you filling this out for yourself":
     "Are you filling this out for yourself?",
   "explain why expunging this crime is not contrary to the public's interest":

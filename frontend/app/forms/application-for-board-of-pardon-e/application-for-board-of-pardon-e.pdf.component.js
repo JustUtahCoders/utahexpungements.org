@@ -67,7 +67,6 @@ export default function ApplicationForBoardOfPardonExpungement_Pdf({
           >
             {renderData("person.firstName")} {renderData("person.lastName")}
           </PositionedString>
-          <CurrentDate left="68.12%" top="42.8%" />
           <PositionedCheckmark
             debugKey="check"
             left="5.90%"
@@ -131,20 +130,11 @@ export default function ApplicationForBoardOfPardonExpungement_Pdf({
                 left="79.12%"
                 top={nameOnCardTop}
               />
-              <CurrentDate left="78.12%" top="84.12%" />
             </React.Fragment>
           )}
         </div>
       </RenderPage>
     </React.Fragment>
-  );
-}
-
-function CurrentDate(props) {
-  return (
-    <PositionedString debugKey="todaysDate" {...props}>
-      {moment().format("L")}
-    </PositionedString>
   );
 }
 

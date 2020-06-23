@@ -177,10 +177,6 @@ export default function PetitionForDismissalOrAcquittal_Pdf({
             overflowY: "hidden"
           }}
         />
-        <PositionedString debugKey="todaysDate" left="11.5%" top="73.5%">
-          {moment().format("L")}
-        </PositionedString>
-
         <PositionedString debugKey="printedName" left="54.4%" top="76.5%">
           {`${renderData("person.firstName")} ${renderData(
             "person.middleName"

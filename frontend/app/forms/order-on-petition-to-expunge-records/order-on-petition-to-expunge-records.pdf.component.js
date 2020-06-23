@@ -12,7 +12,6 @@ const farLeft = "11.28%";
 const courtTypeTop = "34.00%";
 const courtDistrictTop = "37.40%";
 const caseInformationLeft = "54.00%";
-const resolvedByLeft = "12.00%";
 const hearingTop = "68.80%";
 
 export default function OrderOnPetitionToExpungeRecords_Pdf({
@@ -115,12 +114,6 @@ export default function OrderOnPetitionToExpungeRecords_Pdf({
           dataKey="case.judgeName"
           left={caseInformationLeft}
           top="55.1%"
-        />
-        <PositionedCheckmark
-          debugKey="resolvedByPleadings"
-          left={resolvedByLeft}
-          top="65.50%"
-          shouldShow={data.case.resolvedBy === "Pleadings"}
         />
       </RenderPage>
 

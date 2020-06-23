@@ -100,8 +100,8 @@ export default class FormList extends React.Component {
               ]}
             />
             <FillableForm
-              name={__("motion to waive fees name")}
-              readyForUsers={false}
+              name={__("motion to waive fees")}
+              readyForUsers={true}
               keywords="waive fees motion"
               shortDescription={__("motion to waive fees short descr")}
               appUrl={this.props.match.url + "/motion-to-waive-fees"}
@@ -164,7 +164,7 @@ export default class FormList extends React.Component {
             />
             <FillableForm
               name="Consent and Waiver of Hearing"
-              readyForUsers={false}
+              readyForUsers={true}
               keywords="Prosecutor waiver hearing"
               shortDescription="A form you must bring to the prosecutor and then file with the courts with your Petition for Expungement"
               appUrl={this.props.match.url + "/consent-and-waiver-of-hearing"}

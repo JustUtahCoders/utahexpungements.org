@@ -95,7 +95,7 @@ export default class FormBank extends React.Component {
           path={this.props.match.url + "/motion-to-waive-fees"}
           render={props => (
             <GovernmentForm
-              name={__("motion to waive fees name")}
+              name={__("motion to waive fees")}
               WebForm={MotionToWaiveFees_Web}
               PdfForm={MotionToWaiveFees_Pdf}
             />

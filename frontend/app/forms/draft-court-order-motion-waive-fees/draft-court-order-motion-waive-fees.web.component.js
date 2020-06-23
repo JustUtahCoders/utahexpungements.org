@@ -66,7 +66,7 @@ export default ({
 
       <TextInput
         dataKey="case.defendant"
-        label={__("defendant")}
+        label={__("respondent")}
         placeholder="State of Utah"
       />
     </Section>

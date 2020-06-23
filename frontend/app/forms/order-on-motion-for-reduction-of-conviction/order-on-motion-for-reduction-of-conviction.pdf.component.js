@@ -9,7 +9,7 @@ import {
 
 export default function OrderOnMotionForReductionOfConvinction_Pdf({
   data: {
-    case: { courtType, county, courtAddress, resolvedBy, plaintiff, defender }
+    case: { courtType, courtAddress, plaintiff, defender }
   },
   renderData
 }) {
@@ -83,25 +83,6 @@ export default function OrderOnMotionForReductionOfConvinction_Pdf({
           {courtAddress && getCounty(courtAddress, courtType)}
         </PositionedString>
         <PositionedCheckmark
-          dataKey="case.resolvedBy"
-          left={resolvedLeft}
-          top="64.5%"
-          shouldShow={resolvedBy === "stipulation"}
-        />
-        <PositionedCheckmark
-          dataKey="case.resolvedBy"
-          left={resolvedLeft}
-          top="67%"
-          shouldShow={resolvedBy === "pleadings"}
-        />
-        <PositionedCheckmark
-          dataKey="case.resolvedBy"
-          left={resolvedLeft}
-          top="69.5%"
-          shouldShow={resolvedBy === "hearing"}
-        />
-        <PositionedString dataKey="hearingDate" left="33.3%" top="69.5%" />
-        <PositionedCheckmark
           dataKey="case.plaintiff"
           left={plaintiffLeft}
           top="76.9%"
@@ -164,6 +145,5 @@ const personalInfo = `11.5%`;
 const courtTypeTop = `32.8%`;
 const plaintiffLeft = `17.5%`;
 const defenderLeft = `17.5%`;
-const resolvedLeft = `15.3%`;
 const countyDistrictTop = `37.35%`;
 const page2Checkmarks = `18.15%`;

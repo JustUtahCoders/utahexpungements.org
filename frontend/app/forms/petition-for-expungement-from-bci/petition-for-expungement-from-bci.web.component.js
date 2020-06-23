@@ -6,7 +6,6 @@ import Radio from "../inputs/radio.component.js";
 import CheckBox from "../inputs/checkbox.component.js";
 import GroupSelect from "../inputs/group-select.component.js";
 import {
-  resolvedByOptions,
   courtTypeOptions,
   JusticeCourtList,
   DistrictCourtList
@@ -47,14 +46,6 @@ export default function PetitionForExpungementFromBci_Web({ data }) {
           />
         )}
 
-        <Radio
-          dataKey="case.resolvedBy"
-          label="Resolved By"
-          options={resolvedByOptions}
-        />
-        {data.case.resolvedBy === "Hearing" && (
-          <TextInput dataKey="case.hearingDate" label="Hearing Date" />
-        )}
         <CheckBox
           dataKey="case.chargesFiled"
           label="Did charges get filed?"
