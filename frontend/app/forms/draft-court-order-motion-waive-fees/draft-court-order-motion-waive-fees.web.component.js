@@ -63,12 +63,6 @@ export default ({
 
       <TextInput dataKey="case.judgeName" label={__("judge full name")} />
       <small className="web-form-input">*Not necessary but nice to have</small>
-
-      <TextInput
-        dataKey="case.defendant"
-        label={__("respondent")}
-        placeholder="State of Utah"
-      />
     </Section>
   </FormThatPrints>
 );
