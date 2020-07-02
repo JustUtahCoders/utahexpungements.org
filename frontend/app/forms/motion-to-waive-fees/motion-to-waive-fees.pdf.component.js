@@ -29,7 +29,7 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
         </PositionedString>
 
         <PositionedString
-          dataKey="person.homePhone"
+          dataKey="person.dayPhone"
           left={farLeft}
           top="24.75%"
         />

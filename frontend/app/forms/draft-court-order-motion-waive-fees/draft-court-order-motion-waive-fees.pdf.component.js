@@ -33,11 +33,7 @@ export default ({
         )} ${renderData("person.addressZip")}`}
       </PositionedString>
 
-      <PositionedString
-        dataKey="person.homePhone"
-        left={farLeft}
-        top="23.45%"
-      />
+      <PositionedString dataKey="person.dayPhone" left={farLeft} top="23.45%" />
 
       <PositionedString dataKey="person.email" left={farLeft} top="26.45%" />
 

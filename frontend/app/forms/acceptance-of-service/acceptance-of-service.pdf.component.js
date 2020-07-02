@@ -32,11 +32,7 @@ export default function AcceptanceOfService_Pdf({ renderData, data }) {
           {`\u0020`}
           {renderData("person.addressZip")}
         </PositionedString>
-        <PositionedString
-          dataKey="person.homePhone"
-          left="11.65%"
-          top="24.5%"
-        />
+        <PositionedString dataKey="person.dayPhone" left="11.65%" top="24.5%" />
         <PositionedString dataKey="person.email" left="11.65%" top="28.1%" />
         <PositionedString debugKey="petitioner" left="11.85%" top="49.7%">
           <div>
