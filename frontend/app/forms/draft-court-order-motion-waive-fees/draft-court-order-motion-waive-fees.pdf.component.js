@@ -67,10 +67,6 @@ export default ({
         )} ${renderData("person.lastName")}`}
       </PositionedString>
 
-      <PositionedString dataKey="case.defendant" left="12.5%" top="54.3%">
-        {renderData("case.defendant") || "State of Utah"}
-      </PositionedString>
-
       <PositionedString
         dataKey="case.caseNumber"
         left={caseJudgeLeft}

@@ -88,10 +88,14 @@ export default function MotionToWaiveFees_Pdf({ data, renderData }) {
             getCounty(data.case.courtAddress, data.case.courtType)}
         </PositionedString>
 
-        <PositionedString debugKey="petitionerName" left="12.5%" top="50.2%">
+        <PositionedString debugKey="petitionerName" left="12.5%" top="50.9%">
           {`${renderData("person.firstName")} ${renderData(
             "person.middleName"
           )} ${renderData("person.lastName")}`}
+        </PositionedString>
+
+        <PositionedString dataKey="case.defendant" left="12.5%" top="59%">
+          {renderData("case.defendant")}
         </PositionedString>
 
         <PositionedString

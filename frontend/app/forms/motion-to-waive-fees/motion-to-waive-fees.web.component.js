@@ -144,6 +144,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         <TextInput dataKey="case.judgeName" label="Judge" />
         <TextInput dataKey="case.commissionerName" label="Commissioner" />
         <small className="web-form-input">(Domestic cases)</small>
+        <TextInput dataKey="case.defendant" label={__("respondent")} />
       </Section>
 
       <Section name="3. Fees to waive">
