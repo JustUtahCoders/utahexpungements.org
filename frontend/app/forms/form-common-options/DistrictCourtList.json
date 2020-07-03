@@ -34,6 +34,10 @@
         "value": "805 South Main Bountiful, UT 84010"
       },
       {
+        "label": "Davis County - Davis County - Farmington District Court",
+        "value": "800 West State Street, P. O. Box 769, Farmington, UT 84025"
+      },
+      {
         "label": "Davis County - Davis County - Layton District Court",
         "value": "425 N. Wasatch Layton, UT 84041"
       }
@@ -137,7 +141,6 @@
       }
     ]
   },
-
   {
     "name": "Wasatch County",
     "options": [
