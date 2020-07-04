@@ -41,7 +41,7 @@ export default function SpecialBci_Pdf({ data, renderData }) {
           left={farLeft}
           top="20.86%"
         >
-          {`${renderData("person.addressCity")} ${renderData(
+          {`${renderData("person.addressCity")}, ${renderData(
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>

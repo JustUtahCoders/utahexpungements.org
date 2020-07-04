@@ -52,7 +52,7 @@ export default function OrderOnPetitionToExpungeRecords_Pdf({
           left={farLeft}
           top="20.86%"
         >
-          {`${renderData("person.addressCity")} ${renderData(
+          {`${renderData("person.addressCity")}, ${renderData(
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>

@@ -28,7 +28,7 @@ export default ({
       />
 
       <PositionedString debugKey="lineAddress" left={farLeft} top="19.90%">
-        {`${renderData("person.addressCity")} ${renderData(
+        {`${renderData("person.addressCity")}, ${renderData(
           "person.addressState"
         )} ${renderData("person.addressZip")}`}
       </PositionedString>
