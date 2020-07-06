@@ -120,7 +120,6 @@ export default function OrderOnPetitionToExpungeRecords_Pdf({
       <RenderPage url={secondPageUrl}>
         <PositionedString dataKey="case.caseNumber" left="43%" top="30.7%" />
         <PositionedString dataKey="case.caseNumber" left="42.4%" top="40.5%" />
-        <PositionedString dataKey="case.judgeName" left="53.50%" top="82.60%" />
       </RenderPage>
 
       <RenderPage url={thirdPageUrl} />
