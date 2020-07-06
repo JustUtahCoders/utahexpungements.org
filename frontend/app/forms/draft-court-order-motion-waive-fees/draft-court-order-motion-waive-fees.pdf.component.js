@@ -28,16 +28,12 @@ export default ({
       />
 
       <PositionedString debugKey="lineAddress" left={farLeft} top="19.90%">
-        {`${renderData("person.addressCity")} ${renderData(
+        {`${renderData("person.addressCity")}, ${renderData(
           "person.addressState"
         )} ${renderData("person.addressZip")}`}
       </PositionedString>
 
-      <PositionedString
-        dataKey="person.homePhone"
-        left={farLeft}
-        top="23.45%"
-      />
+      <PositionedString dataKey="person.dayPhone" left={farLeft} top="23.45%" />
 
       <PositionedString dataKey="person.email" left={farLeft} top="26.45%" />
 
@@ -69,10 +65,6 @@ export default ({
         {`${renderData("person.firstName")} ${renderData(
           "person.middleName"
         )} ${renderData("person.lastName")}`}
-      </PositionedString>
-
-      <PositionedString dataKey="case.defendant" left="12.5%" top="54.3%">
-        {renderData("case.defendant") || "State of Utah"}
       </PositionedString>
 
       <PositionedString

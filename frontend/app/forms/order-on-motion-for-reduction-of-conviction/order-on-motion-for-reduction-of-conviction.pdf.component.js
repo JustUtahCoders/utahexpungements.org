@@ -42,7 +42,7 @@ export default function OrderOnMotionForReductionOfConvinction_Pdf({
           {renderData("person.addressZip")}
         </PositionedString>
         <PositionedString
-          dataKey="person.homePhone"
+          dataKey="person.dayPhone"
           left={personalInfo}
           top="24.5%"
         />

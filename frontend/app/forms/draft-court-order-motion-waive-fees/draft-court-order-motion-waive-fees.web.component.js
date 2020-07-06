@@ -32,7 +32,7 @@ export default ({
 
       <TextInput dataKey="person.addressZip" label={__("zip")} />
 
-      <TextInput dataKey="person.homePhone" label={__("phone")} />
+      <TextInput dataKey="person.dayPhone" label={__("phone")} />
 
       <TextInput dataKey="person.email" label={__("email address")} />
     </Section>
@@ -63,12 +63,6 @@ export default ({
 
       <TextInput dataKey="case.judgeName" label={__("judge full name")} />
       <small className="web-form-input">*Not necessary but nice to have</small>
-
-      <TextInput
-        dataKey="case.defendant"
-        label={__("respondent")}
-        placeholder="State of Utah"
-      />
     </Section>
   </FormThatPrints>
 );

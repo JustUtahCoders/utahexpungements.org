@@ -24,7 +24,7 @@ export default function DraftCourtOrderConviction_Pdf({ data, renderData }) {
         />
 
         <PositionedString debugKey="lineAddress" left={farLeft} top="20.90%">
-          {`${renderData("person.addressCity")} ${renderData(
+          {`${renderData("person.addressCity")}, ${renderData(
             "person.addressState"
           )} ${renderData("person.addressZip")}`}
         </PositionedString>

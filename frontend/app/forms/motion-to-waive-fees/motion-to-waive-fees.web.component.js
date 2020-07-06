@@ -100,7 +100,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         <TextInput dataKey="person.addressCity" label="City" />
         <TextInput dataKey="person.addressState" label="State" />
         <TextInput dataKey="person.addressZip" label="Zip" />
-        <TextInput dataKey="person.homePhone" label="Phone" />
+        <TextInput dataKey="person.dayPhone" label="Phone" />
         <TextInput dataKey="person.email" label="Email" />
         <small className="web-form-input">
           Check your email. You will receive information and documents at this
@@ -144,6 +144,7 @@ export default function MotionToWaiveFees_Web({ data }) {
         <TextInput dataKey="case.judgeName" label="Judge" />
         <TextInput dataKey="case.commissionerName" label="Commissioner" />
         <small className="web-form-input">(Domestic cases)</small>
+        <TextInput dataKey="case.defendant" label={__("respondent")} />
       </Section>
 
       <Section name="3. Fees to waive">
