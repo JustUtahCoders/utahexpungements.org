@@ -80,7 +80,11 @@ export default ({
       />
     </RenderPage>
 
-    <RenderPage url="/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-2.png" />
+    <RenderPage url="/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-2.png">
+      <PositionedString debugKey="other" left="70.28%" top="34.3%">
+        Certified Copy Fee
+      </PositionedString>
+    </RenderPage>
 
     <RenderPage url="/static/forms/draft-court-order-motion-waive-fees/draft_court_order_motion_waive_fees-3.png" />
   </>
