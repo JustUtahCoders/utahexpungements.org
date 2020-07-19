@@ -8,7 +8,6 @@ export default class PositionedString extends React.Component {
     debugKey: atLeastOneKey,
     left: verifyPercentage,
     top: verifyPercentage
-    // fontSize: atLeastOneKey
   };
   static defaultProps = {
     style: {}
