@@ -41,12 +41,6 @@ export default class DistrictCourtCoverSheet_Pdf extends React.Component {
             left="5%"
             top="30.9%"
           />
-          <PositionedCheckmark
-            dataKey="coversheet.isAttorney"
-            left="68%"
-            top="60.8%"
-            shouldShow={true}
-          />
           <PositionedString dataKey="case.defendant" left="52.3%" top="14.5%">
             {renderData("case.defendant")}
           </PositionedString>
