@@ -47,7 +47,6 @@ export default function OrderOnPetitionChargesNotFiled_Web({ data }) {
           />
         )}
         <TextInput dataKey="case.caseNumber" label={__("case number")} />
-        <TextInput dataKey="case.judgeName" label={__("judge full name")} />
       </Section>
     </FormThatPrints>
   );
