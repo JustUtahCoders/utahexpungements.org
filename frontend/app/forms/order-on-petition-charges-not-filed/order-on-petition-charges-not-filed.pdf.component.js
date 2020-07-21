@@ -108,9 +108,7 @@ export default function OrderOnPetitionChargesNotFiled_Pdf({
         />
       </RenderPage>
 
-      <RenderPage url={secondPageUrl}>
-        <PositionedString dataKey="case.judgeName" left="53.50%" top="82.60%" />
-      </RenderPage>
+      <RenderPage url={secondPageUrl} />
 
       <RenderPage url={thirdPageUrl} />
     </>
