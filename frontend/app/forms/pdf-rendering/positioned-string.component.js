@@ -23,6 +23,7 @@ export default class PositionedString extends React.Component {
               left: this.props.left,
               top: this.props.top,
               position: "absolute",
+              fontSize: this.props.fontSize,
               ...this.props.style
             }}
           >
