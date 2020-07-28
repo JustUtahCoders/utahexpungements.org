@@ -13,8 +13,8 @@ import {
   courtTypeOptions
 } from "../form-common-options/form-common-options.js";
 import TextInputGroup from "../inputs/text-input-group.component.js";
-import { DataContainerContext } from "../data-container.component";
-import useDeepCompareEffect from "../../../hooks/useDeepCompareEffect";
+import { DataContainerContext } from "../data-container.component.js";
+import useDeepCompareEffect from "../../../hooks/useDeepCompareEffect.js";
 
 const waiveFeeRelationship = [
   { value: "plaintiffPetitioner", label: "plaintiff / Petitioner" },
