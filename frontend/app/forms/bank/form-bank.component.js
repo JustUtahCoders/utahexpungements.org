@@ -235,7 +235,7 @@ export default class FormBank extends React.Component {
           )}
         />
         <Route
-          path={`${this.props.match.url}/petition-for-expungement-from-bci`}
+          path={`${this.props.match.url}/order-on-petition-for-expungement-from-bci`}
           render={props => (
             <GovernmentForm
               name="Order on Petition for Expungement (Special Certificate from BCI)"
