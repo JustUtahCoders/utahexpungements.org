@@ -99,7 +99,9 @@ export default function PetitionForChargesNeverFiled_Web({ data }) {
       <Section name="4. Public Interest">
         <TextArea
           dataKey="case.publicInterest"
-          label="explain why expunging this crime is not contrary to the public's interest"
+          label={__(
+            "explain why expunging this crime is not contrary to the public's interest"
+          )}
         />
       </Section>
     </FormThatPrints>

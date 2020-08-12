@@ -72,7 +72,9 @@ export default function PetitionForConviction_Web({ data }) {
 
       <TextArea
         dataKey="case.publicInterest"
-        label="explain why expunging this crime is not contrary to the public's interest"
+        label={__(
+          "explain why expunging this crime is not contrary to the public's interest"
+        )}
       />
     </FormThatPrints>
   );

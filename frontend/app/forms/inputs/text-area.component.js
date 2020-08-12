@@ -65,4 +65,8 @@ const css = `
     display: flex;
     flex-direction: column;
   }
+
+  & textarea {
+    height: 7em;
+  }
 `;
