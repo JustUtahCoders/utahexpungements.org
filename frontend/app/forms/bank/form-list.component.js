@@ -293,7 +293,7 @@ export default class FormList extends React.Component {
               readyForUsers={true}
               keywords="order on petition to expunge records special certificate from bci"
               shortDescription="The form for petitioning for an expungement when you have a special certificate from the BCI."
-              appUrl={`${this.props.match.url}/petition-for-expungement-from-bci`}
+              appUrl={`${this.props.match.url}/order-on-petition-for-expungement-from-bci`}
               downloadUrl="https://www.utcourts.gov/howto/expunge/docs/08_Order-special_certificate.pdf"
               previewUrls={[
                 "/static/forms/petition-for-expungement-from-bci/08_Order-special_certificate-1.png",

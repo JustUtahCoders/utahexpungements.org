@@ -32,8 +32,8 @@ import PetitionForChargesNeverFiled_Pdf from "../petition-for-charges-never-file
 
 import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.component";
 import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
-import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
-import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
+import PetitionForExpungementFromBci_Web from "../order-on-petition-for-expungement-from-bci/order-on-petition-for-expungement-from-bci.web.component";
+import PetitionForExpungementFromBci_Pdf from "../order-on-petition-for-expungement-from-bci/order-on-petition-for-expungement-from-bci.pdf.component";
 import ApplicationForPardon_Web from "../application-for-pardon/application-for-pardon.web.component.js";
 import ApplicationForPardon_Pdf from "../application-for-pardon/application-for-pardon.pdf.component.js";
 import ApplicationForBoardOfPardonExpungement_Web from "../application-for-board-of-pardon-e/application-for-board-of-pardon-e.web.component.js";
