@@ -1,6 +1,7 @@
 import React from "react";
 import RenderPage from "../render-page.component";
 import PositionedString from "../pdf-rendering/positioned-string.component.js";
+import PositionedCheckmark from "../pdf-rendering/positioned-checkmark.component.js";
 
 export default function JusticeCourtCoverSheet_Pdf({ renderData, data }) {
   return (
@@ -31,6 +32,12 @@ export default function JusticeCourtCoverSheet_Pdf({ renderData, data }) {
       <PositionedString dataKey="case.defendant" left="52.3%" top="12.6%">
         {renderData("case.defendant")}
       </PositionedString>
+      <PositionedCheckmark
+        debugKey="check"
+        left="57%"
+        top="70.7%"
+        shouldShow={true}
+      />
     </RenderPage>
   );
 }
