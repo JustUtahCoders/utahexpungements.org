@@ -32,8 +32,8 @@ import PetitionForChargesNeverFiled_Pdf from "../petition-for-charges-never-file
 
 import ReplyToStatement_Web from "../reply-to-statement/reply-to-statement.web.component";
 import ReplyToStatement_Pdf from "../reply-to-statement/reply-to-statement.pdf.component";
-import PetitionForExpungementFromBci_Web from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.web.component";
-import PetitionForExpungementFromBci_Pdf from "../petition-for-expungement-from-bci/petition-for-expungement-from-bci.pdf.component";
+import PetitionForExpungementFromBci_Web from "../order-on-petition-for-expungement-from-bci/order-on-petition-for-expungement-from-bci.web.component";
+import PetitionForExpungementFromBci_Pdf from "../order-on-petition-for-expungement-from-bci/order-on-petition-for-expungement-from-bci.pdf.component";
 import ApplicationForPardon_Web from "../application-for-pardon/application-for-pardon.web.component.js";
 import ApplicationForPardon_Pdf from "../application-for-pardon/application-for-pardon.pdf.component.js";
 import ApplicationForBoardOfPardonExpungement_Web from "../application-for-board-of-pardon-e/application-for-board-of-pardon-e.web.component.js";
@@ -235,10 +235,10 @@ export default class FormBank extends React.Component {
           )}
         />
         <Route
-          path={`${this.props.match.url}/petition-for-expungement-from-bci`}
+          path={`${this.props.match.url}/order-on-petition-for-expungement-from-bci`}
           render={props => (
             <GovernmentForm
-              name="Petition for Expungement (Special Certificate from BCI)"
+              name="Order on Petition for Expungement (Special Certificate from BCI)"
               WebForm={PetitionForExpungementFromBci_Web}
               PdfForm={PetitionForExpungementFromBci_Pdf}
             />

@@ -57,10 +57,7 @@ export default function PetitionForExpungementFromBci_Web({ data }) {
             <TextInput dataKey="case.judgeName" label={__("judge full name")} />
           </>
         ) : (
-          <>
-            <TextInput dataKey="case.leaFileNumber" label="LEA File Number" />
-            <TextInput dataKey="case.leaName" label="LEA Name" />
-          </>
+          <span></span>
         )}
       </Section>
     </FormThatPrints>
