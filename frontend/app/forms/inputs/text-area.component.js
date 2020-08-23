@@ -31,6 +31,7 @@ export default function TextArea(props) {
       <div className="web-form-input text-input">
         <label>{props.label}</label>
         <textarea
+          className="text-area"
           type="text"
           value={value || ""}
           onChange={handleTextAreaChange}
@@ -64,5 +65,9 @@ const css = `
   & .text-input {
     display: flex;
     flex-direction: column;
+  }
+
+  & .text-area {
+    height: 7em;
   }
 `;
