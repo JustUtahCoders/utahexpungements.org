@@ -18,18 +18,18 @@ function parseCharges(chargesChunk) {
 
   for (let i = 1; i < charges.length; i++) {
     const title = charges[i].match(
-      /Charge \d - ([0-9a-z()-.]+) - ([\s\S]+?)((?:Class|Not)[\s\S]+?)Offense/im
+      /Charge \d - ([0-9a-z()-.]+) - ([\s\S]+?)((?:Class|Not|2nd)[\s\S]+?)Offense/im
     );
     const disposition = charges[i].match(
       /Disposition: (\w+ \d+, \d+) ((?:\w|\s)+)$/im
     );
 
     chargesResult.push({
-      statute: cleanLine(title[1]),
-      disposition: cleanLine(disposition[2]),
-      dispositionDate: cleanLine(disposition[1]),
-      offenseName: cleanLine(title[2]),
-      severity: cleanLine(title[3])
+      statute: cleanLine(title ? title[1] : ""),
+      disposition: cleanLine(disposition ? disposition[2] : ""),
+      dispositionDate: cleanLine(disposition ? disposition[1] : ""),
+      offenseName: cleanLine(title ? title[2] : ""),
+      severity: cleanLine(title ? title[3] : "")
     });
   }
 
