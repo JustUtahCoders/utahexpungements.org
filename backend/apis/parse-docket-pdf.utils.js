@@ -17,20 +17,25 @@ function parseCharges(chargesChunk) {
   let chargesResult = [];
 
   for (let i = 1; i < charges.length; i++) {
+    let charge = {};
+
     const title = charges[i].match(
-      /Charge \d - ([0-9a-z()-.]+) - ([\s\S]+?)((?:Class|Not|2nd)[\s\S]+?)Offense/im
-    );
-    const disposition = charges[i].match(
-      /Disposition: (\w+ \d+, \d+) ((?:\w|\s)+)$/im
+      /Charge \d - ([0-9a-z()-.]+) - ([\s\S]+?)((?:Class|Not|1st|2nd|3rd)[\s\S]+?)Offense/im
     );
 
-    chargesResult.push({
-      statute: cleanLine(title ? title[1] : ""),
-      disposition: cleanLine(disposition ? disposition[2] : ""),
-      dispositionDate: cleanLine(disposition ? disposition[1] : ""),
-      offenseName: cleanLine(title ? title[2] : ""),
-      severity: cleanLine(title ? title[3] : "")
-    });
+    charge.statute = cleanLine(title ? title[1] : "");
+    charge.offenseName = cleanLine(title ? title[2] : "");
+    charge.severity = cleanLine(title ? title[3] : "");
+
+    const disposition = charges[i].match(
+      /[Plea|Disposition]+: (\w+ \d+, \d+) ((?:\w|\s)+)$/im
+    );
+    if (disposition) {
+      charge.disposition = cleanLine(disposition[2]);
+      charge.dispositionDate = cleanLine(disposition[1]);
+    }
+
+    chargesResult.push(charge);
   }
 
   return chargesResult;
@@ -38,35 +43,35 @@ function parseCharges(chargesChunk) {
 
 function parseAccountSummary(accountSummaryChunk) {
   const accountSummary = accountSummaryChunk.split(
-    /(?=^[A-Z\s]+ - TYPE: [\w\s]+$)/gm
+    /(?=TOTAL)|(?=TRUST)|(?=^[A-Z\s]+ - TYPE: [\w\s]+$)/gm
   );
   let accountSummaryResult = [];
 
   for (let i = 1; i < accountSummary.length; i++) {
+    const accountSummaryItem = {};
+
+    const name = accountSummary[i].match(/([A-Z\s]+)/);
+    const amountDue = accountSummary[i].match(/Amount Due:\s+(\d+\.\d+)/);
+    const originalAmountDue = accountSummary[i].match(
+      /Original Amount Due:\s+(\d+\.\d+)/
+    );
+    const amendedAmountDue = accountSummary[i].match(
+      /Amended Amount Due:\s+(\d+\.\d+)/
+    );
+    const amountPaid = accountSummary[i].match(/Amount Paid:\s+(\d+\.\d+)/);
+    const costType = accountSummary[i].match(/[A-Z\s]+ - TYPE: ([\w ]+)/);
+
+    name && (accountSummaryItem.name = cleanLine(name[1]));
+    amountDue && (accountSummaryItem.amountDue = cleanLine(amountDue[1]));
+    originalAmountDue &&
+      (accountSummaryItem.originalAmountDue = cleanLine(originalAmountDue[1]));
+    amendedAmountDue &&
+      (accountSummaryItem.amendedAmountDue = cleanLine(amendedAmountDue[1]));
+    amountPaid && (accountSummaryItem.amountPaid = cleanLine(amountPaid[1]));
+    costType && (accountSummaryItem.costType = cleanLine(costType[1]));
+
     accountSummaryResult.push({
-      name: cleanLine(
-        (accountSummary[i].match(/([A-Z\s]+)/) || ["default", "default"])[1]
-      ),
-      amountDue: (accountSummary[i].match(/Amount Due:\s+(\d+\.\d+)/) || [
-        "default",
-        0.0
-      ])[1],
-      originalAmountDue: (accountSummary[i].match(
-        /Original Amount Due:\s+(\d+\.\d+)/
-      ) || ["default", 0.0])[1],
-      amendedAmountDue: (accountSummary[i].match(
-        /Amended Amount Due:\s+(\d+\.\d+)/
-      ) || ["default", 0.0])[1],
-      amountPaid: (accountSummary[i].match(/Amount Paid:\s+(\d+\.\d+)/) || [
-        "default",
-        0.0
-      ])[1],
-      costType: cleanLine(
-        (accountSummary[i].match(/[A-Z\s]+ - TYPE: ([\w ]+)/) || [
-          "default",
-          "default"
-        ])[1]
-      ),
+      ...accountSummaryItem,
       collection: false
     });
   }
