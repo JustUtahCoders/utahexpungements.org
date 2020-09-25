@@ -23,22 +23,20 @@ describe("normal docket pdf file", () => {
     let actual1 = parsedText.charges[1];
 
     expect(actual0.statute).toBe("53-3-202(1)(A)");
-    expect(actual0.offenseName).toBe("NO VALID LICENSE");
-    expect(actual0.severity).toBe("Misdemeanor");
+    expect(actual0.offenseName).toBe("NO VALID LICENSE - EXPIRED");
+    expect(actual0.severity).toBe("Class C Misdemeanor");
     expect(actual0.disposition).toBe("Dismissed (w/o prej)");
     expect(actual0.dispositionDate).toBe("Month 00, 0000");
 
     expect(actual1.statute).toBe("41-6A-601");
     expect(actual1.offenseName).toBe("SPEEDING 70 IN A 65");
-    expect(actual1.severity).toBe(
-      "Class C Misdemeanor Offense Date: Month 00, 0000"
-    );
+    expect(actual1.severity).toBe("Class C Misdemeanor");
     expect(actual1.disposition).toBe("Dismissed (w/o prej)");
     expect(actual1.dispositionDate).toBe("Month 00, 0000");
   });
 
   test("always adds accountSummary property as an array", () => {
-    expect(parsedText.accountSummary.length).toBe(1);
+    expect(parsedText.accountSummary).toEqual([]);
   });
 });
 
@@ -67,8 +65,8 @@ describe("large-account-summary pdf", () => {
     const findInterest = parsedFile.accountSummary.filter(item => {
       return item.costType === "interest";
     });
-    expect(findInterest[0].amountDue).toBe("2.65");
-    expect(findInterest[0].amountPaid).toBe("2.65");
+    expect(findInterest[2].amountDue).toBe("2.65");
+    expect(findInterest[2].amountPaid).toBe("2.65");
   });
   test("catches all the RESTITUTION cases and includes the associated amountDue and amountPaid", () => {
     const findRestitution = parsedFile.accountSummary.filter(item => {

@@ -24,11 +24,11 @@ function parseCharges(chargesChunk) {
     );
 
     charge.statute = cleanLine(title ? title[1] : "");
-    charge.offenseName = cleanLine(title ? title[2] : "");
+    charge.offenseName = cleanLine(title ? title[2] : "").toUpperCase();
     charge.severity = cleanLine(title ? title[3] : "");
 
     const disposition = charges[i].match(
-      /[Plea|Disposition]+: (\w+ \d+, \d+) ((?:\w|\s)+)$/im
+      /[Plea|Disposition]+: (\w+ \d+, \d+) ((?:\w|\s)+(?:.*[)])?)$/im
     );
     if (disposition) {
       charge.disposition = cleanLine(disposition[2]);
@@ -42,38 +42,73 @@ function parseCharges(chargesChunk) {
 }
 
 function parseAccountSummary(accountSummaryChunk) {
+  const collection = accountSummaryChunk.includes("State Debt Collection");
+
   const accountSummary = accountSummaryChunk.split(
-    /(?=TOTAL)|(?=TRUST)|(?=^[A-Z\s]+ - TYPE: [\w\s]+$)/gm
+    /(?=TOTAL)|(?=TRUST)|(?=^[A-Z\s]+ - TYPE: .+(?![a-z])$)/gm
   );
   let accountSummaryResult = [];
 
   for (let i = 1; i < accountSummary.length; i++) {
-    const accountSummaryItem = {};
+    const accountSummaryItem = { collection };
 
-    const name = accountSummary[i].match(/([A-Z\s]+)/);
-    const amountDue = accountSummary[i].match(/Amount Due:\s+(\d+\.\d+)/);
-    const originalAmountDue = accountSummary[i].match(
+    getPropFromText(
+      accountSummary[i],
+      "name",
+      accountSummaryItem,
+      /([A-Z\s]+)(?![a-z])/
+    );
+    getPropFromText(
+      accountSummary[i],
+      "amountDue",
+      accountSummaryItem,
+      /Amount Due:\s+(\d+\.\d+)/
+    );
+    getPropFromText(
+      accountSummary[i],
+      "originalAmountDue",
+      accountSummaryItem,
       /Original Amount Due:\s+(\d+\.\d+)/
     );
-    const amendedAmountDue = accountSummary[i].match(
+    getPropFromText(
+      accountSummary[i],
+      "amendedAmountDue",
+      accountSummaryItem,
       /Amended Amount Due:\s+(\d+\.\d+)/
     );
-    const amountPaid = accountSummary[i].match(/Amount Paid:\s+(\d+\.\d+)/);
-    const costType = accountSummary[i].match(/[A-Z\s]+ - TYPE: ([\w ]+)/);
+    getPropFromText(
+      accountSummary[i],
+      "amountPaid",
+      accountSummaryItem,
+      /(?:Amount Paid|Paid In):\s+(\d+\.\d+)/
+    );
+    getPropFromText(
+      accountSummary[i],
+      "costType",
+      accountSummaryItem,
+      /[A-Z\s]+ - TYPE: ([\w ]+)/
+    );
 
-    name && (accountSummaryItem.name = cleanLine(name[1]));
-    amountDue && (accountSummaryItem.amountDue = cleanLine(amountDue[1]));
-    originalAmountDue &&
-      (accountSummaryItem.originalAmountDue = cleanLine(originalAmountDue[1]));
-    amendedAmountDue &&
-      (accountSummaryItem.amendedAmountDue = cleanLine(amendedAmountDue[1]));
-    amountPaid && (accountSummaryItem.amountPaid = cleanLine(amountPaid[1]));
-    costType && (accountSummaryItem.costType = cleanLine(costType[1]));
+    let trustName = accountSummary[i].match(
+      /Trust Description: ([\w\s]+)Recipient/
+    );
+    trustName = trustName ? cleanLine(trustName[1]) : "";
 
-    accountSummaryResult.push({
-      ...accountSummaryItem,
-      collection: false
-    });
+    if (!accountSummaryItem.costType && trustName) {
+      const costType = trustName
+        .toLowerCase()
+        .match(/restitution|fee|interest/)[0];
+
+      if (accountSummaryItem.name === "TRUST DETAIL") {
+        accountSummaryItem.name = trustName;
+      }
+
+      if (costType) {
+        accountSummaryItem.costType = costType;
+      }
+    }
+
+    accountSummaryResult.push(accountSummaryItem);
   }
 
   return accountSummaryResult;
@@ -81,4 +116,17 @@ function parseAccountSummary(accountSummaryChunk) {
 
 function cleanLine(line) {
   return line.trim().replace(/\s+/g, " ");
+}
+
+function getPropFromText(sourceText, propName, resultObj, regex) {
+  var extractedValue = sourceText.match(regex);
+
+  if (extractedValue) {
+    var cleanExtractedValue = cleanLine(extractedValue[1]);
+    if (propName === "amountDue" || propName === "costType") {
+      cleanExtractedValue = cleanExtractedValue.toLowerCase();
+    }
+    resultObj[propName] = cleanExtractedValue;
+    return cleanExtractedValue;
+  }
 }
