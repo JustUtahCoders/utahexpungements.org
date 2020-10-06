@@ -25,49 +25,6 @@ export default class Home extends React.Component {
             <div className="hero-main" onSubmit={this.createLead}>
               <div className="main-content">
                 <h1>Expunge a criminal conviction in Utah</h1>
-                {this.state.signedUp ? (
-                  <>
-                    <div className="enter-your-email">
-                      Thanks! We'll get back to you soon. In the meantime...
-                    </div>
-                    <div className="actions">
-                      <Link to="/app">
-                        <button className="primary">
-                          {__("home page primary action")}
-                        </button>
-                      </Link>
-                      <Link to="/app/forms">
-                        <button
-                          className="secondary"
-                          style={{
-                            border: "1px solid white",
-                            marginLeft: "1.6rem"
-                          }}
-                        >
-                          {__("fill out forms")}
-                        </button>
-                      </Link>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="enter-your-email">
-                      Enter your email address to join our list of beta testers.
-                    </div>
-                    <form className="actions">
-                      <input
-                        className="juicy-input"
-                        type="text"
-                        value={this.state.emailSignup}
-                        onChange={this.changeEmail}
-                        placeholder="youremail@gmail.com"
-                      />
-                      <button className="primary" type="submit">
-                        Sign up
-                      </button>
-                    </form>
-                  </>
-                )}
               </div>
             </div>
           </div>
