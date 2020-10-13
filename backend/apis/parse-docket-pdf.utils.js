@@ -1,221 +1,177 @@
-const sectionHeaderRegex = /^([A-Z][A-Z ]+)/;
-
 exports.parsePdfText = function parsePdfText(text) {
-  const lines = text.split("\n");
-  let sections = [];
-  let foundCaseNumberSection = false;
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const match = sectionHeaderRegex.exec(line);
-    if (match) {
-      addSection(match[1].trim(), i);
-    }
-  }
-
-  function addSection(name, lineNumber) {
-    const shouldAdd = name !== "CASE NUMBER" || !foundCaseNumberSection;
-    if (name === "CASE NUMBER") {
-      foundCaseNumberSection = true;
-    }
-    if (shouldAdd) {
-      sections.push({ name, lineNumber });
-    }
-  }
+  const caseNumber = text.match(/CASE NUMBER (\d+)/i)[1];
+  // Capture everything in the CHARGES section
+  const chargesChunk = text.match(/CHARGES([\s\S]+?)^\s*$/im)[1];
+  // Capture everything in the ACCOUNT SUMMARY section
+  const accountSummaryChunk = text.match(
+    /ACCOUNT SUMMARY([\s\S]+)PROCEEDINGS/im
+  )[1];
 
   return {
-    caseNumber: parseCaseNumber(lines, sections),
-    charges: parseCharges(lines, sections),
-    accountSummary: parseAccountSummary(lines, sections)
+    caseNumber: caseNumber,
+    charges: parseCharges(chargesChunk),
+    accountSummary: parseAccountSummary(accountSummaryChunk)
   };
 };
 
-function parseCaseNumber(lines, sections) {
-  // There are multiple CASE NUMBER sections, but hopefully are all the same,
-  // so we can just use the first one??
-  const section = sections.find(section => section.name === "CASE NUMBER");
+function parseCharges(chargesChunk) {
+  // Split CHARGES section by charge
+  const charges = chargesChunk.split(/(?=Charge)/gi);
+  let chargesResult = [];
 
-  if (!section) {
-    // we apparently don't have a case number
-    return null;
+  for (let i = 1; i < charges.length; i++) {
+    let charge = {};
+
+    // Capture title statute, offense name, and severity
+    // Example:
+    // Charge 1 - 53-3-202(1)(A) - NO VALID LICENSE - EXPIRED Class C
+    // Misdemeanor
+    // Result:
+    // {
+    //   statute: '53-3-202(1)(A)',
+    //   offenseName: 'NO VALID LICENSE - EXPIRED',
+    //   severity: 'Class C Misdemeanor',
+    // }
+    const title = charges[i].match(
+      /Charge \d - ([0-9a-z()-.]+) - ([\s\S]+?)((?:Class|Not|1st|2nd|3rd)[\s\S]+?)Offense/im
+    );
+
+    charge.statute = cleanLine(title ? title[1] : "");
+    charge.offenseName = cleanLine(title ? title[2] : "").toUpperCase();
+    charge.severity = cleanLine(title ? title[3] : "");
+
+    // Capture disposition and disposition date
+    // Example:
+    // Disposition: Month 00, 0000 Dismissed (w/o prej)
+    // Result:
+    // {
+    //   disposition: 'Dismissed (w/o prej)',
+    //   dispositionDate: 'Month 00, 0000'
+    // }
+    const disposition = charges[i].match(
+      /[Plea|Disposition]+: (\w+ \d+, \d+) ((?:\w|\s)+(?:.*[)])?)$/im
+    );
+    if (disposition) {
+      charge.disposition = cleanLine(disposition[2]);
+      charge.dispositionDate = cleanLine(disposition[1]);
+    }
+
+    // Put charge (title and disposition items) into result array
+    chargesResult.push(charge);
   }
 
-  let caseNumber = lines[section.lineNumber];
-  caseNumber = caseNumber.replace("CASE NUMBER ", "");
-  caseNumber = caseNumber.slice(
-    0,
-    caseNumber.indexOf(" ") || caseNumber.length
+  return chargesResult;
+}
+
+function parseAccountSummary(accountSummaryChunk) {
+  // Is collection if "State Debt Collection"
+  const collection = accountSummaryChunk.includes("State Debt Collection");
+
+  // Split ACCOUNT SUMMARY sections by type
+  const accountSummary = accountSummaryChunk.split(
+    /(?=TOTAL)|(?=TRUST)|(?=^[A-Z\s]+ - TYPE: .+(?![a-z])$)/gm
   );
-  return caseNumber;
+  let accountSummaryResult = [];
+
+  for (let i = 1; i < accountSummary.length; i++) {
+    const accountSummaryItem = { collection };
+
+    // Account summary type contents
+    // If the value is in text, then add to object
+    // else do nothing
+    // Example:
+    // TRUST DETAIL
+    //         Trust Description: Restitution
+    //                 Recipient:  VICTIM
+    //                Amount Due:          99.00
+    //                   Paid In:          99.00
+    //                  Paid Out:          99.00
+    // Result:
+    // {
+    //   collection: false,
+    //   name: 'Restitution',
+    //   amountDue: '99.00',
+    //   amountPaid: '99.00',
+    //   costType: 'restitution'
+    // }
+    getPropFromText(
+      accountSummary[i],
+      "name",
+      accountSummaryItem,
+      /([A-Z\s]+)(?![a-z])/
+    );
+    getPropFromText(
+      accountSummary[i],
+      "amountDue",
+      accountSummaryItem,
+      /Amount Due:\s+([\,|\d]+\.\d+)/
+    );
+    getPropFromText(
+      accountSummary[i],
+      "originalAmountDue",
+      accountSummaryItem,
+      /Original Amount Due:\s+([\,|\d]+\.\d+)/
+    );
+    getPropFromText(
+      accountSummary[i],
+      "amendedAmountDue",
+      accountSummaryItem,
+      /Amended Amount Due:\s+([\,|\d]+\.\d+)/
+    );
+    getPropFromText(
+      accountSummary[i],
+      "amountPaid",
+      accountSummaryItem,
+      /(?:Amount Paid|Paid In):\s+([\,|\d]+\.\d+)/
+    );
+    getPropFromText(
+      accountSummary[i],
+      "costType",
+      accountSummaryItem,
+      /[A-Z\s]+ - TYPE: ([\w ]+)/
+    );
+
+    // If name is "TRUST DETAIL", change name to Trust Description, aka ex: Bail/Bond Refund
+    let trustName = accountSummary[i].match(
+      /Trust Description: ([\w\s]+)Recipient/
+    );
+    trustName = trustName ? cleanLine(trustName[1]) : "";
+
+    if (!accountSummaryItem.costType && trustName) {
+      const costType = trustName
+        .toLowerCase()
+        .match(/restitution|fee|interest/);
+
+      if (accountSummaryItem.name === "TRUST DETAIL") {
+        accountSummaryItem.name = trustName;
+      }
+
+      if (costType) {
+        accountSummaryItem.costType = costType[0];
+      }
+    }
+
+    accountSummaryResult.push(accountSummaryItem);
+  }
+
+  return accountSummaryResult;
 }
 
-function parseCharges(lines, sections) {
-  const charges = [];
-
-  let lastLineWasCharge = false;
-
-  function addDispositionToCharges(line) {
-    const lastCharge = charges.length > 0 ? charges[charges.length - 1] : null;
-
-    if (lastLineWasCharge) {
-      lastLineWasCharge = false;
-      lastCharge.description += ` ${line}`;
-    } else if (line.startsWith("Charge")) {
-      lastLineWasCharge = true;
-      const [chargeNumber, statute, description] = line.split(" - ");
-      charges.push({
-        statute,
-        description
-      });
-    } else if (line.startsWith("Disposition:")) {
-      const numeric = /\d/;
-      let lastNumericIndex = 0;
-      const trimmed = line.replace("Disposition: ", "");
-      for (let i = 0; i < trimmed.length; i++) {
-        if (numeric.test(trimmed[i])) {
-          lastNumericIndex = i;
-        }
-      }
-      lastCharge.disposition = trimmed.slice(lastNumericIndex + 1).trim();
-      lastCharge.dispositionDate = trimmed
-        .slice(0, lastNumericIndex + 1)
-        .trim();
-    }
-  }
-
-  walkSection(lines, sections, "CHARGES", addDispositionToCharges);
-
-  const chargesWithSeverity = charges.map(charge => {
-    //need to check for special cases where speeding is the charge.
-    const { description, ...rest } = charge;
-    const wordsArr = description.split(/\s/);
-    const words = wordsArr.map(word => {
-      if (word === "in") {
-        word = "IN";
-      } else if (word === "a") {
-        word = "A";
-      }
-      return word;
-    });
-    const splitIndex = words.findIndex(word => word.toUpperCase() !== word);
-    const offenseName = words.slice(0, splitIndex).join(" ");
-    const severity = words.slice(splitIndex).join(" ");
-    const charges = { ...rest, offenseName, severity };
-    return charges;
-  });
-
-  return chargesWithSeverity;
+// Remove any white spaces
+function cleanLine(line) {
+  return line.trim().replace(/\s+/g, " ");
 }
 
-function parseAccountSummary(lines, sections) {
-  const subsections = [];
-  let balances;
-  const sectionLastIndex = sections.filter(section => {
-    return section.name === "PROCEEDINGS" && section.lineNumber;
-  })[0].lineNumber;
+// Return nothing if there is no extracted value
+function getPropFromText(sourceText, propName, resultObj, regex) {
+  var extractedValue = sourceText.match(regex);
 
-  function addAccounts(line, index) {
-    const words = line.split(/\s/);
-    const isSubsection =
-      words.length > 0 &&
-      words[0].toUpperCase() === words[0] &&
-      !words.includes("CASE") &&
-      /[a-zA-Z]/.test(line);
-
-    if (isSubsection) {
-      subsections.push({ name: line, lineNumber: index });
+  if (extractedValue) {
+    var cleanExtractedValue = cleanLine(extractedValue[1]);
+    if (propName === "amountDue" || propName === "costType") {
+      cleanExtractedValue = cleanExtractedValue.toLowerCase();
     }
-
-    balances = subsections.map((subsection, arrayIndex) => {
-      const endIndex =
-        arrayIndex + 1 !== subsections.length
-          ? subsections[arrayIndex + 1].lineNumber
-          : sectionLastIndex;
-
-      let amountDue,
-        amountPaid,
-        costType,
-        collection,
-        originalAmountDue,
-        amendedAmountDue,
-        trustName;
-
-      for (let i = subsection.lineNumber; i < endIndex; i++) {
-        const line = lines[i];
-        const words = line.split(/\s/);
-
-        if (line.includes("Amount Due")) {
-          if (line.includes("Original")) {
-            originalAmountDue = words[words.length - 1];
-          } else if (line.includes("Amended")) {
-            amendedAmountDue = words[words.length - 1];
-          }
-          amountDue = words[words.length - 1];
-        } else if (line.includes("Amount Paid") || line.includes("Paid In")) {
-          amountPaid = words[words.length - 1];
-        }
-        costType = getCostType(line) || costType;
-        collection = collection || line.includes("State Debt Collection");
-        if (line.includes("Trust Description")) {
-          trustName = line.slice(line.indexOf(": ") + 2);
-        }
-      }
-      const returnObj = {
-        name: subsection.name === "TRUST DETAIL" ? trustName : subsection.name,
-        amountDue,
-        originalAmountDue,
-        amendedAmountDue,
-        amountPaid,
-        costType,
-        collection
-      };
-      return returnObj;
-    });
-  }
-
-  function getCostType(line) {
-    if (line.includes("Trust Description:")) {
-      const target = line.slice(line.indexOf(":") + 2);
-      if (target.includes("Restitution")) {
-        return "restitution";
-      }
-      if (target.includes("Fee")) {
-        return "fee";
-      }
-      if (target.includes("Interest")) {
-        return "interest";
-      }
-    }
-
-    if (line.includes("FINE")) {
-      return "fine";
-    }
-
-    if (line.includes("UNPAID INTEREST")) {
-      return "unpaid interest";
-    }
-  }
-
-  walkSection(lines, sections, "ACCOUNT SUMMARY", addAccounts);
-
-  return balances;
-}
-
-function walkSection(lines, sections, name, walk) {
-  const sectionIndex = sections.findIndex(section => section.name === name);
-
-  if (sectionIndex < 0) {
-    // no section with that name
-    return;
-  }
-
-  const startLine = sections[sectionIndex].lineNumber;
-  const endLine =
-    sectionIndex + 1 < sections.length
-      ? sections[sectionIndex + 1].lineNumber
-      : lines.length;
-
-  for (let i = startLine; i < endLine; i++) {
-    walk(lines[i].trim(), i);
+    resultObj[propName] = cleanExtractedValue;
+    return cleanExtractedValue;
   }
 }
