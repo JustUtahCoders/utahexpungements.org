@@ -7,6 +7,7 @@ export default function NotFound() {
     <main className="not-found" {...scope}>
       <h1>404</h1>
       <h2>Page Not Found</h2>
+      <button onClick={() => (window.location = "/")}>Back to Home Page</button>
     </main>
   );
 }

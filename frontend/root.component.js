@@ -8,13 +8,12 @@ import { Scoped } from "kremling";
 import I18N from "./i18n.component.js";
 import withAuthentication from "./authentication.component.js";
 import About from "./about/about.component.js";
-import NotFound from "./not-found/not-found.component";
 
 class Root extends React.Component {
   render() {
     return (
       <I18N>
-        {({ baseUrl, currentLanguage, translations }) => (
+        {({ baseUrl }) => (
           <Scoped css={styleguide}>
             <div>
               <BrowserRouter basename={baseUrl}>
@@ -35,6 +34,14 @@ class Root extends React.Component {
                     loadRoute={() =>
                       import(
                         /* webpackChunkName: "app" */ "./app/app.component.js"
+                      )
+                    }
+                  />
+                  <LazyRoute
+                    path="*"
+                    loadRoute={() =>
+                      import(
+                        /* webpackChunkName: "not-found" */ "./not-found/not-found.component.js"
                       )
                     }
                   />
